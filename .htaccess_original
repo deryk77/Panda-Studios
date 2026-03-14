@@ -1,0 +1,19 @@
+# Enable the RewriteEngine
+RewriteEngine On
+
+# Redirect non-www to www
+RewriteCond %{HTTP_HOST} ^pandastudios\.co$ [NC]
+RewriteRule ^(.*)$ https://www.pandastudios.co/$1 [R=301,L]
+
+# Remove .html extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^/]+)$ $1.html [L,QSA]
+
+# Optional: Redirect requests with .html to the extensionless version (to avoid duplicate content)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Custom Error Pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
