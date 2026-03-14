@@ -1,4 +1,7 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/google71bdf880a8025177.html", "destination": "/google71bdf880a8025177.html" }
+  ]
 }
