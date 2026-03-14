@@ -481,10 +481,10 @@
                                         <img src="img/logo/mil-logo-05.svg"alt="logo"></a>
                                         <p>.</p>
 
-                                    <a href="https://whatsform.com/T8aqVV" target="_blank" class="mil-subscribe-form mil-up" style="display:block; text-decoration:none;">
-                                        <input type="text" placeholder="Send us a message" readonly style="cursor:pointer; pointer-events:none;">
-                                        <button type="button" class="mil-button mil-icon-button-sm mil-arrow-place"></button>
-                                    </a>
+                                    <div class="mil-subscribe-form mil-up">
+                                        <input type="text" placeholder="Send us a message">
+                                        <button type="button" class="mil-button mil-icon-button-sm mil-arrow-place" onclick="var i=this.closest('.mil-subscribe-form').querySelector('input');window.open('https://wa.me/256772233050?text='+(i.value?encodeURIComponent(i.value):''),'_blank');"></button>
+                                    </div>
                                 </div>
 
                                 <div class="col-md-7 col-lg-6">
