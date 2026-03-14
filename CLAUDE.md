@@ -42,9 +42,9 @@ These are decision-makers. They don't need to be educated — they need to be co
 ---
 
 ## Contact Details (use these — no placeholders)
-- Address: Span House, Portal Avenue, Kampala, Uganda
+- **Uganda (HQ):** Span House, Portal Avenue, Kampala, Uganda · +256 772 233-050
+- **United States:** SeaTac, WA 98158, 6734 Main Street · +1 (206) 730-8512
 - Email: hello@pandastudios.co
-- Phone: +256 772 233-050
 - WhatsApp: https://whatsform.com/T8aqVV
 - Social: @pandastudios77 on Instagram, Facebook, Twitter/X, LinkedIn
 
@@ -106,5 +106,5 @@ These are decision-makers. They don't need to be educated — they need to be co
 ## What NOT to Touch
 - CSS class names, HTML structure, JS logic, image paths
 - Logo animation CSS/JS blocks (already correct in all pages)
-- Footer addresses (already set to Span House, Kampala)
+- Footer addresses (Uganda: Span House, Portal Avenue, Kampala · US: SeaTac, WA 98158, 6734 Main Street)
 - Schema.org JSON-LD block in index.html
