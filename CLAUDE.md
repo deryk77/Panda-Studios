@@ -1,5 +1,15 @@
 # Panda Studios — Site Brief for Claude
 
+## Autonomy
+**Full green light to act without confirmation** for all normal tasks including:
+- Creating, editing, deleting files
+- Running shell commands
+- Git commits and pushes
+
+**Only stop and ask** if the action is genuinely destructive and irreversible (e.g. force-pushing over someone else's work, deleting untracked files with no backup).
+
+---
+
 ## What This Is
 The Panda Studios website. A brand identity, web design and creative agency based in Kampala, Uganda. Static HTML/CSS/JS, multi-page, no build tools.
 
