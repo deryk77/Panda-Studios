@@ -10,7 +10,7 @@
             '<div id="ps-popup">' +
                 '<button id="ps-popup-close" aria-label="Close">&times;</button>' +
                 '<img src="assets/images/popup-offer.png" alt="Get a Free Brand Audit — Panda Studios">' +
-                '<a href="https://wa.me/256772233050?text=Claiming%20the%20Brand%20Audit" target="_blank" rel="noopener noreferrer" id="ps-popup-btn">Claim it now</a>' +
+                '<a href="https://api.whatsapp.com/send/?phone=256772233050&text=Claiming+the+Brand+Audit&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" id="ps-popup-btn">Claim it now</a>' +
             '</div>' +
         '</div>';
 
