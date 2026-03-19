@@ -124,11 +124,12 @@
     }
 
     #ps-popup-btn {
-        font-size: 10px;
-        padding: 10px 10px;
+        font-size: 11px;
+        padding: 11px 14px;
         letter-spacing: 0.4px;
-        bottom: 7%;
+        bottom: 4%;
         left: 54%;
         right: 4%;
+        white-space: nowrap;
     }
 }
