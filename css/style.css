@@ -4199,7 +4199,8 @@ images
   position: relative;
   overflow: hidden;
 }
-.mil-image-frame > img {
+.mil-image-frame > img,
+.mil-image-frame > video {
   position: absolute;
   top: 0;
   left: 0;
