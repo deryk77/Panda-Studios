@@ -2,14 +2,14 @@
     // Show once per browser session
     if (sessionStorage.getItem('ps_popup_shown')) return;
 
-    var DELAY = 60000; // 1 minute
+    var DELAY = 30000; // 30 seconds
 
     var markup =
         '<div id="ps-popup-overlay">' +
             '<div id="ps-popup">' +
                 '<button id="ps-popup-close" aria-label="Close">&times;</button>' +
                 '<img src="assets/images/popup-offer.png" alt="Get a Free Brand Audit — Panda Studios">' +
-                '<a href="https://whatsform.com/T8aqVV" target="_blank" rel="noopener noreferrer" id="ps-popup-btn">Claim it now</a>' +
+                '<a href="https://api.whatsapp.com/send/?phone=256772233050&text=Claiming+the+Brand+Audit&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" id="ps-popup-btn">Claim it on WhatsApp</a>' +
             '</div>' +
         '</div>';
 
@@ -28,7 +28,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         document.body.insertAdjacentHTML('beforeend', markup);
 
-        // Trigger after 1 minute
+        // Trigger after 30 seconds
         setTimeout(show, DELAY);
 
         // Close on × button
