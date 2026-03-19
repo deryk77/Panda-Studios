@@ -1,0 +1,129 @@
+/* ── Panda Studios — Offer Popup ───────────────────────────────────────── */
+
+#ps-popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(3px);
+}
+
+#ps-popup-overlay.ps-active {
+    display: flex;
+}
+
+#ps-popup {
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+    animation: psPopupIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes psPopupIn {
+    from { opacity: 0; transform: scale(0.82) translateY(24px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+
+#ps-popup img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Close button */
+#ps-popup-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: rgba(0, 0, 0, 0.35);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    backdrop-filter: blur(6px);
+}
+
+#ps-popup-close:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* ── 3D Claim Button ────────────────────────────────────────────────────── */
+#ps-popup-btn {
+    position: absolute;
+    bottom: 8.5%;
+    left: 54%;
+    right: 7%;
+    text-align: center;
+    padding: 15px 20px;
+    background: linear-gradient(160deg, #ff2a2a 0%, #cc0000 100%);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+
+    /* 3D press effect */
+    box-shadow:
+        0 7px 0 #7a0000,
+        0 12px 24px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+}
+
+#ps-popup-btn:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow:
+        0 10px 0 #7a0000,
+        0 18px 32px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+#ps-popup-btn:active {
+    transform: translateY(5px);
+    box-shadow:
+        0 2px 0 #7a0000,
+        0 6px 12px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ── Mobile ─────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    #ps-popup {
+        border-radius: 14px;
+    }
+
+    #ps-popup-btn {
+        font-size: 11px;
+        padding: 10px 12px;
+        letter-spacing: 0.3px;
+        bottom: 7.5%;
+        left: 52%;
+        right: 5%;
+        box-shadow:
+            0 5px 0 #7a0000,
+            0 8px 16px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+}
