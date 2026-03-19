@@ -623,15 +623,16 @@ if (location.protocol !== 'file:') {
     ----------------------------------------------------------*/
     document.addEventListener("swup:contentReplaced", function () {
 
-        $('html, body').animate({
-            scrollTop: 0,
-        }, 0);
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
 
         gsap.to('.mil-progress', {
             height: 0,
             ease: 'sine',
             onComplete: () => {
-                ScrollTrigger.refresh()
+                ScrollTrigger.getAll().forEach(t => t.kill());
+                ScrollTrigger.refresh();
             },
         });
         /***************************
