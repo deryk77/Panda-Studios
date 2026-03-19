@@ -10,7 +10,7 @@
             '<div id="ps-popup">' +
                 '<button id="ps-popup-close" aria-label="Close">&times;</button>' +
                 '<img src="assets/images/popup-offer.png" alt="Get a Free Brand Audit — Panda Studios">' +
-                '<a href="https://wa.me/+256772233050?text=Claiming+the+Brand+Audit" target="_blank" rel="noopener noreferrer" id="ps-popup-btn">Claim it now</a>' +
+                '<a href="https://wa.me/+256772233050?text=Claiming+the+Brand+Audit" target="_blank" rel="noopener noreferrer" id="ps-popup-btn">Get My Free Audit</a>' +
             '</div>' +
         '</div>';
 
