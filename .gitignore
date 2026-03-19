@@ -4,3 +4,8 @@ bower_components/
 
 build/
 dist/
+
+# Design source files (too large for git/Cloudflare)
+*.psd
+*.ai
+*.sketch
