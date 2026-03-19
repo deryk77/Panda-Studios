@@ -21,7 +21,7 @@ $(function () {
 const options = {
     containers: ['#swupMain', '#swupMenu'],
     animateHistoryBrowsing: true,
-    linkSelector: 'a:not([data-no-swup])',
+    linkSelector: 'a:not([data-no-swup]):not([href^="mailto:"]):not([href^="tel:"]):not([href^="https://wa.me"]):not([href^="https://api.whatsapp.com"]):not([target="_blank"])',
     animationSelector: '[class="mil-main-transition"]'
 };
 
