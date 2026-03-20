@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story — The Woman Who Carries the Moon | Wild Luna Africa</title>
+  <meta name="description" content="Wild Luna Africa was born from a simple, soft-hearted realisation: travel should not be a checklist — it should be a homecoming. Meet the founder and discover The Wild Luna Way." />
+  <link rel="canonical" href="https://www.wildlunaafrica.com/about.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.wildlunaafrica.com/about.html" />
+  <meta property="og:title" content="Our Story | Wild Luna Africa" />
+  <meta property="og:description" content="Boutique safari experiences rooted in Kyanja, Kampala. Named for the lunar cycles that govern the rhythms of the wild." />
+  <meta property="og:image" content="img/og-about.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Story | Wild Luna Africa" />
+  <meta name="twitter:description" content="Named for the lunar cycles that govern the rhythms of the wild and the intuitive stages of a woman's life." />
+  <meta name="twitter:image" content="img/og-about.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- About-page specific styles -->
+  <style>
+    /* ---- Philosophy Pull-quote ---- */
+    .wl-about-pullquote {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(26px, 3.5vw, 46px);
+      line-height: 1.35;
+      color: var(--midnight-moon);
+      border-left: 3px solid var(--crescent-gold);
+      padding-left: clamp(24px, 4vw, 48px);
+      max-width: 700px;
+    }
+
+    /* ---- Founder Split ---- */
+    .wl-founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(48px, 7vw, 100px);
+      align-items: center;
+    }
+
+    .wl-founder-img {
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(160deg, #1a2a1a 0%, #3a5a30 50%, #6b8a5a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wl-founder-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .wl-founder-img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 24px;
+      background: linear-gradient(to top, rgba(13,13,31,0.8) 0%, transparent 100%);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--crescent-gold);
+    }
+
+    .wl-founder-text h2 {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .wl-founder-text p {
+      font-size: clamp(15px, 1.1vw, 17px);
+      color: var(--mid-gray);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    /* ---- The Wild Luna Way (3-col grid on dark bg) ---- */
+    .wl-way-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 2px solid rgba(200, 169, 122, 0.75);
+      margin-top: clamp(40px, 6vw, 72px);
+    }
+
+    .wl-way-item {
+      padding: clamp(36px, 5vw, 64px) clamp(28px, 3.5vw, 48px);
+      border-right: 1px solid rgba(200, 169, 122, 0.2);
+    }
+
+    .wl-way-item:last-child {
+      border-right: none;
+    }
+
+    .wl-way-icon {
+      font-size: 34px;
+      margin-bottom: 20px;
+      display: block;
+      line-height: 1;
+    }
+
+    .wl-way-item h3 {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(36px, 5vw, 62px);
+      color: var(--off-white);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .wl-way-item p {
+      font-size: 18px;
+      color: rgba(253, 251, 247, 0.75);
+      line-height: 1.85;
+    }
+
+    /* ---- The Invitation (moon phases) ---- */
+    .wl-invitation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(20px, 3vw, 40px);
+      margin-top: clamp(40px, 6vw, 72px);
+    }
+
+    .wl-invitation-card {
+      border: 1px solid rgba(200, 169, 122, 0.25);
+      padding: clamp(32px, 4vw, 52px) clamp(28px, 3.5vw, 44px);
+    }
+
+    .wl-invitation-card-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--crescent-gold);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .wl-invitation-card h3 {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(24px, 3vw, 38px);
+      color: var(--off-white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .wl-invitation-card p {
+      font-size: 14px;
+      color: rgba(253, 251, 247, 0.55);
+      line-height: 1.8;
+    }
+
+    .wl-invitation-moon {
+      font-size: 36px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* ---- Philosophy text section ---- */
+    .wl-philosophy-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(48px, 8vw, 120px);
+      align-items: start;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 992px) {
+      .wl-founder-grid {
+        grid-template-columns: 1fr;
+      }
+      .wl-way-grid {
+        grid-template-columns: 1fr;
+      }
+      .wl-way-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(200, 169, 122, 0.15);
+      }
+      .wl-way-item:last-child {
+        border-bottom: none;
+      }
+      .wl-philosophy-split {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .wl-invitation-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="wl-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="wl-logo" aria-label="Wild Luna Africa — Home">
+      <img src="img/logo.svg" alt="Wild Luna Africa" class="wl-logo-img" />
+    </a>
+
+    <div class="wl-nav-right">
+      <a href="plan-your-journey.html" class="wl-nav-cta">Begin Your Cycle</a>
+      <button class="wl-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="wl-menu-overlay">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Full-screen menu overlay -->
+  <div class="wl-menu-overlay" id="wl-menu-overlay" role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div class="wl-menu-inner">
+
+      <div class="wl-menu-left">
+        <ul class="wl-menu-main">
+
+          <li>
+            <a href="#" class="wl-menu-toggle-sub" aria-expanded="false">Our Collection</a>
+            <ul class="wl-menu-sub">
+              <li><a href="index.html#collection">Uganda</a></li>
+              <li><a href="index.html#collection">Rwanda</a></li>
+              <li><a href="index.html#collection">Kenya</a></li>
+              <li><a href="index.html#collection">Tanzania</a></li>
+            </ul>
+          </li>
+
+          <li><a href="index.html#philosophy">The Luna Philosophy</a></li>
+          <li><a href="index.html#conservation">Conservation</a></li>
+          <li><a href="plan-your-journey.html">Private Journeys</a></li>
+          <li><a href="journal.html">The Journal</a></li>
+          <li><a href="about.html">Our Story</a></li>
+
+        </ul>
+      </div>
+
+      <aside class="wl-menu-right">
+        <div class="wl-menu-contact">
+          <span class="wl-menu-contact-label">Get in touch</span>
+          <p><a href="mailto:hello@wildlunaafrica.com">hello@wildlunaafrica.com</a></p>
+          <p><a href="tel:+256772000000">+256 772 000 000</a></p>
+          <p>Kyanja, Kampala, Uganda</p>
+        </div>
+        <div class="wl-menu-socials">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="wl-hero wl-hero--medium" aria-label="About hero">
+
+    <div class="wl-hero-bg" style="background: linear-gradient(160deg, #0d1a0d 0%, #1a2a1a 40%, #2d4a20 100%);">
+      <img src="img/landscape Uganda 103.jpg" alt="The rolling hills and red earth of Uganda at golden hour" loading="eager" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+    </div>
+
+    <div class="wl-hero-overlay"></div>
+
+    <div class="wl-hero-content wl-container wl-hero-content--center">
+      <span class="wl-hero-label">The Story of Wild Luna Africa</span>
+      <h1 class="wl-hero-title" style="font-size: clamp(36px, 6.5vw, 100px);">
+        To the Woman Who Carries<br />the Moon in Her <em>Heart.</em>
+      </h1>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       THE PHILOSOPHY — Split
+       ============================================================ -->
+  <section class="wl-section wl-section--off-white" aria-label="The Philosophy">
+    <div class="wl-container">
+      <div class="wl-philosophy-split">
+
+        <div class="wl-reveal">
+          <blockquote class="wl-about-pullquote">
+            "Travel should not be a checklist. It should be a homecoming."
+          </blockquote>
+        </div>
+
+        <div>
+          <span class="wl-label wl-reveal">The Philosophy</span>
+          <span class="wl-divider wl-reveal wl-reveal-delay-1"></span>
+          <p class="wl-reveal wl-reveal-delay-1" style="font-size: clamp(15px, 1.1vw, 17px); color: var(--mid-gray); line-height: 1.85; margin-bottom: 20px;">
+            In the rush of the modern world, we have forgotten how to wax and wane. We have forgotten that like the moon, we have phases — moments for high energy and discovery, and moments for quiet reflection by the fire.
+          </p>
+          <p class="wl-reveal wl-reveal-delay-2" style="font-size: clamp(15px, 1.1vw, 17px); color: var(--mid-gray); line-height: 1.85; margin-bottom: 20px;">
+            Wild Luna Africa was born from a simple, soft-hearted realisation: travel should not be a checklist; it should be a homecoming. Named for the lunar cycles that govern the rhythms of the wild and the intuitive stages of a woman's life, we believe in a <em>laid-back sophistication.</em>
+          </p>
+          <p class="wl-reveal wl-reveal-delay-2" style="font-size: clamp(15px, 1.1vw, 17px); color: var(--mid-gray); line-height: 1.85;">
+            We are for the traveller who finds as much magic in the way the light hits a page of their book as they do in the roar of a lion across the Kazinga Channel.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOUNDER SECTION
+       ============================================================ -->
+  <section class="wl-section wl-section--cream" aria-label="Our Founder">
+    <div class="wl-container">
+      <div class="wl-founder-grid">
+
+        <!-- Image -->
+        <div class="wl-founder-img wl-reveal">
+          <img src="img/DSC_0263_optimised_Shidah_Katono (1).jpg" alt="Wild Luna Africa founder, Kyanja, Kampala" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;" />
+          <span class="wl-founder-img-caption">Rooted in Kyanja, Kampala</span>
+        </div>
+
+        <!-- Text -->
+        <div class="wl-founder-text">
+          <span class="wl-label wl-reveal">Our Founder's Promise</span>
+          <span class="wl-divider wl-reveal wl-reveal-delay-1"></span>
+          <h2 class="wl-reveal wl-reveal-delay-1">
+            A daughter of this<br /><em>red earth.</em>
+          </h2>
+          <p class="wl-reveal wl-reveal-delay-2">
+            Rooted in the vibrant pulse of Kyanja, Kampala, our founder is a daughter of this red earth. She is a woman who works with the strength of the sun but lives with the grace of the moon.
+          </p>
+          <p class="wl-reveal wl-reveal-delay-2">
+            She understands that sometimes, the most "authentic African experience" isn't found in a rigid itinerary — it's found in the decision to stay one more hour by the river, to reschedule the drive because the sunset is too beautiful to leave, or to start the day later because the morning mist in Bwindi demanded your silence.
+          </p>
+          <p class="wl-reveal wl-reveal-delay-3">
+            This is not a philosophy borrowed from a brochure. It is a lived truth, shaped by years of watching what happens when discerning travellers are given permission to simply <em>be.</em>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       THE WILD LUNA WAY — 3-column dark grid
+       ============================================================ -->
+  <section class="wl-section wl-section--dark" aria-label="The Wild Luna Way">
+    <div class="wl-container">
+
+      <div class="wl-section-header wl-section-header--center">
+        <span class="wl-label wl-reveal">How We Work</span>
+        <span class="wl-divider wl-divider--center wl-reveal wl-reveal-delay-1"></span>
+        <h2 class="wl-h2 wl-reveal wl-reveal-delay-1" style="color: var(--off-white);">
+          The Wild Luna <em>Way.</em>
+        </h2>
+        <p class="wl-reveal wl-reveal-delay-2" style="font-size: clamp(15px, 1.1vw, 17px); color: rgba(253,251,247,0.6); max-width: 560px; margin: 20px auto 0; line-height: 1.8;">
+          While others offer tours, we offer The Unscripted Journey.
+        </p>
+      </div>
+
+      <div class="wl-way-grid">
+
+        <div class="wl-way-item wl-reveal">
+          <span class="wl-way-icon" aria-hidden="true">&#127755;</span>
+          <h3>Beyond the <em>Routine</em></h3>
+          <p>
+            We are not afraid to pivot. If your heart tells you to linger, we replan. If the wild calls you deeper, we follow. No itinerary is sacred enough to override a moment of genuine beauty.
+          </p>
+        </div>
+
+        <div class="wl-way-item wl-reveal wl-reveal-delay-1">
+          <span class="wl-way-icon" aria-hidden="true">&#10022;</span>
+          <h3>The Untamed &amp; the <em>Refined</em></h3>
+          <p>
+            We pair the raw, untamed spirit of East Africa's ten national parks with the polished comfort of a world-class villa collection. You should never have to choose between adventure and ease.
+          </p>
+        </div>
+
+        <div class="wl-way-item wl-reveal wl-reveal-delay-2">
+          <span class="wl-way-icon" aria-hidden="true">&#9752;</span>
+          <h3>Heart-Led <em>Conservation</em></h3>
+          <p>
+            Every journey with us supports the Uganda Wildlife Authority's efforts. We don't just show you the gorillas or the tree-climbing lions — we invite you into the story of their survival.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       THE INVITATION
+       ============================================================ -->
+  <section class="wl-section wl-section--dark" style="padding-top: 0;" aria-label="The Invitation">
+    <div class="wl-container">
+
+      <div class="wl-section-header wl-section-header--center">
+        <span class="wl-label wl-reveal">Begin Your Cycle</span>
+        <span class="wl-divider wl-divider--center wl-reveal wl-reveal-delay-1"></span>
+        <h2 class="wl-h2 wl-reveal wl-reveal-delay-1" style="color: var(--off-white);">
+          The <em>Invitation.</em>
+        </h2>
+      </div>
+
+      <div class="wl-invitation-grid">
+
+        <div class="wl-invitation-card wl-reveal">
+          <span class="wl-invitation-moon" aria-hidden="true">&#127765;</span>
+          <span class="wl-invitation-card-label">Full Moon Energy</span>
+          <h3>The East African <em>Expedition</em></h3>
+          <p>
+            For those seeking the full-moon energy of a cross-border East African expedition — across borders, through ecosystems, from crater lake to open savanna. High energy. High discovery.
+          </p>
+        </div>
+
+        <div class="wl-invitation-card wl-reveal wl-reveal-delay-1">
+          <span class="wl-invitation-moon" aria-hidden="true">&#127761;</span>
+          <span class="wl-invitation-card-label">New Moon Peace</span>
+          <h3>The Private Savannah <em>Retreat</em></h3>
+          <p>
+            For those seeking the new-moon peace of a private savannah retreat — one lodge, one landscape, unhurried mornings, and the particular silence of the African bush after rain.
+          </p>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: clamp(48px, 6vw, 80px);">
+        <p class="wl-reveal" style="font-size: clamp(15px, 1.1vw, 17px); color: rgba(253,251,247,0.6); max-width: 520px; margin: 0 auto 32px; line-height: 1.85;">
+          We are here to hold the space for you — whatever phase you are in.
+        </p>
+        <a href="plan-your-journey.html" class="wl-btn wl-btn-gold wl-reveal wl-reveal-delay-1">
+          Begin Your Cycle &rarr;
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="wl-footer" role="contentinfo">
+    <div class="wl-container">
+
+      <div class="wl-footer-grid">
+
+        <div class="wl-footer-col">
+          <a href="index.html" class="wl-footer-logo" aria-label="Wild Luna Africa — Home">
+            <img src="img/logo.svg" alt="Wild Luna Africa" style="height:48px; width:auto; display:block; margin-bottom:4px;" />
+          </a>
+          <p class="wl-footer-tagline">
+            The Unscripted Journey. Boutique safari experiences across Uganda, Rwanda, Kenya and Tanzania.
+          </p>
+          <div class="wl-footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+
+        <div class="wl-footer-col">
+          <h4>Navigate</h4>
+          <nav class="wl-footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="index.html#collection">Our Collection</a>
+            <a href="index.html#philosophy">The Luna Philosophy</a>
+            <a href="index.html#conservation">Conservation</a>
+            <a href="plan-your-journey.html">Private Journeys</a>
+            <a href="journal.html">The Journal</a>
+            <a href="about.html">Our Story</a>
+          </nav>
+        </div>
+
+        <div class="wl-footer-col">
+          <h4>Contact</h4>
+          <div class="wl-footer-contact">
+            <p><a href="mailto:hello@wildlunaafrica.com">hello@wildlunaafrica.com</a></p>
+            <p><a href="tel:+256772000000">+256 772 000 000</a></p>
+            <p>Kyanja, Kampala, Uganda</p>
+            <p class="wl-footer-note">Mid-trip rescheduling available</p>
+          </div>
+        </div>
+
+        <div class="wl-footer-col">
+          <h4>The Luna Edit</h4>
+          <p class="wl-newsletter-text">
+            Receive the Luna Edit — seasonal stories, conservation notes, and travel inspiration.
+          </p>
+          <form class="wl-newsletter-form" aria-label="Newsletter signup">
+            <input
+              class="wl-newsletter-input"
+              type="email"
+              placeholder="Your email address"
+              required
+              aria-label="Email address"
+            />
+            <button type="submit" class="wl-newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="wl-footer-bottom">
+        <p>&copy; 2026 Wild Luna Africa. All rights reserved.</p>
+        <div class="wl-footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

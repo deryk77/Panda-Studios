@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Luna Journal — Safari Stories & Conservation Notes | Wild Luna Africa</title>
+  <meta name="description" content="The Luna Journal: conservation dispatches, destination guides, and the quiet moments that stay. Stories from the field across Uganda, Rwanda, Kenya and Tanzania." />
+  <link rel="canonical" href="https://www.wildlunaafrica.com/journal.html" />
+
+  <!-- Geo -->
+  <meta name="geo.region" content="UG-C" />
+  <meta name="geo.placename" content="Kampala, Uganda" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.wildlunaafrica.com/journal.html" />
+  <meta property="og:title" content="The Luna Journal | Wild Luna Africa" />
+  <meta property="og:description" content="Conservation dispatches, destination stories and travel inspiration from the East African bush." />
+  <meta property="og:image" content="img/og-journal.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Luna Journal | Wild Luna Africa" />
+  <meta name="twitter:description" content="Conservation dispatches, destination stories and travel inspiration from the East African bush." />
+  <meta name="twitter:image" content="img/og-journal.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="wl-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="wl-logo" aria-label="Wild Luna Africa — Home">
+      <img src="img/logo.svg" alt="Wild Luna Africa" class="wl-logo-img" />
+    </a>
+
+    <div class="wl-nav-right">
+      <a href="plan-your-journey.html" class="wl-nav-cta">Begin Your Cycle</a>
+      <button class="wl-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="wl-menu-overlay">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Full-screen menu overlay -->
+  <div class="wl-menu-overlay" id="wl-menu-overlay" role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div class="wl-menu-inner">
+
+      <div class="wl-menu-left">
+        <ul class="wl-menu-main">
+
+          <li>
+            <a href="#" class="wl-menu-toggle-sub" aria-expanded="false">Our Collection</a>
+            <ul class="wl-menu-sub">
+              <li><a href="index.html#collection">Uganda</a></li>
+              <li><a href="index.html#collection">Rwanda</a></li>
+              <li><a href="index.html#collection">Kenya</a></li>
+              <li><a href="index.html#collection">Tanzania</a></li>
+            </ul>
+          </li>
+
+          <li><a href="index.html#philosophy">The Luna Philosophy</a></li>
+          <li><a href="index.html#conservation">Conservation</a></li>
+          <li><a href="plan-your-journey.html">Private Journeys</a></li>
+          <li><a href="journal.html">The Journal</a></li>
+          <li><a href="about.html">Our Story</a></li>
+
+        </ul>
+      </div>
+
+      <aside class="wl-menu-right">
+        <div class="wl-menu-contact">
+          <span class="wl-menu-contact-label">Get in touch</span>
+          <p><a href="mailto:hello@wildlunaafrica.com">hello@wildlunaafrica.com</a></p>
+          <p><a href="tel:+256772000000">+256 772 000 000</a></p>
+          <p>Kyanja, Kampala, Uganda</p>
+        </div>
+        <div class="wl-menu-socials">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       JOURNAL HERO (50vh)
+       ============================================================ -->
+  <section class="wl-hero wl-hero--short" aria-label="Journal hero">
+
+    <div class="wl-hero-bg wl-journal-hero-bg">
+      <img src="img/andrew-neel-jtsW--Z6bFw-unsplash.jpg" alt="Misty morning over the East African wilderness" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+    </div>
+
+    <div class="wl-hero-overlay"></div>
+
+    <div class="wl-hero-content wl-container wl-hero-content--center">
+      <span class="wl-hero-label">The Luna Journal</span>
+      <h1 class="wl-hero-title" style="font-size: clamp(40px, 7vw, 90px);">
+        Stories from the <em>field.</em>
+      </h1>
+      <p class="wl-hero-subtitle" style="text-align:center;">
+        Conservation notes, travel inspiration, and the quiet moments that stay.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       JOURNAL BODY
+       ============================================================ -->
+  <section class="wl-section wl-section--off-white" aria-label="Journal articles">
+    <div class="wl-container">
+
+      <!-- Filter tabs -->
+      <div class="wl-filter-bar" role="tablist" aria-label="Filter articles by category">
+        <button class="wl-filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="wl-filter-btn" data-filter="conservation" role="tab" aria-selected="false">Conservation</button>
+        <button class="wl-filter-btn" data-filter="destinations" role="tab" aria-selected="false">Destinations</button>
+        <button class="wl-filter-btn" data-filter="safari-stories" role="tab" aria-selected="false">Safari Stories</button>
+        <button class="wl-filter-btn" data-filter="luna-edit" role="tab" aria-selected="false">The Luna Edit</button>
+      </div>
+
+      <!-- Featured Article -->
+      <article class="wl-featured-card wl-reveal" aria-label="Featured article" data-category="conservation">
+
+        <div class="wl-featured-card-img" style="background: linear-gradient(160deg, #0d1a0d 0%, #2a4020 100%);">
+          <img src="img/SVNP_WILDLIFE_Gorilla_Sabyinyo_Family_Ross_Couper-5.webp" alt="Mountain gorilla family in the green cathedral of Bwindi" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+
+        <div class="wl-featured-card-body">
+          <span class="wl-journal-card-cat">Conservation</span>
+          <h2 class="wl-journal-card-title">
+            The Light at Bwindi: A Morning With the Mountain Gorillas
+          </h2>
+          <p class="wl-journal-card-excerpt">
+            There is a particular quality of light in Bwindi at 7am — green, filtered, ancient. We had been waiting for forty minutes when the undergrowth moved. Then, with a silence that felt almost deliberate, a silverback emerged. He sat less than four metres away and looked at us as though he had been expecting us all along.
+          </p>
+          <div class="wl-journal-card-footer" style="margin-top: 28px;">
+            <span class="wl-journal-card-date">March 2026</span>
+            <a href="#" class="wl-btn wl-btn-outline" style="padding: 10px 22px;">Read the Story</a>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Article Grid -->
+      <div class="wl-journal-grid">
+
+        <!-- Article 1 -->
+        <article class="wl-journal-card wl-reveal" data-category="destinations">
+          <div class="wl-journal-card-img" style="background: linear-gradient(160deg, #1a2a1a 0%, #3d5a2e 100%);">
+            <img src="img/1.png" alt="Uganda landscape — Lake Bunyonyi at dusk" loading="lazy" />
+          </div>
+          <div class="wl-journal-card-body">
+            <span class="wl-journal-card-cat">Destinations</span>
+            <h3 class="wl-journal-card-title">Why Uganda Is East Africa's Best-Kept Secret</h3>
+            <p class="wl-journal-card-excerpt">
+              Every luxury traveller knows the Mara. Far fewer have stood at the source of the Nile, or watched the sun set over Lake Bunyonyi from a private veranda.
+            </p>
+            <div class="wl-journal-card-footer">
+              <span class="wl-journal-card-date">Feb 2026</span>
+              <a href="#" class="wl-text-link">Read</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="wl-journal-card wl-reveal wl-reveal-delay-1" data-category="luna-edit">
+          <div class="wl-journal-card-img" style="background: linear-gradient(160deg, #2a1a0a 0%, #5a3a1a 100%);">
+            <img src="img/2.png" alt="Safari essentials — what to pack for a luxury safari" loading="lazy" />
+          </div>
+          <div class="wl-journal-card-body">
+            <span class="wl-journal-card-cat">The Luna Edit</span>
+            <h3 class="wl-journal-card-title">What to Pack for a Luxury Safari (And What to Leave Behind)</h3>
+            <p class="wl-journal-card-excerpt">
+              After years of guiding discerning travellers through the African bush, our team has learned what truly matters — and what simply adds weight.
+            </p>
+            <div class="wl-journal-card-footer">
+              <span class="wl-journal-card-date">Jan 2026</span>
+              <a href="#" class="wl-text-link">Read</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="wl-journal-card wl-reveal wl-reveal-delay-2" data-category="conservation">
+          <div class="wl-journal-card-img" style="background: linear-gradient(160deg, #0d1a0d 0%, #1a3a1a 100%);">
+            <img src="img/3.png" alt="Mountain gorilla family — responsible tracking in Rwanda and Uganda" loading="lazy" />
+          </div>
+          <div class="wl-journal-card-body">
+            <span class="wl-journal-card-cat">Conservation</span>
+            <h3 class="wl-journal-card-title">Gorillas in the Mist: The Case for Responsible Tracking</h3>
+            <p class="wl-journal-card-excerpt">
+              Gorilla trekking generates over $14 million annually for conservation in Uganda alone. But how we show up in the forest is as important as whether we show up at all.
+            </p>
+            <div class="wl-journal-card-footer">
+              <span class="wl-journal-card-date">Jan 2026</span>
+              <a href="#" class="wl-text-link">Read</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="wl-journal-card wl-reveal" data-category="safari-stories">
+          <div class="wl-journal-card-img" style="background: linear-gradient(160deg, #2a1a0a 0%, #6b4a1a 100%);">
+            <img src="img/4.png" alt="Masai Mara at dawn — golden light across the plains" loading="lazy" />
+          </div>
+          <div class="wl-journal-card-body">
+            <span class="wl-journal-card-cat">Safari Stories</span>
+            <h3 class="wl-journal-card-title">Five Reasons the Masai Mara at Dawn Will Change You</h3>
+            <p class="wl-journal-card-excerpt">
+              It is not the lions, though there are lions. It is not the vastness, though it is vast beyond comprehension. It is something quieter, and it arrives in the first light before anyone else is awake.
+            </p>
+            <div class="wl-journal-card-footer">
+              <span class="wl-journal-card-date">Dec 2025</span>
+              <a href="#" class="wl-text-link">Read</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="wl-journal-card wl-reveal wl-reveal-delay-1" data-category="destinations">
+          <div class="wl-journal-card-img" style="background: linear-gradient(160deg, #1a1a2a 0%, #2d3a4e 100%);">
+            <img src="img/5.png" alt="Rwanda luxury lodge veranda overlooking mist and hills" loading="lazy" />
+          </div>
+          <div class="wl-journal-card-body">
+            <span class="wl-journal-card-cat">Destinations</span>
+            <h3 class="wl-journal-card-title">Rwanda's Hidden Luxury: Beyond the Gorillas</h3>
+            <p class="wl-journal-card-excerpt">
+              Rwanda has built the most extraordinary conservation infrastructure in Africa. What many visitors don't realise is how much of the country remains unhurried, unhyped, and profoundly beautiful.
+            </p>
+            <div class="wl-journal-card-footer">
+              <span class="wl-journal-card-date">Dec 2025</span>
+              <a href="#" class="wl-text-link">Read</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="wl-journal-card wl-reveal wl-reveal-delay-2" data-category="safari-stories">
+          <div class="wl-journal-card-img" style="background: linear-gradient(160deg, #0a1a2a 0%, #1a4a3a 100%);">
+            <img src="img/6.png" alt="The slow safari — a traveller reading on a camp deck in the morning" loading="lazy" />
+          </div>
+          <div class="wl-journal-card-body">
+            <span class="wl-journal-card-cat">Safari Stories</span>
+            <h3 class="wl-journal-card-title">The Slow Safari: Why We Never Rush</h3>
+            <p class="wl-journal-card-excerpt">
+              Every Wild Luna guide carries the same unspoken rule: if the light is extraordinary, we stop. No itinerary is sacred enough to miss a moment like that.
+            </p>
+            <div class="wl-journal-card-footer">
+              <span class="wl-journal-card-date">Nov 2025</span>
+              <a href="#" class="wl-text-link">Read</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CTA SECTION
+       ============================================================ -->
+  <section class="wl-section wl-section--dark" aria-label="Begin Your Cycle">
+    <div class="wl-container">
+      <div class="wl-cta">
+        <div class="wl-cta-inner">
+          <span class="wl-label wl-reveal">Private Journeys</span>
+          <span class="wl-divider wl-divider--center wl-reveal wl-reveal-delay-1"></span>
+          <h2 class="wl-h2 wl-reveal wl-reveal-delay-1">
+            Every great journey begins with a single <em>conversation.</em>
+          </h2>
+          <p class="wl-reveal wl-reveal-delay-2">
+            Tell us who you are, where you dream of going, and what you hope to feel. We will craft something that no itinerary has ever offered before.
+          </p>
+          <a href="plan-your-journey.html" class="wl-btn wl-btn-gold wl-reveal wl-reveal-delay-3">
+            Begin Your Cycle &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="wl-footer" role="contentinfo">
+    <div class="wl-container">
+
+      <div class="wl-footer-grid">
+
+        <div class="wl-footer-col">
+          <a href="index.html" class="wl-footer-logo" aria-label="Wild Luna Africa — Home">
+            <img src="img/logo.svg" alt="Wild Luna Africa" style="height:48px; width:auto; display:block; margin-bottom:4px;" />
+          </a>
+          <p class="wl-footer-tagline">
+            The Unscripted Journey. Boutique safari experiences across Uganda, Rwanda, Kenya and Tanzania.
+          </p>
+          <div class="wl-footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+
+        <div class="wl-footer-col">
+          <h4>Navigate</h4>
+          <nav class="wl-footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="index.html#collection">Our Collection</a>
+            <a href="index.html#philosophy">The Luna Philosophy</a>
+            <a href="index.html#conservation">Conservation</a>
+            <a href="plan-your-journey.html">Private Journeys</a>
+            <a href="journal.html">The Journal</a>
+            <a href="about.html">Our Story</a>
+          </nav>
+        </div>
+
+        <div class="wl-footer-col">
+          <h4>Contact</h4>
+          <div class="wl-footer-contact">
+            <p><a href="mailto:hello@wildlunaafrica.com">hello@wildlunaafrica.com</a></p>
+            <p><a href="tel:+256772000000">+256 772 000 000</a></p>
+            <p>Kyanja, Kampala, Uganda</p>
+            <p class="wl-footer-note">Mid-trip rescheduling available</p>
+          </div>
+        </div>
+
+        <div class="wl-footer-col">
+          <h4>The Luna Edit</h4>
+          <p class="wl-newsletter-text">
+            Receive the Luna Edit — seasonal stories, conservation notes, and travel inspiration.
+          </p>
+          <form class="wl-newsletter-form" aria-label="Newsletter signup">
+            <input
+              class="wl-newsletter-input"
+              type="email"
+              placeholder="Your email address"
+              required
+              aria-label="Email address"
+            />
+            <button type="submit" class="wl-newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="wl-footer-bottom">
+        <p>&copy; 2026 Wild Luna Africa. All rights reserved.</p>
+        <div class="wl-footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
