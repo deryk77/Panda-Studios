@@ -116,12 +116,12 @@
 }
 @media (min-width: 1600px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1500px;
+    max-width: 1350px;
   }
 }
 @media (min-width: 1920px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1780px;
+    max-width: 1490px;
   }
 }
 .row {
