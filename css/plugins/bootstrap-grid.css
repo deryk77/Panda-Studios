@@ -114,6 +114,16 @@
     max-width: 1200px;
   }
 }
+@media (min-width: 1600px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1500px;
+  }
+}
+@media (min-width: 1920px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1780px;
+  }
+}
 .row {
   --bs-gutter-x: 30px;
   --bs-gutter-y: 0;
