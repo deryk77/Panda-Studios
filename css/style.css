@@ -1799,6 +1799,15 @@ banner
     padding-bottom: 90px;
   }
 }
+@media screen and (min-width: 1400px) {
+  .mil-banner .container {
+    align-items: center;
+  }
+  .mil-banner .mil-banner-content {
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+}
 .mil-banner .mil-lines-place {
   position: absolute;
   left: 0;
