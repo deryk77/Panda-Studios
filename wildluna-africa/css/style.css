@@ -128,8 +128,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .wl-body {
-  font-size: clamp(15px, 1.1vw, 17px);
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.7;
   color: var(--mid-gray);
 }
 
@@ -353,12 +353,13 @@ em {
 .wl-nav-cta {
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: 13px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--crescent-gold);
+  background: transparent;
   border: 1px solid var(--crescent-gold);
-  padding: 10px 22px;
+  padding: 7px 20px;
   transition: var(--transition-base);
 }
 
@@ -740,7 +741,7 @@ em {
 
 .wl-stage-icon {
   font-size: 32px;
-  margin-bottom: 16px;
+  margin-bottom: 26px;
   display: block;
   line-height: 1;
 }
@@ -796,7 +797,7 @@ em {
 .wl-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(13,13,31,0.82) 0%, transparent 55%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.65) 100%);
   transition: opacity var(--transition-base);
 }
 
@@ -971,7 +972,7 @@ em {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 16px;
+  padding-top: 24px;
   border-top: 1px solid var(--light-border);
   margin-top: auto;
 }
@@ -1848,5 +1849,47 @@ body:not(.has-cursor) #wl-cursor {
   .wl-journal-card-excerpt {
     font-size: 16px;
     line-height: 26px;
+  }
+}
+
+/* ── Visual Air — Mobile Breathing Room (max-width: 768px) ──────────────── */
+@media (max-width: 768px) {
+
+  /* Section padding — more generous on mobile for editorial spacing */
+  .wl-section {
+    padding-top: clamp(72px, 14vw, 100px);
+    padding-bottom: clamp(72px, 14vw, 100px);
+  }
+
+  /* Section header bottom gap */
+  .wl-section-header {
+    margin-bottom: clamp(36px, 8vw, 56px);
+  }
+
+  /* Divider — more vertical breathing room */
+  .wl-divider {
+    margin: 28px 0;
+  }
+
+  /* Card body padding — looser on mobile */
+  .wl-card-body {
+    padding: 28px 20px;
+  }
+
+  /* Journal card body — more interior air */
+  .wl-journal-card-body {
+    padding: 28px 20px;
+  }
+
+  /* Stage (philosophy) items — more vertical space between elements */
+  .wl-stage {
+    padding: 40px 20px;
+  }
+
+  /* Nav ghost CTA — keep slim on mobile */
+  .wl-nav-cta {
+    font-size: 11px;
+    padding: 6px 16px;
+    letter-spacing: 1.5px;
   }
 }
