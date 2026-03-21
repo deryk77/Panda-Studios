@@ -28,7 +28,7 @@
   --transition-crawl:  8s ease;
 
   /* Spacing */
-  --section-pad-y:  clamp(64px, 9vw, 120px);
+  --section-pad-y:  clamp(77px, 10.8vw, 144px);
   --container-max:  1280px;
   --container-pad:  clamp(20px, 5vw, 80px);
 }
@@ -44,7 +44,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 18px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .wl-body {
-  font-size: clamp(15px, 1.1vw, 17px);
+  font-size: clamp(18px, 1.3vw, 20px);
   line-height: 1.8;
   color: var(--mid-gray);
 }
