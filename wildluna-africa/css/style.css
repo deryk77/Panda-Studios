@@ -1893,3 +1893,154 @@ body:not(.has-cursor) #wl-cursor {
     letter-spacing: 1.5px;
   }
 }
+
+/* ── Inquiry Portal ──────────────────────────────────────────────────────── */
+.wl-inquiry {
+  background-color: var(--midnight-moon);
+  color: var(--off-white);
+}
+
+.wl-inquiry-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(48px, 7vw, 80px);
+}
+
+.wl-inquiry-title {
+  color: var(--off-white);
+  margin-top: 8px;
+}
+
+.wl-inquiry-sub {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(253, 251, 247, 0.65);
+  margin-top: 20px;
+}
+
+/* Form layout */
+.wl-inquiry-form {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.wl-inquiry-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(32px, 6vw, 72px);
+}
+
+/* Underline field wrapper */
+.wl-inquiry-field {
+  position: relative;
+  margin-bottom: clamp(36px, 5vw, 52px);
+}
+
+/* Label floats above */
+.wl-inquiry-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--crescent-gold);
+  margin-bottom: 10px;
+}
+
+/* Underline-only input */
+.wl-inquiry-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(200, 169, 122, 0.35);
+  border-radius: 0;
+  padding: 8px 0 10px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--off-white);
+  outline: none;
+  transition: border-color var(--transition-fast);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.wl-inquiry-input::placeholder {
+  color: rgba(253, 251, 247, 0.25);
+}
+
+.wl-inquiry-input:focus {
+  border-bottom-color: var(--crescent-gold);
+}
+
+/* Animated underline on focus */
+.wl-inquiry-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--crescent-gold);
+  transition: width 0.4s ease;
+  pointer-events: none;
+}
+
+.wl-inquiry-input:focus ~ .wl-inquiry-line {
+  width: 100%;
+}
+
+/* Select dropdown */
+.wl-inquiry-select {
+  cursor: pointer;
+  color: rgba(253, 251, 247, 0.5);
+}
+
+.wl-inquiry-select option {
+  background: var(--midnight-moon);
+  color: var(--off-white);
+}
+
+.wl-inquiry-select.has-value {
+  color: var(--off-white);
+}
+
+/* Textarea */
+.wl-inquiry-textarea {
+  resize: none;
+  line-height: 1.7;
+  min-height: 80px;
+}
+
+/* CTA */
+.wl-inquiry-action {
+  text-align: center;
+  margin-top: clamp(40px, 6vw, 64px);
+}
+
+.wl-inquiry-btn {
+  letter-spacing: 2.5px;
+  font-size: 12px;
+  padding: 14px 40px;
+}
+
+/* Provenance line */
+.wl-inquiry-provenance {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(200, 169, 122, 0.45);
+  text-align: center;
+  margin-top: clamp(48px, 7vw, 72px);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .wl-inquiry-row {
+    grid-template-columns: 1fr;
+  }
+}
