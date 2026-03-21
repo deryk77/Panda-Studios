@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Downloads/wildluna-africa-20260320T225352Z-3-001/wildluna"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "wildluna"
+	}
+}
