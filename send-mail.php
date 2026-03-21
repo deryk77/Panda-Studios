@@ -1,7 +1,6 @@
 <?php
 // ── Panda Studios — Contact Form Mailer ──────────────────────
 // Receives JSON from contact.html and sends to pandastudios77@gmail.com
-// No third-party services. Runs on Hostinger shared hosting.
 // ─────────────────────────────────────────────────────────────
 
 header('Content-Type: application/json');
@@ -47,7 +46,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $to      = 'pandastudios77@gmail.com';
 $subject = 'New Brief from ' . $name . ' — Panda Studios Website';
 
-$body  = "You have a new contact form submission from pandastudios.co.ug\n";
+$body  = "You have a new contact form submission from pandastudios.co\n";
 $body .= "─────────────────────────────────────\n\n";
 $body .= "Name:    " . $name    . "\n";
 $body .= "Email:   " . $email   . "\n\n";
@@ -55,7 +54,7 @@ $body .= "Message:\n" . wordwrap($message, 70, "\n", true) . "\n\n";
 $body .= "─────────────────────────────────────\n";
 $body .= "Submitted: " . date('d M Y, H:i') . " (server time)\n";
 
-$headers  = "From: Panda Studios Website <noreply@pandastudios.co.ug>\r\n";
+$headers  = "From: Panda Studios Website <noreply@pandastudios.co>\r\n";
 $headers .= "Reply-To: " . $name . " <" . $email . ">\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";

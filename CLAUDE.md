@@ -44,7 +44,7 @@ These are decision-makers. They don't need to be educated — they need to be co
 ## SEO Standard (every page)
 - **Title**: `[Page topic] | Panda Studios — Uganda & East Africa`
 - **Meta description**: ~155 chars, decision-maker framing, Uganda/East Africa keywords
-- **Canonical**: `https://www.pandastudios.co.ug/[filename]`
+- **Canonical**: `https://www.pandastudios.co/[filename]`
 - **Geo**: `name="geo.region" content="UG-C"` / `geo.placename="Kampala, Uganda"`
 - **Open Graph + Twitter Card**: every page
 - **Schema.org JSON-LD** (ProfessionalService): homepage only
