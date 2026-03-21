@@ -1814,3 +1814,15 @@ body:not(.has-cursor) #wl-cursor {
     padding: 8px 14px;
   }
 }
+
+@media (max-width: 768px) {
+  .wl-card-hint,
+  .wl-journal-card-excerpt,
+  .wl-stage p {
+    font-size: 16px;
+  }
+
+  .wl-intro p {
+    font-size: clamp(16px, 1.2vw, 18px);
+  }
+}
