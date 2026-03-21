@@ -825,7 +825,7 @@ em {
 .wl-card-title {
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: clamp(19px, 2.3vw, 27px);
+  font-size: clamp(23px, 2.76vw, 32px);
   line-height: 1.25;
   margin-bottom: 12px;
 }
@@ -954,7 +954,7 @@ em {
 .wl-journal-card-title {
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(21px, 2.3vw, 28px);
   line-height: 1.3;
   margin-bottom: 14px;
   color: var(--midnight-moon);
@@ -1824,5 +1824,13 @@ body:not(.has-cursor) #wl-cursor {
 
   .wl-intro p {
     font-size: clamp(16px, 1.2vw, 18px);
+  }
+
+  .wl-card-title {
+    font-size: 38px;
+  }
+
+  .wl-journal-card-title {
+    font-size: 36px;
   }
 }
