@@ -22,7 +22,11 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+::-webkit-scrollbar { display: none; }
 
 body {
   background: var(--bg);
@@ -41,8 +45,8 @@ img { display: block; max-width: 100%; }
 /* ── 3. CUSTOM CURSOR ───────────────────────────────────────── */
 #bcn-cursor {
   position: fixed;
-  width: 40px;
-  height: 40px;
+  width: 11px;
+  height: 11px;
   border: 1px solid rgba(255,255,255,0.5);
   border-radius: 50%;
   pointer-events: none;
@@ -65,8 +69,8 @@ img { display: block; max-width: 100%; }
 }
 
 body.cursor-hover #bcn-cursor {
-  width: 70px;
-  height: 70px;
+  width: 19px;
+  height: 19px;
   border-color: rgba(255,255,255,0.3);
 }
 
@@ -734,107 +738,154 @@ body.cursor-hover #bcn-cursor-dot {
   #bcn-cursor, #bcn-cursor-dot { display: none; }
 }
 
-/* ── 14. REVEAL SECTION — cream page · ghost text · zoom ────── */
-.bcn-reveal-section {
+/* ── 14. IRIS SLIDER — camera aperture transition ──────────── */
+#bcn-iris-slider {
   position: relative;
-  height: calc(100vh + 700px);
-}
-
-.bcn-reveal-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  background: #F4F0EB;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* Ghost text: huge, barely-there letterforms on cream */
-.bcn-reveal-ghost {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  pointer-events: none;
-  will-change: opacity;
-  line-height: 0.82;
-}
-
-.bcn-reveal-ghost-top,
-.bcn-reveal-ghost-bottom {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  color: rgba(17, 17, 17, 0.07);
-  white-space: nowrap;
-  user-select: none;
-}
-
-.bcn-reveal-ghost-top {
-  font-size: clamp(100px, 42vw, 620px);
-  align-self: flex-start;
-  padding-left: 0.03em;
-}
-
-.bcn-reveal-ghost-bottom {
-  font-size: clamp(80px, 32vw, 480px);
-  align-self: flex-end;
-  padding-right: 0.03em;
-}
-
-/* The small centered photo */
-.bcn-reveal-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 36vw;
-  height: 22vw;
-  border-radius: 6px;
-  background-size: cover;
-  background-position: center;
-  transform: translate(-50%, -50%);
-  will-change: transform, border-radius;
-  z-index: 2;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.22);
-}
-
-/* ── 15. STRIP SECTION — horizontal filmstrip ───────────────── */
-.bcn-strip-section {
-  position: relative;
-  height: 5200px;
-}
-
-.bcn-strip-sticky {
-  position: sticky;
-  top: 0;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   background: #111111;
 }
 
-.bcn-strip {
+#bcn-iris-slides {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center; /* vertically center images */
-  gap: 5vw;
-  will-change: transform;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.bcn-strip-img {
-  height: 78vh;       /* slightly less than full height — breathing room */
-  width: 62vw;        /* landscape format — ~3 visible at once */
-  flex-shrink: 0;
+.bcn-iris-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0s;
+  will-change: opacity;
 }
 
-/* ── 16. ABOUT SECTION — wipes up from below ────────────────── */
+.bcn-iris-slide.active { opacity: 1; }
+
+/* Iris overlay sits on top of all slides */
+#bcn-iris-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Each blade: full-viewport div clipped to a triangular wedge */
+.bcn-iris-blade {
+  position: absolute;
+  inset: 0;
+  background: #111111;
+  transform-origin: center center;
+  clip-path: polygon(50% 50%, 45% 0%, 55% 0%);
+  transition: clip-path 0.45s cubic-bezier(0.7, 0, 0.3, 1);
+  will-change: clip-path;
+}
+
+/* 9 blades rotated 40deg apart */
+.bcn-iris-blade[data-index="0"] { transform: rotate(0deg); }
+.bcn-iris-blade[data-index="1"] { transform: rotate(40deg); }
+.bcn-iris-blade[data-index="2"] { transform: rotate(80deg); }
+.bcn-iris-blade[data-index="3"] { transform: rotate(120deg); }
+.bcn-iris-blade[data-index="4"] { transform: rotate(160deg); }
+.bcn-iris-blade[data-index="5"] { transform: rotate(200deg); }
+.bcn-iris-blade[data-index="6"] { transform: rotate(240deg); }
+.bcn-iris-blade[data-index="7"] { transform: rotate(280deg); }
+.bcn-iris-blade[data-index="8"] { transform: rotate(320deg); }
+
+.bcn-iris-blade.closing {
+  clip-path: polygon(50% 50%, 20% -20%, 80% -20%);
+  transition: clip-path 0.45s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.bcn-iris-blade.closed {
+  clip-path: polygon(50% 50%, -10% -10%, 110% -10%);
+  transition: clip-path 0.35s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.bcn-iris-blade.opening {
+  clip-path: polygon(50% 50%, 45% 0%, 55% 0%);
+  transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Navigation arrows */
+#bcn-iris-prev, #bcn-iris-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #ffffff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+#bcn-iris-prev:hover, #bcn-iris-next:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.7);
+}
+
+#bcn-iris-prev { left: 40px; }
+#bcn-iris-next { right: 40px; }
+
+/* Dots */
+#bcn-iris-dots {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+}
+
+.bcn-iris-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  border: none;
+  cursor: none;
+  transition: background 0.3s, transform 0.3s;
+  padding: 0;
+}
+
+.bcn-iris-dot.active {
+  background: #ffffff;
+  transform: scale(1.4);
+}
+
+/* Counter */
+#bcn-iris-counter {
+  position: absolute;
+  bottom: 32px;
+  right: 40px;
+  z-index: 20;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 768px) {
+  #bcn-iris-prev { left: 16px; width: 40px; height: 40px; }
+  #bcn-iris-next { right: 16px; width: 40px; height: 40px; }
+}
+
+/* ── 15. ABOUT SECTION — wipes up from below ────────────────── */
 .bcn-about-section {
   position: relative;
   height: 200vh;
@@ -890,17 +941,8 @@ body.cursor-hover #bcn-cursor-dot {
 
 .bcn-about-body:last-child { margin-bottom: 0; }
 
-/* Responsive — reveal / strip / about ── */
+/* Responsive — about ── */
 @media (max-width: 768px) {
-  .bcn-reveal-img {
-    width: 72vw;
-    height: 44vw;
-  }
-  .bcn-reveal-ghost-top  { font-size: clamp(64px, 28vw, 160px); }
-  .bcn-reveal-ghost-bottom { font-size: clamp(48px, 22vw, 120px); }
-
-  .bcn-strip-img { width: 88vw; height: 72vh; }
-
   .bcn-about-inner { padding: 0 24px; }
   .bcn-about-title { font-size: clamp(28px, 7vw, 44px); }
 }
@@ -915,8 +957,8 @@ body.cursor-hover #bcn-cursor-dot {
 */
 #bcn-lens-home {
   position: fixed;
-  width: 130px;
-  height: 130px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   background: #ffffff;
   mix-blend-mode: difference;
@@ -935,8 +977,8 @@ body.bcn-lens-ready #bcn-lens-home { opacity: 1; }
 
 /* Shrink when over interactive elements (so cursor ring still readable) */
 body.cursor-hover #bcn-lens-home {
-  width: 80px;
-  height: 80px;
+  width: 21px;
+  height: 21px;
 }
 
 @media (hover: none) {
@@ -1118,91 +1160,94 @@ body.cursor-hover #bcn-lens-home {
 }
 
 /* === CTA FOOTER === */
-/*
-  Cream full-width CTA — "LET'S WORK [pill] TOGETHER"
-  Diagonal brush-stroke SVG behind, scroll-triggered entrance animation
-*/
 #bcn-cta {
   position: relative;
-  background: var(--bg);
-  padding: 120px 80px 80px;
-  overflow: visible;
+  background: transparent;
+  padding: 180px 80px;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  border: none;
 }
 
-/* Brush stroke SVG — absolute, behind text */
-#bcn-cta-svg {
+#bcn-cta-svg-draw {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: auto;
   z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
-/* Inner content — above SVG */
+.bcn-draw-path {
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 2500;
+  stroke-dashoffset: 2500;
+  transition: stroke-dashoffset 3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#bcn-cta.is-active .bcn-draw-path {
+  stroke-dashoffset: 0;
+}
+
 #bcn-cta-inner {
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
-/* Both text lines */
 .bcn-cta-line {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(64px, 9vw, 140px);
-  font-weight: 400;
-  line-height: 0.95;
+  font-family: Georgia, serif;
+  font-size: clamp(60px, 11vw, 160px);
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
-  /* Scroll-in start state */
+  line-height: 0.8;
+  letter-spacing: -0.04em;
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(50px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Visible state — added by JS on IntersectionObserver */
-.bcn-cta-line.bcn-cta-visible {
+#bcn-cta.is-active .bcn-cta-line {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Line 1: "LET'S WORK" + pill button — flex row */
 #bcn-cta-line1 {
   display: flex;
   align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-bottom: 0.04em;
+  gap: 35px;
+  margin-bottom: 0.1em;
+  transition-delay: 0.7s;
 }
 
-/* Line 2: "TOGETHER" — block */
 #bcn-cta-line2 {
-  display: block;
-  transition-delay: 0.15s; /* follows line 1 */
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  transition-delay: 0.9s;
 }
 
-/* Pill "BOOK A CALL" button — white stroke on dark, sits inline */
 .bcn-cta-pill {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 2px solid rgba(255,255,255,0.5);
-  color: #ffffff;
-  font-family: var(--font-sans);
-  font-size: clamp(11px, 1vw, 14px);
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 18px 40px;
+  padding: 18px 42px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 100px;
-  flex-shrink: 0;
-  cursor: none;
-  transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease;
-  vertical-align: middle;
-  position: relative;
-  top: -0.04em;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  background: transparent;
+  backdrop-filter: blur(5px);
 }
 
 .bcn-cta-pill:hover {
@@ -1214,10 +1259,11 @@ body.cursor-hover #bcn-lens-home {
 /* Responsive CTA */
 @media (max-width: 768px) {
   #bcn-cta {
-    padding: 80px 24px 60px;
+    padding: 120px 24px;
+    min-height: 70vh;
   }
   .bcn-cta-line {
-    font-size: clamp(48px, 12vw, 72px);
+    font-size: clamp(42px, 14vw, 72px);
   }
   #bcn-cta-line1 {
     flex-direction: column;
@@ -1234,4 +1280,69 @@ body.cursor-hover #bcn-lens-home {
 
 @media (max-width: 480px) {
   .bcn-cta-line { font-size: clamp(40px, 13vw, 60px); }
+}
+
+/* ── 19. FOCUS RING SCROLLBAR ──────────────────────────────── */
+#bcn-scroll-focus-ring {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 350px;
+  z-index: 9995;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+#bcn-focus-track {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+  will-change: transform;
+}
+
+.bcn-focus-line {
+  height: 1px;
+  width: 12px;
+  background: #FFFFFF;
+  opacity: 0.3;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.bcn-focus-line.major {
+  width: 22px;
+  opacity: 0.6;
+}
+
+.bcn-focus-active-marker {
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 2px;
+  background: #FF0000;
+  z-index: 2;
+}
+
+.bcn-focus-label {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  #bcn-scroll-focus-ring { display: none; }
 }

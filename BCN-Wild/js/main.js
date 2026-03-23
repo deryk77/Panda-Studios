@@ -6,7 +6,7 @@
      Z-Axis Zoom Engine · Custom Cursor · Nav · Menu · Form
      ============================================================ */
 
-  var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var canUseCustomCursor = window.matchMedia('(hover: hover)').matches;
 
   /* ── 1. PAGE LOAD ───────────────────────────────────────────── */
   window.addEventListener('load', function () {
@@ -22,7 +22,7 @@
   });
 
   /* ── 2. CUSTOM CURSOR ───────────────────────────────────────── */
-  if (!isTouchDevice) {
+  if (canUseCustomCursor) {
     var cursor    = document.getElementById('bcn-cursor');
     var cursorDot = document.getElementById('bcn-cursor-dot');
     var mouseX = -100, mouseY = -100;
@@ -285,72 +285,7 @@
     }, 6000);
   }
 
-  /* ── 11. REVEAL — cream page, small image zooms to fullscreen ─ */
-  (function () {
-    var revealSection = document.getElementById('bcn-reveal');
-    var revealImg     = document.getElementById('bcn-reveal-img');
-    var revealGhost   = document.getElementById('bcn-reveal-ghost');
-    if (!revealSection || !revealImg) return;
-
-    function getRevealScale() {
-      var imgW = 0.36 * window.innerWidth;
-      var imgH = 0.22 * window.innerWidth;
-      return Math.max(window.innerWidth / imgW, window.innerHeight / imgH);
-    }
-
-    function updateReveal() {
-      var rect       = revealSection.getBoundingClientRect();
-      var scrollable = revealSection.offsetHeight - window.innerHeight;
-      var panelTop   = window.scrollY + rect.top;
-      var p          = Math.max(0, Math.min(1, (window.scrollY - panelTop) / scrollable));
-
-      var ts     = getRevealScale();
-      var scale  = 1 + p * (ts - 1);
-      var radius = 6 * (1 - p);
-
-      revealImg.style.transform    = 'translate(-50%, -50%) scale(' + scale + ')';
-      revealImg.style.borderRadius = radius + 'px';
-      revealImg.style.boxShadow    = 'none'; // remove box-shadow once zooming begins
-
-      if (revealGhost) {
-        // Ghost text fades out quickly as image starts zooming
-        revealGhost.style.opacity = Math.max(0, 1 - p * 4).toFixed(3);
-      }
-    }
-
-    window.addEventListener('scroll', updateReveal, { passive: true });
-    window.addEventListener('resize', updateReveal, { passive: true });
-    updateReveal();
-  }());
-
-  /* ── 12. STRIP — 5 images pan right → left ──────────────────── */
-  (function () {
-    var stripSection = document.getElementById('bcn-strip-section');
-    var strip        = document.getElementById('bcn-strip');
-    if (!stripSection || !strip) return;
-
-    function updateStrip() {
-      var rect       = stripSection.getBoundingClientRect();
-      var scrollable = stripSection.offsetHeight - window.innerHeight;
-      var panelTop   = window.scrollY + rect.top;
-      var p          = Math.max(0, Math.min(1, (window.scrollY - panelTop) / scrollable));
-
-      var stripW  = strip.offsetWidth;
-      var vw      = window.innerWidth;
-      // Strip starts fully off-screen right; ends when last image fills viewport right
-      var startX  = vw;
-      var endX    = -(stripW - vw);
-      var tx      = startX + p * (endX - startX);
-
-      strip.style.transform = 'translateX(' + tx + 'px)';
-    }
-
-    window.addEventListener('scroll', updateStrip, { passive: true });
-    window.addEventListener('resize', updateStrip, { passive: true });
-    updateStrip();
-  }());
-
-  /* ── 13. ABOUT — clip-path wipe from bottom ─────────────────── */
+  /* ── 11. ABOUT — clip-path wipe from bottom ─────────────────── */
   (function () {
     var aboutSection = document.getElementById('bcn-about');
     var aboutWipe    = document.getElementById('bcn-about-wipe');
@@ -475,78 +410,202 @@
     }, 2720);
   }
 
-  /* ── 12. CTA FOOTER — scroll-in + stroke draw-on animation ──── */
+  /* ── 12. IRIS SLIDER — camera aperture transition ───────────── */
+  function initIrisSlider() {
+    var slider = document.getElementById('bcn-iris-slider');
+    if (!slider) return;
+
+    var slides       = Array.from(document.querySelectorAll('.bcn-iris-slide'));
+    var blades       = Array.from(document.querySelectorAll('.bcn-iris-blade'));
+    var dotsContainer = document.getElementById('bcn-iris-dots');
+    var prevBtn      = document.getElementById('bcn-iris-prev');
+    var nextBtn      = document.getElementById('bcn-iris-next');
+    var currentEl    = document.getElementById('bcn-iris-current');
+    var totalEl      = document.getElementById('bcn-iris-total');
+
+    var current     = 0;
+    var isAnimating = false;
+    var total       = slides.length;
+    var AUTO_INTERVAL = 5000;
+    var autoTimer;
+
+    // Build dots
+    if (totalEl) totalEl.textContent = String(total).padStart(2, '0');
+    slides.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'bcn-iris-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+      dot.setAttribute('role', 'tab');
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsContainer.appendChild(dot);
+    });
+
+    function getDots() {
+      return Array.from(dotsContainer.querySelectorAll('.bcn-iris-dot'));
+    }
+
+    function updateUI(index) {
+      getDots().forEach(function (d, i) { d.classList.toggle('active', i === index); });
+      if (currentEl) currentEl.textContent = String(index + 1).padStart(2, '0');
+    }
+
+    // Phase 1: blades converge (close aperture), swap slide, open aperture
+    function goTo(index) {
+      if (isAnimating || index === current) return;
+      isAnimating = true;
+      var next = index;
+
+      // CLOSE — growing blades cover the screen
+      blades.forEach(function (b) {
+        b.classList.remove('opening');
+        b.classList.add('closing');
+      });
+
+      setTimeout(function () {
+        blades.forEach(function (b) { b.classList.add('closed'); });
+      }, 50);
+
+      // Swap slides after close completes
+      setTimeout(function () {
+        slides[current].classList.remove('active');
+        slides[next].classList.add('active');
+        current = next;
+        updateUI(current);
+
+        // OPEN — blades retract to reveal new slide
+        blades.forEach(function (b) {
+          b.classList.remove('closing', 'closed');
+          b.classList.add('opening');
+        });
+
+        // Clean up after opening
+        setTimeout(function () {
+          blades.forEach(function (b) { b.classList.remove('opening'); });
+          isAnimating = false;
+        }, 550);
+      }, 550);
+    }
+
+    function nextSlide() { goTo((current + 1) % total); }
+    function prevSlide() { goTo((current - 1 + total) % total); }
+
+    function startAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(nextSlide, AUTO_INTERVAL);
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        clearInterval(autoTimer);
+        nextSlide();
+        startAuto();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        clearInterval(autoTimer);
+        prevSlide();
+        startAuto();
+      });
+    }
+
+    // Keyboard support
+    slider.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { clearInterval(autoTimer); nextSlide(); startAuto(); }
+      if (e.key === 'ArrowLeft')  { clearInterval(autoTimer); prevSlide(); startAuto(); }
+    });
+
+    startAuto();
+    updateUI(0);
+  }
+
+  /* ── 13. CTA FOOTER — scroll-in + stroke draw-on animation ──── */
   function initCTA() {
     var cta = document.getElementById('bcn-cta');
     if (!cta) return;
 
-    var lines   = cta.querySelectorAll('.bcn-cta-line');
-    var stroke1 = document.getElementById('bcn-stroke-1');
-    var stroke2 = document.getElementById('bcn-stroke-2');
-
-    // Prime stroke dash offsets so paths start invisible
-    if (stroke1) {
-      var len1 = stroke1.getTotalLength();
-      stroke1.style.strokeDasharray  = len1;
-      stroke1.style.strokeDashoffset = len1;
-    }
-    if (stroke2) {
-      var len2 = stroke2.getTotalLength();
-      stroke2.style.strokeDasharray  = len2;
-      stroke2.style.strokeDashoffset = len2;
-    }
-
     if (!('IntersectionObserver' in window)) {
-      // Fallback: show everything immediately
-      lines.forEach(function (l) { l.classList.add('bcn-cta-visible'); });
-      if (stroke1) stroke1.style.strokeDashoffset = '0';
-      if (stroke2) stroke2.style.strokeDashoffset = '0';
+      cta.classList.add('is-active');
       return;
     }
 
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-
-        // Text lines slide up
-        lines.forEach(function (line, i) {
-          setTimeout(function () {
-            line.classList.add('bcn-cta-visible');
-          }, i * 150);
-        });
-
-        // Stroke 1: main diagonal sweep — 1.4s, 0.1s delay
-        if (stroke1) {
-          stroke1.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s';
-          stroke1.style.strokeDashoffset = '0';
-        }
-        // Stroke 2: lower arc — 1.1s, 0.5s delay
-        if (stroke2) {
-          stroke2.style.transition = 'stroke-dashoffset 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s';
-          stroke2.style.strokeDashoffset = '0';
-        }
-
+        cta.classList.add('is-active');
         obs.unobserve(entry.target);
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
 
     obs.observe(cta);
   }
 
-  // Initialise both effects on DOMContentLoaded
+  /* ── 15. FOCUS RING SCROLL INDICATOR ───────────────────────── */
+  function initFocusRing() {
+    var track = document.getElementById('bcn-focus-track');
+    var ring = document.getElementById('bcn-scroll-focus-ring');
+    if (!track || !ring) return;
+
+    var lineCount = 80;
+    for (var i = 0; i < lineCount; i += 1) {
+      var line = document.createElement('div');
+      line.className = 'bcn-focus-line';
+      if (i % 5 === 0) line.classList.add('major');
+      track.appendChild(line);
+    }
+
+    var containerHeight = 350;
+    var centerPoint = containerHeight / 2;
+
+    function updateFocusScroll() {
+      var scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+      var scrollPercent = scrollTotal > 0 ? (window.scrollY / scrollTotal) : 0;
+
+      var trackHeight = track.scrollHeight;
+      var travelRange = trackHeight - centerPoint;
+      var moveAmount = scrollPercent * travelRange;
+      track.style.transform = 'translateY(' + (centerPoint - moveAmount) + 'px)';
+
+      var lines = track.querySelectorAll('.bcn-focus-line');
+      var containerTop = ring.getBoundingClientRect().top;
+
+      lines.forEach(function (line) {
+        var lineRect = line.getBoundingClientRect();
+        var relativeLinePos = (lineRect.top + lineRect.height / 2) - containerTop;
+        var distanceToCenter = Math.abs(relativeLinePos - centerPoint);
+
+        if (distanceToCenter < 15) {
+          line.style.opacity = '1';
+          line.style.width = line.classList.contains('major') ? '32px' : '20px';
+        } else {
+          line.style.opacity = '0.3';
+          line.style.width = line.classList.contains('major') ? '22px' : '12px';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateFocusScroll, { passive: true });
+    window.addEventListener('resize', updateFocusScroll, { passive: true });
+    updateFocusScroll();
+  }
+
+  // Initialise effects on DOMContentLoaded
   document.addEventListener('DOMContentLoaded', function () {
     initLoader();
+    initIrisSlider();
     initCTA();
+    initFocusRing();
   });
 
-  /* ── 13. LENS — ykproduce.co.jp style ──────────────────────── */
+  /* ── 16. LENS — ykproduce.co.jp style ──────────────────────── */
   /*
     A large white circle with mix-blend-mode: difference follows the
     mouse with a slow lag. Over dark backgrounds it appears as a white
     circle; over light text/content it inverts the colours beneath it.
     This creates the distinctive lens effect seen on ykproduce.co.jp.
   */
-  if (!isTouchDevice) {
+  if (canUseCustomCursor) {
     var lensHome   = document.getElementById('bcn-lens-home');
     var lensHomeX  = -300;
     var lensHomeY  = -300;
