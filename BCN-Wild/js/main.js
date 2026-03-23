@@ -285,6 +285,92 @@
     }, 6000);
   }
 
+  /* ── 11. REVEAL — cream page, small image zooms to fullscreen ─ */
+  (function () {
+    var revealSection = document.getElementById('bcn-reveal');
+    var revealImg     = document.getElementById('bcn-reveal-img');
+    var revealGhost   = document.getElementById('bcn-reveal-ghost');
+    if (!revealSection || !revealImg) return;
+
+    function getRevealScale() {
+      var imgW = 0.36 * window.innerWidth;
+      var imgH = 0.22 * window.innerWidth;
+      return Math.max(window.innerWidth / imgW, window.innerHeight / imgH);
+    }
+
+    function updateReveal() {
+      var rect       = revealSection.getBoundingClientRect();
+      var scrollable = revealSection.offsetHeight - window.innerHeight;
+      var panelTop   = window.scrollY + rect.top;
+      var p          = Math.max(0, Math.min(1, (window.scrollY - panelTop) / scrollable));
+
+      var ts     = getRevealScale();
+      var scale  = 1 + p * (ts - 1);
+      var radius = 6 * (1 - p);
+
+      revealImg.style.transform    = 'translate(-50%, -50%) scale(' + scale + ')';
+      revealImg.style.borderRadius = radius + 'px';
+      revealImg.style.boxShadow    = 'none'; // remove box-shadow once zooming begins
+
+      if (revealGhost) {
+        // Ghost text fades out quickly as image starts zooming
+        revealGhost.style.opacity = Math.max(0, 1 - p * 4).toFixed(3);
+      }
+    }
+
+    window.addEventListener('scroll', updateReveal, { passive: true });
+    window.addEventListener('resize', updateReveal, { passive: true });
+    updateReveal();
+  }());
+
+  /* ── 12. STRIP — 5 images pan right → left ──────────────────── */
+  (function () {
+    var stripSection = document.getElementById('bcn-strip-section');
+    var strip        = document.getElementById('bcn-strip');
+    if (!stripSection || !strip) return;
+
+    function updateStrip() {
+      var rect       = stripSection.getBoundingClientRect();
+      var scrollable = stripSection.offsetHeight - window.innerHeight;
+      var panelTop   = window.scrollY + rect.top;
+      var p          = Math.max(0, Math.min(1, (window.scrollY - panelTop) / scrollable));
+
+      var stripW  = strip.offsetWidth;
+      var vw      = window.innerWidth;
+      // Strip starts fully off-screen right; ends when last image fills viewport right
+      var startX  = vw;
+      var endX    = -(stripW - vw);
+      var tx      = startX + p * (endX - startX);
+
+      strip.style.transform = 'translateX(' + tx + 'px)';
+    }
+
+    window.addEventListener('scroll', updateStrip, { passive: true });
+    window.addEventListener('resize', updateStrip, { passive: true });
+    updateStrip();
+  }());
+
+  /* ── 13. ABOUT — clip-path wipe from bottom ─────────────────── */
+  (function () {
+    var aboutSection = document.getElementById('bcn-about');
+    var aboutWipe    = document.getElementById('bcn-about-wipe');
+    if (!aboutSection || !aboutWipe) return;
+
+    function updateAbout() {
+      var rect       = aboutSection.getBoundingClientRect();
+      var scrollable = aboutSection.offsetHeight - window.innerHeight;
+      var panelTop   = window.scrollY + rect.top;
+      var p          = Math.max(0, Math.min(1, (window.scrollY - panelTop) / scrollable));
+
+      // inset(T 0 0 0): as T goes 100%→0%, bottom of element appears first → wipe from below
+      var topInset = ((1 - p) * 100).toFixed(2);
+      aboutWipe.style.clipPath = 'inset(' + topInset + '% 0 0 0)';
+    }
+
+    window.addEventListener('scroll', updateAbout, { passive: true });
+    updateAbout();
+  }());
+
   /* ── 10. SMOOTH ANCHOR SCROLL ───────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {

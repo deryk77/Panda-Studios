@@ -734,3 +734,174 @@ body.cursor-hover #bcn-cursor-dot {
   #bcn-cursor, #bcn-cursor-dot { display: none; }
 }
 
+/* ── 14. REVEAL SECTION — cream page · ghost text · zoom ────── */
+.bcn-reveal-section {
+  position: relative;
+  height: calc(100vh + 700px);
+}
+
+.bcn-reveal-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #F4F0EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Ghost text: huge, barely-there letterforms on cream */
+.bcn-reveal-ghost {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  will-change: opacity;
+  line-height: 0.82;
+}
+
+.bcn-reveal-ghost-top,
+.bcn-reveal-ghost-bottom {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: rgba(17, 17, 17, 0.07);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.bcn-reveal-ghost-top {
+  font-size: clamp(100px, 42vw, 620px);
+  align-self: flex-start;
+  padding-left: 0.03em;
+}
+
+.bcn-reveal-ghost-bottom {
+  font-size: clamp(80px, 32vw, 480px);
+  align-self: flex-end;
+  padding-right: 0.03em;
+}
+
+/* The small centered photo */
+.bcn-reveal-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36vw;
+  height: 22vw;
+  border-radius: 6px;
+  background-size: cover;
+  background-position: center;
+  transform: translate(-50%, -50%);
+  will-change: transform, border-radius;
+  z-index: 2;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.22);
+}
+
+/* ── 15. STRIP SECTION — horizontal filmstrip ───────────────── */
+.bcn-strip-section {
+  position: relative;
+  height: 5200px;
+}
+
+.bcn-strip-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #111111;
+}
+
+.bcn-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center; /* vertically center images */
+  gap: 5vw;
+  will-change: transform;
+}
+
+.bcn-strip-img {
+  height: 78vh;       /* slightly less than full height — breathing room */
+  width: 62vw;        /* landscape format — ~3 visible at once */
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 2px;
+}
+
+/* ── 16. ABOUT SECTION — wipes up from below ────────────────── */
+.bcn-about-section {
+  position: relative;
+  height: 200vh;
+}
+
+.bcn-about-wipe {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #111111;
+  clip-path: inset(100% 0 0 0);
+  will-change: clip-path;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.bcn-about-inner {
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+  padding: 0 48px;
+}
+
+.bcn-about-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 36px;
+}
+
+.bcn-about-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4.5vw, 64px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 52px;
+}
+
+.bcn-about-body {
+  font-size: clamp(14px, 1.1vw, 17px);
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+  line-height: 1.9;
+  letter-spacing: 0.015em;
+  margin-bottom: 28px;
+}
+
+.bcn-about-body:last-child { margin-bottom: 0; }
+
+/* Responsive — reveal / strip / about ── */
+@media (max-width: 768px) {
+  .bcn-reveal-img {
+    width: 72vw;
+    height: 44vw;
+  }
+  .bcn-reveal-ghost-top  { font-size: clamp(64px, 28vw, 160px); }
+  .bcn-reveal-ghost-bottom { font-size: clamp(48px, 22vw, 120px); }
+
+  .bcn-strip-img { width: 88vw; height: 72vh; }
+
+  .bcn-about-inner { padding: 0 24px; }
+  .bcn-about-title { font-size: clamp(28px, 7vw, 44px); }
+}
+
