@@ -1,0 +1,477 @@
+/* ============================================================
+   BCN-Wild — Gallery Page
+   List view (siemprericc.com) · Grid horizontal scroll (ykproduce)
+   Lens magnifier · Hover preview
+   ============================================================ */
+
+/* ── 1. GALLERY MAIN LAYOUT ─────────────────────────────────── */
+.bcn-gal-main {
+  padding-top: 110px;
+  min-height: 100vh;
+}
+
+/* ── 2. HEADER ──────────────────────────────────────────────── */
+.bcn-gal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 40px 6vw 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.bcn-gal-head-left {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.bcn-gal-title {
+  font-family: var(--font-serif);
+  font-size: clamp(52px, 9vw, 130px);
+  font-weight: normal;
+  line-height: 0.9;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.bcn-gal-count {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver);
+  padding-bottom: 10px;
+}
+
+.bcn-gal-head-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+/* ── 3. FILTER BUTTONS ──────────────────────────────────────── */
+.bcn-gal-filters {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.bcn-filter {
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: var(--silver);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: none;
+  padding: 0 0 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.bcn-filter:hover {
+  color: var(--white);
+}
+
+.bcn-filter.active {
+  color: var(--white);
+  border-bottom-color: var(--white);
+}
+
+/* ── 4. VIEW TOGGLE ─────────────────────────────────────────── */
+.bcn-view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(163,163,163,0.4);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.bcn-view-btn {
+  background: none;
+  border: none;
+  color: var(--silver);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: none;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.bcn-view-btn:hover,
+.bcn-view-btn.active {
+  color: var(--white);
+}
+
+/* ── 5. LIST VIEW ───────────────────────────────────────────── */
+.bcn-list-view {
+  padding: 0 6vw;
+}
+
+/* Column header row */
+.bcn-list-head-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 140px 220px 56px 32px;
+  padding: 14px 0;
+  color: var(--silver);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Each photo row */
+.bcn-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 140px 220px 56px 32px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  cursor: none;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease;
+  position: relative;
+}
+
+.bcn-row:hover {
+  transform: translateX(10px);
+}
+
+.bcn-row[data-hidden] {
+  display: none;
+}
+
+.bcn-row-num {
+  font-size: 11px;
+  color: var(--silver);
+  letter-spacing: 0.1em;
+  font-weight: 300;
+}
+
+.bcn-row-title {
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 1.8vw, 26px);
+  color: var(--white);
+  transition: opacity 0.3s ease;
+}
+
+.bcn-row:hover .bcn-row-title {
+  opacity: 0.5;
+}
+
+.bcn-row-cat {
+  font-size: 10px;
+  color: var(--silver);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.bcn-row-loc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  font-weight: 300;
+}
+
+.bcn-row-year {
+  font-size: 11px;
+  color: var(--silver);
+  letter-spacing: 0.05em;
+}
+
+.bcn-row-arrow {
+  font-size: 16px;
+  color: var(--silver);
+  transition: transform 0.35s ease, color 0.3s ease;
+  text-align: right;
+}
+
+.bcn-row:hover .bcn-row-arrow {
+  transform: translateX(5px);
+  color: var(--white);
+}
+
+/* ── 6. HOVER PREVIEW (follows cursor, list mode) ───────────── */
+#bcn-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 240px;
+  pointer-events: none;
+  z-index: 8000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 3px;
+  opacity: 0;
+  transform: scale(0.92) translateY(10px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+#bcn-preview.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ── 7. GRID VIEW ───────────────────────────────────────────── */
+.bcn-grid-view {
+  display: none;
+}
+
+.bcn-grid-scroll-section {
+  position: relative;
+  /* height set by JS */
+}
+
+.bcn-grid-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.bcn-grid-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+  padding: 0 8vw;
+  will-change: transform;
+}
+
+/* Individual grid card */
+.bcn-grid-item {
+  flex-shrink: 0;
+  width: 42vw;
+  height: 78vh;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+}
+
+.bcn-grid-item[data-hidden] {
+  display: none;
+}
+
+.bcn-grid-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Lens hover: slight scale on image behind lens */
+.bcn-grid-item:hover .bcn-grid-img {
+  transform: scale(1.06);
+}
+
+/* Info overlay */
+.bcn-grid-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 22px;
+  background: linear-gradient(to top, rgba(17,17,17,0.85) 0%, transparent 100%);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.bcn-grid-item:hover .bcn-grid-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bcn-grid-num {
+  display: block;
+  font-size: 10px;
+  color: var(--silver);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.bcn-grid-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 1.6vw, 22px);
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.bcn-grid-loc {
+  display: block;
+  font-size: 11px;
+  color: var(--silver);
+  letter-spacing: 0.1em;
+}
+
+/* Scroll hint at bottom of grid sticky */
+.bcn-grid-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.bcn-grid-hint.hidden {
+  opacity: 0;
+}
+
+.bcn-grid-hint-line {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--silver);
+  animation: bcn-hint-pulse 2s ease-in-out infinite;
+}
+
+@keyframes bcn-hint-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.bcn-grid-hint-text {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+/* ── 8. LENS MAGNIFIER ──────────────────────────────────────── */
+#bcn-lens {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9000;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  background: rgba(244, 240, 235, 0.12);
+  border: 1px solid rgba(244, 240, 235, 0.55);
+  opacity: 0;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.4s ease;
+}
+
+/* Lens visible in grid mode */
+body.bcn-grid-active #bcn-lens {
+  opacity: 1;
+}
+
+/* Lens expands when over an image */
+body.bcn-lens-expand #bcn-lens {
+  width: 320px;
+  height: 320px;
+}
+
+/* ── 9. FOOTER (gallery variant — appears below list) ───────── */
+.bcn-footer--gallery {
+  margin-top: 80px;
+}
+
+/* ── 10. FILTER TRANSITION ──────────────────────────────────── */
+.bcn-row,
+.bcn-grid-item {
+  /* animated in/out by JS class */
+}
+
+.bcn-row.bcn-fade-out {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.bcn-row.bcn-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* ── 11. RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .bcn-gal-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .bcn-gal-head-right {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .bcn-gal-filters {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* Collapse list columns on small screens */
+  .bcn-list-head-row,
+  .bcn-row {
+    grid-template-columns: 40px 1fr 80px 32px;
+  }
+
+  .bcn-col-cat,
+  .bcn-col-loc,
+  .bcn-col-year,
+  .bcn-row-cat,
+  .bcn-row-loc,
+  .bcn-row-year {
+    display: none;
+  }
+
+  /* Grid: taller cards on mobile */
+  .bcn-grid-item {
+    width: 80vw;
+    height: 72vh;
+  }
+
+  /* Preview too large on mobile */
+  #bcn-preview {
+    width: 260px;
+    height: 174px;
+  }
+
+  /* No lens on touch devices */
+  #bcn-lens {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .bcn-gal-title {
+    font-size: 52px;
+  }
+
+  .bcn-gal-head {
+    padding: 24px 5vw 24px;
+  }
+
+  .bcn-list-view {
+    padding: 0 5vw;
+  }
+}

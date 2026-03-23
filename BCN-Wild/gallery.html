@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="/BCN-Wild/" />
+  <title>Gallery — BCN-Wild African Wildlife Photography</title>
+  <meta name="description" content="Browse the BCN-Wild gallery of premium African wildlife photography. Filter by Wildlife, Landscapes and Cultural & People. Uganda, Tanzania, South Africa." />
+  <link rel="canonical" href="https://www.pandastudios.co/BCN-Wild/gallery.html" />
+
+  <!-- Geo -->
+  <meta name="geo.region" content="UG-C" />
+  <meta name="geo.placename" content="Kampala, Uganda" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.pandastudios.co/BCN-Wild/gallery.html" />
+  <meta property="og:title" content="Gallery — BCN-Wild African Wildlife Photography" />
+  <meta property="og:description" content="Premium African wildlife photography. Captured with intention." />
+  <meta property="og:image" content="img/SVNP_WILDLIFE_Gorilla_Sabyinyo_Family_Ross_Couper-5.webp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gallery — BCN-Wild" />
+  <meta name="twitter:description" content="Premium African wildlife photography. Captured with intention." />
+  <meta name="twitter:image" content="img/SVNP_WILDLIFE_Gorilla_Sabyinyo_Family_Ross_Couper-5.webp" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/gallery.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="bcn-cursor"></div>
+  <div id="bcn-cursor-dot"></div>
+
+  <!-- Page Load Line -->
+  <div class="bcn-page-line"></div>
+
+  <!-- Lens (magnifier, grid mode) -->
+  <div id="bcn-lens"></div>
+
+  <!-- Hover Preview (follows cursor, list mode) -->
+  <div id="bcn-preview"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="bcn-nav" id="bcn-nav" role="navigation">
+    <a href="index.html" class="bcn-logo" aria-label="BCN-Wild Home">
+      BCN-<span>Wild</span>
+    </a>
+    <div class="bcn-nav-right">
+      <a href="index.html#contact" class="bcn-nav-contact">Contact</a>
+      <button class="bcn-hamburger" id="bcn-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Full-screen Menu Overlay -->
+  <div class="bcn-menu" id="bcn-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="bcn-menu-inner">
+      <nav class="bcn-menu-nav">
+        <a href="gallery.html" class="bcn-menu-link" data-close-menu>Gallery</a>
+        <a href="gallery.html?filter=wildlife" class="bcn-menu-link" data-close-menu>Wildlife</a>
+        <a href="gallery.html?filter=landscapes" class="bcn-menu-link" data-close-menu>Landscapes</a>
+        <a href="gallery.html?filter=cultural" class="bcn-menu-link" data-close-menu>Cultural &amp; People</a>
+        <a href="index.html#contact" class="bcn-menu-link" data-close-menu>Contact</a>
+      </nav>
+      <div class="bcn-menu-meta">
+        <p class="bcn-menu-tagline">Africa through a lens<br>of profound respect.</p>
+        <div class="bcn-menu-socials">
+          <a href="https://instagram.com/bcnwild" target="_blank" rel="noopener" aria-label="Instagram">Ig</a>
+          <a href="https://twitter.com/bcnwild" target="_blank" rel="noopener" aria-label="Twitter/X">X</a>
+          <a href="https://facebook.com/bcnwild.africa" target="_blank" rel="noopener" aria-label="Facebook">Fb</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       GALLERY MAIN
+       ============================================================ -->
+  <main class="bcn-gal-main">
+
+    <!-- Header -->
+    <div class="bcn-gal-head">
+      <div class="bcn-gal-head-left">
+        <h1 class="bcn-gal-title">Gallery</h1>
+        <span class="bcn-gal-count" id="bcn-gal-count">— 12</span>
+      </div>
+      <div class="bcn-gal-head-right">
+        <nav class="bcn-gal-filters" aria-label="Filter gallery">
+          <button class="bcn-filter active" data-filter="all">All</button>
+          <button class="bcn-filter" data-filter="wildlife">Wildlife</button>
+          <button class="bcn-filter" data-filter="landscapes">Landscapes</button>
+          <button class="bcn-filter" data-filter="cultural">Cultural &amp; People</button>
+        </nav>
+        <div class="bcn-view-toggle" role="group" aria-label="View mode">
+          <button class="bcn-view-btn active" id="bcn-btn-list" aria-pressed="true">List</button>
+          <span aria-hidden="true"> | </span>
+          <button class="bcn-view-btn" id="bcn-btn-grid" aria-pressed="false">Grid</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LIST VIEW ──────────────────────────────────────────── -->
+    <div class="bcn-list-view" id="bcn-list-view">
+      <div class="bcn-list-head-row" aria-hidden="true">
+        <span>No.</span>
+        <span>Title</span>
+        <span class="bcn-col-cat">Category</span>
+        <span class="bcn-col-loc">Location</span>
+        <span class="bcn-col-year">Year</span>
+        <span></span>
+      </div>
+      <!-- Rows injected by gallery.js -->
+    </div>
+
+    <!-- ── GRID VIEW (horizontal scroll) ──────────────────────── -->
+    <div class="bcn-grid-view" id="bcn-grid-view">
+      <div class="bcn-grid-scroll-section" id="bcn-grid-scroll">
+        <div class="bcn-grid-sticky">
+          <div class="bcn-grid-track" id="bcn-grid-track">
+            <!-- Items injected by gallery.js -->
+          </div>
+          <!-- Grid mode scroll hint -->
+          <div class="bcn-grid-hint" id="bcn-grid-hint">
+            <span class="bcn-grid-hint-line"></span>
+            <span class="bcn-grid-hint-text">Scroll to explore</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="bcn-footer bcn-footer--gallery">
+    <div class="bcn-footer-inner">
+      <div class="bcn-footer-left">
+        <span class="bcn-footer-logo">BCN-<em>Wild</em></span>
+        <p class="bcn-footer-tagline">Africa through a lens of profound respect.</p>
+      </div>
+      <div class="bcn-footer-center">
+        <a href="mailto:bcn@wild.com" class="bcn-footer-link">bcn@wild.com</a>
+        <a href="tel:+256777784807" class="bcn-footer-link">+256 777 784 807</a>
+      </div>
+      <div class="bcn-footer-right">
+        <a href="https://instagram.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-social">Instagram</a>
+        <a href="https://twitter.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-social">X</a>
+        <a href="https://facebook.com/bcnwild.africa" target="_blank" rel="noopener" class="bcn-footer-social">Facebook</a>
+      </div>
+    </div>
+    <div class="bcn-footer-bottom">
+      <span>&copy; 2026 BCN-Wild. All rights reserved.</span>
+      <span>Kampala, Uganda</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
