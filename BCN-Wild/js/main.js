@@ -128,8 +128,11 @@
     window.addEventListener('scroll', function () {
       if (!heroBg) return;
       var scrollY = window.scrollY;
-      if (scrollY < window.innerHeight) {
-        heroBg.style.transform = 'scale(1) translateY(' + (scrollY * 0.3) + 'px)';
+      // On desktop the intro spacer pushes the hero down 1800px
+      var introOffset = (window.innerWidth > 768) ? 1800 : 0;
+      var relScroll = scrollY - introOffset;
+      if (relScroll >= 0 && relScroll < window.innerHeight) {
+        heroBg.style.transform = 'scale(1) translateY(' + (relScroll * 0.3) + 'px)';
       }
     }, { passive: true });
   }
@@ -297,6 +300,8 @@
   }
 
   /* ── 10. SMOOTH ANCHOR SCROLL ───────────────────────────────── */
+  // NOTE: anchor scroll-into-view must account for the 1800px spacer on desktop.
+  // The existing smooth-scroll handler uses scrollIntoView which handles this natively.
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
       var target = document.querySelector(this.getAttribute('href'));
@@ -306,5 +311,83 @@
       }
     });
   });
+
+  /* ── 11. CINEMATIC INTRO SEQUENCE (desktop only) ──────────── */
+  (function () {
+    if (window.innerWidth <= 768) return;
+
+    var introEl = document.getElementById('bcn-intro');
+    var zoomImg = document.getElementById('bcn-intro-zoom-img');
+    var strip   = document.getElementById('bcn-intro-strip');
+
+    if (!introEl || !zoomImg || !strip) return;
+
+    var PHASE1_END = 300;
+    var PHASE2_END = 1800;
+    var introDone  = false;
+
+    // The scale that makes the 38vw×22vw thumbnail cover 100vw×100vh
+    function getTargetScale() {
+      var imgW = 0.38 * window.innerWidth;
+      var imgH = 0.22 * window.innerWidth;
+      return Math.max(window.innerWidth / imgW, window.innerHeight / imgH);
+    }
+
+    function updateIntro() {
+      if (introDone) return;
+
+      var scrollY = window.scrollY;
+
+      if (scrollY > PHASE2_END) {
+        // Phase complete — fade whole intro out
+        introDone = true;
+        introEl.style.transition = 'opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        introEl.style.opacity    = '0';
+        introEl.style.pointerEvents = 'none';
+        return;
+      }
+
+      introEl.style.opacity    = '1';
+      introEl.style.transition = 'none';
+      introEl.style.pointerEvents = 'none';
+
+      if (scrollY <= PHASE1_END) {
+        // ── Phase 1: thumbnail zooms to fullscreen ──
+        var p1 = scrollY / PHASE1_END;
+        var targetScale = getTargetScale();
+        var scale  = 1 + p1 * (targetScale - 1);
+        var radius = 12 * (1 - p1);
+
+        zoomImg.style.transform    = 'translate(-50%, -50%) scale(' + scale + ')';
+        zoomImg.style.borderRadius = radius + 'px';
+        zoomImg.style.opacity      = '1';
+
+        strip.style.transform = 'translateX(' + window.innerWidth + 'px)';
+        strip.style.opacity   = '0';
+
+      } else {
+        // ── Phase 2: horizontal strip pans right → left ──
+        var p2 = (scrollY - PHASE1_END) / (PHASE2_END - PHASE1_END);
+        var ts = getTargetScale();
+
+        // Zoom image stays fullscreen and fades out over the first 30% of phase 2
+        zoomImg.style.transform    = 'translate(-50%, -50%) scale(' + ts + ')';
+        zoomImg.style.borderRadius = '0px';
+        zoomImg.style.opacity      = p2 < 0.3 ? String(1 - p2 / 0.3) : '0';
+
+        // Strip: starts fully off-screen right, pans until last image's right edge hits x=0
+        var stripW  = strip.offsetWidth;
+        var startX  = window.innerWidth;
+        var endX    = -stripW;
+        var tx      = startX + p2 * (endX - startX);
+
+        strip.style.transform = 'translateX(' + tx + 'px)';
+        strip.style.opacity   = '1';
+      }
+    }
+
+    window.addEventListener('scroll', updateIntro, { passive: true });
+    updateIntro(); // initialise on load
+  }());
 
 })();
