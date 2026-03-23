@@ -475,28 +475,57 @@
     }, 2720);
   }
 
-  /* ── 12. CTA FOOTER — scroll-in animation ───────────────────── */
+  /* ── 12. CTA FOOTER — scroll-in + stroke draw-on animation ──── */
   function initCTA() {
     var cta = document.getElementById('bcn-cta');
     if (!cta) return;
 
-    var lines = cta.querySelectorAll('.bcn-cta-line');
-    if (!lines.length) return;
+    var lines   = cta.querySelectorAll('.bcn-cta-line');
+    var stroke1 = document.getElementById('bcn-stroke-1');
+    var stroke2 = document.getElementById('bcn-stroke-2');
+
+    // Prime stroke dash offsets so paths start invisible
+    if (stroke1) {
+      var len1 = stroke1.getTotalLength();
+      stroke1.style.strokeDasharray  = len1;
+      stroke1.style.strokeDashoffset = len1;
+    }
+    if (stroke2) {
+      var len2 = stroke2.getTotalLength();
+      stroke2.style.strokeDasharray  = len2;
+      stroke2.style.strokeDashoffset = len2;
+    }
 
     if (!('IntersectionObserver' in window)) {
-      // Fallback: just show them
+      // Fallback: show everything immediately
       lines.forEach(function (l) { l.classList.add('bcn-cta-visible'); });
+      if (stroke1) stroke1.style.strokeDashoffset = '0';
+      if (stroke2) stroke2.style.strokeDashoffset = '0';
       return;
     }
 
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
+
+        // Text lines slide up
         lines.forEach(function (line, i) {
           setTimeout(function () {
             line.classList.add('bcn-cta-visible');
           }, i * 150);
         });
+
+        // Stroke 1: main diagonal sweep — 1.4s, 0.1s delay
+        if (stroke1) {
+          stroke1.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s';
+          stroke1.style.strokeDashoffset = '0';
+        }
+        // Stroke 2: lower arc — 1.1s, 0.5s delay
+        if (stroke2) {
+          stroke2.style.transition = 'stroke-dashoffset 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s';
+          stroke2.style.strokeDashoffset = '0';
+        }
+
         obs.unobserve(entry.target);
       });
     }, { threshold: 0.3 });

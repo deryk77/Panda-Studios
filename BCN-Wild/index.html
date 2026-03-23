@@ -270,43 +270,25 @@
     <div class="bcn-partners-track">
       <div class="bcn-partners-inner" id="bcn-partners-inner">
         <!-- First set -->
-        <span class="bcn-partner-item">National Geographic</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item">WWF</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item">Uganda Wildlife Authority</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item">African Wildlife Foundation</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item">BBC Earth</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item">Conservation International</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item">Getty Images</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item">Africa Geographic</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item">Reuters</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
+        <img class="bcn-partner-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/National-Geographic-Logo.svg/200px-National-Geographic-Logo.svg.png" alt="National Geographic">
+        <img class="bcn-partner-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Wwf_logo.svg/120px-Wwf_logo.svg.png" alt="WWF">
+        <span class="bcn-partner-logo-text">Uganda Wildlife Authority</span>
+        <span class="bcn-partner-logo-text">African Wildlife Foundation</span>
+        <span class="bcn-partner-logo-text">BBC Earth</span>
+        <img class="bcn-partner-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Conservation_International_logo.svg/200px-Conservation_International_logo.svg.png" alt="Conservation International">
+        <img class="bcn-partner-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Getty_Images_Logo.svg/200px-Getty_Images_Logo.svg.png" alt="Getty Images">
+        <span class="bcn-partner-logo-text">Africa Geographic</span>
+        <span class="bcn-partner-logo-text">Reuters</span>
         <!-- Duplicate set for seamless loop -->
-        <span class="bcn-partner-item" aria-hidden="true">National Geographic</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item" aria-hidden="true">WWF</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item" aria-hidden="true">Uganda Wildlife Authority</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item" aria-hidden="true">African Wildlife Foundation</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item" aria-hidden="true">BBC Earth</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item" aria-hidden="true">Conservation International</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item" aria-hidden="true">Getty Images</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item" aria-hidden="true">Africa Geographic</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
-        <span class="bcn-partner-item" aria-hidden="true">Reuters</span>
-        <span class="bcn-partner-sep" aria-hidden="true">·</span>
+        <img class="bcn-partner-logo" aria-hidden="true" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/National-Geographic-Logo.svg/200px-National-Geographic-Logo.svg.png" alt="">
+        <img class="bcn-partner-logo" aria-hidden="true" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Wwf_logo.svg/120px-Wwf_logo.svg.png" alt="">
+        <span class="bcn-partner-logo-text" aria-hidden="true">Uganda Wildlife Authority</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">African Wildlife Foundation</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">BBC Earth</span>
+        <img class="bcn-partner-logo" aria-hidden="true" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Conservation_International_logo.svg/200px-Conservation_International_logo.svg.png" alt="">
+        <img class="bcn-partner-logo" aria-hidden="true" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Getty_Images_Logo.svg/200px-Getty_Images_Logo.svg.png" alt="">
+        <span class="bcn-partner-logo-text" aria-hidden="true">Africa Geographic</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Reuters</span>
       </div>
     </div>
   </section>
@@ -318,12 +300,28 @@
     <!-- Diagonal brush-stroke SVG — sits behind text, pointer-events: none -->
     <svg id="bcn-cta-svg" viewBox="0 0 100 100" preserveAspectRatio="none"
          aria-hidden="true" focusable="false">
-      <path d="M -5 78 C 12 70, 28 60, 50 45 S 80 22, 108 12"
-            stroke="rgba(180,160,130,0.25)"
-            stroke-width="11"
+      <defs>
+        <filter id="bcn-rough" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="2" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+      <path id="bcn-stroke-1"
+            d="M -10 95 C 5 80, 18 65, 35 50 C 52 35, 68 22, 88 12 C 98 7, 108 4, 118 2"
+            stroke="rgba(90,90,90,0.55)"
+            stroke-width="9"
             stroke-linecap="round"
             stroke-linejoin="round"
-            fill="none"/>
+            fill="none"
+            filter="url(#bcn-rough)"/>
+      <path id="bcn-stroke-2"
+            d="M 55 75 C 68 60, 80 50, 92 48 C 105 46, 115 55, 118 70 C 120 82, 115 92, 108 98"
+            stroke="rgba(90,90,90,0.40)"
+            stroke-width="12"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"
+            filter="url(#bcn-rough)"/>
     </svg>
 
     <div id="bcn-cta-inner">
