@@ -1031,18 +1031,21 @@ body.cursor-hover #bcn-lens-home {
   z-index: 99999;
   background: #111111;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 5vw;
   pointer-events: all;
   overflow: hidden;
 }
 
-/* Text wrap — centered, shifted left by JS when image appears */
+/* Text wrap — centered as flex item, no margin or offset */
 #bcn-loader-text-wrap {
   position: relative;
-  display: inline-block;
+  display: block;
   line-height: 1;
   flex-shrink: 0;
+  margin: 0;
 }
 
 /* Shared font style for both text layers */
@@ -1079,18 +1082,15 @@ body.cursor-hover #bcn-lens-home {
   white-space: nowrap;
 }
 
-/* Hero image — position: fixed so it doesn't disturb flex centering */
+/* Hero image — flex item, starts at width 0 (invisible), grows to 38vw when revealed */
 #bcn-loader-img-wrap {
-  position: fixed;
-  top: 50%;
-  right: 10vw;
-  width: 38vw;
+  position: relative;
+  flex-shrink: 0;
+  width: 0;
   height: 60vh;
-  transform: translateY(-50%);
   border-radius: 8px;
   overflow: hidden;
   opacity: 0;
-  z-index: 99999;
   /* transitions applied by JS at the right moment */
 }
 
