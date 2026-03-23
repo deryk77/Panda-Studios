@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base href="/BCN-Wild/" />
+  <base href="./" />
   <title>BCN-Wild — African Wildlife Photography</title>
   <meta name="description" content="BCN-Wild. Premium African wildlife photography from the heart of Uganda and East Africa. Wildlife, landscapes, and human experiences — captured with intention." />
   <link rel="canonical" href="https://www.pandastudios.co/BCN-Wild/" />
@@ -17,13 +17,13 @@
   <meta property="og:url" content="https://www.pandastudios.co/BCN-Wild/" />
   <meta property="og:title" content="BCN-Wild — African Wildlife Photography" />
   <meta property="og:description" content="Premium African wildlife photography. Captured with intention." />
-  <meta property="og:image" content="img/wildebeest-splashing-through-water-while-others-gr-2025-03-25-12-52-42-utc.jpg" />
+  <meta property="og:image" content="img/BCN (1).png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="BCN-Wild — African Wildlife Photography" />
   <meta name="twitter:description" content="Premium African wildlife photography. Captured with intention." />
-  <meta name="twitter:image" content="img/wildebeest-splashing-through-water-while-others-gr-2025-03-25-12-52-42-utc.jpg" />
+  <meta name="twitter:image" content="img/BCN (1).png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -115,7 +115,7 @@
       <div class="bcn-hero-content" id="bcn-hero-content">
         <span class="bcn-hero-label">Uganda &middot; East Africa</span>
         <h1 class="bcn-wordmark">BCN-<span>Wild</span></h1>
-        <p class="bcn-hero-sub">Africa through a lens of profound respect.</p>
+        <p class="bcn-hero-sub">Where patience becomes perspective.</p>
         <a href="#gallery" class="bcn-scroll-cue" id="bcn-scroll-cue">
           <span class="bcn-scroll-cue-text">Scroll</span>
           <span class="bcn-scroll-line"></span>
@@ -125,31 +125,37 @@
   </section>
 
   <!-- ============================================================
-       REVEAL — cream page · ghost text · small image zooms in
+       IRIS SLIDER — camera aperture transition between 5 key frames
        ============================================================ -->
-  <section class="bcn-reveal-section" id="bcn-reveal">
-    <div class="bcn-reveal-sticky">
-      <div class="bcn-reveal-ghost" id="bcn-reveal-ghost">
-        <span class="bcn-reveal-ghost-top">BCN</span>
-        <span class="bcn-reveal-ghost-bottom">Wild</span>
-      </div>
-      <div class="bcn-reveal-img" id="bcn-reveal-img"
-        style="background-image: url('img/SVNP_WILDLIFE_Gorilla_Sabyinyo_Family_Ross_Couper-5.webp');"></div>
+  <section id="bcn-iris-slider">
+    <!-- Slides -->
+    <div id="bcn-iris-slides">
+      <div class="bcn-iris-slide active" style="background-image: url('img/BCN (1).png')" role="img" aria-label="Wildlife — Uganda"></div>
+      <div class="bcn-iris-slide" style="background-image: url('img/BCN (2).png')" role="img" aria-label="Wildlife — Serengeti, Tanzania"></div>
+      <div class="bcn-iris-slide" style="background-image: url('img/BCN (3).png')" role="img" aria-label="Landscape — Bwindi Forest, Uganda"></div>
+      <div class="bcn-iris-slide" style="background-image: url('img/BCN (4).png')" role="img" aria-label="Wildlife — Masai Mara, Kenya"></div>
+      <div class="bcn-iris-slide" style="background-image: url('img/BCN (5).png')" role="img" aria-label="Cultural — Lake Victoria, Uganda"></div>
     </div>
-  </section>
-
-  <!-- ============================================================
-       STRIP — 5 images pan right to left · filmstrip with gaps
-       ============================================================ -->
-  <section class="bcn-strip-section" id="bcn-strip-section">
-    <div class="bcn-strip-sticky">
-      <div class="bcn-strip" id="bcn-strip">
-        <div class="bcn-strip-img" style="background-image: url('img/wildebeest-splashing-through-water-while-others-gr-2025-03-25-12-52-42-utc.jpg');"></div>
-        <div class="bcn-strip-img" style="background-image: url('img/closeup-of-leopard-looking-up-in-sabi-sands-by-rhino-africa-02~-~media--3f079e97--query.c80b53b9.webp');"></div>
-        <div class="bcn-strip-img" style="background-image: url('img/Rhino.webp');"></div>
-        <div class="bcn-strip-img" style="background-image: url('img/elphant.webp');"></div>
-        <div class="bcn-strip-img" style="background-image: url('img/a-magical-zimbabwe-wildlife-pictures-2025-02-20-00-10-35-utc.jpg');"></div>
-      </div>
+    <!-- Iris aperture overlay — 9 blades -->
+    <div id="bcn-iris-overlay" aria-hidden="true">
+      <div class="bcn-iris-blade" data-index="0"></div>
+      <div class="bcn-iris-blade" data-index="1"></div>
+      <div class="bcn-iris-blade" data-index="2"></div>
+      <div class="bcn-iris-blade" data-index="3"></div>
+      <div class="bcn-iris-blade" data-index="4"></div>
+      <div class="bcn-iris-blade" data-index="5"></div>
+      <div class="bcn-iris-blade" data-index="6"></div>
+      <div class="bcn-iris-blade" data-index="7"></div>
+      <div class="bcn-iris-blade" data-index="8"></div>
+    </div>
+    <!-- Navigation dots -->
+    <div id="bcn-iris-dots" role="tablist" aria-label="Slide navigation"></div>
+    <!-- Prev / Next arrows -->
+    <button id="bcn-iris-prev" aria-label="Previous slide">&#8592;</button>
+    <button id="bcn-iris-next" aria-label="Next slide">&#8594;</button>
+    <!-- Slide counter -->
+    <div id="bcn-iris-counter" aria-live="polite">
+      <span id="bcn-iris-current">01</span> / <span id="bcn-iris-total">05</span>
     </div>
   </section>
 
@@ -159,54 +165,93 @@
   <section class="bcn-about-section" id="bcn-about">
     <div class="bcn-about-wipe" id="bcn-about-wipe">
       <div class="bcn-about-inner">
-        <p class="bcn-about-label">About BCN-Wild</p>
-        <h2 class="bcn-about-title">Every frame<br>is a document.</h2>
-        <p class="bcn-about-body">Africa does not perform for the camera. It simply exists — in extraordinary, unguarded moments that last only as long as you are patient enough to wait for them. BCN-Wild was built on that patience. We move through Uganda, Tanzania, Rwanda, and South Africa with the discipline of those who know that the best frame is earned, not taken.</p>
-        <p class="bcn-about-body">Our work serves conservation bodies, editorial publishers, and institutions that understand what authentic wildlife imagery can do — not just aesthetically, but as evidence. Evidence that these animals exist, that these habitats remain, that something worth protecting is still here. Every image we deliver is a document. A record. A reason.</p>
+        <p class="bcn-about-label">BCN-Wild · East Africa</p>
+        <h2 class="bcn-about-title">The unseen detail<br>demands discipline.</h2>
+        <p class="bcn-about-body">Africa does not perform for the camera. It simply exists — in extraordinary, unguarded moments that last only as long as you are patient enough to hold still. BCN-Wild was built on that discipline. We operate across Uganda, Tanzania, Rwanda, and Kenya with the precision of those who understand that the decisive frame is earned through presence, not proximity.</p>
+        <p class="bcn-about-body">Our work is commissioned by conservation institutions, editorial publishers, and hospitality brands that know what authentic imagery can do — not just aesthetically, but as evidence. These frames document species, record habitats, and make the case for what is still worth protecting. Each one is a reason.</p>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       GALLERY — 3 panels
+       GALLERY — 6 panels · endless Z-axis zoom sequence
        ============================================================ -->
   <main class="bcn-gallery" id="gallery">
 
-    <!-- Panel 1 — Wildlife -->
-    <div class="bcn-panel" id="wildlife" data-category="Wildlife" data-location="Serengeti, Tanzania">
+    <!-- Panel 1 — Wildlife · Uganda -->
+    <div class="bcn-panel" id="wildlife" data-category="Wildlife" data-location="Murchison Falls, Uganda">
       <div class="bcn-panel-sticky">
-        <div class="bcn-panel-img" style="background-image: url('img/wildebeest-splashing-through-water-while-others-gr-2025-03-25-12-52-42-utc.jpg');"></div>
+        <div class="bcn-panel-img" style="background-image: url('img/BCN (6).png');"></div>
         <div class="bcn-panel-overlay"></div>
         <div class="bcn-panel-meta">
           <span class="bcn-panel-index">01</span>
+          <span class="bcn-panel-cat">Wildlife</span>
+          <span class="bcn-panel-loc">Murchison Falls, Uganda</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2 — Landscape · Uganda -->
+    <div class="bcn-panel" data-category="Landscape" data-location="Bwindi Forest, Uganda">
+      <div class="bcn-panel-sticky">
+        <div class="bcn-panel-img" style="background-image: url('img/BCN (7).png');"></div>
+        <div class="bcn-panel-overlay"></div>
+        <div class="bcn-panel-meta">
+          <span class="bcn-panel-index">02</span>
+          <span class="bcn-panel-cat">Landscape</span>
+          <span class="bcn-panel-loc">Bwindi Forest, Uganda</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3 — Wildlife · Tanzania -->
+    <div class="bcn-panel" data-category="Wildlife" data-location="Serengeti, Tanzania">
+      <div class="bcn-panel-sticky">
+        <div class="bcn-panel-img" style="background-image: url('img/BCN (8).png');"></div>
+        <div class="bcn-panel-overlay"></div>
+        <div class="bcn-panel-meta">
+          <span class="bcn-panel-index">03</span>
           <span class="bcn-panel-cat">Wildlife</span>
           <span class="bcn-panel-loc">Serengeti, Tanzania</span>
         </div>
       </div>
     </div>
 
-    <!-- Panel 2 — Wildlife -->
-    <div class="bcn-panel" data-category="Wildlife" data-location="Bwindi, Uganda">
+    <!-- Panel 4 — Cultural · Uganda -->
+    <div class="bcn-panel" data-category="Cultural &amp; People" data-location="Karamoja, Uganda">
       <div class="bcn-panel-sticky">
-        <div class="bcn-panel-img" style="background-image: url('img/SVNP_WILDLIFE_Gorilla_Sabyinyo_Family_Ross_Couper-5.webp');"></div>
+        <div class="bcn-panel-img" style="background-image: url('img/BCN (9).png');"></div>
         <div class="bcn-panel-overlay"></div>
         <div class="bcn-panel-meta">
-          <span class="bcn-panel-index">02</span>
-          <span class="bcn-panel-cat">Wildlife</span>
-          <span class="bcn-panel-loc">Bwindi, Uganda</span>
+          <span class="bcn-panel-index">04</span>
+          <span class="bcn-panel-cat">Cultural &amp; People</span>
+          <span class="bcn-panel-loc">Karamoja, Uganda</span>
         </div>
       </div>
     </div>
 
-    <!-- Panel 3 — Wildlife -->
-    <div class="bcn-panel" data-category="Wildlife" data-location="Sabi Sands, South Africa">
+    <!-- Panel 5 — Wildlife · Kenya -->
+    <div class="bcn-panel" data-category="Wildlife" data-location="Masai Mara, Kenya">
       <div class="bcn-panel-sticky">
-        <div class="bcn-panel-img" style="background-image: url('img/closeup-of-leopard-looking-up-in-sabi-sands-by-rhino-africa-02~-~media--3f079e97--query.c80b53b9.webp');"></div>
+        <div class="bcn-panel-img" style="background-image: url('img/BCN (10).png');"></div>
         <div class="bcn-panel-overlay"></div>
         <div class="bcn-panel-meta">
-          <span class="bcn-panel-index">03</span>
+          <span class="bcn-panel-index">05</span>
           <span class="bcn-panel-cat">Wildlife</span>
-          <span class="bcn-panel-loc">Sabi Sands, South Africa</span>
+          <span class="bcn-panel-loc">Masai Mara, Kenya</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 6 — Landscape · Kenya -->
+    <div class="bcn-panel" data-category="Landscape" data-location="Lake Nakuru, Kenya">
+      <div class="bcn-panel-sticky">
+        <div class="bcn-panel-img" style="background-image: url('img/BCN (11).png');"></div>
+        <div class="bcn-panel-overlay"></div>
+        <div class="bcn-panel-meta">
+          <span class="bcn-panel-index">06</span>
+          <span class="bcn-panel-cat">Landscape</span>
+          <span class="bcn-panel-loc">Lake Nakuru, Kenya</span>
         </div>
       </div>
     </div>
@@ -219,7 +264,7 @@
        ============================================================ -->
   <section class="bcn-contact-section" id="contact">
     <div class="bcn-contact-inner">
-      <h2 class="bcn-contact-title">Authentic experiences<br><em>captured.</em></h2>
+      <h2 class="bcn-contact-title">The brief starts<br><em>in the field.</em></h2>
       <form class="bcn-form" id="bcn-form" novalidate>
         <div class="bcn-form-row">
           <div class="bcn-field">
@@ -297,40 +342,16 @@
        CTA — "LET'S WORK TOGETHER" (felix-nieto.com style)
        ============================================================ -->
   <section id="bcn-cta">
-    <!-- Diagonal brush-stroke SVG — sits behind text, pointer-events: none -->
-    <svg id="bcn-cta-svg" viewBox="0 0 100 100" preserveAspectRatio="none"
-         aria-hidden="true" focusable="false">
-      <defs>
-        <filter id="bcn-rough" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="2" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-      </defs>
-      <path id="bcn-stroke-1"
-            d="M -10 95 C 5 80, 18 65, 35 50 C 52 35, 68 22, 88 12 C 98 7, 108 4, 118 2"
-            stroke="rgba(90,90,90,0.55)"
-            stroke-width="9"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            fill="none"
-            filter="url(#bcn-rough)"/>
-      <path id="bcn-stroke-2"
-            d="M 55 75 C 68 60, 80 50, 92 48 C 105 46, 115 55, 118 70 C 120 82, 115 92, 108 98"
-            stroke="rgba(90,90,90,0.40)"
-            stroke-width="12"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            fill="none"
-            filter="url(#bcn-rough)"/>
+    <svg id="bcn-cta-svg-draw" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <path class="bcn-draw-path" d="M -100 280 C 100 220, 400 120, 600 200 C 800 280, 950 350, 1100 250" />
+      <path class="bcn-draw-path" d="M 300 380 C 500 370, 800 320, 950 120" style="transition-delay: 0.5s; opacity: 0.3;" />
     </svg>
 
     <div id="bcn-cta-inner">
-      <!-- Line 1: "LET'S WORK" + pill button inline -->
       <div class="bcn-cta-line" id="bcn-cta-line1">
-        LET'S WORK
+        LET'S WORK 
         <a href="#contact" class="bcn-cta-pill">BOOK A CALL</a>
       </div>
-      <!-- Line 2: "TOGETHER" -->
       <div class="bcn-cta-line" id="bcn-cta-line2">TOGETHER</div>
     </div>
   </section>
@@ -360,6 +381,12 @@
     </div>
   </footer>
 
+  <div id="bcn-scroll-focus-ring" aria-hidden="true">
+    <div id="bcn-focus-track"></div>
+    <div class="bcn-focus-active-marker"></div>
+    <div class="bcn-focus-label">FOCUS</div>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
-</html>
+</html>
