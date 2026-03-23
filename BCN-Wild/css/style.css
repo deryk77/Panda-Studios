@@ -905,3 +905,196 @@ body.cursor-hover #bcn-cursor-dot {
   .bcn-about-title { font-size: clamp(28px, 7vw, 44px); }
 }
 
+/* ── 17. LENS — ykproduce.co.jp style ───────────────────────── */
+/*
+  Large white circle + mix-blend-mode: difference
+  → over dark bg  : circle shows as white fill
+  → over white text: text shows as dark (inverted)
+  → over images   : colors invert in the circle
+  This is the authentic ykproduce.co.jp lens effect.
+*/
+#bcn-lens-home {
+  position: fixed;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #ffffff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 9990;           /* above content, below cursor dot */
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease,
+              width  0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: left, top, transform;
+}
+
+/* Show after first mouse move */
+body.bcn-lens-ready #bcn-lens-home { opacity: 1; }
+
+/* Shrink when over interactive elements (so cursor ring still readable) */
+body.cursor-hover #bcn-lens-home {
+  width: 80px;
+  height: 80px;
+}
+
+@media (hover: none) {
+  #bcn-lens-home { display: none; }
+}
+
+/* ── 18. PARTNERS TICKER ────────────────────────────────────── */
+.bcn-partners {
+  position: relative;
+  overflow: hidden;
+  padding: 36px 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+/* Fade edges */
+.bcn-partners::before,
+.bcn-partners::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 180px;
+  z-index: 2;
+  pointer-events: none;
+}
+.bcn-partners::before {
+  left: 0;
+  background: linear-gradient(to right, #111111 0%, transparent 100%);
+}
+.bcn-partners::after {
+  right: 0;
+  background: linear-gradient(to left, #111111 0%, transparent 100%);
+}
+
+.bcn-partners-track {
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.bcn-partners-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  animation: bcn-ticker-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover */
+.bcn-partners:hover .bcn-partners-inner {
+  animation-play-state: paused;
+}
+
+@keyframes bcn-ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.bcn-partner-item {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.bcn-partner-item:hover {
+  color: rgba(255,255,255,0.65);
+}
+
+.bcn-partner-sep {
+  color: rgba(255,255,255,0.12);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ── 19. LET'S WORK TOGETHER — CTA (felix-nieto.com style) ──── */
+.bcn-cta-section {
+  position: relative;
+  background: var(--bg);
+  padding: clamp(80px, 14vh, 180px) 6vw clamp(100px, 16vh, 200px);
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+}
+
+.bcn-cta-label {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 48px;
+}
+
+.bcn-cta-heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+.bcn-cta-line1 {
+  display: block;
+  font-size: clamp(64px, 12vw, 170px);
+  margin-bottom: 0.05em;
+}
+
+.bcn-cta-line2 {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 24px);
+  flex-wrap: wrap;
+  font-size: clamp(64px, 12vw, 170px);
+}
+
+/* Inline pill button */
+.bcn-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #F4F0EB;      /* cream — echoes the reveal section */
+  color: #111111;
+  font-family: var(--font-sans);
+  font-size: clamp(11px, 0.85vw, 14px);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.55em 1.6em;
+  border-radius: 100px;
+  flex-shrink: 0;
+  transition: background 0.35s ease, color 0.35s ease, transform 0.35s ease;
+  cursor: none;
+  /* Align vertically to cap-height of surrounding text */
+  vertical-align: middle;
+  position: relative;
+  top: -0.08em;
+}
+
+.bcn-cta-pill:hover {
+  background: var(--white);
+  transform: scale(1.04);
+}
+
+/* Responsive CTA */
+@media (max-width: 768px) {
+  .bcn-cta-section { padding: 72px 6vw 88px; }
+  .bcn-cta-line1   { font-size: clamp(48px, 14vw, 90px); }
+  .bcn-cta-line2   { font-size: clamp(48px, 14vw, 90px); gap: 10px; }
+  .bcn-cta-pill    { font-size: 10px; padding: 0.5em 1.2em; }
+  .bcn-partners::before,
+  .bcn-partners::after { width: 80px; }
+}
+
+@media (max-width: 480px) {
+  .bcn-cta-line1   { font-size: clamp(36px, 16vw, 64px); }
+  .bcn-cta-line2   { font-size: clamp(36px, 16vw, 64px); }
+}

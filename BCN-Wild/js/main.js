@@ -382,4 +382,41 @@
     });
   });
 
+  /* ── 11. LENS — ykproduce.co.jp style ──────────────────────── */
+  /*
+    A large white circle with mix-blend-mode: difference follows the
+    mouse with a slow lag. Over dark backgrounds it appears as a white
+    circle; over light text/content it inverts the colours beneath it.
+    This creates the distinctive lens effect seen on ykproduce.co.jp.
+  */
+  if (!isTouchDevice) {
+    var lensHome   = document.getElementById('bcn-lens-home');
+    var lensHomeX  = -300;
+    var lensHomeY  = -300;
+    var lensTargX  = -300;
+    var lensTargY  = -300;
+    var lensReady  = false;
+
+    document.addEventListener('mousemove', function (e) {
+      lensTargX = e.clientX;
+      lensTargY = e.clientY;
+      if (!lensReady) {
+        lensReady = true;
+        document.body.classList.add('bcn-lens-ready');
+      }
+    });
+
+    function animateLensHome() {
+      // Gentle lag (0.09) — dreamy, not jittery
+      lensHomeX += (lensTargX - lensHomeX) * 0.09;
+      lensHomeY += (lensTargY - lensHomeY) * 0.09;
+      if (lensHome) {
+        lensHome.style.left = lensHomeX + 'px';
+        lensHome.style.top  = lensHomeY + 'px';
+      }
+      requestAnimationFrame(animateLensHome);
+    }
+    animateLensHome();
+  }
+
 })();
