@@ -42,22 +42,6 @@
   <div class="bcn-page-line"></div>
 
   <!-- ============================================================
-       CINEMATIC INTRO SEQUENCE (desktop only — driven by scrollY)
-       ============================================================ -->
-  <div id="bcn-intro">
-    <div id="bcn-intro-bg"></div>
-    <div id="bcn-intro-zoom-img" style="background-image: url('img/wildebeest-splashing-through-water-while-others-gr-2025-03-25-12-52-42-utc.jpg');"></div>
-    <div id="bcn-intro-strip">
-      <div class="bcn-intro-strip-img" style="background-image: url('img/wildebeest-splashing-through-water-while-others-gr-2025-03-25-12-52-42-utc.jpg');"></div>
-      <div class="bcn-intro-strip-img" style="background-image: url('img/SVNP_WILDLIFE_Gorilla_Sabyinyo_Family_Ross_Couper-5.webp');"></div>
-      <div class="bcn-intro-strip-img" style="background-image: url('img/closeup-of-leopard-looking-up-in-sabi-sands-by-rhino-africa-02~-~media--3f079e97--query.c80b53b9.webp');"></div>
-      <div class="bcn-intro-strip-img" style="background-image: url('img/Rhino.webp');"></div>
-      <div class="bcn-intro-strip-img" style="background-image: url('img/elphant.webp');"></div>
-    </div>
-  </div>
-  <div id="bcn-scroll-spacer" style="height: 1800px;"></div>
-
-  <!-- ============================================================
        NAVIGATION — invisible until scrolled or hovered
        ============================================================ -->
   <nav class="bcn-nav" id="bcn-nav" role="navigation">
@@ -95,21 +79,23 @@
   </div>
 
   <!-- ============================================================
-       HERO
+       HERO — first zoom panel (Z-axis from scroll=0, milez.jp style)
        ============================================================ -->
   <section class="bcn-hero" id="hero">
-    <div class="bcn-hero-bg" id="bcn-hero-bg"
-      style="background-image: url('img/wildebeest-splashing-through-water-while-others-gr-2025-03-25-12-52-42-utc.jpg');">
-    </div>
-    <div class="bcn-hero-overlay"></div>
-    <div class="bcn-hero-content">
-      <span class="bcn-hero-label">Uganda &middot; East Africa</span>
-      <h1 class="bcn-wordmark">BCN-<span>Wild</span></h1>
-      <p class="bcn-hero-sub">Africa through a lens of profound respect.</p>
-      <a href="#gallery" class="bcn-scroll-cue" id="bcn-scroll-cue">
-        <span class="bcn-scroll-cue-text">Scroll</span>
-        <span class="bcn-scroll-line"></span>
-      </a>
+    <div class="bcn-hero-sticky">
+      <div class="bcn-hero-bg" id="bcn-hero-bg"
+        style="background-image: url('img/wildebeest-splashing-through-water-while-others-gr-2025-03-25-12-52-42-utc.jpg');">
+      </div>
+      <div class="bcn-hero-overlay"></div>
+      <div class="bcn-hero-content" id="bcn-hero-content">
+        <span class="bcn-hero-label">Uganda &middot; East Africa</span>
+        <h1 class="bcn-wordmark">BCN-<span>Wild</span></h1>
+        <p class="bcn-hero-sub">Africa through a lens of profound respect.</p>
+        <a href="#gallery" class="bcn-scroll-cue" id="bcn-scroll-cue">
+          <span class="bcn-scroll-cue-text">Scroll</span>
+          <span class="bcn-scroll-line"></span>
+        </a>
+      </div>
     </div>
   </section>
 

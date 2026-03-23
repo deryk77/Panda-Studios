@@ -8,23 +8,16 @@
 
   var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
-  /* ── 1. PAGE LOAD — Hero Ken Burns ─────────────────────────── */
+  /* ── 1. PAGE LOAD ───────────────────────────────────────────── */
   window.addEventListener('load', function () {
-    var heroBg = document.getElementById('bcn-hero-bg');
-    if (heroBg) {
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          heroBg.classList.add('loaded');
-        });
-      });
-    }
-    // Fade in scroll cue after delay
+    // Scroll cue fades in after a short delay
     var cue = document.getElementById('bcn-scroll-cue');
     if (cue) {
+      cue.style.opacity = '0';
       setTimeout(function () {
         cue.style.opacity = '1';
         cue.style.transition = 'opacity 1s ease';
-      }, 1800);
+      }, 1200);
     }
   });
 
@@ -122,66 +115,59 @@
     if (e.key === 'Escape') closeMenu();
   });
 
-  /* ── 5. HERO PARALLAX (desktop only) ───────────────────────── */
-  if (!isTouchDevice) {
-    var heroBg = document.getElementById('bcn-hero-bg');
-    window.addEventListener('scroll', function () {
-      if (!heroBg) return;
-      var scrollY = window.scrollY;
-      // On desktop the intro spacer pushes the hero down 1800px
-      var introOffset = (window.innerWidth > 768) ? 1800 : 0;
-      var relScroll = scrollY - introOffset;
-      if (relScroll >= 0 && relScroll < window.innerHeight) {
-        heroBg.style.transform = 'scale(1) translateY(' + (relScroll * 0.3) + 'px)';
-      }
-    }, { passive: true });
+  /* ── 5. HERO PARALLAX — removed; hero zoom is now handled by    */
+  /*    the Z-axis zoom engine in section 6 below, same as panels  */
+
+  /* ── 6. Z-AXIS ZOOM ENGINE ──────────────────────────────────── */
+  /*
+    Both the hero and every .bcn-panel share the same mechanic:
+      · Container height: 220vh
+      · Sticky inner:     100vh
+      · Scroll travel:    120vh  →  image scales 1.0 → 1.22
+    The hero is the FIRST frame — zoom starts at scrollY = 0.
+    Gallery panels continue the same effect seamlessly.
+  */
+  var hero        = document.querySelector('.bcn-hero');
+  var heroBg      = document.getElementById('bcn-hero-bg');
+  var heroContent = document.getElementById('bcn-hero-content');
+  var panels      = document.querySelectorAll('.bcn-panel');
+  var vh          = window.innerHeight;
+
+  function zoomElement(container, img) {
+    if (!container || !img) return;
+    var rect       = container.getBoundingClientRect();
+    var scrollable = container.offsetHeight - vh; // 120vh
+    var panelTop   = window.scrollY + rect.top;
+    var clamped    = Math.max(0, Math.min(1, (window.scrollY - panelTop) / scrollable));
+    img.style.transform = 'scale(' + (1 + clamped * 0.22) + ')';
+    return clamped;
   }
 
-  /* ── 6. ENDLESS ZOOM ENGINE ─────────────────────────────────── */
-  /*
-    Each .bcn-panel is height: 220vh
-    The inner .bcn-panel-sticky is position: sticky, height: 100vh
-    As we scroll through the panel's "extra" 120vh of travel,
-    the image scales from 1.0 → 1.22 (Z-axis zoom)
-    This creates the endless flying-through effect
-  */
-  var panels = document.querySelectorAll('.bcn-panel');
-  var vh = window.innerHeight;
-
   function updateZoom() {
-    var scrollY = window.scrollY;
     vh = window.innerHeight;
 
+    // ── Hero: zoom + fade content out as image zooms in ──────
+    var heroProgress = zoomElement(hero, heroBg);
+    if (heroContent && heroProgress !== undefined) {
+      // Content fades out over the first 40% of hero scroll travel
+      var fade = heroProgress < 0.4 ? (1 - heroProgress / 0.4) : 0;
+      heroContent.style.opacity = Math.max(0, Math.min(1, fade));
+    }
+
+    // ── Gallery panels ────────────────────────────────────────
     panels.forEach(function (panel) {
-      var img = panel.querySelector('.bcn-panel-img');
-      if (!img) return;
+      var img      = panel.querySelector('.bcn-panel-img');
+      var clamped  = zoomElement(panel, img);
+      if (clamped === undefined) return;
 
-      var rect      = panel.getBoundingClientRect();
-      var panelH    = panel.offsetHeight;
-      var stickyH   = vh;
-      var scrollable = panelH - stickyH; // = 120vh
-
-      // progress: 0 at panel entry, 1 at panel exit
-      var panelTop  = scrollY + rect.top;
-      var progress  = (scrollY - panelTop) / scrollable;
-      var clamped   = Math.max(0, Math.min(1, progress));
-
-      // Scale: 1.0 → 1.22 as we scroll through
-      var scale = 1 + (clamped * 0.22);
-      img.style.transform = 'scale(' + scale + ')';
-
-      // Meta text: fade in after 20% progress, fade out after 80%
+      // Meta text: fade in 0→15%, hold 15→80%, fade out 80→100%
       var meta = panel.querySelector('.bcn-panel-meta');
       if (meta) {
-        var metaOpacity;
-        if (clamped < 0.15) {
-          metaOpacity = clamped / 0.15;
-        } else if (clamped > 0.8) {
-          metaOpacity = 1 - ((clamped - 0.8) / 0.2);
-        } else {
-          metaOpacity = 1;
-        }
-        meta.style.opacity = Math.max(0, Math.min(1, metaOpacity));
+        var op;
+        if (clamped < 0.15)      op = clamped / 0.15;
+        else if (clamped > 0.8)  op = 1 - ((clamped - 0.8) / 0.2);
+        else                     op = 1;
+        meta.style.opacity = Math.max(0, Math.min(1, op));
       }
     });
   }
@@ -300,8 +286,6 @@
   }
 
   /* ── 10. SMOOTH ANCHOR SCROLL ───────────────────────────────── */
-  // NOTE: anchor scroll-into-view must account for the 1800px spacer on desktop.
-  // The existing smooth-scroll handler uses scrollIntoView which handles this natively.
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
       var target = document.querySelector(this.getAttribute('href'));
@@ -311,83 +295,5 @@
       }
     });
   });
-
-  /* ── 11. CINEMATIC INTRO SEQUENCE (desktop only) ──────────── */
-  (function () {
-    if (window.innerWidth <= 768) return;
-
-    var introEl = document.getElementById('bcn-intro');
-    var zoomImg = document.getElementById('bcn-intro-zoom-img');
-    var strip   = document.getElementById('bcn-intro-strip');
-
-    if (!introEl || !zoomImg || !strip) return;
-
-    var PHASE1_END = 300;
-    var PHASE2_END = 1800;
-    var introDone  = false;
-
-    // The scale that makes the 38vw×22vw thumbnail cover 100vw×100vh
-    function getTargetScale() {
-      var imgW = 0.38 * window.innerWidth;
-      var imgH = 0.22 * window.innerWidth;
-      return Math.max(window.innerWidth / imgW, window.innerHeight / imgH);
-    }
-
-    function updateIntro() {
-      if (introDone) return;
-
-      var scrollY = window.scrollY;
-
-      if (scrollY > PHASE2_END) {
-        // Phase complete — fade whole intro out
-        introDone = true;
-        introEl.style.transition = 'opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-        introEl.style.opacity    = '0';
-        introEl.style.pointerEvents = 'none';
-        return;
-      }
-
-      introEl.style.opacity    = '1';
-      introEl.style.transition = 'none';
-      introEl.style.pointerEvents = 'none';
-
-      if (scrollY <= PHASE1_END) {
-        // ── Phase 1: thumbnail zooms to fullscreen ──
-        var p1 = scrollY / PHASE1_END;
-        var targetScale = getTargetScale();
-        var scale  = 1 + p1 * (targetScale - 1);
-        var radius = 12 * (1 - p1);
-
-        zoomImg.style.transform    = 'translate(-50%, -50%) scale(' + scale + ')';
-        zoomImg.style.borderRadius = radius + 'px';
-        zoomImg.style.opacity      = '1';
-
-        strip.style.transform = 'translateX(' + window.innerWidth + 'px)';
-        strip.style.opacity   = '0';
-
-      } else {
-        // ── Phase 2: horizontal strip pans right → left ──
-        var p2 = (scrollY - PHASE1_END) / (PHASE2_END - PHASE1_END);
-        var ts = getTargetScale();
-
-        // Zoom image stays fullscreen and fades out over the first 30% of phase 2
-        zoomImg.style.transform    = 'translate(-50%, -50%) scale(' + ts + ')';
-        zoomImg.style.borderRadius = '0px';
-        zoomImg.style.opacity      = p2 < 0.3 ? String(1 - p2 / 0.3) : '0';
-
-        // Strip: starts fully off-screen right, pans until last image's right edge hits x=0
-        var stripW  = strip.offsetWidth;
-        var startX  = window.innerWidth;
-        var endX    = -stripW;
-        var tx      = startX + p2 * (endX - startX);
-
-        strip.style.transform = 'translateX(' + tx + 'px)';
-        strip.style.opacity   = '1';
-      }
-    }
-
-    window.addEventListener('scroll', updateIntro, { passive: true });
-    updateIntro(); // initialise on load
-  }());
 
 })();

@@ -263,13 +263,17 @@ body.cursor-hover #bcn-cursor-dot {
 
 .bcn-menu-socials a:hover { color: var(--white); }
 
-/* ── 7. HERO ────────────────────────────────────────────────── */
+/* ── 7. HERO — sticky zoom panel (first frame of Z-axis sequence) */
 .bcn-hero {
   position: relative;
+  height: 220vh; /* same travel as gallery panels */
+}
+
+.bcn-hero-sticky {
+  position: sticky;
+  top: 0;
   height: 100vh;
   min-height: 600px;
-  display: flex;
-  align-items: flex-end;
   overflow: hidden;
 }
 
@@ -278,12 +282,9 @@ body.cursor-hover #bcn-cursor-dot {
   inset: 0;
   background-size: cover;
   background-position: center;
-  transform: scale(1.05);
-  transition: transform 8s ease;
   will-change: transform;
+  /* JS drives scale — same engine as .bcn-panel-img */
 }
-
-.bcn-hero-bg.loaded { transform: scale(1); }
 
 .bcn-hero-overlay {
   position: absolute;
@@ -295,10 +296,13 @@ body.cursor-hover #bcn-cursor-dot {
 }
 
 .bcn-hero-content {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
   padding: 0 80px clamp(60px, 8vh, 100px);
-  width: 100%;
+  will-change: opacity;
 }
 
 .bcn-hero-label {
@@ -699,7 +703,7 @@ body.cursor-hover #bcn-cursor-dot {
   .bcn-nav.scrolled { padding: 14px 24px; }
   .bcn-nav-contact { display: none; }
 
-  .bcn-hero-content { padding: 0 24px clamp(48px, 8vh, 80px); }
+  .bcn-hero-content { padding: 0 24px clamp(48px, 8vh, 80px); bottom: 0; }
 
   .bcn-wordmark { font-size: clamp(48px, 14vw, 80px); }
 
@@ -730,61 +734,3 @@ body.cursor-hover #bcn-cursor-dot {
   #bcn-cursor, #bcn-cursor-dot { display: none; }
 }
 
-/* ── 14. CINEMATIC INTRO SEQUENCE ───────────────────────────── */
-#bcn-intro {
-  position: relative;
-  z-index: 0;
-  pointer-events: none;
-}
-
-#bcn-intro-bg {
-  position: fixed;
-  inset: 0;
-  background: #111111;
-  z-index: 400;
-  pointer-events: none;
-}
-
-#bcn-intro-zoom-img {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 38vw;
-  height: 22vw;
-  border-radius: 12px;
-  background-size: cover;
-  background-position: center;
-  transform: translate(-50%, -50%);
-  z-index: 401;
-  pointer-events: none;
-  will-change: transform, border-radius, opacity;
-}
-
-#bcn-intro-strip {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  display: flex;
-  align-items: stretch;
-  gap: 6vw;
-  will-change: transform;
-  z-index: 402;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.bcn-intro-strip-img {
-  height: 100%;
-  aspect-ratio: 3 / 2;
-  flex-shrink: 0;
-  background-size: cover;
-  background-position: center;
-}
-
-@media (max-width: 768px) {
-  #bcn-intro,
-  #bcn-scroll-spacer {
-    display: none;
-  }
-}
