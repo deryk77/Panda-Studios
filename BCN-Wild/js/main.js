@@ -6,7 +6,7 @@
      Z-Axis Zoom Engine · Custom Cursor · Nav · Menu · Form
      ============================================================ */
 
-  var canUseCustomCursor = window.matchMedia('(hover: hover)').matches;
+  var canUseCustomCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ── 1. PAGE LOAD ───────────────────────────────────────────── */
   window.addEventListener('load', function () {
@@ -51,7 +51,9 @@
     animateCursor();
 
     // Hover state on interactive elements
-    var hoverEls = document.querySelectorAll('a, button, select, input, textarea, .bcn-panel');
+    var hoverEls = document.querySelectorAll(
+      'a, button, select, input, textarea, .bcn-panel, #bcn-iris-prev, #bcn-iris-next, .bcn-iris-dot'
+    );
     hoverEls.forEach(function (el) {
       el.addEventListener('mouseenter', function () {
         document.body.classList.add('cursor-hover');
@@ -149,8 +151,8 @@
     // ── Hero: zoom + fade content out as image zooms in ──────
     var heroProgress = zoomElement(hero, heroBg);
     if (heroContent && heroProgress !== undefined) {
-      // Content fades out over the first 40% of hero scroll travel
-      var fade = heroProgress < 0.4 ? (1 - heroProgress / 0.4) : 0;
+      // Content fades out later so the hero text stays readable longer
+      var fade = heroProgress < 0.75 ? (1 - heroProgress / 0.75) : 0;
       heroContent.style.opacity = Math.max(0, Math.min(1, fade));
     }
 
@@ -297,8 +299,12 @@
       var panelTop   = window.scrollY + rect.top;
       var p          = Math.max(0, Math.min(1, (window.scrollY - panelTop) / scrollable));
 
-      // inset(T 0 0 0): as T goes 100%→0%, bottom of element appears first → wipe from below
-      var topInset = ((1 - p) * 100).toFixed(2);
+      // inset(T 0 0 0): as T goes 100%→0%, bottom appears first → wipe from below.
+      // Reveal early, then keep it open while the reader scrolls.
+      var revealEnd = 0.25; // reach fully open by 25% of this section's scroll travel
+      var reveal = p / revealEnd;
+      reveal = Math.max(0, Math.min(1, reveal));
+      var topInset = ((1 - reveal) * 100).toFixed(2);
       aboutWipe.style.clipPath = 'inset(' + topInset + '% 0 0 0)';
     }
 
@@ -415,9 +421,13 @@
     var slider = document.getElementById('bcn-iris-slider');
     if (!slider) return;
 
-    var slides       = Array.from(document.querySelectorAll('.bcn-iris-slide'));
-    var blades       = Array.from(document.querySelectorAll('.bcn-iris-blade'));
+    var slidesAll = Array.from(document.querySelectorAll('.bcn-iris-slide'));
+    // Hard cap: maximum of 5 iris images
+    var slides = slidesAll.slice(0, 5);
+    slidesAll.forEach(function (s) { s.classList.remove('active'); });
+    if (slides[0]) slides[0].classList.add('active');
     var dotsContainer = document.getElementById('bcn-iris-dots');
+    if (!dotsContainer) return;
     var prevBtn      = document.getElementById('bcn-iris-prev');
     var nextBtn      = document.getElementById('bcn-iris-next');
     var currentEl    = document.getElementById('bcn-iris-current');
@@ -426,7 +436,8 @@
     var current     = 0;
     var isAnimating = false;
     var total       = slides.length;
-    var AUTO_INTERVAL = 5000;
+    // Slower automatic advance for the fade
+    var AUTO_INTERVAL = 9000;
     var autoTimer;
 
     // Build dots
@@ -449,42 +460,20 @@
       if (currentEl) currentEl.textContent = String(index + 1).padStart(2, '0');
     }
 
-    // Phase 1: blades converge (close aperture), swap slide, open aperture
     function goTo(index) {
       if (isAnimating || index === current) return;
       isAnimating = true;
       var next = index;
-
-      // CLOSE — growing blades cover the screen
-      blades.forEach(function (b) {
-        b.classList.remove('opening');
-        b.classList.add('closing');
-      });
+      // Crossfade is driven purely by CSS transitions on opacity/blur/scale
+      slides[current].classList.remove('active');
+      slides[next].classList.add('active');
+      current = next;
+      updateUI(current);
 
       setTimeout(function () {
-        blades.forEach(function (b) { b.classList.add('closed'); });
-      }, 50);
-
-      // Swap slides after close completes
-      setTimeout(function () {
-        slides[current].classList.remove('active');
-        slides[next].classList.add('active');
-        current = next;
-        updateUI(current);
-
-        // OPEN — blades retract to reveal new slide
-        blades.forEach(function (b) {
-          b.classList.remove('closing', 'closed');
-          b.classList.add('opening');
-        });
-
-        // Clean up after opening
-        setTimeout(function () {
-          blades.forEach(function (b) { b.classList.remove('opening'); });
-          isAnimating = false;
-        }, 550);
-      }, 550);
-    }
+        isAnimating = false;
+      }, 2300);
+  }
 
     function nextSlide() { goTo((current + 1) % total); }
     function prevSlide() { goTo((current - 1 + total) % total); }
@@ -541,7 +530,7 @@
     obs.observe(cta);
   }
 
-  /* ── 15. FOCUS RING SCROLL INDICATOR ───────────────────────── */
+  /* ── 15. FOCUS RING SCROLL INDICATOR (sticky-aware mechanical progress) ─ */
   function initFocusRing() {
     var track = document.getElementById('bcn-focus-track');
     var ring = document.getElementById('bcn-scroll-focus-ring');
@@ -555,39 +544,124 @@
       track.appendChild(line);
     }
 
-    var containerHeight = 350;
-    var centerPoint = containerHeight / 2;
+    var markerCenter = 175; /* half of #bcn-scroll-focus-ring height (350px) */
+    var sectionSelectors = [
+      '#hero',
+      '#bcn-iris-slider',
+      '#bcn-about',
+      '.bcn-panel',
+      '#contact',
+      '.bcn-partners',
+      '#bcn-cta',
+      '.bcn-footer'
+    ];
 
-    function updateFocusScroll() {
-      var scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
-      var scrollPercent = scrollTotal > 0 ? (window.scrollY / scrollTotal) : 0;
+    var segments = [];
+    var targetY = markerCenter;
+    var currentY = markerCenter;
+    var rafId = null;
 
-      var trackHeight = track.scrollHeight;
-      var travelRange = trackHeight - centerPoint;
-      var moveAmount = scrollPercent * travelRange;
-      track.style.transform = 'translateY(' + (centerPoint - moveAmount) + 'px)';
+    function readPageY(el) {
+      var rect = el.getBoundingClientRect();
+      return rect.top + window.scrollY;
+    }
 
+    function buildSegments() {
+      segments = [];
+      sectionSelectors.forEach(function (selector) {
+        document.querySelectorAll(selector).forEach(function (el) {
+          var start = readPageY(el);
+          var isStickyTravel = (
+            el.id === 'hero' ||
+            el.id === 'bcn-about' ||
+            el.classList.contains('bcn-panel')
+          );
+          var span = isStickyTravel
+            ? Math.max(1, el.offsetHeight - window.innerHeight)
+            : Math.max(1, el.offsetHeight);
+
+          segments.push({ start: start, end: start + span, span: span });
+        });
+      });
+      segments.sort(function (a, b) { return a.start - b.start; });
+    }
+
+    function getMechanicalProgress() {
+      if (!segments.length) return 0;
+      var y = window.scrollY;
+      var totalSpan = 0;
+      var passed = 0;
+      segments.forEach(function (seg) { totalSpan += seg.span; });
+      if (totalSpan <= 0) return 0;
+
+      for (var i = 0; i < segments.length; i += 1) {
+        var seg = segments[i];
+        if (y >= seg.end) {
+          passed += seg.span;
+        } else if (y > seg.start) {
+          passed += (y - seg.start);
+          break;
+        } else {
+          break;
+        }
+      }
+      return Math.max(0, Math.min(1, passed / totalSpan));
+    }
+
+    function highlightLinesNearMarker() {
       var lines = track.querySelectorAll('.bcn-focus-line');
       var containerTop = ring.getBoundingClientRect().top;
 
-      lines.forEach(function (line) {
-        var lineRect = line.getBoundingClientRect();
+      lines.forEach(function (ln) {
+        var lineRect = ln.getBoundingClientRect();
         var relativeLinePos = (lineRect.top + lineRect.height / 2) - containerTop;
-        var distanceToCenter = Math.abs(relativeLinePos - centerPoint);
+        var distanceToCenter = Math.abs(relativeLinePos - markerCenter);
 
         if (distanceToCenter < 15) {
-          line.style.opacity = '1';
-          line.style.width = line.classList.contains('major') ? '32px' : '20px';
+          ln.style.opacity = '1';
+          ln.style.width = ln.classList.contains('major') ? '32px' : '20px';
         } else {
-          line.style.opacity = '0.3';
-          line.style.width = line.classList.contains('major') ? '22px' : '12px';
+          ln.style.opacity = '0.3';
+          ln.style.width = ln.classList.contains('major') ? '22px' : '12px';
         }
       });
     }
 
-    window.addEventListener('scroll', updateFocusScroll, { passive: true });
-    window.addEventListener('resize', updateFocusScroll, { passive: true });
-    updateFocusScroll();
+    function updateTargetFromScroll() {
+      var progress = getMechanicalProgress();
+      var trackHeight = track.offsetHeight;
+      var maxTravel = Math.max(0, trackHeight - markerCenter);
+      targetY = markerCenter - (progress * maxTravel);
+      if (!rafId) rafId = requestAnimationFrame(animateTrack);
+    }
+
+    function animateTrack() {
+      currentY += (targetY - currentY) * 0.18;
+      track.style.transform = 'translateY(' + currentY.toFixed(2) + 'px)';
+      highlightLinesNearMarker();
+
+      if (Math.abs(targetY - currentY) > 0.1) {
+        rafId = requestAnimationFrame(animateTrack);
+      } else {
+        currentY = targetY;
+        track.style.transform = 'translateY(' + currentY.toFixed(2) + 'px)';
+        highlightLinesNearMarker();
+        rafId = null;
+      }
+    }
+
+    buildSegments();
+    updateTargetFromScroll();
+
+    window.addEventListener('scroll', updateTargetFromScroll, { passive: true });
+    window.addEventListener('resize', function () {
+      buildSegments();
+      updateTargetFromScroll();
+    }, { passive: true });
+    window.addEventListener('load', function () {
+      buildSegments();
+      updateTargetFromScroll();
+    });
   }
 
   // Initialise effects on DOMContentLoaded
