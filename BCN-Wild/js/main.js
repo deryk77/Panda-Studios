@@ -382,7 +382,145 @@
     });
   });
 
-  /* ── 11. LENS — ykproduce.co.jp style ──────────────────────── */
+  /* ── 11. PAGE LOADER ────────────────────────────────────────── */
+  function initLoader() {
+    // Skip on mobile
+    if (window.innerWidth < 768) return;
+    // Skip if already seen this session
+    if (sessionStorage.getItem('bcn-loader-seen')) return;
+
+    var loader   = document.getElementById('bcn-loader');
+    if (!loader) return;
+
+    var textWrap = document.getElementById('bcn-loader-text-wrap');
+    var textBack = document.getElementById('bcn-loader-text-back');
+    var wipe     = document.getElementById('bcn-loader-wipe');
+    var imgWrap  = document.getElementById('bcn-loader-img-wrap');
+    var img      = document.getElementById('bcn-loader-img');
+
+    // Prevent page scroll during loader
+    document.body.style.overflow = 'hidden';
+
+    /* ── Step 2 (200ms): cream wipe slides L→R over the text ── */
+    setTimeout(function () {
+      var textW = textBack.offsetWidth + 20;
+      wipe.style.transition = 'width 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+      wipe.style.width = textW + 'px';
+    }, 200);
+
+    /* ── Step 3 (900ms): bg turns cream · text shifts left · image fades in */
+    setTimeout(function () {
+      // Black → cream background
+      loader.style.transition = 'background-color 0.5s ease';
+      loader.style.backgroundColor = '#f9f8f5';
+
+      // Calculate balanced shift so text + image are optically centred
+      var textW   = textBack.offsetWidth;
+      var imgW    = 0.38 * window.innerWidth;
+      var gap     = 0.04 * window.innerWidth;
+      var totalW  = textW + gap + imgW;
+      var leftPad = (window.innerWidth - totalW) / 2;
+      var textNewCenter = leftPad + textW / 2;
+      var shift = textNewCenter - window.innerWidth / 2; // negative = move left
+
+      textWrap.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+      textWrap.style.transform  = 'translateX(' + shift + 'px)';
+
+      // Hero image fades in to the right
+      imgWrap.style.transition = 'opacity 0.4s ease';
+      imgWrap.style.opacity    = '1';
+    }, 900);
+
+    /* ── Step 4a (1600ms): image subtly scales ──────────────── */
+    setTimeout(function () {
+      img.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+      img.style.transform  = 'scale(1.08)';
+    }, 1600);
+
+    /* ── Step 4b (1820ms): image expands to fill viewport ───── */
+    setTimeout(function () {
+      // Snapshot current screen rect before changing positioning strategy
+      var rect = imgWrap.getBoundingClientRect();
+      imgWrap.style.transition = 'none';
+      imgWrap.style.top        = rect.top    + 'px';
+      imgWrap.style.left       = rect.left   + 'px';
+      imgWrap.style.right      = 'auto';
+      imgWrap.style.width      = rect.width  + 'px';
+      imgWrap.style.height     = rect.height + 'px';
+      imgWrap.style.transform  = 'none';
+
+      // Two rAF frames to force layout before animating
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          imgWrap.style.transition =
+            'top 0.5s cubic-bezier(0.16, 1, 0.3, 1),' +
+            'left 0.5s cubic-bezier(0.16, 1, 0.3, 1),' +
+            'width 0.5s cubic-bezier(0.16, 1, 0.3, 1),' +
+            'height 0.5s cubic-bezier(0.16, 1, 0.3, 1),' +
+            'border-radius 0.5s ease';
+          imgWrap.style.top          = '0';
+          imgWrap.style.left         = '0';
+          imgWrap.style.width        = '100vw';
+          imgWrap.style.height       = '100vh';
+          imgWrap.style.borderRadius = '0';
+        });
+      });
+    }, 1820);
+
+    /* ── Step 4c (2350ms): fade out entire loader ────────────── */
+    setTimeout(function () {
+      loader.style.transition  = 'opacity 0.35s ease';
+      loader.style.opacity     = '0';
+      imgWrap.style.transition = 'opacity 0.35s ease';
+      imgWrap.style.opacity    = '0';
+    }, 2350);
+
+    /* ── Step 4d (2720ms): remove loader, restore scroll ─────── */
+    setTimeout(function () {
+      loader.style.display        = 'none';
+      loader.style.pointerEvents  = 'none';
+      imgWrap.style.display       = 'none';
+      document.body.style.overflow = '';
+      sessionStorage.setItem('bcn-loader-seen', '1');
+    }, 2720);
+  }
+
+  /* ── 12. CTA FOOTER — scroll-in animation ───────────────────── */
+  function initCTA() {
+    var cta = document.getElementById('bcn-cta');
+    if (!cta) return;
+
+    var lines = cta.querySelectorAll('.bcn-cta-line');
+    if (!lines.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      // Fallback: just show them
+      lines.forEach(function (l) { l.classList.add('bcn-cta-visible'); });
+      return;
+    }
+
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        lines.forEach(function (line, i) {
+          setTimeout(function () {
+            line.classList.add('bcn-cta-visible');
+          }, i * 150);
+        });
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.3 });
+
+    obs.observe(cta);
+  }
+
+  // Initialise both effects on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', function () {
+    initLoader();
+    initCTA();
+  });
+
+  /* ── 13. LENS — ykproduce.co.jp style ──────────────────────── */
   /*
     A large white circle with mix-blend-mode: difference follows the
     mouse with a slow lag. Over dark backgrounds it appears as a white

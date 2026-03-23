@@ -34,6 +34,28 @@
 </head>
 <body>
 
+  <!-- ============================================================
+       PAGE LOADER — plays once per session, time-based only
+       ============================================================ -->
+  <div id="bcn-loader" aria-hidden="true">
+    <!-- Text: two layers for the wipe colour-flip effect -->
+    <div id="bcn-loader-text-wrap">
+      <!-- Back layer: white text visible on black -->
+      <span id="bcn-loader-text-back">BCN-Wild</span>
+      <!-- Cream wipe rectangle (width animated L→R by JS) -->
+      <div id="bcn-loader-wipe">
+        <!-- Front layer: dark text, revealed as cream wipe slides over -->
+        <span id="bcn-loader-text-front">BCN-Wild</span>
+      </div>
+    </div>
+    <!-- Hero preview image (fades in at step 3, expands at step 4) -->
+    <div id="bcn-loader-img-wrap">
+      <img id="bcn-loader-img"
+           src="img/wildebeest-splashing-through-water-while-others-gr-2025-03-25-12-52-42-utc.webp"
+           alt="" loading="eager" />
+    </div>
+  </div>
+
   <!-- Custom Cursor -->
   <div id="bcn-cursor"></div>
   <div id="bcn-cursor-dot"></div>
@@ -290,18 +312,28 @@
   </section>
 
   <!-- ============================================================
-       CTA — "Let's Work Together" (felix-nieto.com style)
+       CTA — "LET'S WORK TOGETHER" (felix-nieto.com style)
        ============================================================ -->
-  <section class="bcn-cta-section">
-    <div class="bcn-cta-inner">
-      <p class="bcn-cta-label">Ready to collaborate</p>
-      <h2 class="bcn-cta-heading">
-        <span class="bcn-cta-line1">Let's work</span>
-        <span class="bcn-cta-line2">
-          <a href="#contact" class="bcn-cta-pill">Book a call</a>
-          together.
-        </span>
-      </h2>
+  <section id="bcn-cta">
+    <!-- Diagonal brush-stroke SVG — sits behind text, pointer-events: none -->
+    <svg id="bcn-cta-svg" viewBox="0 0 100 100" preserveAspectRatio="none"
+         aria-hidden="true" focusable="false">
+      <path d="M -5 78 C 12 70, 28 60, 50 45 S 80 22, 108 12"
+            stroke="rgba(180,160,130,0.25)"
+            stroke-width="11"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"/>
+    </svg>
+
+    <div id="bcn-cta-inner">
+      <!-- Line 1: "LET'S WORK" + pill button inline -->
+      <div class="bcn-cta-line" id="bcn-cta-line1">
+        LET'S WORK
+        <a href="#contact" class="bcn-cta-pill">BOOK A CALL</a>
+      </div>
+      <!-- Line 2: "TOGETHER" -->
+      <div class="bcn-cta-line" id="bcn-cta-line2">TOGETHER</div>
     </div>
   </section>
 
