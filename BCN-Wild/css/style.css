@@ -11,9 +11,9 @@
   --dim:       rgba(255,255,255,0.08);
   --overlay:   rgba(17,17,17,0.55);
   --border:    rgba(255,255,255,0.1);
-  --font-sans:    'Inter Tight', 'Inter', system-ui, sans-serif;
-  --font-serif:   Georgia, 'Times New Roman', serif;
-  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-sans:    'Lato', sans-serif;
+  --font-serif:   'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
   --bone:         #F9F8F4;
   --white:        #F9F8F4;
   --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -35,9 +35,9 @@ body {
   background: var(--bg);
   color: var(--bone);
   font-family: var(--font-sans);
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.6;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
   overflow-x: hidden;
   cursor: none;
 }
@@ -328,9 +328,9 @@ body.cursor-hover #bcn-cursor-dot {
 .bcn-wordmark {
   font-family: var(--font-display);
   font-size: clamp(56px, 9vw, 130px);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.01em;
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: 0.05em;
   margin-bottom: 24px;
 }
 
@@ -440,9 +440,10 @@ body.cursor-hover #bcn-cursor-dot {
 }
 
 .bcn-panel-loc {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(20px, 3vw, 36px);
   font-weight: 400;
+  font-style: italic;
   color: var(--white);
   line-height: 1.2;
 }
@@ -465,9 +466,9 @@ body.cursor-hover #bcn-cursor-dot {
 .bcn-contact-title {
   font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 52px);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
   color: var(--bone);
   margin-bottom: 64px;
 }
@@ -617,7 +618,7 @@ body.cursor-hover #bcn-cursor-dot {
 /* ── 10. FOOTER ─────────────────────────────────────────────── */
 .bcn-footer {
   background: #0a0a0a;
-  padding: clamp(80px, 12vh, 140px) 80px clamp(40px, 5vh, 60px);
+  padding: 0 80px clamp(48px, 6vh, 72px);
   border-top: 1px solid var(--border);
   text-align: center;
 }
@@ -639,15 +640,15 @@ body.cursor-hover #bcn-cursor-dot {
 }
 
 .bcn-footer-logo {
-  font-family: var(--font-display);
-  font-size: clamp(22px, 3vw, 34px);
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
   display: block;
   color: var(--bone);
 }
 
-.bcn-footer-logo em { font-style: italic; }
+.bcn-footer-logo span { font-weight: 400; }
 
 .bcn-footer-tagline {
   font-size: 13px;
@@ -729,7 +730,7 @@ body.cursor-hover #bcn-cursor-dot {
 
   .bcn-menu { padding: 100px 24px 48px; }
 
-  .bcn-footer { padding: clamp(60px, 10vh, 100px) 24px clamp(32px, 4vh, 48px); }
+  .bcn-footer { padding: 0 24px clamp(32px, 4vh, 48px); }
 }
 
 @media (max-width: 480px) {
@@ -933,9 +934,9 @@ body.cursor-hover #bcn-cursor-dot {
 .bcn-about-title {
   font-family: var(--font-display);
   font-size: clamp(32px, 4.5vw, 64px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
   color: var(--bone);
   margin-bottom: 52px;
 }
@@ -943,8 +944,8 @@ body.cursor-hover #bcn-cursor-dot {
 .bcn-about-body {
   font-size: clamp(14px, 1.1vw, 17px);
   color: rgba(255,255,255,0.5);
-  font-weight: 300;
-  line-height: 1.9;
+  font-weight: 400;
+  line-height: 1.7;
   letter-spacing: 0.015em;
   margin-bottom: 28px;
 }
@@ -1112,7 +1113,7 @@ body.cursor-hover #bcn-lens-home {
 /* Shared font style for both text layers */
 #bcn-loader-text-back,
 #bcn-loader-text-front {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-display);
   font-size: clamp(48px, 7vw, 96px);
   font-weight: 400;
   line-height: 1;
@@ -1169,80 +1170,31 @@ body.cursor-hover #bcn-lens-home {
   #bcn-loader { display: none !important; }
 }
 
-/* === CTA FOOTER === */
-#bcn-cta {
-  position: relative;
-  background: transparent;
-  padding: 180px 80px;
-  overflow: hidden;
-  min-height: 80vh;
+/* === INTEGRATED FOOTER CTA === */
+.bcn-footer-cta {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  border: none;
+  text-align: center;
+  padding: clamp(80px, 11vh, 130px) 0 clamp(60px, 8vh, 96px);
+  gap: 36px;
 }
 
-#bcn-cta-svg-draw {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 130%;
-  height: auto;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.6;
-}
-
-.bcn-draw-path {
-  stroke: rgba(255, 255, 255, 0.15);
-  stroke-width: 1.5;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 2500;
-  stroke-dashoffset: 2500;
-  transition: stroke-dashoffset 3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-#bcn-cta.is-active .bcn-draw-path {
-  stroke-dashoffset: 0;
-}
-
-#bcn-cta-inner {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-}
-
-.bcn-cta-line {
+.bcn-footer-cta-heading {
   font-family: var(--font-display);
-  font-size: clamp(60px, 11vw, 160px);
+  font-size: clamp(18px, 3.2vw, 46px);
+  font-weight: 600;
   color: var(--bone);
   text-transform: uppercase;
-  line-height: 0.8;
-  letter-spacing: -0.01em;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.05em;
+  line-height: 1.2;
 }
 
-#bcn-cta.is-active .bcn-cta-line {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#bcn-cta-line1 {
-  display: flex;
-  align-items: center;
-  gap: 35px;
-  margin-bottom: 0.1em;
-  transition-delay: 0.7s;
-}
-
-#bcn-cta-line2 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  transition-delay: 0.9s;
+.bcn-footer-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(249,248,244,0.08);
+  margin-bottom: clamp(48px, 7vh, 80px);
 }
 
 .bcn-cta-pill {
@@ -1250,9 +1202,9 @@ body.cursor-hover #bcn-lens-home {
   padding: 18px 42px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 100px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-size: 11px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.1em;
   color: #ffffff;
   text-transform: uppercase;
   transition: all 0.4s ease;
@@ -1266,30 +1218,11 @@ body.cursor-hover #bcn-lens-home {
   color: #111111;
 }
 
-/* Responsive CTA */
 @media (max-width: 768px) {
-  #bcn-cta {
-    padding: 120px 24px;
-    min-height: 70vh;
-  }
-  .bcn-cta-line {
-    font-size: clamp(42px, 14vw, 72px);
-  }
-  #bcn-cta-line1 {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .bcn-cta-pill {
-    font-size: 11px;
-    padding: 14px 28px;
-  }
+  .bcn-footer-cta { gap: 28px; }
+  .bcn-cta-pill { font-size: 11px; padding: 14px 28px; }
   .bcn-partners::before,
   .bcn-partners::after { width: 80px; }
-}
-
-@media (max-width: 480px) {
-  .bcn-cta-line { font-size: clamp(40px, 13vw, 60px); }
 }
 
 /* ── 19. FOCUS RING SCROLLBAR ──────────────────────────────── */
@@ -1384,9 +1317,9 @@ body.cursor-hover #bcn-lens-home {
 .bcn-strategy-title {
   font-family: var(--font-display);
   font-size: clamp(36px, 5vw, 76px);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
   color: var(--bone);
   margin-bottom: 40px;
   max-width: 640px;
@@ -1395,8 +1328,8 @@ body.cursor-hover #bcn-lens-home {
 .bcn-strategy-intro {
   font-size: clamp(15px, 1.2vw, 18px);
   color: rgba(249,248,244,0.55);
-  font-weight: 300;
-  line-height: 1.8;
+  font-weight: 400;
+  line-height: 1.7;
   max-width: 620px;
   margin-bottom: 80px;
   letter-spacing: 0.01em;
@@ -1431,7 +1364,7 @@ body.cursor-hover #bcn-lens-home {
   font-family: var(--font-display);
   font-size: clamp(18px, 1.8vw, 26px);
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   color: var(--bone);
   margin-bottom: 20px;
   line-height: 1.2;
@@ -1440,8 +1373,8 @@ body.cursor-hover #bcn-lens-home {
 .bcn-strategy-step-body {
   font-size: 15px;
   color: rgba(249,248,244,0.45);
-  font-weight: 300;
-  line-height: 1.85;
+  font-weight: 400;
+  line-height: 1.7;
   letter-spacing: 0.01em;
 }
 
@@ -1482,8 +1415,8 @@ body.cursor-hover #bcn-lens-home {
 .bcn-journal-title {
   font-family: var(--font-display);
   font-size: clamp(36px, 5vw, 76px);
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--bone);
   margin-bottom: 72px;
   line-height: 1.05;
@@ -1524,7 +1457,7 @@ body.cursor-hover #bcn-lens-home {
   font-family: var(--font-display);
   font-size: clamp(18px, 1.8vw, 24px);
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   color: var(--bone);
   line-height: 1.25;
   flex: 1;
@@ -1533,8 +1466,8 @@ body.cursor-hover #bcn-lens-home {
 .bcn-journal-card-body {
   font-size: 14px;
   color: rgba(249,248,244,0.45);
-  font-weight: 300;
-  line-height: 1.85;
+  font-weight: 400;
+  line-height: 1.7;
   letter-spacing: 0.01em;
 }
 

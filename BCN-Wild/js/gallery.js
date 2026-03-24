@@ -7,7 +7,9 @@
      Lens magnifier (ykproduce style) · Filter · View toggle
      ============================================================ */
 
-  var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  // pointer:coarse = true touch device (phone/tablet). Laptops with touchscreens
+  // still report pointer:fine (mouse is primary), so preview works on them.
+  var isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
 
   /* ── 1. ITEMS DATA ──────────────────────────────────────────── */
   var items = [
@@ -15,73 +17,73 @@
       n: '01', title: 'Wildebeest Migration',
       cat: 'wildlife', catLabel: 'Wildlife',
       loc: 'Serengeti, Tanzania', year: '2025',
-      img: 'img/wildebeest-splashing-through-water-while-others-gr-2025-03-25-12-52-42-utc.webp'
+      img: 'img/BCN (1).png'
     },
     {
       n: '02', title: 'Mountain Gorilla',
       cat: 'wildlife', catLabel: 'Wildlife',
       loc: 'Bwindi, Uganda', year: '2025',
-      img: 'img/SVNP_WILDLIFE_Gorilla_Sabyinyo_Family_Ross_Couper-5.webp'
+      img: 'img/BCN (2).png'
     },
     {
       n: '03', title: 'Leopard Portrait',
       cat: 'wildlife', catLabel: 'Wildlife',
       loc: 'Sabi Sands, South Africa', year: '2025',
-      img: 'img/closeup-of-leopard-looking-up-in-sabi-sands-by-rhino-africa-02~-~media--3f079e97--query.c80b53b9.webp'
+      img: 'img/BCN (3).png'
     },
     {
       n: '04', title: 'White Rhino',
       cat: 'wildlife', catLabel: 'Wildlife',
       loc: 'Matobo, Zimbabwe', year: '2025',
-      img: 'img/Rhino.webp'
+      img: 'img/BCN (4).png'
     },
     {
       n: '05', title: 'African Elephant',
       cat: 'wildlife', catLabel: 'Wildlife',
       loc: 'Amboseli, Kenya', year: '2025',
-      img: 'img/elphant.webp'
+      img: 'img/BCN (5).png'
     },
     {
       n: '06', title: 'Shoebill',
       cat: 'wildlife', catLabel: 'Wildlife',
       loc: 'Murchison Falls, Uganda', year: '2024',
-      img: 'img/Copy of Shoebill, Balaeniceps rex, portrait of big beaked bird, Uganda.jpg'
+      img: 'img/BCN (6).png'
     },
     {
-      n: '07', title: 'Zimbabwe Wildlife',
+      n: '07', title: 'Cape Buffalo',
       cat: 'wildlife', catLabel: 'Wildlife',
-      loc: 'Matobo, Zimbabwe', year: '2025',
-      img: 'img/a-magical-zimbabwe-wildlife-pictures-2025-02-20-00-10-35-utc.jpg'
+      loc: 'Queen Elizabeth NP, Uganda', year: '2025',
+      img: 'img/BCN (7).png'
     },
     {
-      n: '08', title: 'Garden Route Forest',
+      n: '08', title: 'Savanna at Dawn',
       cat: 'landscapes', catLabel: 'Landscapes',
-      loc: 'Western Cape, South Africa', year: '2024',
-      img: 'img/garden-route-natures-valley-forest-drive-aerial-view~-~media--3f079e97--query.cda66551.webp'
+      loc: 'Masai Mara, Kenya', year: '2024',
+      img: 'img/BCN (8).png'
     },
     {
-      n: '09', title: 'Safari Aerial',
+      n: '09', title: 'Forest Canopy',
       cat: 'landscapes', catLabel: 'Landscapes',
-      loc: 'Kwandwe, South Africa', year: '2024',
-      img: 'img/safari-vehicle-game-drive-drone-kwandwee-south-africa-copyright-rhino-africa-01.216d2515.webp'
+      loc: 'Bwindi Forest, Uganda', year: '2024',
+      img: 'img/BCN (9).png'
     },
     {
       n: '10', title: 'Uganda Highlands',
       cat: 'landscapes', catLabel: 'Landscapes',
-      loc: 'Uganda', year: '2024',
-      img: 'img/landscape Uganda 103.jpg'
+      loc: 'Rwenzori, Uganda', year: '2024',
+      img: 'img/BCN (10).png'
     },
     {
-      n: '11', title: 'Miss Helena',
+      n: '11', title: 'Portrait — Helena',
       cat: 'cultural', catLabel: 'Cultural & People',
       loc: 'Kampala, Uganda', year: '2024',
-      img: 'img/Miss Helena 67.jpg'
+      img: 'img/BCN (11).png'
     },
     {
-      n: '12', title: 'Shidah Katono',
+      n: '12', title: 'Portrait — Shidah',
       cat: 'cultural', catLabel: 'Cultural & People',
       loc: 'Uganda', year: '2024',
-      img: 'img/DSC_0263_optimised_Shidah_Katono (1).jpg'
+      img: 'img/BCN (12).png'
     }
   ];
 
@@ -272,27 +274,20 @@
     }
   }, { passive: true });
 
-  /* ── 8. LIST — HOVER PREVIEW (siemprericc.com style) ───────── */
+  /* ── 8. LIST — HOVER PREVIEW ────────────────────────────────── */
   if (!isTouchDevice && preview) {
     var previewClientX = window.innerWidth / 2;
     var previewClientY = window.innerHeight / 2;
     var previewRenderX = previewClientX;
     var previewRenderY = previewClientY;
 
-    // Smooth follow
+    // Smooth rAF follow
     (function animPreview() {
       previewRenderX += (previewClientX - previewRenderX) * 0.10;
       previewRenderY += (previewClientY - previewRenderY) * 0.10;
 
-      // Offset so preview doesn't cover cursor
-      var ox = 48;
-      var oy = -120;
-      var px = previewRenderX + ox;
-      var py = previewRenderY + oy;
-
-      // Clamp to viewport
-      px = Math.max(12, Math.min(px, window.innerWidth  - 380));
-      py = Math.max(12, Math.min(py, window.innerHeight - 260));
+      var px = Math.max(12, Math.min(previewRenderX + 48,  window.innerWidth  - 312));
+      var py = Math.max(12, Math.min(previewRenderY - 190, window.innerHeight - 392));
 
       preview.style.left = px + 'px';
       preview.style.top  = py + 'px';
@@ -305,20 +300,15 @@
       previewClientY = e.clientY;
     });
 
-    // Show/hide on row hover
-    listView.addEventListener('mouseover', function (e) {
-      var row = e.target.closest('.bcn-row');
-      if (row && !row.hasAttribute('data-hidden')) {
-        var img = row.getAttribute('data-img');
-        preview.style.backgroundImage = 'url("' + img + '")';
+    // Direct per-row mouseenter/mouseleave — no bubbling ambiguity
+    Array.from(listView.querySelectorAll('.bcn-row')).forEach(function (row) {
+      row.addEventListener('mouseenter', function () {
+        preview.style.backgroundImage = 'url("' + row.getAttribute('data-img') + '")';
         preview.classList.add('visible');
-      }
-    });
-
-    listView.addEventListener('mouseout', function (e) {
-      if (!e.relatedTarget || !e.relatedTarget.closest('.bcn-row')) {
+      });
+      row.addEventListener('mouseleave', function () {
         preview.classList.remove('visible');
-      }
+      });
     });
   }
 

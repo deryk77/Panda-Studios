@@ -28,10 +28,10 @@
 .bcn-gal-title {
   font-family: var(--font-display);
   font-size: clamp(52px, 9vw, 130px);
-  font-weight: 400;
-  line-height: 0.9;
+  font-weight: 300;
+  line-height: 1.0;
   color: var(--bone);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.05em;
 }
 
 .bcn-gal-count {
@@ -158,6 +158,8 @@
 .bcn-row-title {
   font-family: var(--font-display);
   font-size: clamp(16px, 1.8vw, 26px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
   color: var(--bone);
   transition: opacity 0.3s ease;
 }
@@ -202,8 +204,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 360px;
-  height: 240px;
+  width: 300px;
+  height: 380px;
   pointer-events: none;
   z-index: 8000;
   background-size: cover;
@@ -308,8 +310,10 @@
 
 .bcn-grid-title {
   display: block;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(16px, 1.6vw, 22px);
+  font-weight: 400;
+  font-style: italic;
   color: var(--white);
   margin-bottom: 3px;
 }
@@ -391,6 +395,7 @@ body.bcn-lens-expand #bcn-lens {
 /* ── 9. FOOTER (gallery variant — appears below list) ───────── */
 .bcn-footer--gallery {
   margin-top: 40px;
+  padding-top: clamp(200px, 32vh, 400px);
 }
 
 /* ── 10. FILTER TRANSITION ──────────────────────────────────── */
@@ -452,8 +457,8 @@ body.bcn-lens-expand #bcn-lens {
 
   /* Preview too large on mobile */
   #bcn-preview {
-    width: 260px;
-    height: 174px;
+    width: 200px;
+    height: 260px;
   }
 
   /* No lens on touch devices */
