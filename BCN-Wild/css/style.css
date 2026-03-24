@@ -129,7 +129,7 @@ body.cursor-hover #bcn-cursor-dot {
 /* Logo */
 .bcn-logo {
   font-family: var(--font-serif);
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: clamp(27px, 3vw, 33px);
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--white);
@@ -137,7 +137,8 @@ body.cursor-hover #bcn-cursor-dot {
 }
 
 .bcn-logo span {
-  font-weight: 400;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .bcn-logo:hover { opacity: 0.7; }
@@ -325,6 +326,7 @@ body.cursor-hover #bcn-cursor-dot {
   margin-bottom: 20px;
 }
 
+/* Legacy — kept for any residual refs */
 .bcn-wordmark {
   font-family: var(--font-display);
   font-size: clamp(56px, 9vw, 130px);
@@ -334,15 +336,39 @@ body.cursor-hover #bcn-cursor-dot {
   margin-bottom: 24px;
 }
 
-.bcn-wordmark span {
-  font-weight: 400;
+/* ── PRIMAL STILL — hero title reveal ──────────────────────── */
+.bcn-primal-wrap {
+  margin-bottom: 28px;
+  line-height: 0.9;
+}
+
+.bcn-primal-mask {
+  overflow: hidden;
+  padding-bottom: 0.06em; /* prevents descender clip */
+}
+
+.bcn-primal-word {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(35px, 5.7vw, 82px);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--bone);
+  transform: translateY(110%);
+  animation: bcn-word-rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(2.8s + var(--i, 0) * 0.18s);
+}
+
+@keyframes bcn-word-rise {
+  to { transform: translateY(0); }
 }
 
 .bcn-hero-sub {
   font-size: clamp(14px, 1.2vw, 17px);
   color: rgba(255,255,255,0.65);
-  font-weight: 300;
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   max-width: 400px;
   margin-bottom: 48px;
 }
@@ -720,6 +746,12 @@ body.cursor-hover #bcn-cursor-dot {
 
   .bcn-hero-content { padding: 0 24px clamp(48px, 8vh, 80px); bottom: 0; }
 
+  /* Primal Still — faster reveal, no loader on mobile */
+  .bcn-primal-word {
+    font-size: clamp(26px, 8.4vw, 48px);
+    animation-delay: calc(0.4s + var(--i, 0) * 0.15s);
+  }
+
   .bcn-wordmark { font-size: clamp(48px, 14vw, 80px); }
 
   .bcn-panel-meta { left: 24px; bottom: 32px; }
@@ -733,10 +765,25 @@ body.cursor-hover #bcn-cursor-dot {
   .bcn-footer { padding: 0 24px clamp(32px, 4vh, 48px); }
 }
 
+@media (max-width: 768px) {
+  /* Strategy + Journal: 1.5× font increases — mobile only */
+  .bcn-strategy-step-title { font-size: 26px; }
+  .bcn-strategy-step-body  { font-size: 22px; }
+  .bcn-journal-card-title  { font-size: 26px; }
+  .bcn-journal-card-body   { font-size: 21px; }
+}
+
 @media (max-width: 480px) {
   .bcn-wordmark { font-size: clamp(40px, 16vw, 64px); }
+  .bcn-primal-word { font-size: clamp(23px, 9.6vw, 36px); }
   .bcn-form-footer { flex-direction: column; align-items: stretch; }
   .bcn-submit { min-width: unset; text-align: center; }
+
+  /* Scale back slightly on very small phones */
+  .bcn-strategy-step-title { font-size: 22px; }
+  .bcn-strategy-step-body  { font-size: 17px; }
+  .bcn-journal-card-title  { font-size: 22px; }
+  .bcn-journal-card-body   { font-size: 17px; }
 }
 
 /* ── 13. TOUCH DEVICES — disable cursor ─────────────────────── */
