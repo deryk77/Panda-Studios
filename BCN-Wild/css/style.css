@@ -11,8 +11,11 @@
   --dim:       rgba(255,255,255,0.08);
   --overlay:   rgba(17,17,17,0.55);
   --border:    rgba(255,255,255,0.1);
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans:    'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-serif:   Georgia, 'Times New Roman', serif;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --bone:         #F9F8F4;
+  --white:        #F9F8F4;
   --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -30,8 +33,9 @@ html {
 
 body {
   background: var(--bg);
-  color: var(--white);
+  color: var(--bone);
   font-family: var(--font-sans);
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.6;
   overflow-x: hidden;
@@ -225,7 +229,7 @@ body.cursor-hover #bcn-cursor-dot {
 }
 
 .bcn-menu-link {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(32px, 5vw, 64px);
   font-weight: 400;
   color: rgba(255,255,255,0.25);
@@ -311,20 +315,22 @@ body.cursor-hover #bcn-cursor-dot {
 
 .bcn-hero-label {
   display: block;
+  font-family: var(--font-sans);
   font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.25em;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--silver);
   margin-bottom: 20px;
 }
 
 .bcn-wordmark {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(56px, 9vw, 130px);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 0.9;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   margin-bottom: 24px;
 }
 
@@ -424,9 +430,11 @@ body.cursor-hover #bcn-cursor-dot {
 }
 
 .bcn-panel-cat {
+  font-family: var(--font-sans);
   font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--silver);
 }
@@ -455,11 +463,12 @@ body.cursor-hover #bcn-cursor-dot {
 }
 
 .bcn-contact-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 52px);
   font-weight: 400;
   line-height: 1.15;
-  color: var(--white);
+  letter-spacing: -0.01em;
+  color: var(--bone);
   margin-bottom: 64px;
 }
 
@@ -608,76 +617,78 @@ body.cursor-hover #bcn-cursor-dot {
 /* ── 10. FOOTER ─────────────────────────────────────────────── */
 .bcn-footer {
   background: #0a0a0a;
-  padding: 64px 80px 0;
+  padding: clamp(80px, 12vh, 140px) 80px clamp(40px, 5vh, 60px);
+  border-top: 1px solid var(--border);
+  text-align: center;
 }
 
 .bcn-footer-inner {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 40px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(249,248,244,0.07);
+}
+
+.bcn-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
 .bcn-footer-logo {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
   display: block;
-  margin-bottom: 12px;
+  color: var(--bone);
 }
 
-.bcn-footer-logo em { font-weight: 400; font-style: normal; }
+.bcn-footer-logo em { font-style: italic; }
 
 .bcn-footer-tagline {
   font-size: 13px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(249,248,244,0.32);
   line-height: 1.8;
-  max-width: 260px;
-}
-
-.bcn-footer-center {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: center;
-}
-
-.bcn-footer-link {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  transition: color 0.3s ease;
   letter-spacing: 0.02em;
 }
 
-.bcn-footer-link:hover { color: var(--white); }
-
-.bcn-footer-right {
+.bcn-footer-links {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-end;
+  gap: 14px 18px;
 }
 
-.bcn-footer-social {
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+.bcn-footer-sep {
+  color: rgba(249,248,244,0.18);
+  font-size: 13px;
+  line-height: 1;
+}
+
+.bcn-footer-link {
+  font-size: 13px;
+  color: rgba(249,248,244,0.42);
   transition: color 0.3s ease;
+  letter-spacing: 0.03em;
 }
 
-.bcn-footer-social:hover { color: var(--white); }
+.bcn-footer-link:hover { color: var(--bone); }
 
 .bcn-footer-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 24px 0 32px;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding-top: 28px;
   font-size: 11px;
-  color: rgba(255,255,255,0.2);
-  letter-spacing: 0.05em;
+  color: rgba(249,248,244,0.18);
+  letter-spacing: 0.06em;
 }
 
 /* ── 11. SCROLL REVEAL ──────────────────────────────────────── */
@@ -698,8 +709,7 @@ body.cursor-hover #bcn-cursor-dot {
   .bcn-menu-inner { flex-direction: column; gap: 48px; align-items: flex-start; }
   .bcn-menu-meta { text-align: left; }
   .bcn-menu-socials { justify-content: flex-start; }
-  .bcn-footer-inner { grid-template-columns: 1fr 1fr; }
-  .bcn-footer-right { align-items: flex-start; }
+  /* footer is single-column centered — no override needed */
 }
 
 @media (max-width: 768px) {
@@ -719,10 +729,7 @@ body.cursor-hover #bcn-cursor-dot {
 
   .bcn-menu { padding: 100px 24px 48px; }
 
-  .bcn-footer { padding: 48px 24px 0; }
-  .bcn-footer-inner { grid-template-columns: 1fr; }
-  .bcn-footer-right { align-items: flex-start; flex-direction: row; gap: 20px; }
-  .bcn-footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .bcn-footer { padding: clamp(60px, 10vh, 100px) 24px clamp(32px, 4vh, 48px); }
 }
 
 @media (max-width: 480px) {
@@ -913,20 +920,23 @@ body.cursor-hover #bcn-cursor-dot {
 
 .bcn-about-label {
   display: block;
+  font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.28em;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--silver);
   margin-bottom: 36px;
 }
 
 .bcn-about-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(32px, 4.5vw, 64px);
   font-weight: 400;
   line-height: 1.1;
-  color: var(--white);
+  letter-spacing: -0.01em;
+  color: var(--bone);
   margin-bottom: 52px;
 }
 
@@ -1205,12 +1215,12 @@ body.cursor-hover #bcn-lens-home {
 }
 
 .bcn-cta-line {
-  font-family: Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(60px, 11vw, 160px);
-  color: #ffffff;
+  color: var(--bone);
   text-transform: uppercase;
   line-height: 0.8;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.01em;
   opacity: 0;
   transform: translateY(50px);
   transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1345,4 +1355,390 @@ body.cursor-hover #bcn-lens-home {
 
 @media (max-width: 768px) {
   #bcn-scroll-focus-ring { display: none; }
+}
+
+/* ── 20. STRATEGY OF THE SHOT ───────────────────────────────── */
+.bcn-strategy-section {
+  background: var(--bg);
+  padding: clamp(100px, 15vh, 180px) 80px;
+  border-top: 1px solid var(--border);
+}
+
+.bcn-strategy-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bcn-strategy-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 28px;
+}
+
+.bcn-strategy-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 76px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  margin-bottom: 40px;
+  max-width: 640px;
+}
+
+.bcn-strategy-intro {
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: rgba(249,248,244,0.55);
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 620px;
+  margin-bottom: 80px;
+  letter-spacing: 0.01em;
+}
+
+.bcn-strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.bcn-strategy-step {
+  background: var(--bg);
+  padding: 48px 40px;
+  position: relative;
+}
+
+.bcn-strategy-num {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.15em;
+  color: var(--silver);
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+.bcn-strategy-step-title {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.8vw, 26px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.bcn-strategy-step-body {
+  font-size: 15px;
+  color: rgba(249,248,244,0.45);
+  font-weight: 300;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 992px) {
+  .bcn-strategy-grid { grid-template-columns: 1fr; }
+  .bcn-strategy-section { padding: clamp(80px, 12vh, 120px) 48px; }
+}
+
+@media (max-width: 768px) {
+  .bcn-strategy-section { padding: clamp(64px, 10vh, 100px) 24px; }
+  .bcn-strategy-step { padding: 36px 24px; }
+}
+
+/* ── 21. THE JOURNAL ────────────────────────────────────────── */
+.bcn-journal-section {
+  background: var(--bg);
+  padding: clamp(100px, 15vh, 180px) 80px;
+  border-top: 1px solid var(--border);
+}
+
+.bcn-journal-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bcn-journal-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 28px;
+}
+
+.bcn-journal-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 76px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  margin-bottom: 72px;
+  line-height: 1.05;
+}
+
+.bcn-journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.bcn-journal-card {
+  background: var(--bg);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.4s ease;
+}
+
+.bcn-journal-card:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.bcn-journal-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.bcn-journal-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  line-height: 1.25;
+  flex: 1;
+}
+
+.bcn-journal-card-body {
+  font-size: 14px;
+  color: rgba(249,248,244,0.45);
+  font-weight: 300;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+.bcn-journal-read {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(249,248,244,0.35);
+  margin-top: 8px;
+  transition: color 0.3s ease;
+}
+
+.bcn-journal-card:hover .bcn-journal-read {
+  color: var(--bone);
+}
+
+@media (max-width: 992px) {
+  .bcn-journal-grid { grid-template-columns: 1fr; }
+  .bcn-journal-section { padding: clamp(80px, 12vh, 120px) 48px; }
+}
+
+@media (max-width: 768px) {
+  .bcn-journal-section { padding: clamp(64px, 10vh, 100px) 24px; }
+  .bcn-journal-card { padding: 36px 24px; }
+}
+
+/* ── 22. CINEMATIC DECK ─────────────────────────────────────── */
+
+/* Section wrapper — pure black canvas */
+.bcn-cinematic-section {
+  background: #000000;
+  position: relative;
+}
+
+/*
+  Scroll space: 7 × 100vh
+  — gives 6 × 100vh of sticky travel (one step per card)
+  — page unlocks naturally when scroll exits the bottom
+*/
+.bcn-deck-scroll-space {
+  height: calc(7 * 100vh);
+  position: relative;
+}
+
+/* Sticky stage: pins to viewport for the full scroll travel */
+.bcn-deck-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #000000;
+}
+
+/* ── CARDS ─────────────────────────────────────────────────── */
+
+/*
+  All 6 cards occupy the same floating rectangle.
+  z-index is set per nth-child so card 1 starts on top.
+  Cards below the active one are already at opacity:1, scale(1),
+  so they're revealed the moment the active card fades.
+*/
+.bcn-deck-card {
+  position: absolute;
+  top: 6vh;
+  left: 8vw;
+  right: 8vw;
+  bottom: 6vh;
+  overflow: hidden;
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center center;
+  will-change: transform, opacity;
+  transition:
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity   0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Natural stack — card 1 highest z-index */
+.bcn-deck-card:nth-child(1) { z-index: 16; }
+.bcn-deck-card:nth-child(2) { z-index: 15; }
+.bcn-deck-card:nth-child(3) { z-index: 14; }
+.bcn-deck-card:nth-child(4) { z-index: 13; }
+.bcn-deck-card:nth-child(5) { z-index: 12; }
+.bcn-deck-card:nth-child(6) { z-index: 11; }
+
+/* Dismissed state: shrinks and fades, revealing card below */
+.bcn-deck-card.bcn-deck--out {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+/* ── CARD INNER CONTENT ────────────────────────────────────── */
+
+.bcn-deck-card .bcn-panel-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  /* no JS-driven scale here — deck engine owns these cards */
+}
+
+.bcn-deck-card .bcn-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.72) 0%,
+    rgba(0,0,0,0.1)  45%,
+    transparent      100%);
+  z-index: 1;
+}
+
+.bcn-deck-card .bcn-panel-meta {
+  position: absolute;
+  bottom: 44px;
+  left: 56px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* Override any inline opacity set by the old zoom engine */
+  opacity: 1 !important;
+}
+
+/* ── CONTOUR BORDER ────────────────────────────────────────── */
+
+.bcn-contour {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ── PROGRESS DOTS ─────────────────────────────────────────── */
+
+.bcn-deck-dots {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.bcn-deck-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  transition: background 0.35s ease, transform 0.35s ease;
+  display: block;
+}
+
+.bcn-deck-dot.bcn-deck-dot--active {
+  background: rgba(255, 255, 255, 0.88);
+  transform: scale(1.5);
+}
+
+/* ── COUNTER ───────────────────────────────────────────────── */
+
+.bcn-deck-counter {
+  position: absolute;
+  bottom: 26px;
+  right: calc(8vw + 16px); /* flush with card right edge */
+  z-index: 20;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(249, 248, 244, 0.42);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .bcn-deck-card {
+    top: 4vh;
+    left: 4vw;
+    right: 4vw;
+    bottom: 4vh;
+  }
+
+  .bcn-contour {
+    inset: 8px;
+  }
+
+  .bcn-deck-card .bcn-panel-meta {
+    left: 24px;
+    bottom: 28px;
+  }
+
+  .bcn-deck-counter {
+    right: calc(4vw + 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .bcn-deck-scroll-space {
+    /* Slightly less scroll travel on small phones */
+    height: calc(6.5 * 100vh);
+  }
 }

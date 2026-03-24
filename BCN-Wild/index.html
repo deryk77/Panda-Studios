@@ -28,7 +28,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,700;1,700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -90,6 +90,7 @@
         <a href="gallery.html?filter=wildlife" class="bcn-menu-link" data-close-menu>Wildlife</a>
         <a href="gallery.html?filter=landscapes" class="bcn-menu-link" data-close-menu>Landscapes</a>
         <a href="gallery.html?filter=cultural" class="bcn-menu-link" data-close-menu>Cultural &amp; People</a>
+        <a href="#journal" class="bcn-menu-link" data-close-menu>Journal</a>
         <a href="#contact" class="bcn-menu-link" data-close-menu>Contact</a>
       </nav>
       <div class="bcn-menu-meta">
@@ -174,91 +175,163 @@
   </section>
 
   <!-- ============================================================
-       GALLERY — 6 panels · endless Z-axis zoom sequence
+       STRATEGY OF THE SHOT — pre-production logic & process
        ============================================================ -->
-  <main class="bcn-gallery" id="gallery">
-
-    <!-- Panel 1 — Wildlife · Uganda -->
-    <div class="bcn-panel" id="wildlife" data-category="Wildlife" data-location="Murchison Falls, Uganda">
-      <div class="bcn-panel-sticky">
-        <div class="bcn-panel-img" style="background-image: url('img/BCN (6).png');"></div>
-        <div class="bcn-panel-overlay"></div>
-        <div class="bcn-panel-meta">
-          <span class="bcn-panel-index">01</span>
-          <span class="bcn-panel-cat">Wildlife</span>
-          <span class="bcn-panel-loc">Murchison Falls, Uganda</span>
+  <section class="bcn-strategy-section" id="strategy">
+    <div class="bcn-strategy-inner">
+      <p class="bcn-strategy-label">The Experience</p>
+      <h2 class="bcn-strategy-title">The Strategy<br>of the Shot.</h2>
+      <p class="bcn-strategy-intro">Every frame commissioned by a conservation institution, editorial publisher, or luxury hospitality brand begins the same way — not in the field, but in a briefing.</p>
+      <div class="bcn-strategy-grid">
+        <div class="bcn-strategy-step">
+          <span class="bcn-strategy-num">01</span>
+          <h3 class="bcn-strategy-step-title">Intelligence Gathering</h3>
+          <p class="bcn-strategy-step-body">Before any lens cap comes off, we study species behaviour cycles, seasonal light conditions, and territorial maps across Uganda, Rwanda, Tanzania, and Kenya. The decisive frame is not found — it is anticipated.</p>
+        </div>
+        <div class="bcn-strategy-step">
+          <span class="bcn-strategy-num">02</span>
+          <h3 class="bcn-strategy-step-title">Technical Rigor</h3>
+          <p class="bcn-strategy-step-body">We operate with long-lens systems purpose-built for low-light and high-speed movement. Every shoot is calibrated around the ambient conditions of the specific ecosystem — not adapted to them on arrival.</p>
+        </div>
+        <div class="bcn-strategy-step">
+          <span class="bcn-strategy-num">03</span>
+          <h3 class="bcn-strategy-step-title">Contextual Authority</h3>
+          <p class="bcn-strategy-step-body">The images we deliver are not decoration. They are evidence — of species health, habitat integrity, and the human relationship with the wild. Used correctly, they move governments, donors, and guests.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Panel 2 — Landscape · Uganda -->
-    <div class="bcn-panel" data-category="Landscape" data-location="Bwindi Forest, Uganda">
-      <div class="bcn-panel-sticky">
-        <div class="bcn-panel-img" style="background-image: url('img/BCN (7).png');"></div>
-        <div class="bcn-panel-overlay"></div>
-        <div class="bcn-panel-meta">
-          <span class="bcn-panel-index">02</span>
-          <span class="bcn-panel-cat">Landscape</span>
-          <span class="bcn-panel-loc">Bwindi Forest, Uganda</span>
+  <!-- ============================================================
+       CINEMATIC DECK — 6 stacked panels, scroll-driven reveal
+       ============================================================ -->
+  <section class="bcn-cinematic-section" id="gallery" aria-label="Photo gallery">
+    <div class="bcn-deck-scroll-space" id="bcn-deck-scroll-space">
+
+      <div class="bcn-deck-stage" id="bcn-deck-stage">
+
+        <!-- Card 1 — Wildlife · Uganda (top of stack) -->
+        <div class="bcn-deck-card" data-deck-index="0" data-category="Wildlife" data-location="Murchison Falls, Uganda">
+          <div class="bcn-contour" aria-hidden="true"></div>
+          <div class="bcn-panel-img" style="background-image: url('img/BCN (6).png');"></div>
+          <div class="bcn-panel-overlay"></div>
+          <div class="bcn-panel-meta">
+            <span class="bcn-panel-index">01</span>
+            <span class="bcn-panel-cat">Wildlife</span>
+            <span class="bcn-panel-loc">Murchison Falls, Uganda</span>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Panel 3 — Wildlife · Tanzania -->
-    <div class="bcn-panel" data-category="Wildlife" data-location="Serengeti, Tanzania">
-      <div class="bcn-panel-sticky">
-        <div class="bcn-panel-img" style="background-image: url('img/BCN (8).png');"></div>
-        <div class="bcn-panel-overlay"></div>
-        <div class="bcn-panel-meta">
-          <span class="bcn-panel-index">03</span>
-          <span class="bcn-panel-cat">Wildlife</span>
-          <span class="bcn-panel-loc">Serengeti, Tanzania</span>
+        <!-- Card 2 — Landscape · Uganda -->
+        <div class="bcn-deck-card" data-deck-index="1" data-category="Landscape" data-location="Bwindi Forest, Uganda">
+          <div class="bcn-contour" aria-hidden="true"></div>
+          <div class="bcn-panel-img" style="background-image: url('img/BCN (7).png');"></div>
+          <div class="bcn-panel-overlay"></div>
+          <div class="bcn-panel-meta">
+            <span class="bcn-panel-index">02</span>
+            <span class="bcn-panel-cat">Landscape</span>
+            <span class="bcn-panel-loc">Bwindi Forest, Uganda</span>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Panel 4 — Cultural · Uganda -->
-    <div class="bcn-panel" data-category="Cultural &amp; People" data-location="Karamoja, Uganda">
-      <div class="bcn-panel-sticky">
-        <div class="bcn-panel-img" style="background-image: url('img/BCN (9).png');"></div>
-        <div class="bcn-panel-overlay"></div>
-        <div class="bcn-panel-meta">
-          <span class="bcn-panel-index">04</span>
-          <span class="bcn-panel-cat">Cultural &amp; People</span>
-          <span class="bcn-panel-loc">Karamoja, Uganda</span>
+        <!-- Card 3 — Wildlife · Tanzania -->
+        <div class="bcn-deck-card" data-deck-index="2" data-category="Wildlife" data-location="Serengeti, Tanzania">
+          <div class="bcn-contour" aria-hidden="true"></div>
+          <div class="bcn-panel-img" style="background-image: url('img/BCN (8).png');"></div>
+          <div class="bcn-panel-overlay"></div>
+          <div class="bcn-panel-meta">
+            <span class="bcn-panel-index">03</span>
+            <span class="bcn-panel-cat">Wildlife</span>
+            <span class="bcn-panel-loc">Serengeti, Tanzania</span>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Panel 5 — Wildlife · Kenya -->
-    <div class="bcn-panel" data-category="Wildlife" data-location="Masai Mara, Kenya">
-      <div class="bcn-panel-sticky">
-        <div class="bcn-panel-img" style="background-image: url('img/BCN (10).png');"></div>
-        <div class="bcn-panel-overlay"></div>
-        <div class="bcn-panel-meta">
-          <span class="bcn-panel-index">05</span>
-          <span class="bcn-panel-cat">Wildlife</span>
-          <span class="bcn-panel-loc">Masai Mara, Kenya</span>
+        <!-- Card 4 — Cultural · Uganda -->
+        <div class="bcn-deck-card" data-deck-index="3" data-category="Cultural &amp; People" data-location="Karamoja, Uganda">
+          <div class="bcn-contour" aria-hidden="true"></div>
+          <div class="bcn-panel-img" style="background-image: url('img/BCN (9).png');"></div>
+          <div class="bcn-panel-overlay"></div>
+          <div class="bcn-panel-meta">
+            <span class="bcn-panel-index">04</span>
+            <span class="bcn-panel-cat">Cultural &amp; People</span>
+            <span class="bcn-panel-loc">Karamoja, Uganda</span>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Panel 6 — Landscape · Kenya -->
-    <div class="bcn-panel" data-category="Landscape" data-location="Lake Nakuru, Kenya">
-      <div class="bcn-panel-sticky">
-        <div class="bcn-panel-img" style="background-image: url('img/BCN (11).png');"></div>
-        <div class="bcn-panel-overlay"></div>
-        <div class="bcn-panel-meta">
-          <span class="bcn-panel-index">06</span>
-          <span class="bcn-panel-cat">Landscape</span>
-          <span class="bcn-panel-loc">Lake Nakuru, Kenya</span>
+        <!-- Card 5 — Wildlife · Kenya -->
+        <div class="bcn-deck-card" data-deck-index="4" data-category="Wildlife" data-location="Masai Mara, Kenya">
+          <div class="bcn-contour" aria-hidden="true"></div>
+          <div class="bcn-panel-img" style="background-image: url('img/BCN (10).png');"></div>
+          <div class="bcn-panel-overlay"></div>
+          <div class="bcn-panel-meta">
+            <span class="bcn-panel-index">05</span>
+            <span class="bcn-panel-cat">Wildlife</span>
+            <span class="bcn-panel-loc">Masai Mara, Kenya</span>
+          </div>
         </div>
-      </div>
-    </div>
 
-  </main>
+        <!-- Card 6 — Landscape · Kenya (bottom of stack) -->
+        <div class="bcn-deck-card" data-deck-index="5" data-category="Landscape" data-location="Lake Nakuru, Kenya">
+          <div class="bcn-contour" aria-hidden="true"></div>
+          <div class="bcn-panel-img" style="background-image: url('img/BCN (11).png');"></div>
+          <div class="bcn-panel-overlay"></div>
+          <div class="bcn-panel-meta">
+            <span class="bcn-panel-index">06</span>
+            <span class="bcn-panel-cat">Landscape</span>
+            <span class="bcn-panel-loc">Lake Nakuru, Kenya</span>
+          </div>
+        </div>
+
+        <!-- Progress dots (inside sticky stage so they stay visible) -->
+        <div class="bcn-deck-dots" id="bcn-deck-dots" aria-hidden="true">
+          <span class="bcn-deck-dot" data-deck-dot="0"></span>
+          <span class="bcn-deck-dot" data-deck-dot="1"></span>
+          <span class="bcn-deck-dot" data-deck-dot="2"></span>
+          <span class="bcn-deck-dot" data-deck-dot="3"></span>
+          <span class="bcn-deck-dot" data-deck-dot="4"></span>
+          <span class="bcn-deck-dot" data-deck-dot="5"></span>
+        </div>
+
+        <!-- Counter: 01 / 06 -->
+        <div class="bcn-deck-counter" id="bcn-deck-counter" aria-live="polite">
+          <span id="bcn-deck-cur">01</span>&thinsp;/&thinsp;<span id="bcn-deck-total">06</span>
+        </div>
+
+      </div><!-- /bcn-deck-stage -->
+    </div><!-- /bcn-deck-scroll-space -->
+  </section>
 
   
+  <!-- ============================================================
+       THE JOURNAL — intellectual leadership / insights grid
+       ============================================================ -->
+  <section class="bcn-journal-section" id="journal">
+    <div class="bcn-journal-inner">
+      <p class="bcn-journal-label">Insights</p>
+      <h2 class="bcn-journal-title">The Journal</h2>
+      <div class="bcn-journal-grid">
+        <article class="bcn-journal-card">
+          <span class="bcn-journal-tag">Visual Strategy</span>
+          <h3 class="bcn-journal-card-title">The ROI of High-Fidelity Visuals</h3>
+          <p class="bcn-journal-card-body">What conservation donors, tourism boards, and editorial publishers pay more for — and why stock photography is costing institutions credibility they cannot afford to lose.</p>
+          <span class="bcn-journal-read">Read →</span>
+        </article>
+        <article class="bcn-journal-card">
+          <span class="bcn-journal-tag">Heritage</span>
+          <h3 class="bcn-journal-card-title">Documenting Heritage</h3>
+          <p class="bcn-journal-card-body">The methodology behind long-form photographic documentation in indigenous and protected landscapes across East Africa — and why the archive matters as much as the image.</p>
+          <span class="bcn-journal-read">Read →</span>
+        </article>
+        <article class="bcn-journal-card">
+          <span class="bcn-journal-tag">Craft</span>
+          <h3 class="bcn-journal-card-title">The Decisive Frame</h3>
+          <p class="bcn-journal-card-body">On patience, presence, and the technical philosophy behind capturing the single image that makes the difference between documentation and impact.</p>
+          <span class="bcn-journal-read">Read →</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================================================
        CONTACT
        ============================================================ -->
@@ -275,6 +348,10 @@
             <input type="email" name="email" id="bcn-email" placeholder="Email" required autocomplete="email" />
             <span class="bcn-field-line"></span>
           </div>
+        </div>
+        <div class="bcn-field">
+          <input type="text" name="company" id="bcn-company" placeholder="Company / Organization" required autocomplete="organization" />
+          <span class="bcn-field-line"></span>
         </div>
         <div class="bcn-field bcn-field--select">
           <select name="interest" id="bcn-interest" required>
@@ -293,7 +370,7 @@
         </div>
         <div class="bcn-form-footer">
           <button type="submit" class="bcn-submit" id="bcn-submit">
-            <span class="bcn-submit-text">Submit</span>
+            <span class="bcn-submit-text">Request a Brand Intelligence Audit</span>
           </button>
           <p class="bcn-form-note">
             <svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true">
@@ -315,23 +392,23 @@
     <div class="bcn-partners-track">
       <div class="bcn-partners-inner" id="bcn-partners-inner">
         <!-- First set -->
-        <img class="bcn-partner-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/National-Geographic-Logo.svg/200px-National-Geographic-Logo.svg.png" alt="National Geographic">
-        <img class="bcn-partner-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Wwf_logo.svg/120px-Wwf_logo.svg.png" alt="WWF">
+        <span class="bcn-partner-logo-text">National Geographic</span>
+        <span class="bcn-partner-logo-text">WWF</span>
         <span class="bcn-partner-logo-text">Uganda Wildlife Authority</span>
         <span class="bcn-partner-logo-text">African Wildlife Foundation</span>
         <span class="bcn-partner-logo-text">BBC Earth</span>
-        <img class="bcn-partner-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Conservation_International_logo.svg/200px-Conservation_International_logo.svg.png" alt="Conservation International">
-        <img class="bcn-partner-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Getty_Images_Logo.svg/200px-Getty_Images_Logo.svg.png" alt="Getty Images">
+        <span class="bcn-partner-logo-text">Conservation International</span>
+        <span class="bcn-partner-logo-text">Getty Images</span>
         <span class="bcn-partner-logo-text">Africa Geographic</span>
         <span class="bcn-partner-logo-text">Reuters</span>
         <!-- Duplicate set for seamless loop -->
-        <img class="bcn-partner-logo" aria-hidden="true" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/National-Geographic-Logo.svg/200px-National-Geographic-Logo.svg.png" alt="">
-        <img class="bcn-partner-logo" aria-hidden="true" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Wwf_logo.svg/120px-Wwf_logo.svg.png" alt="">
+        <span class="bcn-partner-logo-text" aria-hidden="true">National Geographic</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">WWF</span>
         <span class="bcn-partner-logo-text" aria-hidden="true">Uganda Wildlife Authority</span>
         <span class="bcn-partner-logo-text" aria-hidden="true">African Wildlife Foundation</span>
         <span class="bcn-partner-logo-text" aria-hidden="true">BBC Earth</span>
-        <img class="bcn-partner-logo" aria-hidden="true" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Conservation_International_logo.svg/200px-Conservation_International_logo.svg.png" alt="">
-        <img class="bcn-partner-logo" aria-hidden="true" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Getty_Images_Logo.svg/200px-Getty_Images_Logo.svg.png" alt="">
+        <span class="bcn-partner-logo-text" aria-hidden="true">Conservation International</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Getty Images</span>
         <span class="bcn-partner-logo-text" aria-hidden="true">Africa Geographic</span>
         <span class="bcn-partner-logo-text" aria-hidden="true">Reuters</span>
       </div>
@@ -349,8 +426,8 @@
 
     <div id="bcn-cta-inner">
       <div class="bcn-cta-line" id="bcn-cta-line1">
-        LET'S WORK 
-        <a href="#contact" class="bcn-cta-pill">BOOK A CALL</a>
+        LET'S WORK
+        <a href="#contact" class="bcn-cta-pill">REQUEST A BRAND INTELLIGENCE AUDIT</a>
       </div>
       <div class="bcn-cta-line" id="bcn-cta-line2">TOGETHER</div>
     </div>
@@ -361,22 +438,25 @@
        ============================================================ -->
   <footer class="bcn-footer">
     <div class="bcn-footer-inner">
-      <div class="bcn-footer-left">
+      <div class="bcn-footer-brand">
         <span class="bcn-footer-logo">BCN-<em>Wild</em></span>
         <p class="bcn-footer-tagline">Africa through a lens of profound respect.</p>
       </div>
-      <div class="bcn-footer-center">
+      <nav class="bcn-footer-links" aria-label="Footer links">
+        <a href="https://instagram.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-link">Instagram</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
+        <a href="https://twitter.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-link">X</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
+        <a href="https://facebook.com/bcnwild.africa" target="_blank" rel="noopener" class="bcn-footer-link">Facebook</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
         <a href="mailto:bcn@wild.com" class="bcn-footer-link">bcn@wild.com</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
         <a href="tel:+256777784807" class="bcn-footer-link">+256 777 784 807</a>
-      </div>
-      <div class="bcn-footer-right">
-        <a href="https://instagram.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-social">Instagram</a>
-        <a href="https://twitter.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-social">X</a>
-        <a href="https://facebook.com/bcnwild.africa" target="_blank" rel="noopener" class="bcn-footer-social">Facebook</a>
-      </div>
+      </nav>
     </div>
     <div class="bcn-footer-bottom">
       <span>&copy; 2026 BCN-Wild. All rights reserved.</span>
+      <span class="bcn-footer-sep" aria-hidden="true">·</span>
       <span>Kampala, Uganda</span>
     </div>
   </footer>
@@ -388,5 +468,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/deck.js"></script>
 </body>
 </html>
