@@ -2,7 +2,7 @@
   'use strict';
 
   /* ============================================================
-     BCN-Wild — Main JS
+     BCN-Wildest — Main JS
      Z-Axis Zoom Engine · Custom Cursor · Nav · Menu · Form
      ============================================================ */
 
@@ -248,7 +248,7 @@
         access_key: 'YOUR_WEB3FORMS_KEY', // replace with actual key
         name: name,
         email: email,
-        subject: 'BCN-Wild Inquiry — ' + interest,
+        subject: 'BCN-Wildest Inquiry — ' + interest,
         message: 'Area of Interest: ' + interest + '\n\n' + message
       };
 
