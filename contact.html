@@ -130,42 +130,114 @@
     }
     /* ─────────────────────────────────────────────────────────── */
 
-    /* ── Contact form field styling ─────────────────────────── */
-    #contact input[type="text"],
-    #contact input[type="email"],
-    #contact textarea {
-        background-color: #f2f2f2;
-        border: 1.5px solid #e0e0e0;
-        border-radius: 6px;
-        padding: 16px 20px;
+    /* ── Contact section layout ─────────────────────────────── */
+    .panda-contact-section {
+        background: #f5f5f5;
+        padding: 160px 0 220px;
+    }
+    .panda-contact-section .row {
+        align-items: flex-start;
+    }
+    .panda-contact-left {
+        display: flex;
+        flex-direction: column;
+    }
+    .panda-contact-intro {
+        margin-bottom: 0;
+    }
+    .panda-contact-icons-group {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding-top: 80px;
+    }
+    .panda-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+    }
+    .panda-contact-icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #FF0000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 20px;
+    }
+    .panda-contact-icon i {
+        color: #fff;
+    }
+    .panda-contact-label {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 4px;
+        color: #1a1a1a;
+    }
+    .panda-contact-value {
+        color: #555;
+        margin: 0;
+        line-height: 1.6;
+    }
+    .panda-contact-value a {
+        color: #555;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .panda-contact-value a:hover {
+        color: #FF0000;
+    }
+    /* ── Send a Message card ─────────────────────────────────── */
+    .panda-message-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 22px 26px;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    }
+    .panda-message-card h4 {
+        margin-bottom: 64px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .panda-message-card input[type="text"],
+    .panda-message-card input[type="email"],
+    .panda-message-card textarea {
+        background: transparent;
+        border: none;
+        border-bottom: 1.5px solid #ddd;
+        border-radius: 0;
+        padding: 6px 0;
         width: 100%;
         font-family: inherit;
-        font-size: 15px;
-        font-weight: 400;
-        color: #1a1a1a;
-        transition: border-color 0.2s ease, background-color 0.2s ease;
-        box-sizing: border-box;
-    }
-    #contact input[type="text"]::placeholder,
-    #contact input[type="email"]::placeholder,
-    #contact textarea::placeholder {
-        color: #999;
-        font-family: inherit;
         font-size: 13px;
-        font-weight: 400;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-    }
-    #contact input[type="text"]:focus,
-    #contact input[type="email"]:focus,
-    #contact textarea:focus {
+        color: #1a1a1a;
+        transition: border-color 0.2s ease;
+        box-sizing: border-box;
         outline: none;
-        border-color: #aaa;
-        background-color: #ebebeb;
     }
-    #contact textarea {
-        min-height: 180px;
+    .panda-message-card input[type="text"]::placeholder,
+    .panda-message-card input[type="email"]::placeholder,
+    .panda-message-card textarea::placeholder {
+        color: #bbb;
+        font-size: 14px;
+    }
+    .panda-message-card input[type="text"]:focus,
+    .panda-message-card input[type="email"]:focus,
+    .panda-message-card textarea:focus {
+        border-bottom-color: #FF0000;
+    }
+    .panda-message-card textarea {
+        min-height: unset;
+        height: 50px;
         resize: vertical;
+    }
+    .panda-message-card .panda-field {
+        margin-bottom: 11px;
     }
     #form-status {
         display: none;
@@ -173,7 +245,7 @@
         border-radius: 6px;
         font-size: 14px;
         font-family: inherit;
-        margin-top: 16px;
+        margin-bottom: 16px;
     }
     #form-status.success {
         background-color: #e6f4ea;
@@ -184,6 +256,28 @@
         background-color: #fdecea;
         color: #c62828;
         border: 1px solid #ef9a9a;
+    }
+    /* ── Map strip ───────────────────────────────────────────── */
+    .panda-map-strip {
+        width: 100%;
+        height: 420px;
+        overflow: hidden;
+        display: block;
+    }
+    .panda-map-strip iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        filter: grayscale(20%);
+    }
+    @media (max-width: 991px) {
+        .panda-message-card {
+            padding: 36px 28px;
+        }
+        .panda-map-strip {
+            height: 300px;
+        }
     }
     /* ─────────────────────────────────────────────────────────── */
     </style>
@@ -369,92 +463,113 @@
                                 <li><a href="index.html">Homepage</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
-                            <h2 class="mil-mb-120">Let's Build <span class="mil-thin">Something That Leads.</span></h2>
-                            
-                            <!--Contact Info Start-->
-        <section class="contact-info">
-            <div class="container">
-                <div class="contact-info__wrapper">
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
-                            <div class="contact-info__item">
-                                <div class="contact-info__item__icon"><span class="icon-place"></span></div>
-                                <h3 class="contact-info__item__title">Address</h3>
-                                <p class="contact-info__item__text">
-                                    Span House, Portal Avenue<br>Kampala, Uganda
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="contact-info__item">
-                                <div class="contact-info__item__icon"><span class="icon-phone"></span></div>
-                                <h3 class="contact-info__item__title">Contact</h3>
-                                <p class="contact-info__item__text">
-                                    <a href="mailto:hello@pandastudios.co" data-no-swup>hello@pandastudios.co</a><br>
-                                    <a href="tel:+256772233050" data-no-swup>+256 772 233-050</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-7">
-                            <div class="contact-info__item">
-                                <div class="contact-info__item__icon"><span class="icon-schedule"></span></div>
-                                <h3 class="contact-info__item__title">Timing</h3>
-                                <p class="contact-info__item__text">
-                                    Monday – Friday: 8:00 am – 6:00 pm<br>Saturday: By appointment
-                                </p>
-                            </div>
+                            <h2 class="mil-mb-30">Contact <span class="mil-thin">Us</span></h2>
+                            <p class="mil-up" style="max-width:520px; margin: 0 auto; color:#888;">Your brand is either working for you or against you. If you're here, you already know the answer. Let's fix it.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!--Contact Info End-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 <!-- banner end -->
 
-                <!-- map -->
-                <div class="mil-map-frame mil-up">
-                    <div class="mil-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.758499854334!2d32.580547774474944!3d0.3137520640309216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc7e2b8153a7%3A0xeeafa7741ab6383c!2sSpan%20House!5e0!3m2!1sen!2sug!4v1728894520348!5m2!1sen!2sug" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div> </div>
-                    </div>
-                </div>
-                <!-- map end -->
+                <!-- get in touch + send a message -->
+                <section class="panda-contact-section">
+                    <div class="container">
+                        <div class="row align-items-start">
 
-                <!-- contact form -->
-                <section id="contact">
-                    <div class="container mil-p-120-60">
-                        <h3 class="mil-center mil-up mil-mb-90"><span style="color: #ff0000;">Start</span> <span class="mil-thin">the Brief</span></h3>
-                        <form id="contact-form" class="row align-items-center">
-                            <div class="col-lg-6 mil-up">
-                                <input type="text" name="name" placeholder="What's your name" required>
-                            </div>
-                            <div class="col-lg-6 mil-up">
-                                <input type="email" name="email" placeholder="Your Email" required>
-                            </div>
-                            <div class="col-lg-12 mil-up">
-                                <textarea name="message" placeholder="If urgent please use WhatsApp or call directly on the numbers above" required></textarea>
-                            </div>
-                            <div class="col-lg-12">
-                                <div id="form-status"></div>
-                            </div>
-                            <div class="col-lg-8">
-                                <p class="mil-up mil-mb-30"><span class="mil-accent">*</span> We promise not to disclose your personal information to third parties.</p>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="mil-adaptive-right mil-up mil-mb-30">
-                                    <button type="submit" class="mil-button mil-arrow-place">
-                                        <span>Send message</span>
-                                    </button>
+                            <!-- Left: Get In Touch -->
+                            <div class="col-lg-5 mil-up">
+                                <div class="panda-contact-left">
+
+                                    <!-- Top block: heading + description (pink area) -->
+                                    <div class="panda-contact-intro">
+                                        <h3 class="mil-mb-20">Get In <span class="mil-thin">Touch</span></h3>
+                                        <p class="panda-contact-value" style="max-width:340px;">We work with decision-makers who move fast. Reach out directly — we respond the same day.</p>
+                                    </div>
+
+                                    <!-- Bottom block: icons evenly spaced (green area) -->
+                                    <div class="panda-contact-icons-group">
+                                        <div class="panda-contact-item">
+                                            <div class="panda-contact-icon">
+                                                <i class="ph-light ph-map-pin"></i>
+                                            </div>
+                                            <div>
+                                                <p class="panda-contact-label">Address</p>
+                                                <p class="panda-contact-value">Span House, Portal Avenue<br>Kampala, Uganda</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="panda-contact-item">
+                                            <div class="panda-contact-icon">
+                                                <i class="ph-light ph-phone"></i>
+                                            </div>
+                                            <div>
+                                                <p class="panda-contact-label">Phone Number</p>
+                                                <p class="panda-contact-value"><a href="tel:+256772233050" data-no-swup>+256 772 233-050</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="panda-contact-item">
+                                            <div class="panda-contact-icon">
+                                                <i class="ph-light ph-envelope"></i>
+                                            </div>
+                                            <div>
+                                                <p class="panda-contact-label">E-Mail</p>
+                                                <p class="panda-contact-value"><a href="mailto:hello@pandastudios.co" data-no-swup>hello@pandastudios.co</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                        </form>
+
+                            <!-- Right: Send a Message card -->
+                            <div class="col-lg-7 mil-up">
+                                <div class="panda-message-card">
+                                    <h4>Send a Message</h4>
+                                    <form id="contact-form">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="panda-field">
+                                                    <input type="text" name="name" placeholder="Name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="panda-field">
+                                                    <input type="email" name="email" placeholder="E-mail address" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="panda-field">
+                                                    <textarea name="message" placeholder="Message" rows="2" required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div id="form-status"></div>
+                                            </div>
+                                            <div class="col-lg-8" style="display:flex; align-items:center; margin-top:28px;">
+                                                <p style="font-size:13.5px; color:#aaa; margin:0; line-height:1.5;"><span style="color:#FF0000;">*</span> By submitting, you agree to the processing of your personal data by Panda Studios.</p>
+                                            </div>
+                                            <div class="col-lg-4" style="margin-top:28px;">
+                                                <div class="mil-adaptive-right mil-up">
+                                                    <button type="submit" class="mil-button mil-arrow-place">
+                                                        <span>Submit</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </section>
-                <!-- contact form end -->
+                <!-- get in touch + send a message end -->
+
+                <!-- map -->
+                <div class="panda-map-strip">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.758499854334!2d32.580547774474944!3d0.3137520640309216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc7e2b8153a7%3A0xeeafa7741ab6383c!2sSpan%20House!5e0!3m2!1sen!2sug!4v1728894520348!5m2!1sen!2sug" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <!-- map end -->
 
                 <!-- footer -->
                 <footer class="mil-dark-bg">
