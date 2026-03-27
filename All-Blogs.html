@@ -25,7 +25,7 @@
     <meta name="keywords" content="branding blog Uganda, design insights East Africa, brand strategy blog Kampala, creative agency blog Uganda, web design tips Uganda">
     <meta name="author" content="Panda Studios">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://www.pandastudios.co/All-Blogs">
+    <link rel="canonical" href="https://www.pandastudios.co/insights">
 
     <!-- ══ SEO: Geo targeting — East Africa ══════════════════════════════ -->
     <meta name="geo.region" content="UG-C">
@@ -35,7 +35,7 @@
 
     <!-- ══ Open Graph ════════════════════════════════════════════════════ -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.pandastudios.co/All-Blogs">
+    <meta property="og:url" content="https://www.pandastudios.co/insights">
     <meta property="og:site_name" content="Panda Studios">
     <meta property="og:locale" content="en_US">
     <meta property="og:title" content="Insights & Ideas | The Panda Studios Blog — Uganda">
@@ -59,6 +59,7 @@
     <link href="img/logo/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="img/logo/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
     <link href="img/logo/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+    <link rel="alternate" type="application/rss+xml" title="Panda Studios — Insights" href="https://www.pandastudios.co/feed.xml">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
@@ -203,8 +204,8 @@
                                     <li class="mil-has-children mil-active">
                                         <a href="#">Newsletter</a>
                                         <ul>
-                                            <li><a href="All-Blogs.html">Blog List</a></li>
-                                            <li><a href="All-Blogs.html">Publication</a></li>
+                                            <li><a href="All-Blogs.html">Insights</a></li>
+                                            <li><a href="All-Blogs.html">Insights</a></li>
                                         </ul>
                                     </li>
                                     <li class="mil-has-children">
@@ -321,11 +322,11 @@
                         <div class="container">
                             <ul class="mil-breadcrumbs mil-mb-60">
                                 <li><a href="index.html">Homepage</a></li>
-                                <li><a href="All-Blogs.html">Blogs</a></li>
+                                <li><a href="All-Blogs.html">Insights</a></li>
                             </ul>
                             <h1 class="mil-mb-60"><span style="color:#ff0000; font-weight:bold; font-family: 'Montserrat', sans-serif;">Thinking</span> <span class="mil-thin">Worth Sharing</span></h1>
                             <a href="#blog" class="mil-link mil-dark mil-arrow-place mil-down-arrow">
-                                <span>Publications</span>
+                                <span>Insights</span>
                             </a>
                         </div>
                     </div>
@@ -343,6 +344,26 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-lg-12">
+
+                                <a href="publication6.html" class="mil-blog-card mil-blog-card-hori mil-more mil-mb-60">
+                                    <div class="mil-cover-frame mil-up">
+                                        <img src="img/blog/Panda Studios Audit.png" alt="cover">
+                                    </div>
+                                    <div class="mil-post-descr">
+                                        <div class="mil-labels mil-up mil-mb-30">
+                                            <div class="mil-label mil-upper mil-accent">Branding</div>
+                                            <div class="mil-label mil-upper">March 2026</div>
+                                        </div>
+                                        <h4 class="mil-up mil-mb-30">Your Brand Is Speaking. Is It Saying the Right Things?</h4>
+                                        <p class="mil-post-text mil-up mil-mb-30">Every business broadcasts a brand signal before a single word is spoken. The question is whether you designed that message deliberately — or left it to chance.</p>
+                                        <div class="mil-link mil-dark mil-arrow-place mil-up">
+                                            <span>Read more</span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
                             <div class="col-lg-12">
 
                                 <a href="publication1.html" class="mil-blog-card mil-blog-card-hori mil-more mil-mb-60">
@@ -721,6 +742,10 @@
     <script src="js/plugins/jquery.min.js"></script>
     <!-- swup js -->
     <script src="js/plugins/swup.min.js"></script>
+    <script>/* disable swup - caused partial render on first click */
+    window.Swup=function(){this.on=function(){return this;};this.off=function(){return this;};this.use=function(){return this;};this.uninstall=function(){};this.cache={empty:function(){}};};
+    </script>
+    
     <!-- swiper js -->
     <script src="js/plugins/swiper.min.js"></script>
     <!-- fancybox js -->

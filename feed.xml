@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Panda Studios — Insights</title>
+    <link>https://www.pandastudios.co/All-Blogs</link>
+    <description>Brand thinking, design insights and creative perspectives from Panda Studios — Uganda's leading brand identity and web design agency.</description>
+    <language>en-ug</language>
+    <copyright>© 2026 Panda Studios. All Rights Reserved.</copyright>
+    <managingEditor>hello@pandastudios.co (Deryk Lubega)</managingEditor>
+    <webMaster>hello@pandastudios.co (Panda Studios)</webMaster>
+    <lastBuildDate>Thu, 27 Mar 2026 00:00:00 +0300</lastBuildDate>
+    <atom:link href="https://www.pandastudios.co/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://www.pandastudios.co/img/logo/mil-logo-05.png</url>
+      <title>Panda Studios — Insights</title>
+      <link>https://www.pandastudios.co/All-Blogs</link>
+    </image>
+
+    <item>
+      <title>Your Brand Is Speaking. Is It Saying the Right Things?</title>
+      <link>https://www.pandastudios.co/insights/your-brand-is-speaking</link>
+      <guid isPermaLink="true">https://www.pandastudios.co/insights/your-brand-is-speaking</guid>
+      <pubDate>Thu, 27 Mar 2026 00:00:00 +0300</pubDate>
+      <author>hello@pandastudios.co (Deryk Lubega)</author>
+      <category>Branding</category>
+      <description><![CDATA[Every business broadcasts a brand signal before a single word is spoken. The question is whether you designed that message deliberately — or left it to chance.]]></description>
+      <media:content url="https://www.pandastudios.co/img/blog/Panda Studios Audit.png" medium="image" width="1920" height="1280"/>
+      <media:thumbnail url="https://www.pandastudios.co/img/blog/Panda Studios Audit.png"/>
+    </item>
+
+    <item>
+      <title>Why the Best Brands Activate Identity, Not Just Recognition</title>
+      <link>https://www.pandastudios.co/insights/brand-identity-not-just-recognition</link>
+      <guid isPermaLink="true">https://www.pandastudios.co/insights/brand-identity-not-just-recognition</guid>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0300</pubDate>
+      <author>hello@pandastudios.co (Deryk Lubega)</author>
+      <category>Branding</category>
+      <description><![CDATA[Nike, Red Bull, Apple — they don't sell products, they sell who you become. A look at how dominant brands build loyalty through identity.]]></description>
+      <media:content url="https://www.pandastudios.co/img/blog/1.jpg" medium="image" width="1920" height="1280"/>
+      <media:thumbnail url="https://www.pandastudios.co/img/blog/1.jpg"/>
+    </item>
+
+    <item>
+      <title>All About Nike — Brand Strategy Lessons</title>
+      <link>https://www.pandastudios.co/insights/all-about-nike-brand-strategy</link>
+      <guid isPermaLink="true">https://www.pandastudios.co/insights/all-about-nike-brand-strategy</guid>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0300</pubDate>
+      <author>hello@pandastudios.co (Deryk Lubega)</author>
+      <category>Branding</category>
+      <description><![CDATA[What makes Nike's brand untouchable? Breaking down the strategy and design decisions behind one of the world's most powerful brands.]]></description>
+      <media:content url="https://www.pandastudios.co/img/blog/2.jpg" medium="image" width="1920" height="1280"/>
+      <media:thumbnail url="https://www.pandastudios.co/img/blog/2.jpg"/>
+    </item>
+
+    <item>
+      <title>How Our Minds Perceive Written Words</title>
+      <link>https://www.pandastudios.co/insights/how-minds-perceive-written-words</link>
+      <guid isPermaLink="true">https://www.pandastudios.co/insights/how-minds-perceive-written-words</guid>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0300</pubDate>
+      <author>hello@pandastudios.co (Deryk Lubega)</author>
+      <category>Design</category>
+      <description><![CDATA[Typography and cognition — how the way words look shapes the way we read, feel and decide.]]></description>
+      <media:content url="https://www.pandastudios.co/img/blog/333.jpg" medium="image" width="1920" height="1280"/>
+      <media:thumbnail url="https://www.pandastudios.co/img/blog/333.jpg"/>
+    </item>
+
+    <item>
+      <title>The Minimalist Approach to Corporate Branding</title>
+      <link>https://www.pandastudios.co/insights/minimalist-approach-to-corporate-branding</link>
+      <guid isPermaLink="true">https://www.pandastudios.co/insights/minimalist-approach-to-corporate-branding</guid>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0300</pubDate>
+      <author>hello@pandastudios.co (Deryk Lubega)</author>
+      <category>Branding</category>
+      <description><![CDATA[Why less is more when it comes to corporate identity. An exploration of minimalism in brand design and what it signals to decision-makers.]]></description>
+      <media:content url="https://www.pandastudios.co/img/blog/44.jpg" medium="image" width="4973" height="3316"/>
+      <media:thumbnail url="https://www.pandastudios.co/img/blog/44.jpg"/>
+    </item>
+
+    <item>
+      <title>Why Choose Panda Studios — Uganda's Creative Agency</title>
+      <link>https://www.pandastudios.co/insights/why-choose-panda-studios</link>
+      <guid isPermaLink="true">https://www.pandastudios.co/insights/why-choose-panda-studios</guid>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0300</pubDate>
+      <author>hello@pandastudios.co (Deryk Lubega)</author>
+      <category>Branding</category>
+      <description><![CDATA[What sets Panda Studios apart as Uganda's authority-defining creative agency — brand identity, web design and strategy for growth-stage companies across East Africa.]]></description>
+      <media:content url="https://www.pandastudios.co/img/blog/5.jpg" medium="image" width="1920" height="1280"/>
+      <media:thumbnail url="https://www.pandastudios.co/img/blog/5.jpg"/>
+    </item>
+
+  </channel>
+</rss>

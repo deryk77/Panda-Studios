@@ -201,9 +201,9 @@
                                     </li>
                                     
                                     <li class="mil-has-children">
-                                        <a href="#">Write UP</a>
+                                        <a href="#">Insights</a>
                                         <ul>
-                                            <li><a href="All-Blogs.html">All Blogs</a></li>
+                                            <li><a href="All-Blogs.html">Insights</a></li>
                                         </ul>
                                     </li>
                                     <li class="mil-has-children">
@@ -659,6 +659,10 @@
     <script src="js/plugins/jquery.min.js"></script>
     <!-- swup js -->
     <script src="js/plugins/swup.min.js"></script>
+    <script>/* disable swup - caused partial render on first click */
+    window.Swup=function(){this.on=function(){return this;};this.off=function(){return this;};this.use=function(){return this;};this.uninstall=function(){};this.cache={empty:function(){}};};
+    </script>
+    
     <!-- swiper js -->
     <script src="js/plugins/swiper.min.js"></script>
     <!-- fancybox js -->

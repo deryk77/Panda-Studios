@@ -1,0 +1,8 @@
+# Blog — clean URL redirects
+/insights                                              /All-Blogs.html                                        301
+/insights/brand-identity-not-just-recognition          /publication1.html                                     301
+/insights/all-about-nike-brand-strategy                /publication2.html                                     301
+/insights/how-minds-perceive-written-words             /publication3.html                                     301
+/insights/minimalist-approach-to-corporate-branding    /publication4.html                                     301
+/insights/why-choose-panda-studios                     /publication5.html                                     301
+/insights/your-brand-is-speaking                       /publication6.html                                     301
