@@ -1,3 +1,7 @@
+# Service page rename: old /service → new /web-design
+/service                                               /web-design                                                     301
+/service.html                                          /web-design                                                     301
+
 # Blog — clean URL redirects (old publicationN URLs → new slug filenames)
 /insights                                              /All-Blogs.html                                                 200
 /publication1                                          /brand-identity-not-just-recognition.html                      301
