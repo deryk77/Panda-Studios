@@ -2,7 +2,7 @@
   'use strict';
 
   /* ============================================================
-     BCN-Wildest — Cinematic Deck Engine
+     BCN-Wild — Cinematic Deck Engine
      Scroll-driven stacked panel reveal.
 
      Architecture:

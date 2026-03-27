@@ -2,7 +2,7 @@
   'use strict';
 
   /* ============================================================
-     BCN-Wildest — Gallery JS
+     BCN-Wild — Gallery JS
      List view hover preview · Grid horizontal scroll
      Lens magnifier (ykproduce style) · Filter · View toggle
      ============================================================ */
