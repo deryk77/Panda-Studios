@@ -1,8 +1,14 @@
-# Blog — clean URL redirects
-/insights                                              /All-Blogs.html                                        301
-/insights/brand-identity-not-just-recognition          /publication1.html                                     301
-/insights/all-about-nike-brand-strategy                /publication2.html                                     301
-/insights/how-minds-perceive-written-words             /publication3.html                                     301
-/insights/minimalist-approach-to-corporate-branding    /publication4.html                                     301
-/insights/why-choose-panda-studios                     /publication5.html                                     301
-/insights/your-brand-is-speaking                       /publication6.html                                     301
+# Blog — clean URL redirects (old publicationN URLs → new slug filenames)
+/insights                                              /All-Blogs.html                                                 301
+/publication1                                          /brand-identity-not-just-recognition.html                      301
+/publication2                                          /all-about-nike-brand-strategy.html                            301
+/publication3                                          /how-minds-perceive-written-words.html                         301
+/publication4                                          /minimalist-approach-to-corporate-branding.html                301
+/publication5                                          /why-choose-panda-studios.html                                 301
+/publication6                                          /your-brand-is-speaking.html                                   301
+/publication1.html                                     /brand-identity-not-just-recognition.html                      301
+/publication2.html                                     /all-about-nike-brand-strategy.html                            301
+/publication3.html                                     /how-minds-perceive-written-words.html                         301
+/publication4.html                                     /minimalist-approach-to-corporate-branding.html                301
+/publication5.html                                     /why-choose-panda-studios.html                                 301
+/publication6.html                                     /your-brand-is-speaking.html                                   301
