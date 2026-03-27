@@ -1,5 +1,5 @@
 # Blog — clean URL redirects (old publicationN URLs → new slug filenames)
-/insights                                              /All-Blogs.html                                                 301
+/insights                                              /All-Blogs.html                                                 200
 /publication1                                          /brand-identity-not-just-recognition.html                      301
 /publication2                                          /all-about-nike-brand-strategy.html                            301
 /publication3                                          /how-minds-perceive-written-words.html                         301
