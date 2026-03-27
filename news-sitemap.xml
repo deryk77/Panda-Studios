@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <!--
+        GOOGLE NEWS SITEMAP — pandastudios.co
+        ════════════════════════════════════════════════════════════
+        RULES:
+        · Only include articles published in the last 48 hours
+        · Replace this entry every time you publish a new article
+        · Remove articles older than 2 days
+        · After updating, ping Google:
+          https://www.google.com/ping?sitemap=https://www.pandastudios.co/news-sitemap.xml
+        ════════════════════════════════════════════════════════════
+    -->
+
+    <url>
+        <loc>https://www.pandastudios.co/your-brand-is-speaking</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Panda Studios</news:name>
+                <news:language>en</news:language>
+            </news:publication>
+            <news:publication_date>2026-03-27T00:00:00+03:00</news:publication_date>
+            <news:title>Your Brand Is Speaking. Is It Saying the Right Things?</news:title>
+            <news:keywords>branding, brand identity, East Africa, Uganda, Kampala, creative agency</news:keywords>
+        </news:news>
+        <image:image>
+            <image:loc>https://www.pandastudios.co/img/blog/Panda Studios Audit.png</image:loc>
+            <image:caption>Brand audit — is your brand communicating clearly to your audience?</image:caption>
+        </image:image>
+    </url>
+
+</urlset>

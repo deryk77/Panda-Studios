@@ -75,39 +75,47 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Blog -->
+  <!-- Insights listing -->
   <url>
     <loc>https://www.pandastudios.co/All-Blogs</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Insights articles -->
   <url>
-    <loc>https://www.pandastudios.co/publication1</loc>
+    <loc>https://www.pandastudios.co/your-brand-is-speaking</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pandastudios.co/brand-identity-not-just-recognition</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.pandastudios.co/publication2</loc>
+    <loc>https://www.pandastudios.co/all-about-nike-brand-strategy</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.pandastudios.co/publication3</loc>
+    <loc>https://www.pandastudios.co/how-minds-perceive-written-words</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.pandastudios.co/publication4</loc>
+    <loc>https://www.pandastudios.co/minimalist-approach-to-corporate-branding</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.pandastudios.co/publication5</loc>
+    <loc>https://www.pandastudios.co/why-choose-panda-studios</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

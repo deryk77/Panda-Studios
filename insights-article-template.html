@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ══════════════════════════════════════════════════════════════
+         PANDA STUDIOS — INSIGHTS ARTICLE TEMPLATE
+         Replace every {{PLACEHOLDER}} before publishing.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <!-- Primary Meta -->
+    <title>{{ARTICLE_TITLE}} | Panda Studios</title>
+    <meta name="description" content="{{META_DESCRIPTION}}">
+    <meta name="author" content="Deryk Lubega">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Geo -->
+    <meta name="geo.region" content="UG-C">
+    <meta name="geo.placename" content="Kampala, Uganda">
+    <meta name="geo.position" content="0.3476;32.5825">
+    <meta name="ICBM" content="0.3476, 32.5825">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.pandastudios.co/{{ARTICLE_SLUG}}">
+    <meta property="og:title" content="{{ARTICLE_TITLE}}">
+    <meta property="og:description" content="{{META_DESCRIPTION}}">
+    <meta property="og:image" content="https://www.pandastudios.co/img/blog/{{ARTICLE_IMAGE}}">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="900">
+    <meta property="og:site_name" content="Panda Studios">
+    <meta property="og:locale" content="en_UG">
+    <meta property="article:published_time" content="{{ISO_DATE}}">
+    <meta property="article:modified_time" content="{{ISO_DATE}}">
+    <meta property="article:author" content="https://www.pandastudios.co/team.html">
+    <meta property="article:section" content="{{CATEGORY}}">
+    <meta property="article:tag" content="{{TAG_1}}">
+    <meta property="article:tag" content="{{TAG_2}}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pandastudios77">
+    <meta name="twitter:title" content="{{ARTICLE_TITLE}}">
+    <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+    <meta name="twitter:image" content="https://www.pandastudios.co/img/blog/{{ARTICLE_IMAGE}}">
+
+    <!-- Canonical + RSS feed link -->
+    <link rel="canonical" href="https://www.pandastudios.co/{{ARTICLE_SLUG}}">
+    <link rel="alternate" type="application/rss+xml" title="Panda Studios Insights" href="https://www.pandastudios.co/feed.xml">
+
+    <!-- Favicon -->
+    <link href="img/logo/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="img/logo/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Article JSON-LD — required for Google Discover -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ARTICLE_TITLE}}",
+        "description": "{{META_DESCRIPTION}}",
+        "image": ["https://www.pandastudios.co/img/blog/{{ARTICLE_IMAGE}}"],
+        "datePublished": "{{ISO_DATE}}",
+        "dateModified": "{{ISO_DATE}}",
+        "author": {
+            "@type": "Person",
+            "name": "Deryk Lubega",
+            "url": "https://www.pandastudios.co/team.html",
+            "jobTitle": "Creative Director & Founder",
+            "worksFor": {"@type": "Organization", "name": "Panda Studios"}
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Panda Studios",
+            "url": "https://www.pandastudios.co",
+            "logo": {"@type": "ImageObject", "url": "https://www.pandastudios.co/img/logo/LOGO head.svg"}
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.pandastudios.co/{{ARTICLE_SLUG}}"
+        },
+        "articleSection": "{{CATEGORY}}",
+        "keywords": ["{{TAG_1}}", "{{TAG_2}}", "East Africa", "branding", "Uganda"]
+    }
+    </script>
+
+    <!-- BreadcrumbList JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home",     "item": "https://www.pandastudios.co/"},
+            {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.pandastudios.co/All-Blogs"},
+            {"@type": "ListItem", "position": 3, "name": "{{ARTICLE_TITLE}}", "item": "https://www.pandastudios.co/{{ARTICLE_SLUG}}"}
+        ]
+    }
+    </script>
+
+    <!-- Fonts: editorial (Instrument Serif + DM Sans) + Montserrat for nav/footer -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Site CSS — bootstrap grid + font-awesome + main stylesheet (required for footer) -->
+    <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+    /* ══ GLOBAL OVERRIDE FOR ARTICLE PAGES ══════════════════════ */
+    body {
+        background: #0e0e0e !important;
+        color: #e8e4df;
+        font-family: 'DM Sans', -apple-system, sans-serif;
+        line-height: 1.75;
+        font-weight: 300;
+    }
+
+    /* ══ NAV ══════════════════════════════════════════════════════ */
+    .insights-nav {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 1000;
+        padding: 0 2.5rem;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(10, 10, 10, 0.90);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Logo morph — identical behaviour to main site, always white on dark nav */
+    .insights-nav .mil-logo-morph {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 108px;
+        height: 36px;
+        text-decoration: none;
+    }
+    .insights-nav .mil-logo-icon,
+    .insights-nav .mil-logo-word {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        pointer-events: none;
+        filter: invert(1); /* nav background is always dark on article pages */
+    }
+    .insights-nav .mil-logo-icon {
+        height: 36px;
+        width: auto;
+        opacity: 1;
+        transform: translateY(-50%) translateX(0px);
+        transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .insights-nav .mil-logo-word {
+        height: 23px;
+        width: 108px;
+        transform: translateY(-50%);
+        clip-path: inset(0 100% 0 0);
+        transition: clip-path 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .insights-nav .mil-logo-morph.panda-scrolled .mil-logo-icon {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-10px);
+    }
+    .insights-nav .mil-logo-morph.panda-scrolled .mil-logo-word {
+        clip-path: inset(0 0% 0 0);
+    }
+
+    .insights-nav__links {
+        display: flex;
+        gap: 2.2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .insights-nav__links a {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.76rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .insights-nav__links a:hover,
+    .insights-nav__links a.active {
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .insights-nav { padding: 0 1.25rem; }
+        .insights-nav__links { gap: 1.2rem; }
+        .insights-nav__links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+    }
+
+    /* ══ BREADCRUMB ══════════════════════════════════════════════ */
+    .ins-breadcrumb {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 6.5rem 1.5rem 0;
+        font-size: 0.76rem;
+        color: #555;
+        letter-spacing: 0.04em;
+        font-family: 'DM Sans', sans-serif;
+    }
+    .ins-breadcrumb a { color: #555; text-decoration: none; transition: color 0.2s; }
+    .ins-breadcrumb a:hover { color: #FF0000; }
+    .ins-breadcrumb span { margin: 0 0.4rem; opacity: 0.35; }
+
+    /* ══ ARTICLE HEADER ══════════════════════════════════════════ */
+    .ins-header {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 2.25rem 1.5rem 3.5rem;
+        animation: fadeUp 0.6s ease-out both;
+    }
+    .ins-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.75rem;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #555;
+    }
+    .ins-meta__category {
+        background: rgba(255, 0, 0, 0.12);
+        color: #FF0000;
+        padding: 0.3em 0.9em;
+        border-radius: 2px;
+        font-weight: 700;
+    }
+    .ins-meta__dot {
+        width: 3px; height: 3px;
+        background: #444;
+        border-radius: 50%;
+    }
+    .ins-title {
+        font-family: 'Instrument Serif', Georgia, serif;
+        font-size: clamp(2rem, 5.5vw, 3rem);
+        font-weight: 400;
+        line-height: 1.15;
+        color: #f0ece6;
+        margin-bottom: 1rem;
+        letter-spacing: -0.01em;
+    }
+    .ins-subtitle {
+        font-size: 1.05rem;
+        color: #888;
+        line-height: 1.65;
+        font-weight: 300;
+        max-width: 580px;
+        font-family: 'DM Sans', sans-serif;
+    }
+    .ins-author {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .ins-author__avatar {
+        width: 42px; height: 42px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid rgba(255, 0, 0, 0.3);
+        flex-shrink: 0;
+    }
+    .ins-author__name {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #e8e4df;
+        font-family: 'DM Sans', sans-serif;
+    }
+    .ins-author__role {
+        font-size: 0.76rem;
+        color: #666;
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ══ HERO IMAGE ══════════════════════════════════════════════ */
+    .ins-hero {
+        max-width: 1000px;
+        margin: 0 auto 5rem;
+        padding: 0 1.5rem;
+        animation: fadeUp 0.6s ease-out 0.15s both;
+    }
+    .ins-hero img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 4px;
+        display: block;
+    }
+
+    /* ══ ARTICLE BODY ════════════════════════════════════════════ */
+    .ins-body {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 1.5rem 5rem;
+        font-size: 1.05rem;
+        animation: fadeUp 0.6s ease-out 0.25s both;
+    }
+    .ins-body p {
+        margin-bottom: 1.6rem;
+        font-weight: 300;
+        color: #c8c4bf;
+    }
+    .ins-body strong { font-weight: 500; color: #f0ece6; }
+    .ins-body a { color: #FF0000; text-decoration: none; }
+    .ins-body a:hover { text-decoration: underline; }
+
+    .ins-body h2 {
+        font-family: 'Instrument Serif', Georgia, serif;
+        font-size: 1.75rem;
+        font-weight: 400;
+        line-height: 1.25;
+        color: #f0ece6;
+        margin: 3.5rem 0 1rem;
+        letter-spacing: -0.01em;
+    }
+    .ins-body h3 {
+        font-family: 'Instrument Serif', Georgia, serif;
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: #f0ece6;
+        margin: 2.25rem 0 0.75rem;
+    }
+    .ins-body blockquote {
+        margin: 2.5rem 0;
+        padding: 1.25rem 1.75rem;
+        border-left: 3px solid #FF0000;
+        background: rgba(255, 0, 0, 0.05);
+        font-family: 'Instrument Serif', Georgia, serif;
+        font-size: 1.15rem;
+        font-style: italic;
+        line-height: 1.65;
+        color: #e8e4df;
+        border-radius: 0 4px 4px 0;
+    }
+    .ins-body blockquote cite {
+        display: block;
+        margin-top: 0.75rem;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.72rem;
+        font-style: normal;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+    }
+    .ins-body ul, .ins-body ol { margin: 0 0 1.6rem 1.5rem; }
+    .ins-body li { margin-bottom: 0.5rem; color: #c8c4bf; }
+    .ins-body figure { margin: 3.5rem 0; }
+    .ins-body figure img { border-radius: 4px; width: 100%; display: block; }
+    .ins-body figcaption {
+        font-size: 0.76rem;
+        color: #666;
+        margin-top: 0.75rem;
+        text-align: center;
+        font-style: italic;
+        font-family: 'DM Sans', sans-serif;
+    }
+    .ins-body hr {
+        border: none;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.07);
+        margin: 3.5rem 0;
+    }
+
+    /* ══ TAGS ════════════════════════════════════════════════════ */
+    .ins-tags {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 1.5rem 3.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .ins-tags a {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.4em 1em;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        color: #666;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+    .ins-tags a:hover { border-color: #FF0000; color: #FF0000; }
+
+    /* ══ CTA ═════════════════════════════════════════════════════ */
+    .ins-cta {
+        max-width: 760px;
+        margin: 0 auto 5rem;
+        padding: 0 1.5rem;
+    }
+    .ins-cta__box {
+        background: #161616;
+        border: 1px solid rgba(255, 0, 0, 0.18);
+        border-radius: 6px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+    }
+    .ins-cta__box h3 {
+        font-family: 'Instrument Serif', Georgia, serif;
+        font-size: 1.55rem;
+        font-weight: 400;
+        margin-bottom: 0.75rem;
+        color: #f0ece6;
+    }
+    .ins-cta__box p {
+        color: #888;
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        max-width: 460px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.65;
+        font-family: 'DM Sans', sans-serif;
+    }
+    .ins-cta__btn {
+        display: inline-block;
+        padding: 0.9em 2.4em;
+        background: #FF0000;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        border-radius: 40px;
+        text-decoration: none;
+        transition: background 0.2s;
+    }
+    .ins-cta__btn:hover { background: #cc0000; color: #fff; text-decoration: none; }
+
+    /* ══ RELATED ═════════════════════════════════════════════════ */
+    .ins-related {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 1.5rem 5rem;
+    }
+    .ins-related__heading {
+        font-family: 'Instrument Serif', Georgia, serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        color: #f0ece6;
+    }
+    .ins-related__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    .ins-related__card {
+        background: #161616;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 4px;
+        overflow: hidden;
+        text-decoration: none;
+        display: block;
+        transition: border-color 0.3s;
+    }
+    .ins-related__card:hover { border-color: rgba(255, 0, 0, 0.3); }
+    .ins-related__card img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
+    }
+    .ins-related__card-body { padding: 1.25rem; }
+    .ins-related__card-cat {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #FF0000;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    .ins-related__card-title {
+        font-family: 'Instrument Serif', Georgia, serif;
+        font-size: 1.1rem;
+        line-height: 1.35;
+        color: #e8e4df;
+        margin-bottom: 0.5rem;
+    }
+    .ins-related__card-date {
+        font-size: 0.73rem;
+        color: #666;
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ══ ANIMATIONS ══════════════════════════════════════════════ */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(18px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══ RESPONSIVE ══════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+        .ins-cta__box { padding: 2rem 1.25rem; }
+        .ins-body { font-size: 1rem; }
+        .ins-hero { margin-bottom: 3rem; }
+    }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══ NAV ════════════════════════════════════════════════════ -->
+    <nav class="insights-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="mil-logo-morph" aria-label="Panda Studios — Home">
+            <img src="img/logo/LOGO head.svg" alt="Panda Studios" class="mil-logo-icon" width="36" height="36">
+            <img src="img/logo/LOGO-02.svg"   alt="Panda Studios" class="mil-logo-word" width="108" height="23">
+        </a>
+        <ul class="insights-nav__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio-2.html">Portfolio</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="All-Blogs.html" class="active">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ══ BREADCRUMB ═════════════════════════════════════════════ -->
+    <nav class="ins-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="All-Blogs.html">Insights</a>
+        <span>/</span>
+        {{ARTICLE_TITLE}}
+    </nav>
+
+    <!-- ══ ARTICLE ════════════════════════════════════════════════ -->
+    <article itemscope itemtype="https://schema.org/Article">
+
+        <header class="ins-header">
+            <div class="ins-meta">
+                <span class="ins-meta__category">{{CATEGORY}}</span>
+                <span class="ins-meta__dot"></span>
+                <time datetime="{{ISO_DATE}}">{{READABLE_DATE}}</time>
+                <span class="ins-meta__dot"></span>
+                <span>{{READ_TIME}} min read</span>
+            </div>
+
+            <h1 class="ins-title" itemprop="headline">{{ARTICLE_TITLE}}</h1>
+            <p class="ins-subtitle">{{ARTICLE_SUBTITLE}}</p>
+
+            <div class="ins-author">
+                <img class="ins-author__avatar"
+                     src="img/faces/customers/2.jpg"
+                     alt="Deryk Lubega"
+                     width="42" height="42">
+                <div>
+                    <div class="ins-author__name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <span itemprop="name">Deryk Lubega</span>
+                    </div>
+                    <div class="ins-author__role">Creative Director, Panda Studios &bull; Kampala</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO IMAGE — minimum 1200px wide, ideally 1600×900 for Google Discover -->
+        <div class="ins-hero">
+            <img src="img/blog/{{ARTICLE_IMAGE}}"
+                 alt="{{ARTICLE_IMAGE_ALT}}"
+                 width="1600" height="900"
+                 itemprop="image"
+                 loading="eager">
+        </div>
+
+        <!-- ══ ARTICLE BODY — write your content between these comments ══ -->
+        <div class="ins-body" itemprop="articleBody">
+
+            <p><strong>{{STRONG_OPENING_LINE}}</strong></p>
+
+            <p>Your article content goes here. Lead with the diagnosis — name the problem the reader is already living. Build the argument with evidence and original insight. Every paragraph should earn its place.</p>
+
+            <h2>Section Heading</h2>
+
+            <p>Continue with substantive content. Conviction over volume. One sharp insight is worth ten average paragraphs.</p>
+
+            <blockquote>
+                A sharp pullquote that crystallises the key insight from this section.
+                <cite>— Attribution or context</cite>
+            </blockquote>
+
+            <p>More content here...</p>
+
+            <figure>
+                <img src="img/blog/{{INLINE_IMAGE}}"
+                     alt="Descriptive alt text for the image"
+                     width="1200" height="675"
+                     loading="lazy">
+                <figcaption>Caption: what this shows and why it matters to the argument.</figcaption>
+            </figure>
+
+            <h2>Another Section</h2>
+
+            <p>Continue building your argument...</p>
+
+            <hr>
+
+            <h2>The Signal</h2>
+
+            <p>Close with a single, decisive line. The one thing the reader remembers after they've left the page.</p>
+
+        </div>
+        <!-- ══ END ARTICLE BODY ══ -->
+
+    </article>
+
+    <!-- ══ TAGS ═══════════════════════════════════════════════════ -->
+    <div class="ins-tags">
+        <a href="All-Blogs.html">{{TAG_1}}</a>
+        <a href="All-Blogs.html">{{TAG_2}}</a>
+        <a href="All-Blogs.html">East Africa</a>
+        <a href="All-Blogs.html">Brand Strategy</a>
+    </div>
+
+    <!-- ══ CTA ════════════════════════════════════════════════════ -->
+    <section class="ins-cta">
+        <div class="ins-cta__box">
+            <h3>Is your brand saying what you think it's saying?</h3>
+            <p>We work with decision-makers in Uganda and East Africa who are done leaving their brand to chance. Start with a conversation.</p>
+            <a href="contact.html" class="ins-cta__btn">Start the conversation</a>
+        </div>
+    </section>
+
+    <!-- ══ RELATED ARTICLES ════════════════════════════════════════ -->
+    <section class="ins-related">
+        <h2 class="ins-related__heading">More from Panda Studios</h2>
+        <div class="ins-related__grid">
+
+            <a href="brand-identity-not-just-recognition.html" class="ins-related__card">
+                <img src="img/blog/1.jpg" alt="Why the Best Brands Activate Identity" width="400" height="225" loading="lazy">
+                <div class="ins-related__card-body">
+                    <div class="ins-related__card-cat">Branding</div>
+                    <div class="ins-related__card-title">Why the Best Brands Activate Identity, Not Just Recognition</div>
+                    <div class="ins-related__card-date">April 2023</div>
+                </div>
+            </a>
+
+            <a href="all-about-nike-brand-strategy.html" class="ins-related__card">
+                <img src="img/blog/2.jpg" alt="All About Nike Brand Strategy" width="400" height="225" loading="lazy">
+                <div class="ins-related__card-body">
+                    <div class="ins-related__card-cat">Branding</div>
+                    <div class="ins-related__card-title">All About Nike — Brand Strategy Lessons</div>
+                    <div class="ins-related__card-date">May 2023</div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ══ FOOTER — exact Panda Studios footer, unchanged ═════════ -->
+    <footer class="mil-dark-bg">
+        <div class="mi-invert-fix">
+            <div class="container mil-p-120-60">
+                <div class="row justify-content-between">
+                    <div class="col-md-4 col-md-4 mil-mb-20">
+                        <a href="index.html" class="mil-logo">
+                            <img src="img/logo/mil-logo-05.svg" alt="Panda Studios"></a>
+                            <p>.</p>
+                        <div class="mil-subscribe-form mil-up">
+                            <input type="text" placeholder="Send us a message">
+                            <button type="button" class="mil-button mil-icon-button-sm mil-arrow-place"
+                                onclick="var i=this.closest('.mil-subscribe-form').querySelector('input');window.open('https://wa.me/256772233050?text='+(i.value?encodeURIComponent(i.value):''),'_blank');"></button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 col-lg-6">
+                        <div class="row justify-content-end">
+                            <div class="col-md-6 col-lg-7">
+                                <nav class="mil-footer-menu mil-mb-50">
+                                    <ul>
+                                        <li class="mil-up"><a href="index.html">Home</a></li>
+                                        <li class="mil-up"><a href="portfolio-2.html">Portfolio</a></li>
+                                        <li class="mil-up"><a href="service.html">Services</a></li>
+                                        <li class="mil-up"><a href="contact.html">Contact</a></li>
+                                        <li class="mil-up mil-active"><a href="All-Blogs.html">Insights</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-md-6 col-lg-5">
+                                <ul class="mil-menu-list mil-up mil-mb-50">
+                                    <li><a href="img/policy.pdf" class="mil-light-soft">Privacy Policy</a></li>
+                                    <li><a href="#" class="mil-light-soft">Terms and conditions</a></li>
+                                    <li><a href="#" class="mil-light-soft">Cookie Policy</a></li>
+                                    <li><a href="#" class="mil-light-soft">Careers</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-between flex-sm-row-reverse">
+                    <div class="col-md-7 col-lg-6">
+                        <div class="row justify-content-between">
+                            <div class="col-md-6 col-lg-5 mil-mb-40">
+                                <h6 class="mil-muted mil-up mil-mb-10">Uganda</h6>
+                                <p class="mil-light-soft mil-up">Span House, Portal Avenue, Kampala <span class="mil-no-wrap">+256 772 233-050</span></p>
+                            </div>
+                            <div class="col-md-6 col-lg-5 mil-mb-40">
+                                <h6 class="mil-muted mil-up mil-mb-10">United States</h6>
+                                <p class="mil-light-soft mil-up">SeaTac, WA 98158, 6734 Main Street, <span class="mil-no-wrap">+1 (206) 730-8512</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-6 mil-mb-40">
+                        <div class="mil-vert-between">
+                            <div class="mil-mb-10">
+                                <ul class="mil-social-icons mil-up">
+                                    <li><a href="#" onclick="window.open('https://www.instagram.com/pandastudios77/','_blank')" class="social-icon"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#" onclick="window.open('https://www.facebook.com/pandastudios77/','_blank')" class="social-icon"><i class="fab fa-facebook"></i></a></li>
+                                    <li><a href="#" onclick="window.open('https://x.com/PandaStudios77','_blank')" class="social-icon"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" onclick="window.open('https://ug.linkedin.com/company/pandastudios77','_blank')" class="social-icon"><i class="fab fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                            <p class="mil-light-soft mil-up">© 2026 PANDA Studios. All Rights Reserved</p>
+                        </div>
+                        <!-- Floating WhatsApp Button -->
+                        <div class="buttonizer buttonizer-group">
+                            <a role="button" class="buttonizer-button" href="#"
+                               onclick="window.open('https://wa.me/256772233050','_blank')" aria-label="WhatsApp">
+                                <i aria-hidden="true" class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══ LOGO MORPH JS — vanilla only, no GSAP needed ══════════ -->
+    <script>
+    (function () {
+        var logos     = document.querySelectorAll('.insights-nav .mil-logo-morph');
+        var threshold = 80;
+        function update() {
+            var scrolled = window.scrollY > threshold;
+            logos.forEach(function (l) { l.classList.toggle('panda-scrolled', scrolled); });
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+    })();
+    </script>
+
+</body>
+</html>
