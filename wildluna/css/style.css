@@ -1810,7 +1810,15 @@ body:not(.has-cursor) #wl-cursor {
   }
 
   .wl-hero-title {
-    font-size: clamp(36px, 10vw, 60px);
+    font-size: clamp(38px, 10.5vw, 63px);
+  }
+
+  .wl-hero-content {
+    padding-bottom: clamp(24px, 5vh, 60px);
+  }
+
+  .wl-hero-subtitle {
+    margin-top: 16px;
   }
 }
 
