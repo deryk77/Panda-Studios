@@ -599,7 +599,7 @@ em {
 .wl-hero-content {
   position: relative;
   z-index: 2;
-  padding: 0 var(--container-pad) clamp(60px, 8vh, 100px);
+  padding: 0 var(--container-pad) clamp(0px, 1vh, 10px);
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
@@ -618,12 +618,25 @@ em {
 .wl-hero-title {
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: clamp(60px, 9vw, 130px);
-  line-height: 1.0;
+  font-size: clamp(44px, 5.5vw, 78px);
+  line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--off-white);
   margin-bottom: 24px;
   max-width: 900px;
+}
+
+.wl-hero-title .wl-hero-heavy {
+  font-weight: 900;
+  font-style: normal;
+  letter-spacing: -0.03em;
+  margin-bottom: -60px
+  display: block;
+  
+}
+
+.wl-hero-title em {
+  letter-spacing: 0.06em;
 }
 
 .wl-hero-subtitle {
@@ -633,6 +646,7 @@ em {
   color: rgba(253, 251, 247, 0.7);
   max-width: 520px;
   line-height: 1.75;
+  margin-top: 30px;
   margin-bottom: 40px;
 }
 
@@ -1796,7 +1810,7 @@ body:not(.has-cursor) #wl-cursor {
   }
 
   .wl-hero-title {
-    font-size: clamp(48px, 12vw, 90px);
+    font-size: clamp(36px, 10vw, 60px);
   }
 }
 
