@@ -40,12 +40,16 @@
   <div id="bcn-loader" aria-hidden="true">
     <!-- Text: two layers for the wipe colour-flip effect -->
     <div id="bcn-loader-text-wrap">
-      <!-- Back layer: white text visible on black -->
-      <span id="bcn-loader-text-back">BCN-Wild</span>
+      <!-- Back layer: logo on dark background -->
+      <span id="bcn-loader-text-back">
+        <img src="img/Logo1.svg" alt="BCN-Wild" />
+      </span>
       <!-- Cream wipe rectangle (width animated L→R by JS) -->
       <div id="bcn-loader-wipe">
-        <!-- Front layer: dark text, revealed as cream wipe slides over -->
-        <span id="bcn-loader-text-front">BCN-Wild</span>
+        <!-- Front layer: logo darkened, revealed as cream wipe slides over -->
+        <span id="bcn-loader-text-front">
+          <img src="img/Logo1.svg" alt="" aria-hidden="true" />
+        </span>
       </div>
     </div>
     <!-- Hero preview image (fades in at step 3, expands at step 4) -->

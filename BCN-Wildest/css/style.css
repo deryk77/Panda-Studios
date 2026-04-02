@@ -109,7 +109,7 @@ body.cursor-hover #bcn-cursor-dot {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px 48px;
+  padding: 32px clamp(24px, 6vw, 80px);
   transition: padding var(--transition), background var(--transition);
 }
 
@@ -117,14 +117,15 @@ body.cursor-hover #bcn-cursor-dot {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(17,17,17,0.7) 0%, transparent 100%);
+  background: #0a0a0a;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
   z-index: -1;
   opacity: 0;
-  transition: opacity var(--transition);
+  transition: opacity 0.3s ease;
 }
 
 .bcn-nav.scrolled::after { opacity: 1; }
-.bcn-nav.scrolled { padding: 18px 48px; }
+.bcn-nav.scrolled { padding: 20px clamp(24px, 6vw, 80px); }
 
 /* Logo */
 .bcn-logo {
@@ -144,13 +145,13 @@ body.cursor-hover #bcn-cursor-dot {
 .bcn-logo:hover { opacity: 0.7; }
 
 .bcn-logo img {
-  height: clamp(31px, 3.45vw, 38px);
+  height: clamp(41px, 4.57vw, 51px);
   width: auto;
   display: block;
 }
 
 .bcn-footer-logo img {
-  height: clamp(25px, 3.22vw, 37px);
+  height: clamp(33px, 4.26vw, 49px);
   width: auto;
   display: block;
 }
@@ -1169,24 +1170,27 @@ body.cursor-hover #bcn-lens-home {
   margin: 0;
 }
 
-/* Shared font style for both text layers */
+/* Shared style for both logo layers */
 #bcn-loader-text-back,
 #bcn-loader-text-front {
-  font-family: var(--font-display);
-  font-size: clamp(48px, 7vw, 96px);
-  font-weight: 400;
   line-height: 1;
-  white-space: nowrap;
   display: block;
-  letter-spacing: 0.02em;
 }
 
-/* Back layer: white on dark background */
+/* Logo image sizing — matches original text scale */
+#bcn-loader-text-back img,
+#bcn-loader-text-front img {
+  height: clamp(44px, 6.5vw, 88px);
+  width: auto;
+  display: block;
+}
+
+/* Back layer: logo shows in its natural colours on dark background */
 #bcn-loader-text-back {
   color: #ffffff;
 }
 
-/* Cream wipe rectangle — width animated 0 → full text width by JS */
+/* Cream wipe rectangle — width animated 0 → full logo width by JS */
 #bcn-loader-wipe {
   position: absolute;
   top: 0;
@@ -1197,10 +1201,13 @@ body.cursor-hover #bcn-lens-home {
   background: #f9f8f5;
 }
 
-/* Front layer: dark text — only visible through the wipe clip */
+/* Front layer: logo darkened to read on cream background */
 #bcn-loader-text-front {
-  color: #111111;
   white-space: nowrap;
+}
+
+#bcn-loader-text-front img {
+  filter: brightness(0);
 }
 
 /* Hero image — flex item, starts at width 0 (invisible), grows to 38vw when revealed */
