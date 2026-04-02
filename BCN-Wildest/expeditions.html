@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/BCN-Wildest/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expeditions — BCN-Wild | Embedded Fieldwork Across East Africa</title>
+  <meta name="description" content="Multi-day embedded fieldwork across Uganda, Tanzania, Rwanda, and Kenya. BCN Wild deploys for conservation documentation, editorial commissions, brand production, and full documentary projects." />
+  <link rel="canonical" href="https://www.pandastudios.co/BCN-Wildest/expeditions.html" />
+
+  <!-- Geo -->
+  <meta name="geo.region" content="UG-C" />
+  <meta name="geo.placename" content="Kampala, Uganda" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.pandastudios.co/BCN-Wildest/expeditions.html" />
+  <meta property="og:title" content="Expeditions — BCN-Wild" />
+  <meta property="og:description" content="Multi-day embedded fieldwork across East Africa. Photography. Documentary. On brief, on location, on record." />
+  <meta property="og:image" content="img/BCN (1).png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Expeditions — BCN-Wild" />
+  <meta name="twitter:description" content="Multi-day embedded fieldwork across East Africa. Photography. Documentary. On brief, on location, on record." />
+  <meta name="twitter:image" content="img/BCN (1).png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ================================================================
+       BCN-Wild — Expeditions Page Styles
+       Extends style.css · bcn-exp- prefix for all page-specific classes
+       ================================================================ */
+
+    /* ── SHARED ACCENT ────────────────────────────────────────────── */
+    :root {
+      --gold: #c9a84c;
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────────── */
+
+    .bcn-exp-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: #0a0a0a;
+      overflow: hidden;
+    }
+
+    /* Subtle film-grain overlay */
+    .bcn-exp-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      background-size: 256px 256px;
+      animation: bcn-exp-grain 0.5s steps(1) infinite;
+    }
+
+    @keyframes bcn-exp-grain {
+      0%,100% { background-position: 0 0; }
+      10%  { background-position: -5% -5%; }
+      20%  { background-position: -10% 5%; }
+      30%  { background-position: 5% -10%; }
+      40%  { background-position: -15% 3%; }
+      50%  { background-position: 3% -15%; }
+      60%  { background-position: -8% 8%; }
+      70%  { background-position: 8% -3%; }
+      80%  { background-position: -3% 12%; }
+      90%  { background-position: 12% -8%; }
+    }
+
+    /* Map — fills right half of hero on desktop */
+    .bcn-exp-map-wrap {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 52%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bcn-exp-map-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        #0a0a0a 0%,
+        rgba(10,10,10,0.55) 40%,
+        rgba(10,10,10,0.15) 100%
+      );
+      z-index: 1;
+    }
+
+    .bcn-exp-map {
+      width: 90%;
+      max-width: 520px;
+      height: auto;
+      opacity: 0.72;
+    }
+
+    /* Hero content */
+    .bcn-exp-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: clamp(100px, 14vw, 160px) clamp(24px, 6vw, 80px) clamp(72px, 10vw, 120px);
+      max-width: 720px;
+    }
+
+    .bcn-exp-hero-eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 32px;
+    }
+
+    .bcn-exp-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8.5vw, 118px);
+      font-weight: 300;
+      line-height: 0.92;
+      color: var(--white);
+      margin: 0 0 38px;
+      letter-spacing: -0.025em;
+    }
+
+    .bcn-exp-hero-title em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .bcn-exp-hero-sub {
+      font-family: var(--font-sans);
+      font-size: clamp(13px, 1.45vw, 15px);
+      font-weight: 400;
+      color: var(--silver);
+      line-height: 1.85;
+      max-width: 480px;
+      margin: 0;
+    }
+
+    /* Scroll cue */
+    .bcn-exp-scroll-cue {
+      position: absolute;
+      bottom: clamp(32px, 5vh, 52px);
+      right: clamp(24px, 6vw, 80px);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      text-decoration: none;
+    }
+
+    .bcn-exp-scroll-text {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--silver);
+      writing-mode: vertical-rl;
+    }
+
+    .bcn-exp-scroll-line {
+      width: 1px;
+      height: 52px;
+      background: var(--silver);
+      transform-origin: top;
+      animation: bcn-exp-scrolldrop 2.2s ease infinite;
+    }
+
+    @keyframes bcn-exp-scrolldrop {
+      0%   { transform: scaleY(0); opacity: 0; }
+      25%  { transform: scaleY(1); opacity: 1; }
+      70%  { transform: scaleY(1); opacity: 1; }
+      100% { transform: scaleY(0); opacity: 0; }
+    }
+
+    /* ── SECTION SHARED LABELS / TITLES ───────────────────────────── */
+
+    .bcn-exp-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 14px;
+    }
+
+    .bcn-exp-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5.5vw, 70px);
+      font-weight: 300;
+      color: var(--white);
+      margin: 0 0 clamp(48px, 7vw, 88px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── TERRITORY SECTION ────────────────────────────────────────── */
+
+    .bcn-exp-territory {
+      padding: clamp(88px, 13vw, 160px) clamp(24px, 6vw, 80px);
+      background: var(--bg);
+    }
+
+    .bcn-exp-territory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(16px, 2vw, 24px);
+    }
+
+    .bcn-exp-region-card {
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      padding: clamp(28px, 3.5vw, 44px) clamp(20px, 2.5vw, 32px);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+    }
+
+    .bcn-exp-region-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .bcn-exp-region-flag {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .bcn-exp-region-name {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3.2vw, 48px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+    }
+
+    .bcn-exp-region-locations {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--silver);
+      line-height: 2.0;
+      letter-spacing: 0.04em;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+
+    .bcn-exp-region-tagline {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(249,248,244,0.55);
+      font-style: italic;
+      line-height: 1.6;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    /* ── PROCESS — DEPLOYMENT TIMELINE ───────────────────────────── */
+
+    .bcn-exp-process {
+      padding: clamp(88px, 13vw, 160px) clamp(24px, 6vw, 80px);
+      background: #0a0a0a;
+      border-top: 1px solid var(--border);
+    }
+
+    .bcn-exp-process-inner {
+      max-width: 860px;
+    }
+
+    .bcn-exp-timeline {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Vertical connecting line */
+    .bcn-exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 28px;
+      bottom: 28px;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        var(--gold) 0%,
+        rgba(201,168,76,0.2) 100%
+      );
+    }
+
+    .bcn-exp-step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 0 clamp(28px, 4vw, 52px);
+      padding-bottom: clamp(48px, 7vh, 80px);
+      position: relative;
+    }
+
+    .bcn-exp-step:last-child {
+      padding-bottom: 0;
+    }
+
+    /* Step number node on the line */
+    .bcn-exp-step-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+    }
+
+    .bcn-exp-step-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bcn-exp-step-num {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-top: 10px;
+      writing-mode: horizontal-tb;
+    }
+
+    .bcn-exp-step-body {
+      padding-top: 0;
+    }
+
+    .bcn-exp-step-heading {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin: 0 0 14px;
+    }
+
+    .bcn-exp-step-text {
+      font-family: var(--font-sans);
+      font-size: clamp(13px, 1.4vw, 15px);
+      font-weight: 400;
+      color: var(--silver);
+      line-height: 1.85;
+      max-width: 580px;
+    }
+
+    /* ── COMMISSION TYPES ─────────────────────────────────────────── */
+
+    .bcn-exp-types {
+      padding: clamp(88px, 13vw, 160px) clamp(24px, 6vw, 80px);
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .bcn-exp-types-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .bcn-exp-type-block {
+      background: var(--bg);
+      padding: clamp(36px, 4.5vw, 58px) clamp(28px, 3.5vw, 48px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: background 0.35s ease;
+    }
+
+    .bcn-exp-type-block:hover {
+      background: #0d0d0d;
+    }
+
+    .bcn-exp-type-num {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .bcn-exp-type-heading {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.4vw, 32px);
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+
+    .bcn-exp-type-body {
+      font-family: var(--font-sans);
+      font-size: clamp(12px, 1.3vw, 14px);
+      font-weight: 400;
+      color: var(--silver);
+      line-height: 1.85;
+    }
+
+    /* ── FIELD-READY ──────────────────────────────────────────────── */
+
+    .bcn-exp-fieldready {
+      padding: clamp(88px, 13vw, 160px) clamp(24px, 6vw, 80px);
+      background: #0a0a0a;
+      border-top: 1px solid var(--border);
+    }
+
+    .bcn-exp-fieldready-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: start;
+    }
+
+    .bcn-exp-fieldready-left {
+      /* label + title stay here */
+    }
+
+    .bcn-exp-fieldready-left .bcn-exp-title {
+      margin-bottom: 0;
+    }
+
+    .bcn-exp-fieldready-right {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(28px, 4vw, 44px);
+    }
+
+    .bcn-exp-spec {
+      border-left: 1px solid var(--gold);
+      padding-left: 24px;
+    }
+
+    .bcn-exp-spec-heading {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .bcn-exp-spec-body {
+      font-family: var(--font-sans);
+      font-size: clamp(12px, 1.35vw, 14px);
+      font-weight: 400;
+      color: var(--silver);
+      line-height: 1.85;
+    }
+
+    /* ── CTA ──────────────────────────────────────────────────────── */
+
+    .bcn-exp-cta {
+      padding: clamp(96px, 14vw, 172px) clamp(24px, 6vw, 80px);
+      background: #060606;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .bcn-exp-cta-eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 28px;
+    }
+
+    .bcn-exp-cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 7vw, 96px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 0.93;
+      letter-spacing: -0.025em;
+      margin: 0 0 22px;
+    }
+
+    .bcn-exp-cta-title em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .bcn-exp-cta-sub {
+      font-family: var(--font-sans);
+      font-size: clamp(13px, 1.4vw, 15px);
+      color: var(--silver);
+      line-height: 1.7;
+      margin: 0 0 48px;
+    }
+
+    .bcn-exp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 40px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--white);
+      border: 1px solid var(--white);
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .bcn-exp-btn:hover {
+      background: transparent;
+      color: var(--white);
+    }
+
+    .bcn-exp-cta-note {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: rgba(163,163,163,0.55);
+      letter-spacing: 0.08em;
+      margin-top: 28px;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────────── */
+
+    @media (max-width: 1100px) {
+      .bcn-exp-territory-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .bcn-exp-map-wrap {
+        width: 100%;
+        opacity: 0.25;
+      }
+
+      .bcn-exp-map-wrap::before {
+        background: linear-gradient(
+          to bottom,
+          rgba(10,10,10,0.6) 0%,
+          rgba(10,10,10,0.35) 50%,
+          rgba(10,10,10,0.75) 100%
+        );
+      }
+
+      .bcn-exp-hero-content {
+        max-width: 100%;
+      }
+
+      .bcn-exp-fieldready-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .bcn-exp-fieldready-left .bcn-exp-title {
+        margin-bottom: clamp(32px, 5vw, 52px);
+      }
+
+      .bcn-exp-types-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bcn-exp-territory-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .bcn-exp-timeline::before {
+        left: 13px;
+      }
+
+      .bcn-exp-step {
+        grid-template-columns: 30px 1fr;
+        gap: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="bcn-cursor"></div>
+  <div id="bcn-cursor-dot"></div>
+
+  <!-- Page Load Line -->
+  <div class="bcn-page-line"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="bcn-nav" id="bcn-nav" role="navigation">
+    <a href="index.html" class="bcn-logo" aria-label="BCN-Wild Home">
+      <img src="img/Logo.svg" alt="BCN-Wild" />
+    </a>
+    <div class="bcn-nav-right">
+      <a href="index.html#contact" class="bcn-nav-contact">Contact</a>
+      <button class="bcn-hamburger" id="bcn-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Full-screen Menu Overlay -->
+  <div class="bcn-menu" id="bcn-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="bcn-menu-inner">
+      <nav class="bcn-menu-nav">
+        <a href="gallery.html" class="bcn-menu-link" data-close-menu>Gallery</a>
+        <a href="gallery.html?filter=wildlife" class="bcn-menu-link" data-close-menu>Wildlife</a>
+        <a href="gallery.html?filter=landscapes" class="bcn-menu-link" data-close-menu>Landscapes</a>
+        <a href="gallery.html?filter=cultural" class="bcn-menu-link" data-close-menu>Cultural &amp; People</a>
+        <a href="documentaries.html" class="bcn-menu-link" data-close-menu>Films</a>
+        <a href="expeditions.html" class="bcn-menu-link" data-close-menu aria-current="page">Expeditions</a>
+        <a href="index.html#contact" class="bcn-menu-link" data-close-menu>Contact</a>
+      </nav>
+      <div class="bcn-menu-meta">
+        <p class="bcn-menu-tagline">Africa through a lens<br>of profound respect.</p>
+        <div class="bcn-menu-socials">
+          <a href="https://instagram.com/bcnwild" target="_blank" rel="noopener" aria-label="Instagram">Ig</a>
+          <a href="https://twitter.com/bcnwild" target="_blank" rel="noopener" aria-label="Twitter/X">X</a>
+          <a href="https://facebook.com/bcnwild.africa" target="_blank" rel="noopener" aria-label="Facebook">Fb</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HERO — map-driven full-viewport opening
+       ============================================================ -->
+  <section class="bcn-exp-hero" id="hero" aria-label="Expeditions hero">
+
+    <!-- Editorial SVG map of East Africa — decorative -->
+    <div class="bcn-exp-map-wrap" aria-hidden="true">
+      <svg class="bcn-exp-map" viewBox="0 0 460 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="East Africa map">
+
+        <!-- Graticule — thin grid lines -->
+        <g stroke="rgba(249,248,244,0.06)" stroke-width="0.5" fill="none">
+          <line x1="0" y1="90"  x2="460" y2="90"  />
+          <line x1="0" y1="180" x2="460" y2="180" />
+          <line x1="0" y1="270" x2="460" y2="270" />
+          <line x1="0" y1="360" x2="460" y2="360" />
+          <line x1="0" y1="450" x2="460" y2="450" />
+          <line x1="80"  y1="0" x2="80"  y2="540" />
+          <line x1="170" y1="0" x2="170" y2="540" />
+          <line x1="260" y1="0" x2="260" y2="540" />
+          <line x1="350" y1="0" x2="350" y2="540" />
+          <line x1="440" y1="0" x2="440" y2="540" />
+        </g>
+
+        <!-- ── Country outlines ── -->
+
+        <!-- Uganda -->
+        <path
+          d="M 86 112
+             C 100 98 142 90 188 94
+             C 200 95 208 98 212 106
+             L 214 162
+             C 216 196 214 218 210 236
+             L 190 244
+             C 160 250 118 248 92 244
+             L 84 238
+             C 80 220 80 180 80 156
+             Z"
+          fill="none"
+          stroke="rgba(249,248,244,0.22)"
+          stroke-width="1.2"
+          stroke-linejoin="round"
+        />
+
+        <!-- Rwanda (small, south-west of Uganda) -->
+        <path
+          d="M 84 244
+             L 100 240
+             L 104 258
+             L 86 264
+             Z"
+          fill="none"
+          stroke="rgba(249,248,244,0.22)"
+          stroke-width="1.2"
+          stroke-linejoin="round"
+        />
+
+        <!-- Kenya -->
+        <path
+          d="M 212 106
+             C 240 96 292 86 340 84
+             C 362 83 382 90 390 104
+             C 406 130 414 170 410 210
+             C 408 234 400 256 390 272
+             L 340 308
+             C 318 320 296 322 278 316
+             L 246 298
+             C 228 284 216 260 210 236
+             L 214 162
+             Z"
+          fill="none"
+          stroke="rgba(249,248,244,0.22)"
+          stroke-width="1.2"
+          stroke-linejoin="round"
+        />
+
+        <!-- Tanzania -->
+        <path
+          d="M 84 244
+             L 86 264
+             L 104 258
+             L 100 240
+             L 190 244
+             L 210 236
+             C 216 260 228 284 246 298
+             L 278 316
+             C 296 322 318 320 340 308
+             L 346 330
+             C 354 368 352 412 340 452
+             C 330 482 310 508 288 522
+             L 228 530
+             C 178 530 134 514 106 492
+             C 90 480 78 456 76 430
+             L 76 340
+             C 78 302 80 272 84 244
+             Z"
+          fill="none"
+          stroke="rgba(249,248,244,0.22)"
+          stroke-width="1.2"
+          stroke-linejoin="round"
+        />
+
+        <!-- Lake Victoria — interior body of water -->
+        <path
+          d="M 168 256
+             C 174 246 190 242 208 248
+             C 228 254 244 264 252 278
+             C 258 290 254 306 244 314
+             C 232 324 214 326 198 320
+             C 180 312 166 298 162 282
+             C 158 268 162 264 168 256
+             Z"
+          fill="rgba(249,248,244,0.045)"
+          stroke="rgba(249,248,244,0.18)"
+          stroke-width="1"
+        />
+
+        <!-- Lake Victoria label -->
+        <text
+          x="198" y="290"
+          font-family="'Lato', sans-serif"
+          font-size="8"
+          fill="rgba(249,248,244,0.25)"
+          text-anchor="middle"
+          letter-spacing="0.18em"
+          font-weight="700"
+        >L. VICTORIA</text>
+
+        <!-- ── Location dots with labels ── -->
+
+        <!-- Murchison Falls, Uganda (NW Uganda) -->
+        <g>
+          <circle cx="118" cy="148" r="3.5" fill="#c9a84c" />
+          <circle cx="118" cy="148" r="7" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.45" />
+          <line x1="126" y1="148" x2="156" y2="138" stroke="#c9a84c" stroke-width="0.6" opacity="0.5" />
+          <text x="159" y="142" font-family="'Lato', sans-serif" font-size="8.5" fill="rgba(249,248,244,0.7)" letter-spacing="0.12em" font-weight="700">MURCHISON FALLS</text>
+        </g>
+
+        <!-- Bwindi, Uganda (SW Uganda) -->
+        <g>
+          <circle cx="92" cy="226" r="3.5" fill="#c9a84c" />
+          <circle cx="92" cy="226" r="7" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.45" />
+          <line x1="100" y1="224" x2="128" y2="216" stroke="#c9a84c" stroke-width="0.6" opacity="0.5" />
+          <text x="130" y="220" font-family="'Lato', sans-serif" font-size="8.5" fill="rgba(249,248,244,0.7)" letter-spacing="0.12em" font-weight="700">BWINDI</text>
+        </g>
+
+        <!-- Karamoja, Uganda (NE Uganda) -->
+        <g>
+          <circle cx="196" cy="120" r="3.5" fill="#c9a84c" />
+          <circle cx="196" cy="120" r="7" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.45" />
+          <line x1="196" y1="113" x2="202" y2="96" stroke="#c9a84c" stroke-width="0.6" opacity="0.5" />
+          <text x="208" y="94" font-family="'Lato', sans-serif" font-size="8.5" fill="rgba(249,248,244,0.7)" letter-spacing="0.12em" font-weight="700">KARAMOJA</text>
+        </g>
+
+        <!-- Volcanoes NP, Rwanda -->
+        <g>
+          <circle cx="88" cy="256" r="3.5" fill="#c9a84c" />
+          <circle cx="88" cy="256" r="7" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.45" />
+          <line x1="80" y1="258" x2="54" y2="266" stroke="#c9a84c" stroke-width="0.6" opacity="0.5" />
+          <text x="8" y="270" font-family="'Lato', sans-serif" font-size="8.5" fill="rgba(249,248,244,0.7)" letter-spacing="0.12em" font-weight="700">VOLCANOES</text>
+        </g>
+
+        <!-- Serengeti, Tanzania (N Tanzania) -->
+        <g>
+          <circle cx="152" cy="330" r="3.5" fill="#c9a84c" />
+          <circle cx="152" cy="330" r="7" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.45" />
+          <line x1="144" y1="334" x2="118" y2="348" stroke="#c9a84c" stroke-width="0.6" opacity="0.5" />
+          <text x="68" y="352" font-family="'Lato', sans-serif" font-size="8.5" fill="rgba(249,248,244,0.7)" letter-spacing="0.12em" font-weight="700">SERENGETI</text>
+        </g>
+
+        <!-- Masai Mara, Kenya (SW Kenya) -->
+        <g>
+          <circle cx="256" cy="296" r="3.5" fill="#c9a84c" />
+          <circle cx="256" cy="296" r="7" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.45" />
+          <line x1="264" y1="296" x2="288" y2="302" stroke="#c9a84c" stroke-width="0.6" opacity="0.5" />
+          <text x="291" y="306" font-family="'Lato', sans-serif" font-size="8.5" fill="rgba(249,248,244,0.7)" letter-spacing="0.12em" font-weight="700">MASAI MARA</text>
+        </g>
+
+        <!-- Country labels (faint) -->
+        <text x="148" y="186" font-family="'Lato', sans-serif" font-size="10" fill="rgba(249,248,244,0.16)" text-anchor="middle" letter-spacing="0.22em" font-weight="700">UGANDA</text>
+        <text x="302" y="196" font-family="'Lato', sans-serif" font-size="10" fill="rgba(249,248,244,0.16)" text-anchor="middle" letter-spacing="0.22em" font-weight="700">KENYA</text>
+        <text x="210" y="424" font-family="'Lato', sans-serif" font-size="10" fill="rgba(249,248,244,0.16)" text-anchor="middle" letter-spacing="0.22em" font-weight="700">TANZANIA</text>
+        <text x="90" y="258" font-family="'Lato', sans-serif" font-size="7" fill="rgba(249,248,244,0.12)" text-anchor="middle" letter-spacing="0.18em" font-weight="700">RWANDA</text>
+
+      </svg>
+    </div>
+
+    <!-- Content -->
+    <div class="bcn-exp-hero-content">
+      <span class="bcn-exp-hero-eyebrow">BCN-Wild &nbsp;·&nbsp; Field Operations &nbsp;·&nbsp; East Africa</span>
+      <h1 class="bcn-exp-hero-title">
+        We Go Where<br>the <em>Story Lives.</em>
+      </h1>
+      <p class="bcn-exp-hero-sub">Multi-day embedded fieldwork across Uganda, Tanzania, Rwanda, and Kenya. Photography. Documentary. On brief, on location, on record.</p>
+    </div>
+
+    <a href="#territory" class="bcn-exp-scroll-cue" id="bcn-scroll-cue" aria-label="Scroll to expeditions">
+      <span class="bcn-exp-scroll-text">Scroll</span>
+      <span class="bcn-exp-scroll-line"></span>
+    </a>
+
+  </section>
+
+  <!-- ============================================================
+       TERRITORY — 4 region cards
+       ============================================================ -->
+  <section class="bcn-exp-territory" id="territory" aria-label="Expedition territories">
+
+    <span class="bcn-exp-label bcn-reveal">Field Territories</span>
+    <h2 class="bcn-exp-title bcn-reveal">The Territory</h2>
+
+    <div class="bcn-exp-territory-grid">
+
+      <!-- Uganda -->
+      <div class="bcn-exp-region-card bcn-reveal">
+        <span class="bcn-exp-region-flag">Uganda</span>
+        <h3 class="bcn-exp-region-name">East<br>Africa's Core</h3>
+        <p class="bcn-exp-region-locations">
+          Murchison Falls · Bwindi Impenetrable Forest · Queen Elizabeth NP · Karamoja · Kibale Forest
+        </p>
+        <p class="bcn-exp-region-tagline">Primates, big game, and the communities between them.</p>
+      </div>
+
+      <!-- Tanzania -->
+      <div class="bcn-exp-region-card bcn-reveal">
+        <span class="bcn-exp-region-flag">Tanzania</span>
+        <h3 class="bcn-exp-region-name">The Great<br>Migration</h3>
+        <p class="bcn-exp-region-locations">
+          Serengeti · Ngorongoro Crater · Tarangire · Zanzibar
+        </p>
+        <p class="bcn-exp-region-tagline">The migration, the caldera, and the oldest ecosystem on the continent.</p>
+      </div>
+
+      <!-- Rwanda -->
+      <div class="bcn-exp-region-card bcn-reveal">
+        <span class="bcn-exp-region-flag">Rwanda</span>
+        <h3 class="bcn-exp-region-name">Mountain<br>Gorilla Country</h3>
+        <p class="bcn-exp-region-locations">
+          Volcanoes National Park · Nyungwe Forest · Akagera
+        </p>
+        <p class="bcn-exp-region-tagline">Mountain gorillas, montane rainforest, and conservation at altitude.</p>
+      </div>
+
+      <!-- Kenya -->
+      <div class="bcn-exp-region-card bcn-reveal">
+        <span class="bcn-exp-region-flag">Kenya</span>
+        <h3 class="bcn-exp-region-name">Open<br>Savannah</h3>
+        <p class="bcn-exp-region-locations">
+          Masai Mara · Amboseli · Samburu · Lake Nakuru
+        </p>
+        <p class="bcn-exp-region-tagline">Open savannah, flamingo lakes, and the Mara crossing.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESS — 5-step deployment timeline
+       ============================================================ -->
+  <section class="bcn-exp-process" id="process" aria-label="Expedition process">
+
+    <div class="bcn-exp-process-inner">
+
+      <span class="bcn-exp-label bcn-reveal">How It Works</span>
+      <h2 class="bcn-exp-title bcn-reveal">How an Expedition<br>Works</h2>
+
+      <div class="bcn-exp-timeline">
+
+        <div class="bcn-exp-step bcn-reveal">
+          <div class="bcn-exp-step-node">
+            <span class="bcn-exp-step-dot"></span>
+            <span class="bcn-exp-step-num">01</span>
+          </div>
+          <div class="bcn-exp-step-body">
+            <h3 class="bcn-exp-step-heading">The Brief</h3>
+            <p class="bcn-exp-step-text">Every expedition starts with a conversation. We define the objective — conservation documentation, brand asset creation, editorial commission, or long-form film — and scope the deliverables before anyone enters the field.</p>
+          </div>
+        </div>
+
+        <div class="bcn-exp-step bcn-reveal">
+          <div class="bcn-exp-step-node">
+            <span class="bcn-exp-step-dot"></span>
+            <span class="bcn-exp-step-num">02</span>
+          </div>
+          <div class="bcn-exp-step-body">
+            <h3 class="bcn-exp-step-heading">Reconnaissance</h3>
+            <p class="bcn-exp-step-text">We study the terrain, seasonal conditions, species movement patterns, and local access logistics. If it is a region we have operated in before, we draw on years of embedded field intelligence. If it is new, we deploy an advance assessment.</p>
+          </div>
+        </div>
+
+        <div class="bcn-exp-step bcn-reveal">
+          <div class="bcn-exp-step-node">
+            <span class="bcn-exp-step-dot"></span>
+            <span class="bcn-exp-step-num">03</span>
+          </div>
+          <div class="bcn-exp-step-body">
+            <h3 class="bcn-exp-step-heading">Embedded Fieldwork</h3>
+            <p class="bcn-exp-step-text">We do not fly in and fly out. BCN Wild embeds with the environment — days, sometimes weeks — operating at the rhythm of the ecosystem. Early light. Last light. The hours between that most photographers never see.</p>
+          </div>
+        </div>
+
+        <div class="bcn-exp-step bcn-reveal">
+          <div class="bcn-exp-step-node">
+            <span class="bcn-exp-step-dot"></span>
+            <span class="bcn-exp-step-num">04</span>
+          </div>
+          <div class="bcn-exp-step-body">
+            <h3 class="bcn-exp-step-heading">Post-Production</h3>
+            <p class="bcn-exp-step-text">Raw material is processed with the same discipline applied in the field. Colour grading, selection, archival cataloguing, and narrative assembly for documentary projects. Every deliverable is final-grade.</p>
+          </div>
+        </div>
+
+        <div class="bcn-exp-step bcn-reveal">
+          <div class="bcn-exp-step-node">
+            <span class="bcn-exp-step-dot"></span>
+            <span class="bcn-exp-step-num">05</span>
+          </div>
+          <div class="bcn-exp-step-body">
+            <h3 class="bcn-exp-step-heading">Delivery &amp; Licensing</h3>
+            <p class="bcn-exp-step-text">Finished assets are delivered with full metadata, usage rights documentation, and licensing terms tailored to the client's needs — whether editorial, commercial, institutional, or archival.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COMMISSION TYPES — what can be commissioned
+       ============================================================ -->
+  <section class="bcn-exp-types" id="commissions" aria-label="Commission types">
+
+    <span class="bcn-exp-label bcn-reveal">What We Deploy For</span>
+    <h2 class="bcn-exp-title bcn-reveal">Commission Types</h2>
+
+    <div class="bcn-exp-types-grid">
+
+      <div class="bcn-exp-type-block bcn-reveal">
+        <span class="bcn-exp-type-num">01</span>
+        <h3 class="bcn-exp-type-heading">Conservation Documentation</h3>
+        <p class="bcn-exp-type-body">Long-term embedded projects for wildlife authorities, research institutions, and conservation NGOs. Species monitoring, habitat assessment, and visual evidence for policy and funding. These assets are not decorative — they are the argument.</p>
+      </div>
+
+      <div class="bcn-exp-type-block bcn-reveal">
+        <span class="bcn-exp-type-num">02</span>
+        <h3 class="bcn-exp-type-heading">Brand &amp; Editorial</h3>
+        <p class="bcn-exp-type-body">Photography and film packages for tourism operators, hospitality brands, and editorial publishers who need authentic East African visual assets — not stock, not staged. The kind of work that changes how a brand is perceived in a single frame.</p>
+      </div>
+
+      <div class="bcn-exp-type-block bcn-reveal">
+        <span class="bcn-exp-type-num">03</span>
+        <h3 class="bcn-exp-type-heading">Full Documentary Production</h3>
+        <p class="bcn-exp-type-body">Short and long-form documentary commissions from concept through post-production. Broadcast-ready or web-native. Built for impact — not for views. The story determines the format, not the other way around.</p>
+      </div>
+
+      <div class="bcn-exp-type-block bcn-reveal">
+        <span class="bcn-exp-type-num">04</span>
+        <h3 class="bcn-exp-type-heading">Private Expeditions</h3>
+        <p class="bcn-exp-type-body">Bespoke photographic expeditions for collectors, philanthropists, and individuals who want to experience East Africa through the lens of a professional — and leave with gallery-grade work. No group tours. No fixed itineraries.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FIELD-READY — logistics & capability statement
+       ============================================================ -->
+  <section class="bcn-exp-fieldready" id="field-ready" aria-label="Field capabilities">
+
+    <div class="bcn-exp-fieldready-inner">
+
+      <div class="bcn-exp-fieldready-left">
+        <span class="bcn-exp-label bcn-reveal">Operational Capability</span>
+        <h2 class="bcn-exp-title bcn-reveal">Field-<br>Ready.</h2>
+      </div>
+
+      <div class="bcn-exp-fieldready-right">
+
+        <div class="bcn-exp-spec bcn-reveal">
+          <p class="bcn-exp-spec-heading">Systems &amp; Equipment</p>
+          <p class="bcn-exp-spec-body">We operate with long-lens and gimbal-stabilized cinema systems rated for tropical humidity, extreme dust, and sub-zero highland conditions. Redundant storage. Satellite communication. Field-charged power systems. Every deployment is self-sufficient — no reliance on fixed infrastructure.</p>
+        </div>
+
+        <div class="bcn-exp-spec bcn-reveal">
+          <p class="bcn-exp-spec-heading">Ground Logistics</p>
+          <p class="bcn-exp-spec-body">Ground logistics are managed through established networks of licensed guides, community liaisons, and park authorities across all four countries. Permits, access, and compliance are handled before departure. We do not improvise in the field — everything is pre-cleared.</p>
+        </div>
+
+        <div class="bcn-exp-spec bcn-reveal">
+          <p class="bcn-exp-spec-heading">Lead Times</p>
+          <p class="bcn-exp-spec-body">Standard deployment lead time is four to six weeks from confirmed brief. Complex multi-country or multi-season projects require longer planning windows. Contact us early — the best access slots are held by returning clients.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA — plan an expedition
+       ============================================================ -->
+  <section class="bcn-exp-cta" id="commission" aria-label="Commission an expedition">
+    <span class="bcn-exp-cta-eyebrow bcn-reveal">Commission</span>
+    <h2 class="bcn-exp-cta-title bcn-reveal">
+      Plan an<br><em>Expedition.</em>
+    </h2>
+    <p class="bcn-exp-cta-sub bcn-reveal">Tell us where, what, and why. We will tell you how.</p>
+    <a href="index.html#contact" class="bcn-exp-btn bcn-reveal">
+      Start a Brief
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <span class="bcn-exp-cta-note bcn-reveal">Typical lead time: 4–6 weeks from brief to deployment.</span>
+  </section>
+
+  <!-- ============================================================
+       PARTNERS TICKER
+       ============================================================ -->
+  <section class="bcn-partners" aria-label="Partners and publications">
+    <div class="bcn-partners-track">
+      <div class="bcn-partners-inner" id="bcn-partners-inner">
+        <span class="bcn-partner-logo-text">National Geographic</span>
+        <span class="bcn-partner-logo-text">WWF</span>
+        <span class="bcn-partner-logo-text">Uganda Wildlife Authority</span>
+        <span class="bcn-partner-logo-text">African Wildlife Foundation</span>
+        <span class="bcn-partner-logo-text">BBC Earth</span>
+        <span class="bcn-partner-logo-text">Conservation International</span>
+        <span class="bcn-partner-logo-text">Getty Images</span>
+        <span class="bcn-partner-logo-text">Africa Geographic</span>
+        <span class="bcn-partner-logo-text">Reuters</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">National Geographic</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">WWF</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Uganda Wildlife Authority</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">African Wildlife Foundation</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">BBC Earth</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Conservation International</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Getty Images</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Africa Geographic</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Reuters</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="bcn-footer">
+    <div class="bcn-footer-cta">
+      <p class="bcn-footer-cta-heading">Let's Work Together</p>
+      <a href="index.html#contact" class="bcn-cta-pill">Book a call</a>
+    </div>
+    <div class="bcn-footer-divider"></div>
+    <div class="bcn-footer-inner">
+      <div class="bcn-footer-brand">
+        <span class="bcn-footer-logo"><img src="img/footer.svg" alt="BCN-Wild" /></span>
+        <p class="bcn-footer-tagline">Africa through a lens of profound respect.</p>
+      </div>
+      <nav class="bcn-footer-links" aria-label="Footer links">
+        <a href="https://instagram.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-link">Instagram</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
+        <a href="https://twitter.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-link">X</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
+        <a href="https://facebook.com/bcnwild.africa" target="_blank" rel="noopener" class="bcn-footer-link">Facebook</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
+        <a href="mailto:bcn@wild.com" class="bcn-footer-link">bcn@wild.com</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
+        <a href="tel:+256777784807" class="bcn-footer-link">+256 777 784 807</a>
+      </nav>
+    </div>
+    <div class="bcn-footer-bottom">
+      <span>&copy; 2026 BCN-Wild. All rights reserved.</span>
+      <span class="bcn-footer-sep" aria-hidden="true">·</span>
+      <span><a href="https://www.pandastudios.co" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Built By PANDA</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    /* ----------------------------------------------------------------
+       Expeditions — page-specific JS
+       main.js handles: cursor, nav scroll, menu, scroll-reveal (.bcn-reveal)
+    ---------------------------------------------------------------- */
+    (function () {
+      'use strict';
+
+      /* Fade-in scroll cue on load */
+      window.addEventListener('load', function () {
+        var cue = document.getElementById('bcn-scroll-cue');
+        if (cue) {
+          setTimeout(function () {
+            cue.style.transition = 'opacity 0.8s ease';
+            cue.style.opacity = '1';
+          }, 1200);
+        }
+      });
+
+      /* Region cards: register with custom cursor hover */
+      document.querySelectorAll('.bcn-exp-region-card').forEach(function (card) {
+        card.addEventListener('mouseenter', function () { document.body.classList.add('cursor-hover'); });
+        card.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-hover'); });
+      });
+
+    }());
+  </script>
+
+</body>
+</html>
