@@ -143,6 +143,18 @@ body.cursor-hover #bcn-cursor-dot {
 
 .bcn-logo:hover { opacity: 0.7; }
 
+.bcn-logo img {
+  height: clamp(31px, 3.45vw, 38px);
+  width: auto;
+  display: block;
+}
+
+.bcn-footer-logo img {
+  height: clamp(25px, 3.22vw, 37px);
+  width: auto;
+  display: block;
+}
+
 /* Nav right */
 .bcn-nav-right {
   display: flex;

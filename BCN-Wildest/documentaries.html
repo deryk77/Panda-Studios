@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/BCN-Wildest/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Films &amp; Documentaries — BCN-Wild | East Africa</title>
+  <meta name="description" content="Long-form documentary work across East Africa's most critical ecosystems. Conservation films, wildlife documentation, and editorial cinema from Uganda, Tanzania, Rwanda, and Kenya." />
+  <link rel="canonical" href="https://www.pandastudios.co/BCN-Wildest/documentaries.html" />
+
+  <!-- Geo -->
+  <meta name="geo.region" content="UG-C" />
+  <meta name="geo.placename" content="Kampala, Uganda" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.pandastudios.co/BCN-Wildest/documentaries.html" />
+  <meta property="og:title" content="Films &amp; Documentaries — BCN-Wild" />
+  <meta property="og:description" content="Long-form documentary work across East Africa's most critical ecosystems. Not content. Evidence." />
+  <meta property="og:image" content="img/BCN (1).png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Films &amp; Documentaries — BCN-Wild" />
+  <meta name="twitter:description" content="Long-form documentary work across East Africa's most critical ecosystems. Not content. Evidence." />
+  <meta name="twitter:image" content="img/BCN (1).png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ================================================================
+       BCN-Wild — Documentaries Page Styles
+       Extends style.css · bcn-doc- prefix for all page-specific classes
+       ================================================================ */
+
+    /* ── HERO ─────────────────────────────────────────────────────── */
+
+    .bcn-doc-hero {
+      position: relative;
+      height: 100vh;
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    /* Video background — fills hero */
+    .bcn-doc-hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: #0a0a0a;
+      overflow: hidden;
+    }
+
+    .bcn-doc-hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+    }
+
+    /* Dark gradient overlay — heavier bottom fade than gallery panels */
+    .bcn-doc-hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(17,17,17,0.25) 0%,
+        rgba(17,17,17,0.08) 35%,
+        rgba(17,17,17,0.65) 72%,
+        rgba(17,17,17,0.97) 100%
+      );
+    }
+
+    /* Film-grain noise overlay — animated for authenticity */
+    .bcn-doc-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.038;
+      background-size: 256px 256px;
+      animation: bcn-grain 0.5s steps(1) infinite;
+    }
+
+    @keyframes bcn-grain {
+      0%, 100% { background-position: 0 0; }
+      10%  { background-position: -5% -5%; }
+      20%  { background-position: -10% 5%; }
+      30%  { background-position: 5% -10%; }
+      40%  { background-position: -15% 3%; }
+      50%  { background-position: 3% -15%; }
+      60%  { background-position: -8% 8%; }
+      70%  { background-position: 8% -3%; }
+      80%  { background-position: -3% 12%; }
+      90%  { background-position: 12% -8%; }
+    }
+
+    /* Hero content — sits above all overlays */
+    .bcn-doc-hero-content {
+      position: relative;
+      z-index: 3;
+      padding: clamp(60px, 8vw, 100px) clamp(24px, 6vw, 80px) clamp(64px, 9vw, 110px);
+      max-width: 920px;
+    }
+
+    .bcn-doc-hero-eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 30px;
+    }
+
+    .bcn-doc-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 9.5vw, 128px);
+      font-weight: 300;
+      line-height: 0.9;
+      color: var(--white);
+      margin: 0 0 34px;
+      letter-spacing: -0.025em;
+    }
+
+    .bcn-doc-hero-title em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .bcn-doc-hero-sub {
+      font-family: var(--font-sans);
+      font-size: clamp(13px, 1.55vw, 16px);
+      font-weight: 400;
+      color: var(--silver);
+      line-height: 1.75;
+      max-width: 500px;
+      margin: 0;
+    }
+
+    /* Scroll cue — anchored bottom-right */
+    .bcn-doc-scroll-cue {
+      position: absolute;
+      bottom: clamp(32px, 5vh, 52px);
+      right: clamp(24px, 6vw, 80px);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      opacity: 0;
+    }
+
+    .bcn-doc-scroll-text {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--silver);
+      writing-mode: vertical-rl;
+    }
+
+    .bcn-doc-scroll-line {
+      width: 1px;
+      height: 52px;
+      background: var(--silver);
+      transform-origin: top;
+      animation: bcn-scrolldrop 2.2s ease infinite;
+    }
+
+    @keyframes bcn-scrolldrop {
+      0%   { transform: scaleY(0); opacity: 0; }
+      25%  { transform: scaleY(1); opacity: 1; }
+      70%  { transform: scaleY(1); opacity: 1; }
+      100% { transform: scaleY(0); opacity: 0; }
+    }
+
+    /* ── FILMS GRID SECTION ─────────────────────────────────────── */
+
+    .bcn-doc-films {
+      padding: clamp(80px, 12vw, 148px) clamp(24px, 6vw, 80px);
+      background: var(--bg);
+    }
+
+    .bcn-doc-section-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 14px;
+    }
+
+    .bcn-doc-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: 300;
+      color: var(--white);
+      margin: 0 0 clamp(48px, 7vw, 88px);
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+    }
+
+    /* 3-col desktop grid, collapses on mobile to horizontal snap scroll */
+    .bcn-doc-films-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(20px, 3vw, 34px);
+    }
+
+    /* Individual film card */
+    .bcn-doc-film-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 16:9 thumbnail — dark gradient placeholder until real stills are supplied */
+    .bcn-doc-film-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .bcn-doc-film-card:nth-child(1) .bcn-doc-film-thumb { background: linear-gradient(148deg, #1a1f1e 0%, #0b0f0d 100%); }
+    .bcn-doc-film-card:nth-child(2) .bcn-doc-film-thumb { background: linear-gradient(148deg, #1a1a1f 0%, #0b0b10 100%); }
+    .bcn-doc-film-card:nth-child(3) .bcn-doc-film-thumb { background: linear-gradient(148deg, #1f1a18 0%, #100c0b 100%); }
+    .bcn-doc-film-card:nth-child(4) .bcn-doc-film-thumb { background: linear-gradient(148deg, #181f19 0%, #0c100d 100%); }
+    .bcn-doc-film-card:nth-child(5) .bcn-doc-film-thumb { background: linear-gradient(148deg, #1f1d18 0%, #100f0b 100%); }
+    .bcn-doc-film-card:nth-child(6) .bcn-doc-film-thumb { background: linear-gradient(148deg, #181a1f 0%, #0b0d10 100%); }
+
+    /* Play icon overlay on hover */
+    .bcn-doc-film-thumb::after {
+      content: '▶';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: var(--white);
+      background: rgba(17,17,17,0.52);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .bcn-doc-film-card:hover .bcn-doc-film-thumb::after {
+      opacity: 1;
+    }
+
+    /* Thumbnail image — scale on hover */
+    .bcn-doc-film-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .bcn-doc-film-card:hover .bcn-doc-film-thumb img {
+      transform: scale(1.04);
+    }
+
+    /* Runtime · Year · Tag */
+    .bcn-doc-film-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 9px;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+
+    .bcn-doc-film-meta-dot {
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--silver);
+      opacity: 0.4;
+      flex-shrink: 0;
+    }
+
+    .bcn-doc-film-tag {
+      padding: 2px 7px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 2px;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: rgba(163,163,163,0.75);
+      white-space: nowrap;
+    }
+
+    .bcn-doc-film-title {
+      font-family: var(--font-display);
+      font-size: clamp(19px, 2.1vw, 25px);
+      font-weight: 400;
+      color: var(--white);
+      margin: 0 0 9px;
+      line-height: 1.15;
+      transition: opacity 0.25s ease;
+    }
+
+    .bcn-doc-film-card:hover .bcn-doc-film-title {
+      opacity: 0.75;
+    }
+
+    .bcn-doc-film-logline {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--silver);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── FEATURED FILM ──────────────────────────────────────────── */
+
+    .bcn-doc-featured {
+      padding: clamp(80px, 12vw, 136px) clamp(24px, 6vw, 80px);
+      background: #0d0d0d;
+      border-top: 1px solid var(--border);
+    }
+
+    .bcn-doc-featured-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(44px, 6.5vw, 88px);
+      align-items: start;
+    }
+
+    /* 16:9 video embed frame */
+    .bcn-doc-video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(155deg, #1a1a1a 0%, #0a0a0a 100%);
+      overflow: hidden;
+    }
+
+    /* Grain on the featured video frame */
+    .bcn-doc-video-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.022;
+      background-size: 256px 256px;
+    }
+
+    /* Placeholder interior — holds play button and label */
+    .bcn-doc-video-placeholder {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    /* Any video or iframe inserted here will fill the frame */
+    .bcn-doc-video-frame video,
+    .bcn-doc-video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+      z-index: 3;
+    }
+
+    .bcn-doc-play-btn {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      border: 1px solid rgba(249,248,244,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+      background: rgba(17,17,17,0.4);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-size: 17px;
+      color: var(--white);
+      padding-left: 4px;
+      text-decoration: none;
+    }
+
+    .bcn-doc-play-btn:hover {
+      border-color: rgba(249,248,244,0.7);
+      background: rgba(249,248,244,0.1);
+      transform: scale(1.09);
+    }
+
+    .bcn-doc-video-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(163,163,163,0.55);
+    }
+
+    /* Right side details */
+    .bcn-doc-featured-eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 22px;
+    }
+
+    .bcn-doc-featured-title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 4.8vw, 66px);
+      font-weight: 300;
+      color: var(--white);
+      margin: 0 0 30px;
+      line-height: 0.93;
+      letter-spacing: -0.025em;
+    }
+
+    .bcn-doc-featured-synopsis {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--silver);
+      line-height: 1.88;
+      margin: 0 0 18px;
+    }
+
+    /* Metadata table */
+    .bcn-doc-film-details {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      margin: 36px 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 11px 28px;
+    }
+
+    .bcn-doc-detail-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(163,163,163,0.45);
+      white-space: nowrap;
+    }
+
+    .bcn-doc-detail-value {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--white);
+    }
+
+    /* CTA buttons */
+    .bcn-doc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 32px;
+      border: 1px solid rgba(249,248,244,0.24);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .bcn-doc-btn:hover {
+      background: var(--white);
+      color: var(--bg);
+      border-color: var(--white);
+    }
+
+    .bcn-doc-btn--solid {
+      background: var(--white);
+      color: var(--bg);
+      border-color: var(--white);
+    }
+
+    .bcn-doc-btn--solid:hover {
+      background: transparent;
+      color: var(--white);
+    }
+
+    /* ── METHOD SECTION ─────────────────────────────────────────── */
+
+    .bcn-doc-method {
+      padding: clamp(80px, 12vw, 148px) clamp(24px, 6vw, 80px);
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .bcn-doc-method-header {
+      max-width: 640px;
+      margin-bottom: clamp(56px, 8vw, 104px);
+    }
+
+    .bcn-doc-method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(32px, 4vw, 64px);
+    }
+
+    .bcn-doc-method-block {
+      border-top: 1px solid var(--border);
+      padding-top: 30px;
+    }
+
+    .bcn-doc-method-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(44px, 5.5vw, 68px);
+      font-weight: 300;
+      color: rgba(249,248,244,0.07);
+      line-height: 1;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .bcn-doc-method-heading {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 400;
+      color: var(--white);
+      margin: 0 0 16px;
+      line-height: 1.18;
+    }
+
+    .bcn-doc-method-body {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--silver);
+      line-height: 1.82;
+      margin: 0;
+    }
+
+    /* ── COMMISSION CTA ─────────────────────────────────────────── */
+
+    .bcn-doc-commission {
+      padding: clamp(88px, 14vw, 168px) clamp(24px, 6vw, 80px);
+      background: #0a0a0a;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .bcn-doc-commission-eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 26px;
+    }
+
+    .bcn-doc-commission-title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 7vw, 96px);
+      font-weight: 300;
+      color: var(--white);
+      margin: 0 0 26px;
+      line-height: 0.93;
+      letter-spacing: -0.028em;
+    }
+
+    .bcn-doc-commission-title em {
+      font-style: italic;
+    }
+
+    .bcn-doc-commission-sub {
+      font-family: var(--font-sans);
+      font-size: clamp(13px, 1.5vw, 16px);
+      color: var(--silver);
+      line-height: 1.75;
+      max-width: 560px;
+      margin: 0 auto 52px;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────── */
+
+    @media (max-width: 992px) {
+      .bcn-doc-films-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .bcn-doc-featured-inner {
+        grid-template-columns: 1fr;
+        gap: clamp(32px, 5vw, 52px);
+      }
+
+      .bcn-doc-method-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Films grid switches to horizontal snap scroll on mobile */
+      .bcn-doc-films-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px;
+        padding-bottom: 20px;
+        scrollbar-width: none;
+      }
+
+      .bcn-doc-films-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .bcn-doc-film-card {
+        flex: 0 0 78vw;
+        scroll-snap-align: start;
+      }
+
+      .bcn-doc-method-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .bcn-doc-hero-content {
+        padding-bottom: 90px;
+      }
+
+      .bcn-doc-scroll-cue {
+        right: 20px;
+        bottom: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .bcn-doc-film-card {
+        flex: 0 0 88vw;
+      }
+
+      .bcn-doc-film-details {
+        gap: 10px 18px;
+      }
+
+      .bcn-doc-commission-title {
+        font-size: clamp(36px, 11vw, 54px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="bcn-cursor"></div>
+  <div id="bcn-cursor-dot"></div>
+
+  <!-- Page Load Line -->
+  <div class="bcn-page-line"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="bcn-nav" id="bcn-nav" role="navigation">
+    <a href="index.html" class="bcn-logo" aria-label="BCN-Wild Home">
+      <img src="img/Logo.svg" alt="BCN-Wild" />
+    </a>
+    <div class="bcn-nav-right">
+      <a href="index.html#contact" class="bcn-nav-contact">Contact</a>
+      <button class="bcn-hamburger" id="bcn-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Full-screen Menu Overlay -->
+  <div class="bcn-menu" id="bcn-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="bcn-menu-inner">
+      <nav class="bcn-menu-nav">
+        <a href="gallery.html" class="bcn-menu-link" data-close-menu>Gallery</a>
+        <a href="gallery.html?filter=wildlife" class="bcn-menu-link" data-close-menu>Wildlife</a>
+        <a href="gallery.html?filter=landscapes" class="bcn-menu-link" data-close-menu>Landscapes</a>
+        <a href="gallery.html?filter=cultural" class="bcn-menu-link" data-close-menu>Cultural &amp; People</a>
+        <a href="documentaries.html" class="bcn-menu-link" data-close-menu aria-current="page">Films</a>
+        <a href="index.html#contact" class="bcn-menu-link" data-close-menu>Contact</a>
+      </nav>
+      <div class="bcn-menu-meta">
+        <p class="bcn-menu-tagline">Africa through a lens<br>of profound respect.</p>
+        <div class="bcn-menu-socials">
+          <a href="https://instagram.com/bcnwild" target="_blank" rel="noopener" aria-label="Instagram">Ig</a>
+          <a href="https://twitter.com/bcnwild" target="_blank" rel="noopener" aria-label="Twitter/X">X</a>
+          <a href="https://facebook.com/bcnwild.africa" target="_blank" rel="noopener" aria-label="Facebook">Fb</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HERO — full-viewport cinematic opening
+       ============================================================ -->
+  <section class="bcn-doc-hero" id="hero" aria-label="Documentaries hero">
+
+    <!-- Video background — plays over the still image -->
+    <div class="bcn-doc-hero-video-wrap" aria-hidden="true">
+      <video class="bcn-doc-hero-video" autoplay muted loop playsinline>
+        <source src="Videos/BCN Vdieo.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="bcn-doc-hero-overlay" aria-hidden="true"></div>
+
+    <div class="bcn-doc-hero-content">
+      <span class="bcn-doc-hero-eyebrow">BCN-Wild &nbsp;·&nbsp; Documentary Films &nbsp;·&nbsp; East Africa</span>
+      <h1 class="bcn-doc-hero-title">
+        Every Frame<br>Has a <em>Witness.</em>
+      </h1>
+      <p class="bcn-doc-hero-sub">Long-form documentary work across East Africa's most critical ecosystems. Not content. Evidence.</p>
+    </div>
+
+    <a href="#films" class="bcn-doc-scroll-cue" id="bcn-scroll-cue" aria-label="Scroll to films">
+      <span class="bcn-doc-scroll-text">Scroll</span>
+      <span class="bcn-doc-scroll-line"></span>
+    </a>
+
+  </section>
+
+  <!-- ============================================================
+       FILMS GRID — documentary project catalogue
+       ============================================================ -->
+  <section class="bcn-doc-films" id="films" aria-label="Documentary films catalogue">
+
+    <span class="bcn-doc-section-label bcn-reveal">Documentary Work</span>
+    <h2 class="bcn-doc-section-title bcn-reveal">The Work</h2>
+
+    <div class="bcn-doc-films-grid">
+
+      <!-- Card 1 — The Last Corridor -->
+      <a href="#featured" class="bcn-doc-film-card bcn-reveal" aria-label="The Last Corridor — watch or learn more">
+        <div class="bcn-doc-film-thumb" aria-hidden="true">
+          <img src="img/queen 1.webp" alt="The Last Corridor" />
+        </div>
+        <div class="bcn-doc-film-meta">
+          <span>24 min</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span>2025</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span class="bcn-doc-film-tag">Conservation</span>
+        </div>
+        <h3 class="bcn-doc-film-title">The Last Corridor</h3>
+        <p class="bcn-doc-film-logline">The final unprotected wildlife passage between Queen Elizabeth National Park and Bwindi — and the communities living inside it.</p>
+      </a>
+
+      <!-- Card 2 — Nightfall in Bwindi -->
+      <a href="#" class="bcn-doc-film-card bcn-reveal" aria-label="Nightfall in Bwindi — learn more">
+        <div class="bcn-doc-film-thumb" aria-hidden="true">
+          <img src="img/Gorilla.webp" alt="Nightfall in Bwindi" />
+        </div>
+        <div class="bcn-doc-film-meta">
+          <span>18 min</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span>2024</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span class="bcn-doc-film-tag">Wildlife</span>
+        </div>
+        <h3 class="bcn-doc-film-title">Nightfall in Bwindi</h3>
+        <p class="bcn-doc-film-logline">An observational study of mountain gorilla behaviour in the hours between dusk and full dark — a window no camera had held this long.</p>
+      </a>
+
+      <!-- Card 3 — Between Fire and Rain -->
+      <a href="#" class="bcn-doc-film-card bcn-reveal" aria-label="Between Fire and Rain — learn more">
+        <div class="bcn-doc-film-thumb" aria-hidden="true">
+          <img src="img/serengeti.webp" alt="Between Fire and Rain" />
+        </div>
+        <div class="bcn-doc-film-meta">
+          <span>32 min</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span>2024</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span class="bcn-doc-film-tag">Environmental</span>
+        </div>
+        <h3 class="bcn-doc-film-title">Between Fire and Rain</h3>
+        <p class="bcn-doc-film-logline">A seasonal portrait of the Serengeti's dry corridor, filmed across twelve consecutive months to document the ecological cost of a shifting wet season.</p>
+      </a>
+
+      <!-- Card 4 — The Karamoja Tapes -->
+      <a href="#" class="bcn-doc-film-card bcn-reveal" aria-label="The Karamoja Tapes — learn more">
+        <div class="bcn-doc-film-thumb" aria-hidden="true">
+          <img src="img/Karamoja.webp" alt="The Karamoja Tapes" />
+        </div>
+        <div class="bcn-doc-film-meta">
+          <span>27 min</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span>2025</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span class="bcn-doc-film-tag">Cultural</span>
+        </div>
+        <h3 class="bcn-doc-film-title">The Karamoja Tapes</h3>
+        <p class="bcn-doc-film-logline">Unedited field recordings from six weeks embedded with pastoral communities in northeastern Uganda during the region's most contested land resettlement.</p>
+      </a>
+
+      <!-- Card 5 — The Ngamba Hour -->
+      <a href="#" class="bcn-doc-film-card bcn-reveal" aria-label="The Ngamba Hour — learn more">
+        <div class="bcn-doc-film-thumb" aria-hidden="true">
+          <img src="img/shoebill .webp" alt="The Ngamba Hour" />
+        </div>
+        <div class="bcn-doc-film-meta">
+          <span>19 min</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span>2024</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span class="bcn-doc-film-tag">Conservation</span>
+        </div>
+        <h3 class="bcn-doc-film-title">The Ngamba Hour</h3>
+        <p class="bcn-doc-film-logline">Chimpanzee rehabilitation on Lake Victoria's Ngamba Island — a close account of what sanctuary means when the forest is already gone.</p>
+      </a>
+
+      <!-- Card 6 — After the Poachers -->
+      <a href="#" class="bcn-doc-film-card bcn-reveal" aria-label="After the Poachers — learn more">
+        <div class="bcn-doc-film-thumb" aria-hidden="true">
+          <img src="img/Rhino.webp" alt="After the Poachers" />
+        </div>
+        <div class="bcn-doc-film-meta">
+          <span>45 min</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span>2023</span>
+          <span class="bcn-doc-film-meta-dot"></span>
+          <span class="bcn-doc-film-tag">Investigation</span>
+        </div>
+        <h3 class="bcn-doc-film-title">After the Poachers</h3>
+        <p class="bcn-doc-film-logline">A forensic reconstruction of three poaching incidents in Murchison Falls, tracing evidence from the carcass back through the supply chain to the buyer.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURED FILM — expanded spotlight: The Last Corridor
+       ============================================================ -->
+  <section class="bcn-doc-featured" id="featured" aria-label="Featured film: The Last Corridor">
+    <div class="bcn-doc-featured-inner">
+
+      <!-- Left: 16:9 video embed frame -->
+      <div class="bcn-doc-video-frame bcn-reveal">
+        <video controls poster="img/BCN (1).png">
+          <source src="Videos/BCN Vdieo.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- Right: film press-kit details -->
+      <div class="bcn-doc-featured-detail bcn-reveal">
+        <span class="bcn-doc-featured-eyebrow">Featured Film</span>
+        <h2 class="bcn-doc-featured-title">The Last<br>Corridor</h2>
+
+        <p class="bcn-doc-featured-synopsis">A 24-minute observational documentary following the seasonal migration corridor between Queen Elizabeth National Park and Bwindi Impenetrable Forest — one of the last unprotected wildlife passages in East Africa. Filmed over 14 months, the piece documents the elephants, chimpanzees, and communities that share this shrinking strip of land.</p>
+
+        <p class="bcn-doc-featured-synopsis">The Last Corridor is not a nature film. It is a land use argument delivered in images.</p>
+
+        <div class="bcn-doc-film-details" role="list" aria-label="Film details">
+          <span class="bcn-doc-detail-label" role="term">Director</span>
+          <span class="bcn-doc-detail-value" role="definition">Gerald BCN</span>
+
+          <span class="bcn-doc-detail-label" role="term">Cinematography</span>
+          <span class="bcn-doc-detail-value" role="definition">BCN Wild</span>
+
+          <span class="bcn-doc-detail-label" role="term">Location</span>
+          <span class="bcn-doc-detail-value" role="definition">Western Uganda</span>
+
+          <span class="bcn-doc-detail-label" role="term">Duration</span>
+          <span class="bcn-doc-detail-value" role="definition">24 min</span>
+
+          <span class="bcn-doc-detail-label" role="term">Year</span>
+          <span class="bcn-doc-detail-value" role="definition">2025</span>
+        </div>
+
+        <a href="#" class="bcn-doc-btn" aria-label="Watch trailer for The Last Corridor">
+          Watch Trailer
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       THE DOCUMENTARY METHOD — approach and philosophy
+       ============================================================ -->
+  <section class="bcn-doc-method" id="method" aria-label="Documentary methodology">
+
+    <div class="bcn-doc-method-header">
+      <span class="bcn-doc-section-label bcn-reveal">How We Work</span>
+      <h2 class="bcn-doc-section-title bcn-reveal">The Documentary<br>Method</h2>
+    </div>
+
+    <div class="bcn-doc-method-grid">
+
+      <div class="bcn-doc-method-block bcn-reveal">
+        <span class="bcn-doc-method-num" aria-hidden="true">01</span>
+        <h3 class="bcn-doc-method-heading">Long-Form Observation</h3>
+        <p class="bcn-doc-method-body">We don't script wildlife. We outlast it. Every shoot begins with weeks of embedded fieldwork before a single frame is composed for narrative. The story reveals itself — or it doesn't, and we wait.</p>
+      </div>
+
+      <div class="bcn-doc-method-block bcn-reveal">
+        <span class="bcn-doc-method-num" aria-hidden="true">02</span>
+        <h3 class="bcn-doc-method-heading">Scientific Partnership</h3>
+        <p class="bcn-doc-method-body">Each project is built in collaboration with field researchers, conservation bodies, and local communities who provide the ecological intelligence behind every sequence. The camera follows the science.</p>
+      </div>
+
+      <div class="bcn-doc-method-block bcn-reveal">
+        <span class="bcn-doc-method-num" aria-hidden="true">03</span>
+        <h3 class="bcn-doc-method-heading">Archival Intent</h3>
+        <p class="bcn-doc-method-body">These films are not made to trend. They are made to endure — as legal evidence, educational material, and permanent records of ecosystems under pressure. Every frame carries its date of capture like a signature.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COMMISSION CTA — full-width dark band
+       ============================================================ -->
+  <section class="bcn-doc-commission" id="commission" aria-label="Commission a documentary">
+    <span class="bcn-doc-commission-eyebrow bcn-reveal">Commission</span>
+    <h2 class="bcn-doc-commission-title bcn-reveal">
+      Commission a<br><em>Documentary.</em>
+    </h2>
+    <p class="bcn-doc-commission-sub bcn-reveal">Conservation bodies, NGOs, tourism boards, and editorial publishers — we produce short and long-form documentary work on brief. Every project begins with a field consultation.</p>
+    <a href="index.html#contact" class="bcn-doc-btn bcn-doc-btn--solid bcn-reveal">
+      Start a Brief
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- ============================================================
+       PARTNERS TICKER
+       ============================================================ -->
+  <section class="bcn-partners" aria-label="Partners and publications">
+    <div class="bcn-partners-track">
+      <div class="bcn-partners-inner" id="bcn-partners-inner">
+        <span class="bcn-partner-logo-text">National Geographic</span>
+        <span class="bcn-partner-logo-text">WWF</span>
+        <span class="bcn-partner-logo-text">Uganda Wildlife Authority</span>
+        <span class="bcn-partner-logo-text">African Wildlife Foundation</span>
+        <span class="bcn-partner-logo-text">BBC Earth</span>
+        <span class="bcn-partner-logo-text">Conservation International</span>
+        <span class="bcn-partner-logo-text">Getty Images</span>
+        <span class="bcn-partner-logo-text">Africa Geographic</span>
+        <span class="bcn-partner-logo-text">Reuters</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">National Geographic</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">WWF</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Uganda Wildlife Authority</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">African Wildlife Foundation</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">BBC Earth</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Conservation International</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Getty Images</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Africa Geographic</span>
+        <span class="bcn-partner-logo-text" aria-hidden="true">Reuters</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="bcn-footer">
+    <div class="bcn-footer-cta">
+      <p class="bcn-footer-cta-heading">Let's Work Together</p>
+      <a href="index.html#contact" class="bcn-cta-pill">Book a call</a>
+    </div>
+    <div class="bcn-footer-divider"></div>
+    <div class="bcn-footer-inner">
+      <div class="bcn-footer-brand">
+        <span class="bcn-footer-logo"><img src="img/Logo.svg" alt="BCN-Wild" /></span>
+        <p class="bcn-footer-tagline">Africa through a lens of profound respect.</p>
+      </div>
+      <nav class="bcn-footer-links" aria-label="Footer links">
+        <a href="https://instagram.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-link">Instagram</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
+        <a href="https://twitter.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-link">X</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
+        <a href="https://facebook.com/bcnwild.africa" target="_blank" rel="noopener" class="bcn-footer-link">Facebook</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
+        <a href="mailto:bcn@wild.com" class="bcn-footer-link">bcn@wild.com</a>
+        <span class="bcn-footer-sep" aria-hidden="true">·</span>
+        <a href="tel:+256777784807" class="bcn-footer-link">+256 777 784 807</a>
+      </nav>
+    </div>
+    <div class="bcn-footer-bottom">
+      <span>&copy; 2026 BCN-Wild. All rights reserved.</span>
+      <span class="bcn-footer-sep" aria-hidden="true">·</span>
+      <span><a href="https://www.pandastudios.co" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Built By PANDA</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    /* ----------------------------------------------------------------
+       Documentaries — page-specific JS
+       main.js handles: cursor, nav scroll, menu, scroll-reveal (.bcn-reveal)
+       This block handles page-specific interactions only.
+    ---------------------------------------------------------------- */
+    (function () {
+      'use strict';
+
+      /* Scroll cue fade-in — id="bcn-scroll-cue" picked up by main.js load handler */
+      /* Handled by main.js window load listener — no duplicate needed here */
+
+      /* Film cards: register with custom cursor hover (main.js only hooks <a> <button>) */
+      document.querySelectorAll('.bcn-doc-film-card').forEach(function (card) {
+        card.addEventListener('mouseenter', function () { document.body.classList.add('cursor-hover'); });
+        card.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-hover'); });
+      });
+
+
+}());
+  </script>
+
+</body>
+</html>
