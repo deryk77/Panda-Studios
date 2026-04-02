@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 40px 6vw 32px;
+  padding: 40px clamp(24px, 6vw, 80px) 32px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -112,7 +112,7 @@
 
 /* ── 5. LIST VIEW ───────────────────────────────────────────── */
 .bcn-list-view {
-  padding: 0 6vw;
+  padding: 0 clamp(24px, 6vw, 80px);
 }
 
 /* Column header row */

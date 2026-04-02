@@ -109,7 +109,7 @@ body.cursor-hover #bcn-cursor-dot {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 32px clamp(24px, 6vw, 80px);
+  padding: 36px clamp(24px, 6vw, 80px);
   transition: padding var(--transition), background var(--transition);
 }
 
@@ -145,13 +145,13 @@ body.cursor-hover #bcn-cursor-dot {
 .bcn-logo:hover { opacity: 0.7; }
 
 .bcn-logo img {
-  height: clamp(41px, 4.57vw, 51px);
+  height: clamp(47px, 5.26vw, 59px);
   width: auto;
   display: block;
 }
 
 .bcn-footer-logo img {
-  height: clamp(33px, 4.26vw, 49px);
+  height: clamp(38px, 4.9vw, 56px);
   width: auto;
   display: block;
 }
@@ -753,8 +753,8 @@ body.cursor-hover #bcn-cursor-dot {
 }
 
 @media (max-width: 768px) {
-  .bcn-nav { padding: 20px 24px; }
-  .bcn-nav.scrolled { padding: 14px 24px; }
+  .bcn-nav { padding: 20px clamp(24px, 6vw, 80px); }
+  .bcn-nav.scrolled { padding: 14px clamp(24px, 6vw, 80px); }
   .bcn-nav-contact { display: none; }
 
   .bcn-hero-content { padding: 0 24px clamp(48px, 8vh, 80px); bottom: 0; }
