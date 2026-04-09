@@ -145,7 +145,7 @@ body.cursor-hover #bcn-cursor-dot {
 .bcn-logo:hover { opacity: 0.7; }
 
 .bcn-logo img {
-  height: clamp(47px, 5.26vw, 59px);
+  height: clamp(38px, 4.21vw, 47px);
   width: auto;
   display: block;
 }
