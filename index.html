@@ -263,6 +263,9 @@
         clip-path: inset(0 0% 0 0);
     }
     /* ─────────────────────────────────────────────────────────── */
+    .mil-blog-posts-slider { overflow: hidden; }
+    .mil-blog-posts-slider .swiper-slide { height: auto; }
+    .mil-blog-posts-slider .mil-blog-card { display: flex; flex-direction: column; height: 100%; }
 </style>
 
     
@@ -688,7 +691,7 @@
                                             </div>
 
                                             <div class="mil-team-card mil-up mil-mb-30">
-                                                <img src="img/faces/7.jpg" alt="Team member">
+                                                <img src="img/faces/77.png" alt="Team member">
                                                 <div class="mil-description">
                                                     <div class="mil-secrc-text">
                                                         <h5 class="mil-muted mil-mb-5"><a href="team.html">Jonathan K.</a></h5>
@@ -860,45 +863,105 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
 
-                                 <a href="brand-identity-not-just-recognition.html" class="mil-blog-card mil-mb-60">
-                                    <div class="mil-cover-frame mil-up">
-                                        <img src="img/blog/1.jpg" alt="cover">
-                                    </div>
-                                    <div class="mil-post-descr">
-                                        <div class="mil-labels mil-up mil-mb-30">
-                                            <div class="mil-label mil-upper mil-accent">BRANDING</div>
-                                            <div class="mil-label mil-upper">may 24 2023</div>
-                                        </div>
-                                        <h4 class="mil-up mil-mb-30">How Brands Keep You Hooked</h4>
-                                        <p class="mil-post-text mil-up mil-mb-30">In this article, we’ll dive into the true meaning of branding, using examples from some of the world’s most iconic brands like Nike, Red Bull, and Apple. These brands aren’t just about selling products—they’re about creating </p>
-                                        <div class="mil-link mil-dark mil-arrow-place mil-up">
-                                            <span>Read more</span>
-                                        </div>
-                                    </div>
-                                </a>
+                        <!-- blog slider nav -->
+                        <div class="mil-slider-nav mil-soft mil-blog-posts-nav mil-up mil-mb-30" style="justify-content:flex-end;">
+                            <div class="mil-slider-arrow mil-prev mil-blog-prev mil-arrow-place"></div>
+                            <div class="mil-slider-arrow mil-blog-next mil-arrow-place" style="margin-left:10px;"></div>
+                        </div>
 
-                            </div>
-                            <div class="col-lg-6">
+                        <div class="swiper-container mil-blog-posts-slider">
+                            <div class="swiper-wrapper">
 
-                                <a href="all-about-nike-brand-strategy.html" class="mil-blog-card mil-mb-60">
-                                    <div class="mil-cover-frame mil-up">
-                                        <img src="img/blog/2.jpg" alt="cover">
-                                    </div>
-                                    <div class="mil-post-descr">
-                                        <div class="mil-labels mil-up mil-mb-30">
-                                            <div class="mil-label mil-upper mil-accent">Branding</div>
-                                            <div class="mil-label mil-upper">may 24 2023</div>
+                                <!-- 1 — newest: Your Brand Is Speaking -->
+                                <div class="swiper-slide">
+                                    <a href="your-brand-is-speaking.html" class="mil-blog-card mil-mb-60">
+                                        <div class="mil-cover-frame mil-up">
+                                            <img src="img/blog/Panda Studios Audit.png" alt="cover">
                                         </div>
-                                        <h4 class="mil-up mil-mb-30">All about Nike</h4>
-                                        <p class="mil-post-text mil-up mil-mb-30">Founded in 1964 as Blue Ribbon Sports, the company's journey from a small startup to a multinational corporation is a testament to its innovative spirit and strategic marketing.</p>
-                                        <div class="mil-link mil-dark mil-arrow-place mil-up">
-                                            <span>Read more</span>
+                                        <div class="mil-post-descr">
+                                            <div class="mil-labels mil-up mil-mb-30">
+                                                <div class="mil-label mil-upper mil-accent">Branding</div>
+                                                <div class="mil-label mil-upper">March 2026</div>
+                                            </div>
+                                            <h4 class="mil-up mil-mb-30">Your Brand Is Speaking. Is It Saying the Right Things?</h4>
+                                            <p class="mil-post-text mil-up mil-mb-30">Every business broadcasts a brand signal before a single word is spoken. The question is whether you designed that message deliberately — or left it to chance.</p>
+                                            <div class="mil-link mil-dark mil-arrow-place mil-up"><span>Read more</span></div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
+
+                                <!-- 2 — How Brands Keep You Hooked -->
+                                <div class="swiper-slide">
+                                    <a href="brand-identity-not-just-recognition.html" class="mil-blog-card mil-mb-60">
+                                        <div class="mil-cover-frame mil-up">
+                                            <img src="img/blog/1.jpg" alt="cover">
+                                        </div>
+                                        <div class="mil-post-descr">
+                                            <div class="mil-labels mil-up mil-mb-30">
+                                                <div class="mil-label mil-upper mil-accent">Branding</div>
+                                                <div class="mil-label mil-upper">May 24 2023</div>
+                                            </div>
+                                            <h4 class="mil-up mil-mb-30">How Brands Keep You Hooked</h4>
+                                            <p class="mil-post-text mil-up mil-mb-30">In this article, we’ll dive into the true meaning of branding, using examples from some of the world’s most iconic brands like Nike, Red Bull, and Apple.</p>
+                                            <div class="mil-link mil-dark mil-arrow-place mil-up"><span>Read more</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- 3 — All About Nike -->
+                                <div class="swiper-slide">
+                                    <a href="all-about-nike-brand-strategy.html" class="mil-blog-card mil-mb-60">
+                                        <div class="mil-cover-frame mil-up">
+                                            <img src="img/blog/2.jpg" alt="cover">
+                                        </div>
+                                        <div class="mil-post-descr">
+                                            <div class="mil-labels mil-up mil-mb-30">
+                                                <div class="mil-label mil-upper mil-accent">Branding</div>
+                                                <div class="mil-label mil-upper">May 24 2023</div>
+                                            </div>
+                                            <h4 class="mil-up mil-mb-30">All About Nike</h4>
+                                            <p class="mil-post-text mil-up mil-mb-30">Founded in 1964 as Blue Ribbon Sports, the company’s journey from a small startup to a multinational corporation is a testament to its innovative spirit and strategic marketing.</p>
+                                            <div class="mil-link mil-dark mil-arrow-place mil-up"><span>Read more</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- 4 — Minimalist Approach -->
+                                <div class="swiper-slide">
+                                    <a href="minimalist-approach-to-corporate-branding.html" class="mil-blog-card mil-mb-60">
+                                        <div class="mil-cover-frame mil-up">
+                                            <img src="img/blog/44.jpg" alt="cover">
+                                        </div>
+                                        <div class="mil-post-descr">
+                                            <div class="mil-labels mil-up mil-mb-30">
+                                                <div class="mil-label mil-upper mil-accent">Branding</div>
+                                                <div class="mil-label mil-upper">May 24 2023</div>
+                                            </div>
+                                            <h4 class="mil-up mil-mb-30">The Minimalist Approach to Corporate Branding</h4>
+                                            <p class="mil-post-text mil-up mil-mb-30">Flat design isn’t just a passing trend — it’s a powerful tool that has real benefits for businesses looking to refine their branding and user interfaces.</p>
+                                            <div class="mil-link mil-dark mil-arrow-place mil-up"><span>Read more</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- 5 — How Our Minds Perceive Written Words -->
+                                <div class="swiper-slide">
+                                    <a href="how-minds-perceive-written-words.html" class="mil-blog-card mil-mb-60">
+                                        <div class="mil-cover-frame mil-up">
+                                            <img src="img/blog/333.jpg" alt="cover">
+                                        </div>
+                                        <div class="mil-post-descr">
+                                            <div class="mil-labels mil-up mil-mb-30">
+                                                <div class="mil-label mil-upper mil-accent">Branding</div>
+                                                <div class="mil-label mil-upper">May 24 2023</div>
+                                            </div>
+                                            <h4 class="mil-up mil-mb-30">How Our Minds Perceive Written Words</h4>
+                                            <p class="mil-post-text mil-up mil-mb-30">The human mind processes reading in a fascinating way — recognising words as whole units rather than individual letters, allowing us to read quickly and efficiently.</p>
+                                            <div class="mil-link mil-dark mil-arrow-place mil-up"><span>Read more</span></div>
+                                        </div>
+                                    </a>
+                                </div>
 
                             </div>
                         </div>
@@ -1192,6 +1255,32 @@
     <script src="js/plugins/ScrollTrigger.min.js"></script>
     <!-- scroll to js -->
     <script src="js/plugins/ScrollTo.min.js"></script>
+    <!-- blog posts slider -->
+    <script>
+    (function () {
+        function initBlogSlider() {
+            if (typeof Swiper === 'undefined') return;
+            new Swiper('.mil-blog-posts-slider', {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                speed: 600,
+                navigation: {
+                    nextEl: '.mil-blog-next',
+                    prevEl: '.mil-blog-prev'
+                },
+                breakpoints: {
+                    0:   { slidesPerView: 1, spaceBetween: 20 },
+                    768: { slidesPerView: 2, spaceBetween: 30 }
+                }
+            });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initBlogSlider);
+        } else {
+            initBlogSlider();
+        }
+    })();
+    </script>
     <!-- ashley js -->
     <script src="js/main.js"></script>
     <script src="js/popup.js"></script>
