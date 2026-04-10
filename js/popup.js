@@ -1,6 +1,10 @@
 (function () {
-    // If they already clicked through to WhatsApp, never show again
-    if (localStorage.getItem('ps_popup_converted')) return;
+    // Version key — bump this string to reset all visitors (e.g. new offer image)
+    var VERSION = 'v2';
+    var CONVERTED_KEY = 'ps_popup_converted_' + VERSION;
+
+    // If they already clicked through to WhatsApp on this version, never show again
+    if (localStorage.getItem(CONVERTED_KEY)) return;
 
     var INTERVAL = 3 * 60 * 1000; // 3 minutes
     var FIRST_DELAY = 15000;       // 15s before first appearance
@@ -17,7 +21,7 @@
     var timer;
 
     function show() {
-        if (localStorage.getItem('ps_popup_converted')) return;
+        if (localStorage.getItem(CONVERTED_KEY)) return;
         var overlay = document.getElementById('ps-popup-overlay');
         if (overlay) overlay.classList.add('ps-active');
     }
@@ -39,9 +43,9 @@
         // Close on × button
         document.getElementById('ps-popup-close').addEventListener('click', close);
 
-        // WhatsApp click = converted — stop showing forever
+        // WhatsApp click = converted — stop showing forever (for this version)
         document.getElementById('ps-popup-btn').addEventListener('click', function () {
-            localStorage.setItem('ps_popup_converted', '1');
+            localStorage.setItem(CONVERTED_KEY, '1');
             clearTimeout(timer);
         });
 
