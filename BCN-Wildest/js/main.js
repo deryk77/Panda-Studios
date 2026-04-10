@@ -331,6 +331,14 @@
     var loader   = document.getElementById('bcn-loader');
     if (!loader) return;
 
+    // Only play once — skip on every subsequent visit/refresh
+    if (localStorage.getItem('bcn-loader-seen')) {
+      loader.style.display = 'none';
+      loader.style.pointerEvents = 'none';
+      document.body.style.overflow = '';
+      return;
+    }
+
     var textBack = document.getElementById('bcn-loader-text-back');
     var wipe     = document.getElementById('bcn-loader-wipe');
     var imgWrap  = document.getElementById('bcn-loader-img-wrap');
@@ -413,6 +421,7 @@
       loader.style.pointerEvents   = 'none';
       imgWrap.style.display        = 'none';
       document.body.style.overflow = '';
+      localStorage.setItem('bcn-loader-seen', '1');
     }, 2720);
   }
 

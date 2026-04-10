@@ -160,7 +160,28 @@ body.cursor-hover #bcn-cursor-dot {
 .bcn-nav-right {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 96px;
+}
+
+/* Desktop nav links — Gallery, Films, Expeditions */
+.bcn-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 96px;
+}
+
+.bcn-nav-link {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  transition: color 0.3s ease;
+}
+
+.bcn-nav-link:hover {
+  color: var(--white);
 }
 
 .bcn-nav-contact {
@@ -239,12 +260,12 @@ body.cursor-hover #bcn-cursor-dot {
 .bcn-menu-nav {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 2px;
 }
 
 .bcn-menu-link {
   font-family: var(--font-display);
-  font-size: clamp(26px, 4vw, 51px);
+  font-size: clamp(20px, 3vw, 38px);
   font-weight: 400;
   color: rgba(255,255,255,0.25);
   transition: color 0.3s ease, transform 0.3s ease;
@@ -657,79 +678,101 @@ body.cursor-hover #bcn-cursor-dot {
 /* ── 10. FOOTER ─────────────────────────────────────────────── */
 .bcn-footer {
   background: #0a0a0a;
-  padding: 0 80px clamp(48px, 6vh, 72px);
-  border-top: 1px solid var(--border);
-  text-align: center;
+  padding: clamp(120px, 18vh, 220px) clamp(24px, 6vw, 80px) 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
 }
 
-.bcn-footer-inner {
+/* Main body: logo left, columns right */
+.bcn-footer-main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 48px;
-  padding-bottom: 56px;
-  border-bottom: 1px solid rgba(249,248,244,0.07);
+  align-items: flex-start;
+  gap: clamp(80px, 14vw, 220px);
+  padding-bottom: clamp(80px, 14vh, 160px);
 }
 
+/* Brand column */
 .bcn-footer-brand {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  gap: 20px;
+  align-self: stretch;
 }
 
-.bcn-footer-logo {
-  font-family: var(--font-serif);
-  font-size: clamp(22px, 2.8vw, 32px);
-  font-weight: 700;
-  letter-spacing: 0.02em;
+.bcn-footer-logo-img {
+  height: clamp(22px, 2.6vw, 32px);
+  width: auto;
   display: block;
-  color: var(--bone);
+  opacity: 0.85;
 }
 
-.bcn-footer-logo span { font-weight: 400; }
-
-.bcn-footer-tagline {
-  font-size: 13px;
-  color: rgba(249,248,244,0.32);
-  line-height: 1.8;
-  letter-spacing: 0.02em;
-}
-
-.bcn-footer-links {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px 18px;
-}
-
-.bcn-footer-sep {
-  color: rgba(249,248,244,0.18);
-  font-size: 13px;
-  line-height: 1;
-}
-
-.bcn-footer-link {
-  font-size: 13px;
-  color: rgba(249,248,244,0.42);
-  transition: color 0.3s ease;
-  letter-spacing: 0.03em;
-}
-
-.bcn-footer-link:hover { color: var(--bone); }
-
-.bcn-footer-bottom {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px 16px;
-  padding-top: 28px;
+.bcn-footer-copyright {
   font-size: 11px;
-  color: rgba(249,248,244,0.18);
-  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  padding-top: clamp(40px, 8vh, 80px);
 }
+
+/* Columns grid */
+.bcn-footer-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 2vw, 28px);
+  flex: 1;
+}
+
+.bcn-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2.2vh, 24px);
+}
+
+.bcn-footer-col-heading {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 10px;
+}
+
+.bcn-footer-col-link {
+  font-size: 13px;
+  color: rgba(255,255,255,0.38);
+  transition: color 0.25s ease;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.bcn-footer-col-link:hover { color: rgba(255,255,255,0.9); }
+
+/* Base bar */
+.bcn-footer-base {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding: 24px 0 clamp(32px, 4vh, 56px);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.bcn-footer-copy {
+  font-size: 11px;
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 0.05em;
+}
+
+.bcn-footer-built {
+  font-size: 11px;
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 0.05em;
+  transition: color 0.25s ease;
+}
+
+.bcn-footer-built:hover { color: rgba(255,255,255,0.7); }
 
 /* ── 11. SCROLL REVEAL ──────────────────────────────────────── */
 .bcn-reveal {
@@ -756,6 +799,7 @@ body.cursor-hover #bcn-cursor-dot {
   .bcn-nav { padding: 20px clamp(24px, 6vw, 80px); }
   .bcn-nav.scrolled { padding: 14px clamp(24px, 6vw, 80px); }
   .bcn-nav-contact { display: none; }
+  .bcn-nav-links { display: none; }
 
   .bcn-hero-content { padding: 0 24px clamp(48px, 8vh, 80px); bottom: 0; }
 
@@ -775,7 +819,10 @@ body.cursor-hover #bcn-cursor-dot {
 
   .bcn-menu { padding: 100px 24px 48px; }
 
-  .bcn-footer { padding: 0 24px clamp(32px, 4vh, 48px); }
+  .bcn-footer { padding: clamp(48px, 7vh, 72px) 24px 0; }
+  .bcn-footer-main { flex-direction: column; gap: 40px; }
+  .bcn-footer-cols { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
+  .bcn-footer-base { justify-content: flex-start; gap: 12px 24px; }
 }
 
 @media (max-width: 768px) {
@@ -956,20 +1003,20 @@ body.cursor-hover #bcn-cursor-dot {
 /* ── 15. ABOUT SECTION — wipes up from below ────────────────── */
 .bcn-about-section {
   position: relative;
-  height: 400vh;
+  height: 200vh;
 }
 
 .bcn-about-wipe {
   position: sticky;
   top: 0;
   height: 100vh;
-  background: #111111;
+  background: #ffffff;
   clip-path: inset(100% 0 0 0);
   will-change: clip-path;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
 
 .bcn-about-inner {
@@ -987,7 +1034,7 @@ body.cursor-hover #bcn-cursor-dot {
   font-style: italic;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--silver);
+  color: rgba(0,0,0,0.45);
   margin-bottom: 36px;
 }
 
@@ -997,13 +1044,13 @@ body.cursor-hover #bcn-cursor-dot {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: 0.01em;
-  color: var(--bone);
+  color: #111111;
   margin-bottom: 52px;
 }
 
 .bcn-about-body {
   font-size: clamp(14px, 1.1vw, 17px);
-  color: rgba(255,255,255,0.5);
+  color: rgba(0,0,0,0.6);
   font-weight: 400;
   line-height: 1.7;
   letter-spacing: 0.015em;
@@ -1151,7 +1198,7 @@ body.cursor-hover #bcn-lens-home {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: #111111;
+  background: #ffffff;
   display: flex;
   flex-direction: row;
   align-items: center;
