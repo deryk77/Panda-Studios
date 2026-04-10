@@ -56,6 +56,11 @@
       <img src="img/Logo.svg" alt="BCN-Wild" />
     </a>
     <div class="bcn-nav-right">
+      <nav class="bcn-nav-links" aria-label="Primary navigation">
+        <a href="gallery.html" class="bcn-nav-link">Gallery</a>
+        <a href="documentaries.html" class="bcn-nav-link">Films</a>
+        <a href="expeditions.html" class="bcn-nav-link">Expeditions</a>
+      </nav>
       <a href="index.html#contact" class="bcn-nav-contact">Contact</a>
       <button class="bcn-hamburger" id="bcn-hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span>
@@ -68,13 +73,14 @@
   <div class="bcn-menu" id="bcn-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <div class="bcn-menu-inner">
       <nav class="bcn-menu-nav">
-        <a href="gallery.html" class="bcn-menu-link" data-close-menu>Gallery</a>
+        <a href="gallery.html" class="bcn-menu-link" data-close-menu aria-current="page">Gallery</a>
         <a href="gallery.html?filter=wildlife" class="bcn-menu-link" data-close-menu>Wildlife</a>
         <a href="gallery.html?filter=landscapes" class="bcn-menu-link" data-close-menu>Landscapes</a>
         <a href="gallery.html?filter=cultural" class="bcn-menu-link" data-close-menu>Cultural &amp; People</a>
         <a href="documentaries.html" class="bcn-menu-link" data-close-menu>Films</a>
         <a href="expeditions.html" class="bcn-menu-link" data-close-menu>Expeditions</a>
-        <a href="index.html#contact" class="bcn-menu-link" data-close-menu>Contact</a>
+        <a href="index.html#journal" class="bcn-menu-link" data-close-menu>Journal</a>
+        <a href="about.html" class="bcn-menu-link" data-close-menu>About Us</a>
       </nav>
       <div class="bcn-menu-meta">
         <p class="bcn-menu-tagline">Africa through a lens<br>of profound respect.</p>
@@ -147,28 +153,63 @@
   <!-- ============================================================
        FOOTER
        ============================================================ -->
-  <footer class="bcn-footer bcn-footer--gallery">
-    <div class="bcn-footer-inner">
+  <footer class="bcn-footer">
+    <div class="bcn-footer-main">
+
+      <!-- Brand column -->
       <div class="bcn-footer-brand">
-        <span class="bcn-footer-logo"><img src="img/footer.svg" alt="BCN-Wild" /></span>
-        <p class="bcn-footer-tagline">Africa through a lens of profound respect.</p>
+        <a href="index.html" class="bcn-footer-logo-link" aria-label="BCN-Wild Home">
+          <img src="img/footer.svg" alt="BCN-Wild" class="bcn-footer-logo-img" />
+        </a>
+        <p class="bcn-footer-copyright">&copy; 2026 BCN-Wild</p>
       </div>
-      <nav class="bcn-footer-links" aria-label="Footer links">
-        <a href="https://instagram.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-link">Instagram</a>
-        <span class="bcn-footer-sep" aria-hidden="true">·</span>
-        <a href="https://twitter.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-link">X</a>
-        <span class="bcn-footer-sep" aria-hidden="true">·</span>
-        <a href="https://facebook.com/bcnwild.africa" target="_blank" rel="noopener" class="bcn-footer-link">Facebook</a>
-        <span class="bcn-footer-sep" aria-hidden="true">·</span>
-        <a href="mailto:bcn@wild.com" class="bcn-footer-link">bcn@wild.com</a>
-        <span class="bcn-footer-sep" aria-hidden="true">·</span>
-        <a href="tel:+256777784807" class="bcn-footer-link">+256 777 784 807</a>
-      </nav>
-    </div>
-    <div class="bcn-footer-bottom">
-      <span>&copy; 2026 BCN-Wild. All rights reserved.</span>
-      <span class="bcn-footer-sep" aria-hidden="true">·</span>
-      <span><a href="https://www.pandastudios.co" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Built By PANDA</a></span>
+
+      <!-- Link columns -->
+      <div class="bcn-footer-cols">
+
+        <div class="bcn-footer-col">
+          <p class="bcn-footer-col-heading">Gallery</p>
+          <a href="gallery.html" class="bcn-footer-col-link">All Work</a>
+          <a href="gallery.html?filter=wildlife" class="bcn-footer-col-link">Wildlife</a>
+          <a href="gallery.html?filter=landscapes" class="bcn-footer-col-link">Landscapes</a>
+          <a href="gallery.html?filter=cultural" class="bcn-footer-col-link">Cultural &amp; People</a>
+          <a href="documentaries.html" class="bcn-footer-col-link">Films</a>
+        </div>
+
+        <div class="bcn-footer-col">
+          <p class="bcn-footer-col-heading">Services</p>
+          <a href="expeditions.html" class="bcn-footer-col-link">Expeditions</a>
+          <a href="#" class="bcn-footer-col-link">Editorial Licensing</a>
+          <a href="#" class="bcn-footer-col-link">Conservation Docs</a>
+          <a href="#" class="bcn-footer-col-link">Commercial Use</a>
+          <a href="#" class="bcn-footer-col-link">Print &amp; Editions</a>
+        </div>
+
+        <div class="bcn-footer-col">
+          <p class="bcn-footer-col-heading">Studio</p>
+          <a href="about.html" class="bcn-footer-col-link">About Us</a>
+          <a href="index.html#journal" class="bcn-footer-col-link">Journal</a>
+          <a href="#" class="bcn-footer-col-link">Process</a>
+          <a href="#" class="bcn-footer-col-link">Awards &amp; Press</a>
+          <a href="index.html#contact" class="bcn-footer-col-link">Contact</a>
+        </div>
+
+        <div class="bcn-footer-col">
+          <p class="bcn-footer-col-heading">Connect</p>
+          <a href="https://instagram.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-col-link">Instagram</a>
+          <a href="https://twitter.com/bcnwild" target="_blank" rel="noopener" class="bcn-footer-col-link">X / Twitter</a>
+          <a href="https://facebook.com/bcnwild.africa" target="_blank" rel="noopener" class="bcn-footer-col-link">Facebook</a>
+          <a href="mailto:bcn@wild.com" class="bcn-footer-col-link">bcn@wild.com</a>
+          <a href="tel:+256777784807" class="bcn-footer-col-link">+256 777 784 807</a>
+        </div>
+
+      </div><!-- /bcn-footer-cols -->
+    </div><!-- /bcn-footer-main -->
+
+    <!-- Base bar -->
+    <div class="bcn-footer-base">
+      <span class="bcn-footer-copy">All rights reserved.</span>
+      <a href="https://www.pandastudios.co" target="_blank" rel="noopener" class="bcn-footer-built">Built by PANDA</a>
     </div>
   </footer>
 
