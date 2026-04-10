@@ -124,14 +124,18 @@
     .wl-way-item h3 {
       font-family: var(--font-serif);
       font-weight: 300;
-      font-size: clamp(36px, 5vw, 62px);
+      font-size: clamp(26px, 3.5vw, 44px);
       color: var(--off-white);
       margin-bottom: 20px;
       line-height: 1.1;
     }
 
+    .wl-way-item h3 em {
+      color: var(--crescent-gold);
+    }
+
     .wl-way-item p {
-      font-size: 18px;
+      font-size: clamp(14px, 1.1vw, 16px);
       color: rgba(253, 251, 247, 0.75);
       line-height: 1.85;
     }
@@ -186,6 +190,20 @@
       grid-template-columns: 1fr 1fr;
       gap: clamp(48px, 8vw, 120px);
       align-items: start;
+    }
+
+    /* ---- About hero overrides ---- */
+    /* No Ken Burns zoom on this page */
+    .wl-hero-bg {
+      transform: scale(1) !important;
+      transition: none !important;
+    }
+    .wl-hero-bg.loaded {
+      transform: scale(1) !important;
+    }
+    /* Push hero text down 100px */
+    .wl-hero-content--center {
+      padding-top: 100px;
     }
 
     /* ---- Responsive ---- */
@@ -285,15 +303,15 @@
   <section class="wl-hero wl-hero--medium" aria-label="About hero">
 
     <div class="wl-hero-bg" style="background: linear-gradient(160deg, #0d1a0d 0%, #1a2a1a 40%, #2d4a20 100%);">
-      <img src="img/landscape Uganda 103.jpg" alt="The rolling hills and red earth of Uganda at golden hour" loading="eager" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+      <img src="img/luna.png" alt="The rolling hills and red earth of Uganda at golden hour" loading="eager" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
     </div>
 
     <div class="wl-hero-overlay"></div>
 
     <div class="wl-hero-content wl-container wl-hero-content--center">
       <span class="wl-hero-label">The Story of Wild Luna Africa</span>
-      <h1 class="wl-hero-title" style="font-size: clamp(36px, 6.5vw, 100px);">
-        To the Woman Who Carries<br />the Moon in Her <em>Heart.</em>
+      <h1 class="wl-hero-title" style="font-size: clamp(32px, 5.25vw, 83px);">
+        Named for the moon.<br />Built for the <em>wild.</em>
       </h1>
     </div>
 

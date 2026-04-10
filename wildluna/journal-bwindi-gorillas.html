@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/wildluna/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Light at Bwindi: A Morning With the Mountain Gorillas | Wild Luna Africa</title>
+  <meta name="description" content="There is a particular quality of light in Bwindi at 7am — green, filtered, ancient. A dispatch from a morning spent with the mountain gorillas of Uganda." />
+  <link rel="canonical" href="https://www.wildlunaafrica.com/journal-bwindi-gorillas.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.wildlunaafrica.com/journal-bwindi-gorillas.html" />
+  <meta property="og:title" content="The Light at Bwindi: A Morning With the Mountain Gorillas | Wild Luna Africa" />
+  <meta property="og:description" content="There is a particular quality of light in Bwindi at 7am — green, filtered, ancient. A dispatch from a morning spent with the mountain gorillas of Uganda." />
+  <meta property="og:image" content="img/SVNP_WILDLIFE_Gorilla_Sabyinyo_Family_Ross_Couper-5.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Light at Bwindi: A Morning With the Mountain Gorillas | Wild Luna Africa" />
+  <meta name="twitter:description" content="There is a particular quality of light in Bwindi at 7am — green, filtered, ancient. A dispatch from a morning spent with the mountain gorillas of Uganda." />
+  <meta name="twitter:image" content="img/SVNP_WILDLIFE_Gorilla_Sabyinyo_Family_Ross_Couper-5.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .wl-article-hero {
+      position: relative;
+      height: 65vh;
+      min-height: 420px;
+      overflow: hidden;
+    }
+    .wl-article-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .wl-article-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,13,31,0.85) 0%, rgba(13,13,31,0.35) 55%, transparent 100%);
+    }
+    .wl-article-hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: clamp(40px, 6vw, 80px) clamp(24px, 5vw, 80px);
+      max-width: 900px;
+    }
+    .wl-article-hero-cat {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C8A97A;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .wl-article-hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(28px, 4vw, 56px);
+      color: #FDFBF7;
+      line-height: 1.15;
+      margin: 0;
+    }
+    .wl-article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(48px, 7vw, 90px) clamp(24px, 5vw, 40px);
+    }
+    .wl-article-meta {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #E8E4DC;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: #7A7A7A;
+      text-transform: uppercase;
+    }
+    .wl-article-meta-cat { color: #C8A97A; font-weight: 500; }
+    .wl-article-lede {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 300;
+      line-height: 1.7;
+      color: #0D0D1F;
+      margin-bottom: 40px;
+    }
+    .wl-article-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(22px, 2.5vw, 32px);
+      color: #0D0D1F;
+      margin: 52px 0 20px;
+      line-height: 1.2;
+    }
+    .wl-article-body h2 em { font-style: italic; }
+    .wl-article-body p {
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(15px, 1.1vw, 17px);
+      font-weight: 300;
+      color: #7A7A7A;
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+    .wl-article-pullquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(20px, 2.5vw, 28px);
+      line-height: 1.5;
+      color: #0D0D1F;
+      border-left: 3px solid #C8A97A;
+      padding: 8px 0 8px 28px;
+      margin: 48px 0;
+    }
+    .wl-article-divider {
+      width: 48px;
+      height: 1px;
+      background: #C8A97A;
+      margin: 48px 0;
+    }
+    .wl-article-related {
+      background: #F4F1EB;
+      padding: clamp(48px, 7vw, 80px) clamp(24px, 5vw, 80px);
+    }
+    .wl-article-related-inner { max-width: 1200px; margin: 0 auto; }
+    .wl-article-related-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C8A97A;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .wl-article-related-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(28px, 3.5vw, 44px);
+      color: #0D0D1F;
+      margin-bottom: 40px;
+    }
+    .wl-article-related-heading em { font-style: italic; }
+    .wl-article-related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(20px, 3vw, 40px);
+    }
+    .wl-article-related-card {
+      border: 1.5px solid #E8E4DC;
+      transition: border-color 0.3s ease;
+      text-decoration: none;
+      display: block;
+      background: #FDFBF7;
+    }
+    .wl-article-related-card:hover { border-color: #C8A97A; }
+    .wl-article-related-img {
+      height: 200px;
+      overflow: hidden;
+      background: linear-gradient(160deg, #1a2a1a 0%, #3d5a2e 100%);
+    }
+    .wl-article-related-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .wl-article-related-card:hover .wl-article-related-img img { transform: scale(1.04); }
+    .wl-article-related-body { padding: 20px 24px 28px; }
+    .wl-article-related-cat {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8A97A;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .wl-article-related-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(17px, 1.6vw, 22px);
+      font-weight: 300;
+      color: #0D0D1F;
+      line-height: 1.3;
+    }
+    .wl-article-related-read {
+      display: block;
+      margin-top: 14px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #C8A97A;
+    }
+    @media (max-width: 640px) {
+      .wl-article-related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="wl-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="wl-logo" aria-label="Wild Luna Africa — Home">
+      <img src="img/logo.svg" alt="Wild Luna Africa" class="wl-logo-img" />
+    </a>
+    <div class="wl-nav-right">
+      <a href="plan-your-journey.html" class="wl-nav-cta">Begin Your Cycle</a>
+      <button class="wl-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="wl-menu-overlay">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="wl-menu-overlay" id="wl-menu-overlay" role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div class="wl-menu-inner">
+      <div class="wl-menu-left">
+        <ul class="wl-menu-main">
+          <li>
+            <a href="#" class="wl-menu-toggle-sub" aria-expanded="false">Our Collection</a>
+            <ul class="wl-menu-sub">
+              <li><a href="index.html#collection">Uganda</a></li>
+              <li><a href="index.html#collection">Rwanda</a></li>
+              <li><a href="index.html#collection">Kenya</a></li>
+              <li><a href="index.html#collection">Tanzania</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#philosophy">The Luna Philosophy</a></li>
+          <li><a href="index.html#conservation">Conservation</a></li>
+          <li><a href="plan-your-journey.html">Private Journeys</a></li>
+          <li><a href="journal.html">The Journal</a></li>
+          <li><a href="about.html">Our Story</a></li>
+        </ul>
+      </div>
+      <aside class="wl-menu-right">
+        <div class="wl-menu-contact">
+          <span class="wl-menu-contact-label">Get in touch</span>
+          <p><a href="mailto:hello@wildlunaafrica.com">hello@wildlunaafrica.com</a></p>
+          <p><a href="tel:+256772000000">+256 772 000 000</a></p>
+          <p>Kyanja, Kampala, Uganda</p>
+        </div>
+        <div class="wl-menu-socials">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="wl-article-hero" aria-label="Article hero">
+    <img
+      class="wl-article-hero-img"
+      src="img/SVNP_WILDLIFE_Gorilla_Sabyinyo_Family_Ross_Couper-5.webp"
+      alt="Mountain gorilla family in the green cathedral of Bwindi Impenetrable Forest, Uganda"
+    />
+    <div class="wl-article-hero-overlay"></div>
+    <div class="wl-article-hero-content">
+      <span class="wl-article-hero-cat">Conservation</span>
+      <h1 class="wl-article-hero-title">The Light at Bwindi: A Morning With the Mountain Gorillas</h1>
+    </div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <main>
+    <div class="wl-article-body">
+
+      <div class="wl-article-meta">
+        <span class="wl-article-meta-cat">Conservation</span>
+        <span>March 2026</span>
+        <span>Bwindi Impenetrable Forest, Uganda</span>
+      </div>
+
+      <p class="wl-article-lede">There is a particular quality of light in Bwindi at 7am — green, filtered, ancient. It falls through the canopy in columns, diffused by a forest so dense it has its own weather. You arrive at the trailhead before dawn and stand in the dark, and when the light comes it arrives not from above but from everywhere at once, as though the trees themselves are exhaling it.</p>
+
+      <h2>The Green <em>Cathedral</em></h2>
+      <p>Bwindi Impenetrable National Park covers 321 square kilometres of montane forest in southwestern Uganda, straddling the western Rift Valley at elevations between 1,160 and 2,607 metres. The name is not metaphor. The Runyakitara word "bwindi" means darkness, and the forest earns it — the undergrowth is so thick, so layered with ferns and vines and ancient stands of Podocarpus, that walking off trail is not difficult but genuinely impossible without a machete and considerable patience.</p>
+      <p>What makes Bwindi remarkable beyond its density is its age. The forest has existed, essentially undisturbed, for more than 25,000 years. It survived the Pleistocene glaciations that stripped much of Central Africa bare — the ice ages that reduced the continent's forest cover to isolated pockets called refugia. Bwindi was one of those refugia. The species count reflects it: over 120 mammals, more than 350 bird species, 1,000 plant species. It is one of the most biologically rich ecosystems on the planet, and you feel that richness before you understand it — in the smell of it, which is loam and rain and something older, in the sound of it, which is layered and alert and never silent.</p>
+      <p>You walk into it at first light and the world outside — the lodge, the journey here, the country beyond the park boundary — falls away with surprising completeness.</p>
+
+      <h2>The <em>Wait</em></h2>
+      <p>The tracker has been ahead of you for two hours. His name is Emmanuel. He moves through undergrowth that stops you at every step, and he moves without apparent effort, reading the forest with a calm that is entirely earned. You are watching his hands. A bent bamboo shoot, a few hours old. A cluster of leaves stripped from a vine and discarded. A depression in the soft earth.</p>
+      <p>Then the smell. Nobody briefed you on the smell. It is animal and vegetable at once, something between musk and wet earth and something unmistakably alive in a way you recognise before you can name it. Emmanuel raises one hand. You stop. Everyone stops. The only sound is the forest — birds, dripping water somewhere above, the distant percussion of something large moving in the canopy.</p>
+      <p>You wait for forty minutes. You think at first that this will be difficult. It is not. There is a particular quality to waiting in Bwindi — an attentiveness it demands that is not anxiety but its opposite. You begin to hear layers. You begin to see what you were looking past. The wait teaches you something about stillness that no amount of intention could have produced at speed.</p>
+      <p>Then the undergrowth moves. Not dramatically. Just — moves.</p>
+
+      <h2>The <em>Silverback</em></h2>
+      <p>He emerged the way certainty does — not all at once, but with each step more completely himself. A male mountain gorilla weighs between 135 and 200 kilograms. You know this from the briefing. What the briefing cannot convey is the quality of his presence, the way the forest adjusts around him the way a room adjusts to someone who has walked in with complete authority.</p>
+      <p>He sat four metres away. Emmanuel has told you this will happen — four metres is normal, within the habituated range. What you are not ready for is that the silverback looked at the group. Not past you, not through you. At you. The way a person looks at someone they were expecting and find neither remarkable nor threatening — simply there, acknowledged, filed.</p>
+      <p>You are, genetically, 98.3% identical to the animal that is looking at you. In this moment, the 1.7% feels like an enormous distance and no distance at all. There is a recognition that moves through you that is not romantic — it is precise, biological, almost clinical in its accuracy. You are being seen by something that shares the same basic architecture of thought, of care, of family. The silverback's eyes are not opaque. They carry something recognisable. Not language, not the particular shape of human feeling, but something prior to both — attention, intelligence, a kind of measured calm.</p>
+      <p>You have been told not to maintain direct eye contact. You find this advice easier to follow than you expected, because the gaze is not aggressive — it is simply more than you can sustain.</p>
+
+      <blockquote class="wl-article-pullquote">He sat less than four metres away and looked at us as though he had been expecting us all along.</blockquote>
+
+      <h2>Why 1,063 <em>Matters</em></h2>
+      <p>There are 1,063 mountain gorillas left on earth. The number is not approximate. The teams that conduct the population census — rangers, researchers, the Uganda Wildlife Authority, the Dian Fossey Gorilla Fund — count individually, by face, by ear, by individual features. Mountain gorillas cannot be kept in captivity; there are none in zoos. They exist only in two places: the Virunga Massif, shared between Uganda, Rwanda, and the Democratic Republic of Congo, and Bwindi Impenetrable National Park, exclusively in Uganda.</p>
+      <p>In 1989, that number stood at 620. The mountain gorilla was, by any technical measure, on the edge of extinction. The reversal that has produced the current population of 1,063 is one of the most significant conservation achievements in the history of wildlife protection. It did not happen by accident. It happened because of a very specific and deliberate system: permit revenue funds rangers, rangers prevent poaching, community benefit schemes make conservation economically competitive with alternatives, and the forest is protected with resources that actually match the task.</p>
+      <p>The permit you paid for your tracking experience — $800 in Uganda, $1,500 in Rwanda — is not a fee for a service. It is a direct contribution to the mechanism that is keeping the gorillas alive. Every dollar generated by gorilla tourism in Uganda goes, through the UWA revenue-sharing framework, into ranger salaries, patrol equipment, and community benefit funds. The number 1,063 is inseparable from the fact that people choose to come here and pay to sit four metres from a silverback for one hour.</p>
+
+      <h2>The Habituated Families of <em>Bwindi</em></h2>
+      <p>Uganda's Bwindi Impenetrable National Park is home to roughly half the world's mountain gorilla population, across multiple habituated family groups including Mubare — Uganda's first habituated family, accepting visitors since 1993 — as well as Rushegura, Habinyanja, Bitukura, Nkuringo, and several others spread across the park's four sectors: Buhoma, Ruhija, Rushaga, and Nkuringo.</p>
+      <p>Habituation is a two-to-three-year process. Teams of rangers and researchers spend years following a wild family at respectful distance, exposing them gradually to human proximity until the family reaches a state of tolerance — not indifference, not tameness, but a settled acknowledgement of quiet human presence at a prescribed distance. The silverback remains the decision-maker. If he is uncomfortable, the family moves. The sessions stop. Everything defers to his reading of the situation.</p>
+      <p>Only eight people per family group per day are permitted to track. The one-hour rule is absolute: after sixty minutes in the presence of the gorillas, the group withdraws, regardless of what is happening. These limits are not arbitrary. They are calibrated to minimise stress on the animals, to keep the experience extraordinary rather than routine, and to ensure the habituation does not erode into something that removes the wildness the entire enterprise is designed to protect.</p>
+      <p>Bwindi also conducts habituation experiences — multi-day programmes where guests accompany the habituation team as they slowly introduce themselves to an unhabituated family. This is not for everyone. It requires physical stamina and genuine patience. It is, for those who do it, irreplaceable.</p>
+
+      <h2>What You Carry <em>Out</em></h2>
+      <p>The hour ends. Emmanuel raises his hand — the same gesture as before, reversed. You walk back out through the undergrowth. Nobody speaks for a while. This is not unusual, the guide tells you quietly. Most people need a few minutes.</p>
+      <p>What you are carrying out is difficult to name. It is not exactly emotion, or not only. It is more structural than that — something that has rearranged the way you are thinking about the word "wild," the word "family," the word "other." The silverback's gaze has done something to your understanding of what intelligence is. The forest has done something to your understanding of what time is.</p>
+      <p>You will take photographs. Some of them will be good. None of them will hold the thing you are trying to describe to people when you get home. The thing you are trying to describe is not an image. It is the experience of being in the presence of a being who is almost you, who lives in the oldest forest in Africa, who carries his family through the undergrowth with a particular kind of unhurried authority that you have no word for but recognise completely.</p>
+
+      <blockquote class="wl-article-pullquote">The mountain gorilla is the only great ape whose population is growing. That is not an accident. It is what happens when tourism money goes directly into protection.</blockquote>
+
+      <div class="wl-article-divider"></div>
+
+      <p>You leave Bwindi different. Not because of the photos. Because of the four metres.</p>
+
+    </div>
+  </main>
+
+  <!-- RELATED ARTICLES -->
+  <section class="wl-article-related" aria-label="Related articles">
+    <div class="wl-article-related-inner">
+      <span class="wl-article-related-label">Continue Reading</span>
+      <h2 class="wl-article-related-heading">More from <em>the Journal</em></h2>
+      <div class="wl-article-related-grid">
+        <a href="journal-gorilla-tracking.html" class="wl-article-related-card">
+          <div class="wl-article-related-img" style="background: linear-gradient(160deg, #0d1a0d 0%, #1a3a1a 100%);">
+            <img src="img/3.png" alt="Mountain gorilla family — responsible tracking in Rwanda and Uganda" loading="lazy" />
+          </div>
+          <div class="wl-article-related-body">
+            <span class="wl-article-related-cat">Conservation</span>
+            <div class="wl-article-related-title">Gorillas in the Mist: The Case for Responsible Tracking</div>
+            <span class="wl-article-related-read">Read the Story &rarr;</span>
+          </div>
+        </a>
+        <a href="journal-uganda-secret.html" class="wl-article-related-card">
+          <div class="wl-article-related-img" style="background: linear-gradient(160deg, #1a2a1a 0%, #3d5a2e 100%);">
+            <img src="img/1.png" alt="Uganda landscape — Lake Bunyonyi at dusk" loading="lazy" />
+          </div>
+          <div class="wl-article-related-body">
+            <span class="wl-article-related-cat">Destinations</span>
+            <div class="wl-article-related-title">Why Uganda Is East Africa's Best-Kept Secret</div>
+            <span class="wl-article-related-read">Read the Story &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="wl-section wl-section--dark" aria-label="Begin Your Cycle">
+    <div class="wl-container">
+      <div class="wl-cta">
+        <div class="wl-cta-inner">
+          <span class="wl-label wl-reveal">Private Journeys</span>
+          <span class="wl-divider wl-divider--center wl-reveal wl-reveal-delay-1"></span>
+          <h2 class="wl-h2 wl-reveal wl-reveal-delay-1">Every great journey begins with a single <em>conversation.</em></h2>
+          <p class="wl-reveal wl-reveal-delay-2">Tell us who you are, where you dream of going, and what you hope to feel. We will craft something that no itinerary has ever offered before.</p>
+          <a href="plan-your-journey.html" class="wl-btn wl-btn-gold wl-reveal wl-reveal-delay-3">Begin Your Cycle &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="wl-footer" role="contentinfo">
+    <div class="wl-container">
+      <div class="wl-footer-grid">
+        <div class="wl-footer-col">
+          <a href="index.html" class="wl-footer-logo" aria-label="Wild Luna Africa — Home">
+            <img src="img/logo.svg" alt="Wild Luna Africa" style="height:48px; width:auto; display:block; margin-bottom:4px;" />
+          </a>
+          <p class="wl-footer-tagline">The Unscripted Journey. Boutique safari experiences across Uganda, Rwanda, Kenya and Tanzania.</p>
+          <div class="wl-footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        <div class="wl-footer-col">
+          <h4>Navigate</h4>
+          <nav class="wl-footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="index.html#collection">Our Collection</a>
+            <a href="index.html#philosophy">The Luna Philosophy</a>
+            <a href="index.html#conservation">Conservation</a>
+            <a href="plan-your-journey.html">Private Journeys</a>
+            <a href="journal.html">The Journal</a>
+            <a href="about.html">Our Story</a>
+          </nav>
+        </div>
+        <div class="wl-footer-col">
+          <h4>Contact</h4>
+          <div class="wl-footer-contact">
+            <p><a href="mailto:hello@wildlunaafrica.com">hello@wildlunaafrica.com</a></p>
+            <p><a href="tel:+256772000000">+256 772 000 000</a></p>
+            <p>Kyanja, Kampala, Uganda</p>
+            <p class="wl-footer-note">Mid-trip rescheduling available</p>
+          </div>
+        </div>
+        <div class="wl-footer-col">
+          <h4>The Luna Edit</h4>
+          <p class="wl-newsletter-text">Receive the Luna Edit — seasonal stories, conservation notes, and travel inspiration.</p>
+          <form class="wl-newsletter-form" aria-label="Newsletter signup">
+            <input class="wl-newsletter-input" type="email" placeholder="Your email address" required aria-label="Email address" />
+            <button type="submit" class="wl-newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="wl-footer-bottom">
+        <p>&copy; 2026 Wild Luna Africa. All rights reserved.</p>
+        <div class="wl-footer-links">
+          <a href="https://www.pandastudios.co" target="_blank" rel="noopener">Built By PANDA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
