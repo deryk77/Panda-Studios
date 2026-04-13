@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- bootstrap grid css -->
+    <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
+    <!-- font awesome css -->
+    <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="css/plugins/swiper.min.css">
+    <!-- fancybox css -->
+    <link rel="stylesheet" href="css/plugins/fancybox.min.css">
+    <!-- ashley scss -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- ══ SEO: Core ══════════════════════════════════════════════════════ -->
+    <title>Brand Intelligence Audit | Panda Studios — Uganda &amp; East Africa</title>
+    <meta name="description" content="A clinical diagnosis of your brand's current position. Not flattery — a financial X-ray. Free Brand Intelligence Audit by Panda Studios, Kampala, Uganda.">
+    <meta name="keywords" content="brand audit Uganda, brand assessment East Africa, brand strategy Kampala, brand health check, Panda Studios audit">
+    <meta name="author" content="Panda Studios">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.pandastudios.co/brand-audit">
+
+    <!-- ══ SEO: Geo targeting — East Africa ══════════════════════════════ -->
+    <meta name="geo.region" content="UG-C">
+    <meta name="geo.placename" content="Kampala, Uganda">
+    <meta name="geo.position" content="0.3476;32.5825">
+    <meta name="ICBM" content="0.3476, 32.5825">
+
+    <!-- ══ Open Graph ════════════════════════════════════════════════════ -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.pandastudios.co/brand-audit">
+    <meta property="og:site_name" content="Panda Studios">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Brand Intelligence Audit | Panda Studios — Uganda &amp; East Africa">
+    <meta property="og:description" content="A clinical diagnosis of your brand's current position in the market. Not flattery. Not vague recommendations. A financial X-ray.">
+    <meta property="og:image" content="https://www.pandastudios.co/img/logo/mil-logo-05.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Panda Studios — Brand Intelligence Audit">
+
+    <!-- ══ Twitter / X Card ══════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@PandaStudios77">
+    <meta name="twitter:title" content="Brand Intelligence Audit | Panda Studios — Uganda &amp; East Africa">
+    <meta name="twitter:description" content="A clinical diagnosis of your brand's current position. Not flattery — a financial X-ray.">
+    <meta name="twitter:image" content="https://www.pandastudios.co/img/logo/mil-logo-05.png">
+
+    <!-- Favicon and Touch Icons -->
+    <link href="img/logo/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="img/logo/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/logo/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="img/logo/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+    <link href="img/logo/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+
+    <style>
+    /* ── Scroll logo morph ───────────────────────────────────── */
+    .mil-logo-morph {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 108px;
+        height: 36px;
+    }
+    .mil-logo-icon,
+    .mil-logo-word {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        pointer-events: none;
+    }
+    .mil-logo-icon {
+        height: 36px;
+        width: auto;
+        opacity: 1;
+        transform: translateY(-50%) translateX(0px);
+        transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mil-frame .mil-logo-icon {
+        filter: none !important;
+        -webkit-filter: none !important;
+    }
+    .mil-frame .mil-logo-icon.panda-over-dark {
+        filter: invert(1) !important;
+        -webkit-filter: invert(1) !important;
+    }
+    @media screen and (max-width: 767px) {
+        .mil-frame .mil-logo-icon.panda-over-dark {
+            filter: none !important;
+            -webkit-filter: none !important;
+        }
+    }
+    .mil-menu-frame .mil-logo-icon {
+        filter: none !important;
+        -webkit-filter: none !important;
+    }
+    .mil-logo-word {
+        height: 23px;
+        width: 108px;
+        transform: translateY(-50%);
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+        transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+                    clip-path 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mil-logo-morph.panda-scrolled .mil-logo-icon {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-12px);
+    }
+    .mil-logo-morph.panda-scrolled .mil-logo-word {
+        opacity: 1;
+        clip-path: inset(0 0% 0 0);
+    }
+
+    /* ── Audit tool styles ───────────────────────────────────── */
+    .audit-shell {
+        background: #080604;
+        min-height: 60vh;
+        padding: 0;
+    }
+
+    .audit-wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 64px 28px 100px;
+        font-family: 'Montserrat', sans-serif;
+        color: #d3d3d3;
+    }
+
+    /* grain overlay */
+    .audit-shell::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none;
+        opacity: 0.4;
+    }
+
+    /* header */
+    .audit-header { margin-bottom: 64px; }
+    .audit-eyebrow {
+        font-size: 9px;
+        letter-spacing: 6px;
+        color: #888888;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .audit-title {
+        font-size: clamp(33px, 6vw, 45px);
+        font-weight: 700;
+        line-height: 1.15;
+        color: #d3d3d3;
+        letter-spacing: 1px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .audit-title em {
+        display: block;
+        font-style: italic;
+        font-weight: 400;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: clamp(36px, 6.5vw, 50px);
+        color: #d3d3d3;
+        letter-spacing: 2px;
+    }
+    .audit-rule {
+        width: 40px; height: 1px;
+        background: #FF0000;
+        margin: 24px 0;
+    }
+    .audit-desc {
+        font-size: 12px;
+        line-height: 1.9;
+        color: #d3d3d3;
+        max-width: 500px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    /* step nav */
+    .audit-step-nav {
+        display: flex;
+        gap: 0;
+        margin-bottom: 56px;
+    }
+    .audit-step-item { flex: 1; }
+    .audit-step-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+        color: #555555;
+        padding-bottom: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: color 0.3s;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .audit-step-item.active .audit-step-label { color: #FF0000; }
+    .audit-step-item.done .audit-step-label   { color: #d3d3d3; }
+    .audit-step-bar {
+        height: 1px;
+        background: #444444;
+        transition: background 0.3s;
+    }
+    .audit-step-item.active .audit-step-bar { background: #FF0000; }
+    .audit-step-item.done .audit-step-bar   { background: #d3d3d3; }
+
+    /* panels */
+    .audit-panel { display: none; }
+    .audit-panel.visible { display: block; animation: auditFadeUp 0.4s ease both; }
+
+    .audit-step-heading {
+        font-size: 11px;
+        letter-spacing: 3px;
+        color: #cc0000;
+        margin-bottom: 36px;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    /* fields */
+    .audit-field { margin-bottom: 36px; }
+    .audit-label {
+        display: block;
+        font-size: 9px;
+        letter-spacing: 4px;
+        color: #d3d3d3;
+        margin-bottom: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .audit-input,
+    .audit-textarea {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #d3d3d3;
+        color: #ffffff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+        padding: 10px 0;
+        outline: none;
+        transition: border-color 0.3s;
+        box-sizing: border-box;
+    }
+    .audit-textarea { resize: vertical; line-height: 1.7; }
+    .audit-input::placeholder,
+    .audit-textarea::placeholder { color: #888888; text-transform: lowercase; }
+    .audit-input:focus,
+    .audit-textarea:focus { border-bottom-color: #FF0000; }
+
+    /* buttons */
+    .audit-btn-row {
+        display: flex;
+        gap: 16px;
+        margin-top: 8px;
+    }
+    .audit-btn {
+        flex: 1;
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid #555555;
+        padding: 15px 24px;
+        font-size: 9px;
+        letter-spacing: 3px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+        text-transform: uppercase;
+    }
+    .audit-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .audit-btn:not(:disabled):hover,
+    .audit-btn:not(:disabled):active { background: #FF0000; color: #ffffff; border-color: #FF0000; }
+    .audit-btn.secondary {
+        background: transparent;
+        border: 1px solid #444444;
+        color: #888888;
+    }
+    .audit-btn.secondary:not(:disabled):hover,
+    .audit-btn.secondary:not(:disabled):active { background: #FF0000; color: #ffffff; border-color: #FF0000; }
+    .audit-btn.gold {
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+    }
+    .audit-btn.gold:not(:disabled):hover,
+    .audit-btn.gold:not(:disabled):active { background: #FF0000; color: #ffffff; border-color: #FF0000; }
+
+    /* loading */
+    #audit-loading {
+        display: none;
+        text-align: center;
+        padding: 80px 0;
+    }
+    #audit-loading.visible { display: block; animation: auditFadeUp 0.4s ease both; }
+    .audit-loading-text {
+        font-size: 9px;
+        letter-spacing: 5px;
+        color: #FF0000;
+        margin-bottom: 32px;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .audit-loading-ring {
+        width: 48px; height: 48px;
+        border: 1px solid #d3d3d3;
+        border-top-color: #FF0000;
+        border-radius: 50%;
+        margin: 0 auto;
+        animation: auditSpin 1.2s linear infinite;
+    }
+
+    /* result */
+    #audit-result { display: none; }
+    #audit-result.visible { display: block; animation: auditFadeUp 0.6s ease both; }
+
+    .audit-score-ring-wrap { text-align: center; margin-bottom: 40px; }
+    .audit-score-ring-label {
+        font-size: 9px;
+        letter-spacing: 5px;
+        color: #888888;
+        margin-top: 10px;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .audit-score-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 24px;
+    }
+    .audit-score-card {
+        background: #0c0904;
+        border: 1px solid #444444;
+        padding: 14px 18px;
+    }
+    .audit-score-card-label {
+        font-size: 8px;
+        letter-spacing: 3px;
+        color: #888888;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .audit-score-card-val {
+        font-size: 22px;
+        color: #FF0000;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .audit-score-card-val span { font-size: 12px; color: #888888; }
+
+    .audit-report-body { border-top: 1px solid #444444; padding-top: 40px; }
+
+    .r-section-head {
+        font-size: 9px;
+        letter-spacing: 5px;
+        color: #FF0000;
+        margin-top: 44px;
+        margin-bottom: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .r-dim-score {
+        font-size: 14px;
+        color: #d3d3d3;
+        font-weight: 700;
+        margin-top: 28px;
+        margin-bottom: 4px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .r-rubric {
+        font-size: 10px;
+        color: #888888;
+        font-style: italic;
+        margin-bottom: 10px;
+        line-height: 1.7;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .r-cost {
+        border-left: 2px solid #8a1c1c;
+        padding-left: 18px;
+        margin-top: 12px;
+        color: #c4826a;
+        font-size: 12px;
+        line-height: 1.8;
+        font-style: italic;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .r-text {
+        font-size: 12px;
+        line-height: 1.9;
+        color: #d3d3d3;
+        margin-bottom: 4px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .r-spacer { height: 8px; }
+
+    .audit-cta-box {
+        margin-top: 56px;
+        padding: 28px;
+        border: 1px solid #d3d3d3;
+        border-left: 3px solid #cc0000;
+        background: #0c0904;
+    }
+    .audit-cta-eyebrow {
+        font-size: 9px;
+        letter-spacing: 4px;
+        color: #cc0000;
+        margin-bottom: 14px;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .audit-cta-body {
+        font-size: 12px;
+        color: #d3d3d3;
+        line-height: 1.9;
+        font-style: italic;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .audit-cta-body a { color: #FF0000; text-decoration: none; }
+    .audit-cta-body a:hover { text-decoration: underline; }
+
+    .audit-reset-btn {
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid #555555;
+        padding: 13px 28px;
+        font-size: 9px;
+        letter-spacing: 3px;
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+        margin-top: 24px;
+        width: 100%;
+        text-transform: uppercase;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .audit-reset-btn:hover,
+    .audit-reset-btn:active { background: #FF0000; color: #ffffff; border-color: #FF0000; }
+
+    @keyframes auditFadeUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes auditSpin {
+        to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 480px) {
+        .audit-wrap { padding: 40px 20px 80px; }
+        .audit-score-grid { grid-template-columns: 1fr 1fr; }
+    }
+    /* ─────────────────────────────────────────────────────────── */
+    </style>
+
+</head>
+
+<body>
+
+    <!-- wrapper -->
+    <div class="mil-wrapper" id="top">
+
+        <!-- cursor -->
+        <div class="mil-ball">
+            <span class="mil-icon-1">
+                <svg viewBox="0 0 128 128">
+                    <path d="M106.1,41.9c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2L116.8,61H11.2l14.9-14.9c1.2-1.2,1.2-3.1,0-4.2	c-1.2-1.2-3.1-1.2-4.2,0l-20,20c-1.2,1.2-1.2,3.1,0,4.2l20,20c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2	L11.2,67h105.5l-14.9,14.9c-1.2,1.2-1.2,3.1,0,4.2c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9l20-20c1.2-1.2,1.2-3.1,0-4.2L106.1,41.9	z" />
+                </svg>
+            </span>
+            <div class="mil-more-text">More</div>
+            <div class="mil-choose-text">Choose</div>
+        </div>
+        <!-- cursor end -->
+
+        <!-- scrollbar progress -->
+        <div class="mil-progress-track">
+            <div class="mil-progress"></div>
+        </div>
+        <!-- scrollbar progress end -->
+
+        <!-- menu -->
+        <div class="mil-menu-frame">
+            <!-- frame clone -->
+            <div class="mil-frame-top">
+                <a href="index.html" class="mil-logo mil-logo-morph">
+                    <img src="img/logo/LOGO head.svg" alt="Panda Studios" class="mil-logo-icon">
+                    <img src="img/logo/LOGO-02.svg"   alt="Panda Studios" class="mil-logo-word">
+                </a>
+                <div class="mil-menu-btn">
+                    <span></span>
+                </div>
+            </div>
+            <!-- frame clone end -->
+            <div class="container">
+                <div class="mil-menu-content">
+                    <div class="row">
+                        <div class="col-xl-5">
+
+                            <nav class="mil-main-menu" id="swupMenu">
+                                <ul>
+                                    <li class="mil-has-children">
+                                        <a href="#">Homepage</a>
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="mil-has-children">
+                                        <a href="#">Portfolio</a>
+                                        <ul>
+                                            <li><a href="portfolio.html">Slider</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="mil-has-children">
+                                        <a href="#">Services</a>
+                                        <ul>
+                                            <li><a href="brand-identity.html">Brand Identity Design</a></li>
+                                            <li><a href="web-design.html">Web Design &amp; Development</a></li>
+                                            <li><a href="services.html">All Services</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="mil-has-children">
+                                        <a href="#">Insights</a>
+                                        <ul>
+                                            <li><a href="All-Blogs.html">Insights</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="mil-has-children mil-active">
+                                        <a href="#">More</a>
+                                        <ul>
+                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="FAQs.html">FAQs</a></li>
+                                            <li><a href="brand-audit.html">Brand Audit</a></li>
+                                            <li><a href="404.html">404</a></li>
+                                        </ul>
+                                    </ul>
+                                </nav>
+
+                        </div>
+                        <div class="col-xl-7">
+
+                            <div class="mil-menu-right-frame">
+                                <div class="mil-animation-in">
+                                    <div class="mil-animation-frame">
+                                        <div class="mil-animation mil-position-1 mil-scale" data-value-1="2" data-value-2="2"></div>
+                                    </div>
+                                </div>
+                                <div class="mil-menu-right">
+                                    <div class="row">
+                                        <div class="col-lg-8 mil-mb-60">
+
+                                            <h6 class="mil-muted mil-mb-30">Projects</h6>
+
+                                            <ul class="mil-menu-list">
+                                                <li><a href="project-1.html" class="mil-light-soft">Maisha Naturals</a></li>
+                                                <li><a href="project-2.html" class="mil-light-soft">Uganda Wildlife Authority</a></li>
+                                                <li><a href="project-3.html" class="mil-light-soft">UWA Visual Brand Identity</a></li>
+                                                <li><a href="project-4.html" class="mil-light-soft">ARAPAPA — Portrait</a></li>
+                                                <li><a href="project-5.html" class="mil-light-soft">Kampala Connect</a></li>
+                                                <li><a href="project-6.html" class="mil-light-soft">Savanna Coffee Co.</a></li>
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-lg-4 mil-mb-60">
+
+                                            <h6 class="mil-muted mil-mb-30">Useful links</h6>
+
+                                            <ul class="mil-menu-list">
+                                                <li><a href="#" class="mil-light-soft">Privacy Policy</a></li>
+                                                <li><a href="#" class="mil-light-soft">Terms and conditions</a></li>
+                                                <li><a href="#" class="mil-light-soft">Cookie Policy</a></li>
+                                                <li><a href="#" class="mil-light-soft">Careers</a></li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                    <div class="mil-divider mil-mb-60"></div>
+                                    <div class="row justify-content-between">
+
+                                        <div class="col-lg-4 mil-mb-60">
+
+                                            <h6 class="mil-muted mil-mb-30">Kampala, Uganda</h6>
+
+                                            <p class="mil-light-soft mil-up">Span House, Portal Avenue, Kampala <span class="mil-no-wrap">+256 772 233-050</span></p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- menu end -->
+
+        <!-- curtain -->
+        <div class="mil-curtain"></div>
+        <!-- curtain end -->
+
+        <!-- frame -->
+        <div class="mil-frame">
+            <div class="mil-frame-top">
+                <a href="index.html" class="mil-logo mil-logo-morph">
+                    <img src="img/logo/LOGO head.svg" alt="Panda Studios" class="mil-logo-icon">
+                    <img src="img/logo/LOGO-02.svg"   alt="Panda Studios" class="mil-logo-word">
+                </a>
+                <div class="mil-menu-btn">
+                    <span></span>
+                </div>
+            </div>
+            <div class="mil-frame-bottom">
+                <div class="mil-current-page"></div>
+                <div class="mil-back-to-top">
+                    <a href="#top" class="mil-link mil-dark mil-arrow-place">
+                        <span>Back to top</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- frame end -->
+
+        <!-- content -->
+        <div class="mil-content">
+            <div id="swupMain" class="mil-main-transition">
+
+                <!-- banner -->
+                <div class="mil-inner-banner mil-p-0-120">
+                    <div class="mil-banner-content mil-center mil-up">
+                        <div class="container">
+                            <ul class="mil-breadcrumbs mil-center mil-mb-90">
+                                <li><a href="index.html">Homepage</a></li>
+                                <li><a href="brand-audit.html">Brand Audit</a></li>
+                            </ul>
+                            <h2 class="mil-mb-30">Brand <span class="mil-thin">Intelligence Audit</span></h2>
+                            <p class="mil-up" style="max-width:560px; margin: 0 auto; color:#888;">A clinical diagnosis of your brand's current position in the market. Not flattery. Not vague recommendations. A financial X-ray.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner end -->
+
+                <!-- audit tool -->
+                <div class="audit-shell" style="position:relative;">
+                    <div class="audit-wrap">
+
+                        <!-- step nav -->
+                        <nav class="audit-step-nav" id="auditStepNav">
+                            <div class="audit-step-item active" id="anav-0">
+                                <div class="audit-step-label">01 &middot; Identity</div>
+                                <div class="audit-step-bar"></div>
+                            </div>
+                            <div class="audit-step-item" id="anav-1">
+                                <div class="audit-step-label">02 &middot; Digital</div>
+                                <div class="audit-step-bar"></div>
+                            </div>
+                            <div class="audit-step-item" id="anav-2">
+                                <div class="audit-step-label">03 &middot; Market</div>
+                                <div class="audit-step-bar"></div>
+                            </div>
+                            <div class="audit-step-item" id="anav-3">
+                                <div class="audit-step-label">04 &middot; Truth</div>
+                                <div class="audit-step-bar"></div>
+                            </div>
+                        </nav>
+
+                        <!-- Step 0: Identity -->
+                        <div class="audit-panel visible" id="apanel-0">
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-businessName">Business Name</label>
+                                <input class="audit-input" type="text" id="a-businessName" placeholder="What do you trade as?" />
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-businessType">Business Type</label>
+                                <input class="audit-input" type="text" id="a-businessType" placeholder="Lodge, safari operator, DMC, hotel, boutique camp&hellip;" />
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-location">Location</label>
+                                <input class="audit-input" type="text" id="a-location" placeholder="Country and region" />
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-yearsActive">Years Operating</label>
+                                <input class="audit-input" type="text" id="a-yearsActive" placeholder="How long have you been in business?" />
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-tagline">Current Tagline or Slogan</label>
+                                <input class="audit-input" type="text" id="a-tagline" placeholder="Leave blank if none" />
+                            </div>
+
+                            <div class="audit-btn-row">
+                                <button class="audit-btn gold" onclick="auditGoTo(1)">Next &rarr;</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 1: Digital -->
+                        <div class="audit-panel" id="apanel-1">
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-websiteUrl">Website URL</label>
+                                <input class="audit-input" type="text" id="a-websiteUrl" placeholder="Your website address (or leave blank)" />
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-socialMedia">Social Media Channels</label>
+                                <input class="audit-input" type="text" id="a-socialMedia" placeholder="Instagram, Facebook, LinkedIn &mdash; include handles if possible" />
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-visualDesc">Describe Your Visual Identity</label>
+                                <textarea class="audit-textarea" id="a-visualDesc" rows="4" placeholder="Describe your logo, colors, photography style, overall look and feel as honestly as you can"></textarea>
+                            </div>
+
+                            <div class="audit-btn-row">
+                                <button class="audit-btn secondary" onclick="auditGoTo(0)">&larr; Back</button>
+                                <button class="audit-btn gold" onclick="auditGoTo(2)">Next &rarr;</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Market -->
+                        <div class="audit-panel" id="apanel-2">
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-targetClient">Target Client</label>
+                                <input class="audit-input" type="text" id="a-targetClient" placeholder="Who is your ideal client &mdash; nationality, profile, travel style, income bracket?" />
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-avgPrice">Average Booking / Price Point</label>
+                                <input class="audit-input" type="text" id="a-avgPrice" placeholder="Per night, per person, per trip &mdash; whatever is most relevant" />
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-competitors">Known Competitors</label>
+                                <input class="audit-input" type="text" id="a-competitors" placeholder="Who competes for the same clients? Name them." />
+                            </div>
+
+                            <div class="audit-btn-row">
+                                <button class="audit-btn secondary" onclick="auditGoTo(1)">&larr; Back</button>
+                                <button class="audit-btn gold" onclick="auditGoTo(3)">Next &rarr;</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Truth -->
+                        <div class="audit-panel" id="apanel-3">
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-biggestFrustration">Biggest Brand Frustration</label>
+                                <textarea class="audit-textarea" id="a-biggestFrustration" rows="3" placeholder="What do you feel your brand is not doing for your business right now? Be honest."></textarea>
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-dreamClient">Dream Client Profile</label>
+                                <input class="audit-input" type="text" id="a-dreamClient" placeholder="Describe the client you most want to attract &mdash; who are they and why?" />
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-currentFeeling">How You Feel About Your Brand</label>
+                                <textarea class="audit-textarea" id="a-currentFeeling" rows="3" placeholder="Proud? Embarrassed? Indifferent? Something more complicated? Be specific."></textarea>
+                            </div>
+
+                            <div class="audit-btn-row">
+                                <button class="audit-btn secondary" onclick="auditGoTo(2)">&larr; Back</button>
+                                <button class="audit-btn gold" onclick="runBrandAudit()">Run Audit &rarr;</button>
+                            </div>
+                        </div>
+
+                        <!-- Loading -->
+                        <div id="audit-loading">
+                            <div class="audit-loading-text" id="audit-loading-text">Running Audit.</div>
+                            <div class="audit-loading-ring"></div>
+                            <div style="font-size:12px;color:#888888;letter-spacing:2px;margin-top:28px;font-family:'Montserrat',sans-serif;">
+                                Analysing brand position
+                            </div>
+                        </div>
+
+                        <!-- Result -->
+                        <div id="audit-result">
+                            <div id="audit-score-ring-container"></div>
+                            <div class="audit-report-body" id="audit-report-body"></div>
+
+                            <div class="audit-cta-box">
+                                <div class="audit-cta-eyebrow">Panda Studios</div>
+                                <div class="audit-cta-body">
+                                    Ready to build the architecture of authority?<br>
+                                    <a href="mailto:hello@pandastudios.co">hello@pandastudios.co</a>
+                                    &nbsp;&middot;&nbsp;
+                                    <a href="tel:+256772233050">+256 772 233-050</a>
+                                    &nbsp;&middot;&nbsp;
+                                    <a href="contact.html">Start the conversation</a>
+                                </div>
+                            </div>
+
+                            <button class="audit-reset-btn" onclick="resetBrandAudit()">&larr; Run Another Audit</button>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- audit tool end -->
+
+                <!-- footer -->
+                <footer class="mil-dark-bg">
+                    <div class="mi-invert-fix">
+                        <div class="container mil-p-120-60">
+                            <div class="row justify-content-between">
+                                <div class="col-md-4 col-md-4 mil-mb-20">
+                                    <a href="index.html" class="mil-logo">
+                                        <img src="img/logo/mil-logo-05.svg" alt="logo"></a>
+                                        <p>.</p>
+
+                                    <div class="mil-subscribe-form mil-up">
+                                        <input type="text" placeholder="Send us a message">
+                                        <button type="button" class="mil-button mil-icon-button-sm mil-arrow-place" onclick="var i=this.closest('.mil-subscribe-form').querySelector('input');window.open('https://wa.me/256772233050?text='+(i.value?encodeURIComponent(i.value):''),'_blank');"></button>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-7 col-lg-6">
+                                    <div class="row justify-content-end">
+                                        <div class="col-md-6 col-lg-7">
+                                            <nav class="mil-footer-menu mil-mb-50">
+                                                <ul>
+                                                    <li class="mil-up"><a href="index.html">Home</a></li>
+                                                    <li class="mil-up"><a href="portfolio-2.html">Portfolio</a></li>
+                                                    <li class="mil-up"><a href="services.html">Services</a></li>
+                                                    <li class="mil-up"><a href="contact.html">Contact</a></li>
+                                                    <li class="mil-up"><a href="All-Blogs.html">Insights</a></li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-5">
+                                            <ul class="mil-menu-list mil-up mil-mb-50">
+                                                <li><a href="img/policy.pdf" class="mil-light-soft">Privacy Policy</a></li>
+                                                <li><a href="#" class="mil-light-soft">Terms and conditions</a></li>
+                                                <li><a href="#" class="mil-light-soft">Cookie Policy</a></li>
+                                                <li><a href="#" class="mil-light-soft">Careers</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-between flex-sm-row-reverse">
+                                <div class="col-md-7 col-lg-6">
+                                    <div class="row justify-content-between">
+                                        <div class="col-md-6 col-lg-5 mil-mb-40">
+                                            <h6 class="mil-muted mil-up mil-mb-10">Uganda</h6>
+                                            <p class="mil-light-soft mil-up">Span House, Portal Avenue, Kampala <span class="mil-no-wrap">+256 772 233-050</span></p>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-5 mil-mb-40">
+                                            <h6 class="mil-muted mil-up mil-mb-10">United States</h6>
+                                            <p class="mil-light-soft mil-up">SeaTac, WA 98158, 6734 Main Street, <span class="mil-no-wrap">+1 (206) 730-8512</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-lg-6 mil-mb-40">
+                                    <div class="mil-vert-between">
+                                        <div class="mil-mb-10">
+                                            <ul class="mil-social-icons mil-up">
+                                                <li><a href="#" onclick="window.open('https://www.instagram.com/pandastudios77/', '_blank')" class="social-icon"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#" onclick="window.open('https://www.facebook.com/pandastudios77/', '_blank')" class="social-icon"><i class="fab fa-facebook"></i></a></li>
+                                                <li><a href="#" onclick="window.open('https://x.com/PandaStudios77', '_blank')" class="social-icon"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#" onclick="window.open('https://ug.linkedin.com/company/pandastudios77', '_blank')" class="social-icon"><i class="fab fa-linkedin"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <p class="mil-light-soft mil-up">&copy; 2026 PANDA Studios. All Rights Reserved</p>
+                                    </div>
+                                    <!-- Floating WhatsApp Button -->
+                                    <div class="buttonizer buttonizer-group">
+                                        <a role="button" class="buttonizer-button" href="#" onclick="window.open('https://whatsform.com/T8aqVV', '_blank')" aria-label="WhatsApp">
+                                            <i aria-hidden="true" class="fab fa-whatsapp"></i></a>
+                                    </div>
+                                    <!-- End Floating WhatsApp Button -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- footer end -->
+
+                <!-- hidden elements -->
+                <div class="mil-hidden-elements">
+                    <div class="mil-dodecahedron">
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                    </div>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mil-arrow">
+                        <path d="M 14 5.3417969 C 13.744125 5.3417969 13.487969 5.4412187 13.292969 5.6367188 L 13.207031 5.7226562 C 12.816031 6.1136563 12.816031 6.7467188 13.207031 7.1367188 L 17.070312 11 L 4 11 C 3.448 11 3 11.448 3 12 C 3 12.552 3.448 13 4 13 L 17.070312 13 L 13.207031 16.863281 C 12.816031 17.254281 12.816031 17.887344 13.207031 18.277344 L 13.292969 18.363281 C 13.683969 18.754281 14.317031 18.754281 14.707031 18.363281 L 20.363281 12.707031 C 20.754281 12.316031 20.754281 11.682969 20.363281 11.292969 L 14.707031 5.6367188 C 14.511531 5.4412187 14.255875 5.3417969 14 5.3417969 z" />
+                    </svg>
+
+                    <svg width="250" viewBox="0 0 300 1404" fill="none" xmlns="http://www.w3.org/2000/svg" class="mil-lines">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1 892L1 941H299V892C299 809.71 232.29 743 150 743C67.7096 743 1 809.71 1 892ZM0 942H300V892C300 809.157 232.843 742 150 742C67.1573 742 0 809.157 0 892L0 942Z" class="mil-move" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M299 146V97L1 97V146C1 228.29 67.7096 295 150 295C232.29 295 299 228.29 299 146ZM300 96L0 96V146C0 228.843 67.1573 296 150 296C232.843 296 300 228.843 300 146V96Z" class="mil-move" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M299 1H1V1403H299V1ZM0 0V1404H300V0H0Z" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M150 -4.37115e-08L150 1404L149 1404L149 0L150 -4.37115e-08Z" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M150 1324C232.29 1324 299 1257.29 299 1175C299 1092.71 232.29 1026 150 1026C67.7096 1026 1 1092.71 1 1175C1 1257.29 67.7096 1324 150 1324ZM150 1325C232.843 1325 300 1257.84 300 1175C300 1092.16 232.843 1025 150 1025C67.1573 1025 0 1092.16 0 1175C0 1257.84 67.1573 1325 150 1325Z" class="mil-move" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M300 1175H0V1174H300V1175Z" class="mil-move" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M150 678C232.29 678 299 611.29 299 529C299 446.71 232.29 380 150 380C67.7096 380 1 446.71 1 529C1 611.29 67.7096 678 150 678ZM150 679C232.843 679 300 611.843 300 529C300 446.157 232.843 379 150 379C67.1573 379 0 446.157 0 529C0 611.843 67.1573 679 150 679Z" class="mil-move" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M299 380H1V678H299V380ZM0 379V679H300V379H0Z" class="mil-move" />
+                    </svg>
+                </div>
+                <!-- hidden elements end -->
+
+            </div>
+        </div>
+        <!-- content end -->
+    </div>
+    <!-- wrapper end -->
+
+    <!-- jQuery js -->
+    <script src="js/plugins/jquery.min.js"></script>
+    <!-- swup js -->
+    <script src="js/plugins/swup.min.js"></script>
+    <script>/* disable swup - caused partial render on first click */
+    window.Swup=function(){this.on=function(){return this;};this.off=function(){return this;};this.use=function(){return this;};this.uninstall=function(){};this.cache={empty:function(){}};};
+    </script>
+    <!-- swiper js -->
+    <script src="js/plugins/swiper.min.js"></script>
+    <!-- fancybox js -->
+    <script src="js/plugins/fancybox.min.js"></script>
+    <!-- gsap js -->
+    <script src="js/plugins/gsap.min.js"></script>
+    <!-- scroll smoother -->
+    <script src="js/plugins/smooth-scroll.js"></script>
+    <!-- scroll trigger js -->
+    <script src="js/plugins/ScrollTrigger.min.js"></script>
+    <!-- scroll to js -->
+    <script src="js/plugins/ScrollTo.min.js"></script>
+    <!-- ashley js -->
+    <script src="js/main.js"></script>
+
+    <script>
+    // ── Scroll logo morph + dark-section filter ────────────
+    (function () {
+        var logos        = document.querySelectorAll('.mil-logo-morph');
+        var frameIcons   = document.querySelectorAll('.mil-frame:not(.mil-menu-frame) .mil-logo-icon');
+        var darkSections = document.querySelectorAll('.mil-dark-bg');
+        var threshold    = 80;
+
+        function updateLogo() {
+            var scrolled = window.scrollY > threshold;
+            logos.forEach(function (logo) {
+                logo.classList.toggle('panda-scrolled', scrolled);
+            });
+            var frameH = 80;
+            var overDark = false;
+            darkSections.forEach(function (sec) {
+                var r = sec.getBoundingClientRect();
+                if (r.top <= frameH && r.bottom >= 0) { overDark = true; }
+            });
+            frameIcons.forEach(function (icon) {
+                icon.classList.toggle('panda-over-dark', overDark);
+            });
+        }
+
+        window.addEventListener('scroll', updateLogo, { passive: true });
+        updateLogo();
+    })();
+    </script>
+
+    <script>
+    // ════════════════════════════════════════════════════════════
+    //  BRAND AUDIT — API KEY
+    //  Replace the string below with your Anthropic API key.
+    //  Keep this page behind a login or restrict by referrer if
+    //  you plan to open it to the public.
+    // ════════════════════════════════════════════════════════════
+    var AUDIT_API_KEY = 'YOUR_ANTHROPIC_API_KEY_HERE';
+
+    // ── System Prompt ────────────────────────────────────────────
+    var AUDIT_SYSTEM = `You are the lead brand strategist at Panda Studios, a specialist brand intelligence firm for East African tourism and hospitality. You have studied hundreds of operators across the region — safari companies, lodges, boutique camps, luxury hotels, DMCs, and experiential travel brands.
+
+You are not a generalist. You understand this industry at the level of the founder — the economics of luxury travel, the psychology of the $10,000+ client, the way premium travel agents route bookings, and the compounding cost of brand neglect.
+
+You have been given a structured intake for a specific business. Your job is to deliver a Brand Intelligence Audit that operates like a financial X-ray. Not flattery. Not vague recommendations. A clinical diagnosis that makes the cost of inaction impossible to ignore.
+
+─────────────────────────────────────────
+SCORING RUBRIC — APPLY TO ALL 5 DIMENSIONS
+─────────────────────────────────────────
+Each dimension is scored out of 20. When you show a score, briefly state the rubric so the client understands it is mathematical, not opinion.
+
+VISUAL IDENTITY (max 20)
+20/20 = Distinctive visual system with consistent logo, color palette, typography, iconography, and photography style applied uniformly across all platforms and print materials. Instantly recognizable. Communicates price point without words.
+15–19 = Strong core identity, minor inconsistencies across channels.
+10–14 = Recognizable logo but fragmented application. No cohesive visual language.
+5–9 = Basic logo only. No visual system. Platform-to-platform inconsistency breaks trust.
+0–4 = No identifiable visual identity. Indistinguishable from competitors.
+
+MESSAGING CLARITY (max 20)
+20/20 = Every piece of copy — headline, tagline, about page, social bio — communicates a single, unmistakable positioning statement. The ideal client sees it and immediately knows this is for them.
+15–19 = Clear message but inconsistently applied or slightly generic.
+10–14 = Some strong copy but messaging is scattered across channels.
+5–9 = Descriptive not distinctive. States what the business does, not why it matters.
+0–4 = No discernible messaging strategy. Generic or absent copy throughout.
+
+DIGITAL PRESENCE (max 20)
+20/20 = Website converts on mobile and desktop. SEO-structured. Active social channels with editorial consistency. Google Business optimized. Booking flow is frictionless.
+15–19 = Strong website but gaps in social or SEO.
+10–14 = Website exists but is outdated, slow, or not mobile-optimized. Social inconsistent.
+5–9 = Minimal digital footprint. Hard to find, hard to trust online.
+0–4 = Effectively invisible online.
+
+MARKET POSITIONING (max 20)
+20/20 = Owns a clearly defined market position. Known for something specific. Travel agents can explain in one sentence why they recommend this operator over alternatives.
+15–19 = Good positioning but not fully owned across all channels.
+10–14 = Competes on price or experience without a distinct angle.
+5–9 = Undifferentiated. Interchangeable with competitors in the same tier.
+0–4 = No positioning. Reactive not strategic.
+
+BRAND STORY (max 20)
+20/20 = A compelling, specific narrative that explains the founder's purpose, the business origin, and the emotional reason it exists — told consistently from website to brochure to social. Converts browsers into believers.
+15–19 = A story exists but is underutilized or inconsistently told.
+10–14 = Generic mission. Founder story buried or absent.
+5–9 = No articulated story. Operator biography only.
+0–4 = No story. Transactional identity only.
+
+─────────────────────────────────────────
+OUTPUT STRUCTURE — FOLLOW EXACTLY
+─────────────────────────────────────────
+
+## BRAND HEALTH SCORE
+Overall score out of 100. One sentence on what this score means in market terms.
+
+## BRAND POSITIONING STATEMENT
+One sentence: what this business currently communicates to the market, whether they intended it or not.
+
+## THE FOUNDER'S OBSERVATION
+Two short paragraphs. Sharp, specific, earned. Reference details from the intake. Name what is true. This is not flattery. It is what a trusted advisor says in a private meeting.
+
+## FIVE-DIMENSION SCORECARD
+
+For each dimension:
+**[DIMENSION NAME]: [SCORE]/20**
+*Rubric: [One sentence explaining how this score was calculated — clinical, not subjective]*
+Diagnosis: [2–3 sentences on what is working and what is broken, specific to this business]
+**Financial Cost of Inaction:** [Translate the brand gap into operational and revenue bleeding. Be specific about what premium clients, travel agents, or corporate buyers this business is losing — and estimate the compounding cost. Reference price points from the intake. Make the loss feel real, not theoretical. This is the most important part of each section.]
+
+## THE STRATEGIC GAP
+One paragraph. The single most important thing holding this brand back from market authority. Name it plainly.
+
+## THE ARCHITECTURE OF AUTHORITY: YOUR NEXT STEP
+
+Write this section in this order:
+1. One paragraph restating what this audit has revealed — the gap between operational excellence and market perception.
+2. One paragraph on what closing that gap would mean for their pricing power, booking volume, and market authority.
+3. The offer: "The next step is a 45-minute Strategic Alignment Briefing with Panda Studios. In this session, we map the exact architecture required to move your brand from its current [SCORE]/100 to absolute market authority — your visual identity framework, messaging hierarchy, and deployment strategy across every channel your premium clients use to evaluate you. Reply to this audit to schedule your briefing. hello@pandastudios.co · +256 772 233-050"
+
+Tone throughout: You are a senior strategist, not a vendor. You are direct. You do not soften the truth. No fluff. No filler sentences.`;
+
+    // ── State ────────────────────────────────────────────────────
+    var auditStep = 0;
+    var auditLoadInterval = null;
+
+    // ── Navigation ───────────────────────────────────────────────
+    function auditGoTo(step) {
+        if (step > auditStep && !auditValidateStep(auditStep)) return;
+        document.getElementById('apanel-' + auditStep).classList.remove('visible');
+        document.getElementById('anav-' + auditStep).classList.remove('active');
+        document.getElementById('anav-' + auditStep).classList.add('done');
+        auditStep = step;
+        document.getElementById('apanel-' + auditStep).classList.add('visible');
+        document.getElementById('anav-' + auditStep).classList.remove('done');
+        document.getElementById('anav-' + auditStep).classList.add('active');
+        document.querySelector('.audit-shell').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function auditValidateStep(step) {
+        if (step === 0) return auditVal('a-businessName') && auditVal('a-businessType');
+        if (step === 1) return auditVal('a-visualDesc');
+        if (step === 2) return auditVal('a-targetClient') && auditVal('a-avgPrice');
+        if (step === 3) return auditVal('a-biggestFrustration') && auditVal('a-dreamClient') && auditVal('a-currentFeeling');
+        return true;
+    }
+
+    function auditVal(id) {
+        var el = document.getElementById(id);
+        return el && el.value.trim().length > 0;
+    }
+
+    function auditGetVal(id) {
+        var el = document.getElementById(id);
+        return el ? el.value.trim() : '';
+    }
+
+    // ── Build prompt ─────────────────────────────────────────────
+    function auditBuildPrompt() {
+        return 'BRAND AUDIT INTAKE\n' +
+            '──────────────────\n' +
+            'Business: '    + auditGetVal('a-businessName') + '\n' +
+            'Type: '        + auditGetVal('a-businessType') + '\n' +
+            'Location: '    + auditGetVal('a-location') + '\n' +
+            'Years Active: '+ auditGetVal('a-yearsActive') + '\n' +
+            'Current Tagline: ' + (auditGetVal('a-tagline') || 'None stated') + '\n' +
+            'Website: '     + (auditGetVal('a-websiteUrl') || 'None provided') + '\n' +
+            'Social Channels: ' + (auditGetVal('a-socialMedia') || 'None provided') + '\n' +
+            'Visual Identity Description: ' + auditGetVal('a-visualDesc') + '\n' +
+            'Target Client: ' + auditGetVal('a-targetClient') + '\n' +
+            'Average Price Point: ' + auditGetVal('a-avgPrice') + '\n' +
+            'Known Competitors: ' + (auditGetVal('a-competitors') || 'Not specified') + '\n' +
+            'Biggest Frustration: ' + auditGetVal('a-biggestFrustration') + '\n' +
+            'Dream Client Profile: ' + auditGetVal('a-dreamClient') + '\n' +
+            'How They Currently Feel About Their Brand: ' + auditGetVal('a-currentFeeling') + '\n\n' +
+            'Run the full Brand Intelligence Audit now.';
+    }
+
+    // ── Extract scores ───────────────────────────────────────────
+    function auditExtractScores(text) {
+        var dims = ['VISUAL IDENTITY', 'MESSAGING CLARITY', 'DIGITAL PRESENCE', 'MARKET POSITIONING', 'BRAND STORY'];
+        var result = {};
+        dims.forEach(function(d) {
+            var m = text.match(new RegExp(d + '[^\\d]*(\\d{1,2})/20', 'i'));
+            result[d] = m ? parseInt(m[1]) : null;
+        });
+        var ov = text.match(/BRAND HEALTH SCORE[^\d]*(\d{1,3})\/100/i) || text.match(/Overall[^\d]*(\d{1,3})\/100/i);
+        result.overall = ov ? parseInt(ov[1]) : null;
+        return result;
+    }
+
+    // ── Score ring SVG ───────────────────────────────────────────
+    function auditBuildScoreRing(score) {
+        var r = 52, circ = 2 * Math.PI * r;
+        var dash = (score / 100) * circ;
+        var color = score >= 75 ? '#6aad7a' : score >= 50 ? '#FF0000' : '#8a1c1c';
+        return '<div class="audit-score-ring-wrap">' +
+            '<svg width="140" height="140" style="display:block;margin:0 auto;">' +
+            '<circle cx="70" cy="70" r="' + r + '" fill="none" stroke="#444444" stroke-width="4"/>' +
+            '<circle cx="70" cy="70" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="4"' +
+            ' stroke-dasharray="' + dash + ' ' + circ + '"' +
+            ' stroke-dashoffset="' + (circ * 0.25) + '"' +
+            ' stroke-linecap="round"' +
+            ' style="transform-origin:center;transform:rotate(-90deg) scaleX(-1);"' +
+            '/>' +
+            '<text x="70" y="67" text-anchor="middle" fill="' + color + '"' +
+            ' font-family="\'Montserrat\',sans-serif" font-size="24" font-weight="700">' + score + '</text>' +
+            '<text x="70" y="84" text-anchor="middle" fill="#888888"' +
+            ' font-family="\'Montserrat\',sans-serif" font-size="10">/100</text>' +
+            '</svg>' +
+            '<div class="audit-score-ring-label">Brand Health Score</div>' +
+            '</div>';
+    }
+
+    function auditBuildScoreGrid(scores) {
+        var dims = ['VISUAL IDENTITY', 'MESSAGING CLARITY', 'DIGITAL PRESENCE', 'MARKET POSITIONING', 'BRAND STORY'];
+        var html = '<div class="audit-score-grid">';
+        dims.forEach(function(d) {
+            if (scores[d] !== null) {
+                html += '<div class="audit-score-card">' +
+                    '<div class="audit-score-card-label">' + d + '</div>' +
+                    '<div class="audit-score-card-val">' + scores[d] + '<span>/20</span></div>' +
+                    '</div>';
+            }
+        });
+        html += '</div>';
+        return html;
+    }
+
+    // ── Render report ─────────────────────────────────────────────
+    function auditRenderReport(text) {
+        var lines = text.split('\n');
+        var html = '';
+        lines.forEach(function(line) {
+            if (line.startsWith('## ')) {
+                html += '<div class="r-section-head">' + line.replace('## ', '') + '</div>';
+            } else if (line.startsWith('**') && line.indexOf('/20') !== -1) {
+                html += '<div class="r-dim-score">' + line.replace(/\*\*/g, '') + '</div>';
+            } else if (line.startsWith('**Financial Cost')) {
+                html += '<div class="r-cost">' + line.replace(/\*\*/g, '') + '</div>';
+            } else if (line.startsWith('*Rubric:')) {
+                html += '<div class="r-rubric">' + line.replace(/\*/g, '') + '</div>';
+            } else if (line.trim() === '') {
+                html += '<div class="r-spacer"></div>';
+            } else {
+                html += '<div class="r-text">' + line + '</div>';
+            }
+        });
+        return html;
+    }
+
+    // ── Run audit ─────────────────────────────────────────────────
+    async function runBrandAudit() {
+        if (!auditValidateStep(3)) return;
+
+        document.getElementById('apanel-3').classList.remove('visible');
+        document.getElementById('auditStepNav').style.display = 'none';
+
+        var loadingEl = document.getElementById('audit-loading');
+        loadingEl.classList.add('visible');
+
+        var dots = 1;
+        auditLoadInterval = setInterval(function() {
+            dots = dots >= 4 ? 1 : dots + 1;
+            document.getElementById('audit-loading-text').textContent = 'Running Audit' + '.'.repeat(dots);
+        }, 400);
+
+        document.querySelector('.audit-shell').scrollIntoView({ behavior: 'smooth' });
+
+        try {
+            var res = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': AUDIT_API_KEY,
+                    'anthropic-version': '2023-06-01',
+                    'anthropic-dangerous-direct-browser-access': 'true'
+                },
+                body: JSON.stringify({
+                    model: 'claude-sonnet-4-20250514',
+                    max_tokens: 2000,
+                    system: AUDIT_SYSTEM,
+                    messages: [{ role: 'user', content: auditBuildPrompt() }]
+                })
+            });
+
+            var data = await res.json();
+            var text = (data.content || []).map(function(b) { return b.text || ''; }).join('') ||
+                       'Audit generation failed. Please try again.';
+
+            clearInterval(auditLoadInterval);
+            loadingEl.classList.remove('visible');
+
+            var scores = auditExtractScores(text);
+            var container = document.getElementById('audit-score-ring-container');
+            if (scores.overall !== null) {
+                container.innerHTML = auditBuildScoreRing(scores.overall) + auditBuildScoreGrid(scores);
+            }
+            document.getElementById('audit-report-body').innerHTML = auditRenderReport(text);
+
+            var resultEl = document.getElementById('audit-result');
+            resultEl.classList.add('visible');
+            document.querySelector('.audit-shell').scrollIntoView({ behavior: 'smooth' });
+
+        } catch (e) {
+            clearInterval(auditLoadInterval);
+            document.getElementById('audit-loading').classList.remove('visible');
+            document.getElementById('audit-report-body').innerHTML =
+                '<div class="r-text" style="color:#c4826a;">Connection error. Please check your network and try again.</div>';
+            document.getElementById('audit-result').classList.add('visible');
+        }
+    }
+
+    // ── Reset ─────────────────────────────────────────────────────
+    function resetBrandAudit() {
+        clearInterval(auditLoadInterval);
+
+        ['a-businessName','a-businessType','a-location','a-yearsActive','a-tagline',
+         'a-websiteUrl','a-socialMedia','a-visualDesc','a-targetClient','a-avgPrice',
+         'a-competitors','a-biggestFrustration','a-dreamClient','a-currentFeeling'
+        ].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.value = '';
+        });
+
+        document.getElementById('audit-result').classList.remove('visible');
+        document.getElementById('audit-loading').classList.remove('visible');
+        document.getElementById('audit-score-ring-container').innerHTML = '';
+        document.getElementById('audit-report-body').innerHTML = '';
+        document.getElementById('auditStepNav').style.display = 'flex';
+
+        for (var i = 1; i < 4; i++) {
+            document.getElementById('anav-' + i).classList.remove('active', 'done');
+        }
+        document.getElementById('anav-0').classList.remove('done');
+        document.getElementById('anav-0').classList.add('active');
+
+        for (var j = 1; j < 4; j++) {
+            document.getElementById('apanel-' + j).classList.remove('visible');
+        }
+        document.getElementById('apanel-0').classList.add('visible');
+        auditStep = 0;
+
+        document.querySelector('.audit-shell').scrollIntoView({ behavior: 'smooth' });
+    }
+    </script>
+
+</body>
+
+</html>
