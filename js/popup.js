@@ -3,7 +3,7 @@
     var VERSION = 'v2';
     var CONVERTED_KEY = 'ps_popup_converted_' + VERSION;
 
-    // If they already clicked through to WhatsApp on this version, never show again
+    // If they already clicked through to the audit page on this version, never show again
     if (localStorage.getItem(CONVERTED_KEY)) return;
 
     var INTERVAL = 3 * 60 * 1000; // 3 minutes
@@ -14,7 +14,7 @@
             '<div id="ps-popup">' +
                 '<button id="ps-popup-close" aria-label="Close">&times;</button>' +
                 '<img src="assets/images/popup-offer.png" alt="Get a Free Brand Audit — Panda Studios">' +
-                '<a href="https://wa.me/+256772233050?text=Claiming+the+Brand+Audit" target="_blank" rel="noopener noreferrer" id="ps-popup-btn">Get My Free Audit</a>' +
+                '<a href="brand-audit.html" id="ps-popup-btn">Get My Free Audit</a>' +
             '</div>' +
         '</div>';
 
@@ -43,7 +43,7 @@
         // Close on × button
         document.getElementById('ps-popup-close').addEventListener('click', close);
 
-        // WhatsApp click = converted — stop showing forever (for this version)
+        // Audit page click = converted — stop showing forever (for this version)
         document.getElementById('ps-popup-btn').addEventListener('click', function () {
             localStorage.setItem(CONVERTED_KEY, '1');
             clearTimeout(timer);
