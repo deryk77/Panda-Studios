@@ -981,12 +981,13 @@
 
     <script>
     // ════════════════════════════════════════════════════════════
-    //  BRAND AUDIT — API KEY
-    //  Replace the string below with your Anthropic API key.
-    //  Keep this page behind a login or restrict by referrer if
-    //  you plan to open it to the public.
+    //  BRAND AUDIT — PROXY URL
+    //  Requests go to your Cloudflare Worker, which holds the
+    //  Anthropic API key as a server-side secret. Key never
+    //  appears in this file or in the browser.
+    //  Deploy cloudflare-worker.js → paste your Worker URL below.
     // ════════════════════════════════════════════════════════════
-    var AUDIT_API_KEY = 'YOUR_ANTHROPIC_API_KEY_HERE';
+    var AUDIT_PROXY_URL = 'WORKER_URL_HERE';
 
     // ════════════════════════════════════════════════════════════
     //  EMAILJS — Sends the audit report to pandastudios77@gmail.com
@@ -1230,13 +1231,10 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
         document.querySelector('.audit-shell').scrollIntoView({ behavior: 'smooth' });
 
         try {
-            var res = await fetch('https://api.anthropic.com/v1/messages', {
+            var res = await fetch(AUDIT_PROXY_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-api-key': AUDIT_API_KEY,
-                    'anthropic-version': '2023-06-01',
-                    'anthropic-dangerous-direct-browser-access': 'true'
                 },
                 body: JSON.stringify({
                     model: 'claude-sonnet-4-20250514',
