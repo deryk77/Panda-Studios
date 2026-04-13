@@ -126,7 +126,7 @@
 
     /* ── Audit tool styles ───────────────────────────────────── */
     .audit-shell {
-        background: #080604;
+        background: #ffffff;
         min-height: 60vh;
         padding: 0;
     }
@@ -138,7 +138,7 @@
         margin: 0 auto;
         padding: 64px 28px 100px;
         font-family: 'Montserrat', sans-serif;
-        color: #d3d3d3;
+        color: #222222;
     }
 
     /* grain overlay */
@@ -200,7 +200,7 @@
     .audit-step-item { flex: 1; }
     .audit-step-label {
         font-size: 10px;
-        letter-spacing: 3px;
+        letter-spacing: 1.5px;
         color: #555555;
         padding-bottom: 10px;
         font-weight: 700;
@@ -209,14 +209,14 @@
         font-family: 'Montserrat', sans-serif;
     }
     .audit-step-item.active .audit-step-label { color: #FF0000; }
-    .audit-step-item.done .audit-step-label   { color: #d3d3d3; }
+    .audit-step-item.done .audit-step-label   { color: #444444; }
     .audit-step-bar {
         height: 1px;
-        background: #444444;
+        background: #dddddd;
         transition: background 0.3s;
     }
     .audit-step-item.active .audit-step-bar { background: #FF0000; }
-    .audit-step-item.done .audit-step-bar   { background: #d3d3d3; }
+    .audit-step-item.done .audit-step-bar   { background: #888888; }
 
     /* panels */
     .audit-panel { display: none; }
@@ -235,9 +235,9 @@
     .audit-field { margin-bottom: 36px; }
     .audit-label {
         display: block;
-        font-size: 9px;
-        letter-spacing: 4px;
-        color: #d3d3d3;
+        font-size: 13px;
+        letter-spacing: 1px;
+        color: #111111;
         margin-bottom: 10px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
@@ -248,8 +248,8 @@
         width: 100%;
         background: transparent;
         border: none;
-        border-bottom: 1px solid #d3d3d3;
-        color: #ffffff;
+        border-bottom: 1px solid #cccccc;
+        color: #111111;
         font-family: 'Montserrat', sans-serif;
         font-size: 13px;
         padding: 10px 0;
@@ -259,7 +259,7 @@
     }
     .audit-textarea { resize: vertical; line-height: 1.7; }
     .audit-input::placeholder,
-    .audit-textarea::placeholder { color: #888888; text-transform: lowercase; }
+    .audit-textarea::placeholder { color: #888888; }
     .audit-input:focus,
     .audit-textarea:focus { border-bottom-color: #FF0000; }
 
@@ -272,8 +272,8 @@
     .audit-btn {
         flex: 1;
         background: transparent;
-        color: #ffffff;
-        border: 1px solid #555555;
+        color: #111111;
+        border: 1px solid #888888;
         padding: 15px 24px;
         font-size: 9px;
         letter-spacing: 3px;
@@ -288,15 +288,15 @@
     .audit-btn:not(:disabled):active { background: #FF0000; color: #ffffff; border-color: #FF0000; }
     .audit-btn.secondary {
         background: transparent;
-        border: 1px solid #444444;
+        border: 1px solid #cccccc;
         color: #888888;
     }
     .audit-btn.secondary:not(:disabled):hover,
     .audit-btn.secondary:not(:disabled):active { background: #FF0000; color: #ffffff; border-color: #FF0000; }
     .audit-btn.gold {
         background: transparent;
-        color: #ffffff;
-        border: 1px solid #ffffff;
+        color: #111111;
+        border: 1px solid #111111;
     }
     .audit-btn.gold:not(:disabled):hover,
     .audit-btn.gold:not(:disabled):active { background: #FF0000; color: #ffffff; border-color: #FF0000; }
@@ -318,7 +318,7 @@
     }
     .audit-loading-ring {
         width: 48px; height: 48px;
-        border: 1px solid #d3d3d3;
+        border: 1px solid #cccccc;
         border-top-color: #FF0000;
         border-radius: 50%;
         margin: 0 auto;
@@ -345,8 +345,8 @@
         margin-top: 24px;
     }
     .audit-score-card {
-        background: #0c0904;
-        border: 1px solid #444444;
+        background: #f5f5f5;
+        border: 1px solid #dddddd;
         padding: 14px 18px;
     }
     .audit-score-card-label {
@@ -364,7 +364,7 @@
     }
     .audit-score-card-val span { font-size: 12px; color: #888888; }
 
-    .audit-report-body { border-top: 1px solid #444444; padding-top: 40px; }
+    .audit-report-body { border-top: 1px solid #dddddd; padding-top: 40px; }
 
     .r-section-head {
         font-size: 9px;
@@ -378,7 +378,7 @@
     }
     .r-dim-score {
         font-size: 14px;
-        color: #d3d3d3;
+        color: #222222;
         font-weight: 700;
         margin-top: 28px;
         margin-bottom: 4px;
@@ -405,7 +405,7 @@
     .r-text {
         font-size: 12px;
         line-height: 1.9;
-        color: #d3d3d3;
+        color: #444444;
         margin-bottom: 4px;
         font-family: 'Montserrat', sans-serif;
     }
@@ -414,9 +414,9 @@
     .audit-cta-box {
         margin-top: 56px;
         padding: 28px;
-        border: 1px solid #d3d3d3;
+        border: 1px solid #dddddd;
         border-left: 3px solid #cc0000;
-        background: #0c0904;
+        background: #f5f5f5;
     }
     .audit-cta-eyebrow {
         font-size: 9px;
@@ -428,7 +428,7 @@
     }
     .audit-cta-body {
         font-size: 12px;
-        color: #d3d3d3;
+        color: #444444;
         line-height: 1.9;
         font-style: italic;
         font-family: 'Montserrat', sans-serif;
@@ -438,8 +438,8 @@
 
     .audit-reset-btn {
         background: transparent;
-        color: #ffffff;
-        border: 1px solid #555555;
+        color: #111111;
+        border: 1px solid #888888;
         padding: 13px 28px;
         font-size: 9px;
         letter-spacing: 3px;
@@ -644,7 +644,7 @@
             <div id="swupMain" class="mil-main-transition">
 
                 <!-- banner -->
-                <div class="mil-inner-banner mil-p-0-120">
+                <div class="mil-inner-banner mil-p-0-120 mil-dark-bg">
                     <div class="mil-banner-content mil-center mil-up">
                         <div class="container">
                             <ul class="mil-breadcrumbs mil-center mil-mb-90">
