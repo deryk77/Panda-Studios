@@ -468,6 +468,9 @@
     /* ─────────────────────────────────────────────────────────── */
     </style>
 
+    <!-- EmailJS — sends audit report to pandastudios77@gmail.com -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 </head>
 
 <body>
@@ -796,7 +799,7 @@
                                 </div>
                             </div>
 
-                            <button class="audit-reset-btn" onclick="resetBrandAudit()">&larr; Run Another Audit</button>
+                            <button class="audit-reset-btn" onclick="resetBrandAudit()">&larr; Audit</button>
                         </div>
 
                     </div>
@@ -984,6 +987,20 @@
     //  you plan to open it to the public.
     // ════════════════════════════════════════════════════════════
     var AUDIT_API_KEY = 'YOUR_ANTHROPIC_API_KEY_HERE';
+
+    // ════════════════════════════════════════════════════════════
+    //  EMAILJS — Sends the audit report to pandastudios77@gmail.com
+    //  1. Sign up free at https://www.emailjs.com
+    //  2. Add Gmail as a service → copy the Service ID
+    //  3. Create a template with variables:
+    //       {{business_name}}  {{location}}  {{audit_score}}  {{audit_report}}
+    //  4. Copy your Public Key from Account → API Keys
+    //  Then paste the three values below.
+    // ════════════════════════════════════════════════════════════
+    var EMAILJS_PUBLIC_KEY  = 'YOUR_EMAILJS_PUBLIC_KEY';
+    var EMAILJS_SERVICE_ID  = 'YOUR_EMAILJS_SERVICE_ID';
+    var EMAILJS_TEMPLATE_ID = 'YOUR_EMAILJS_TEMPLATE_ID';
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
     // ── System Prompt ────────────────────────────────────────────
     var AUDIT_SYSTEM = `You are the lead brand strategist at Panda Studios, a specialist brand intelligence firm for East African tourism and hospitality. You have studied hundreds of operators across the region — safari companies, lodges, boutique camps, luxury hotels, DMCs, and experiential travel brands.
@@ -1230,7 +1247,14 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
             });
 
             var data = await res.json();
-            var text = (data.content || []).map(function(b) { return b.text || ''; }).join('') ||
+
+            // Detect API-level errors (wrong key, quota, etc.)
+            if (!res.ok || data.error) {
+                var apiErr = (data.error && data.error.message) ? data.error.message : 'API error ' + res.status;
+                throw new Error(apiErr);
+            }
+
+            var text = (data.content || []).map(function(b) { return b.text || ''; }).join('').trim() ||
                        'Audit generation failed. Please try again.';
 
             clearInterval(auditLoadInterval);
@@ -1247,11 +1271,23 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
             resultEl.classList.add('visible');
             document.querySelector('.audit-shell').scrollIntoView({ behavior: 'smooth' });
 
+            // ── Email report to Panda Studios ─────────────────────
+            if (EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY') {
+                emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                    business_name: document.getElementById('a-businessName').value || 'Unknown',
+                    location:      document.getElementById('a-location').value || '',
+                    audit_score:   scores.overall !== null ? scores.overall + '/100' : 'N/A',
+                    audit_report:  text
+                }).catch(function(err) {
+                    console.warn('EmailJS delivery failed:', err);
+                });
+            }
+
         } catch (e) {
             clearInterval(auditLoadInterval);
             document.getElementById('audit-loading').classList.remove('visible');
             document.getElementById('audit-report-body').innerHTML =
-                '<div class="r-text" style="color:#c4826a;">Connection error. Please check your network and try again.</div>';
+                '<div class="r-text" style="color:#c4826a;">Error: ' + (e.message || 'Connection failed. Please check your network and try again.') + '</div>';
             document.getElementById('audit-result').classList.add('visible');
         }
     }
