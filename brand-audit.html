@@ -787,10 +787,11 @@
                             <div id="audit-score-ring-container"></div>
                             <div class="audit-report-body" id="audit-report-body"></div>
 
-                            <div class="audit-cta-box">
-                                <div class="audit-cta-eyebrow">Panda Studios</div>
-                                <div class="audit-cta-body">
-                                    Ready to build the architecture of authority?<br>
+                            <div class="audit-cta-box" id="audit-cta-box">
+                                <div class="audit-cta-eyebrow" id="audit-cta-eyebrow">Your Audit Has Been Delivered</div>
+                                <div class="audit-cta-body" id="audit-cta-body">
+                                    Your Brand Intelligence Audit has been sent to the Panda Studios team. We will prepare your full PDF report and follow up directly.<br><br>
+                                    To request your PDF or start the conversation sooner —<br>
                                     <a href="mailto:hello@pandastudios.co">hello@pandastudios.co</a>
                                     &nbsp;&middot;&nbsp;
                                     <a href="tel:+256772233050">+256 772 233-050</a>
@@ -998,9 +999,9 @@
     //  4. Copy your Public Key from Account → API Keys
     //  Then paste the three values below.
     // ════════════════════════════════════════════════════════════
-    var EMAILJS_PUBLIC_KEY  = 'YOUR_EMAILJS_PUBLIC_KEY';
-    var EMAILJS_SERVICE_ID  = 'YOUR_EMAILJS_SERVICE_ID';
-    var EMAILJS_TEMPLATE_ID = 'YOUR_EMAILJS_TEMPLATE_ID';
+    var EMAILJS_PUBLIC_KEY  = 'jyMcHGci8gLcdTYvq';
+    var EMAILJS_SERVICE_ID  = 'service_nse0laz';
+    var EMAILJS_TEMPLATE_ID = 'template_k2b6qe5';
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
     // ── System Prompt ────────────────────────────────────────────
@@ -1272,12 +1273,32 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
             // ── Email report to Panda Studios ─────────────────────
             if (EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY') {
                 emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-                    business_name: document.getElementById('a-businessName').value || 'Unknown',
-                    location:      document.getElementById('a-location').value || '',
+                    business_name: auditGetVal('a-businessName') || 'Unknown',
+                    location:      auditGetVal('a-location') || '',
                     audit_score:   scores.overall !== null ? scores.overall + '/100' : 'N/A',
                     audit_report:  text
+                }).then(function() {
+                    // Email sent — update CTA to confirm delivery and prompt PDF request
+                    document.getElementById('audit-cta-eyebrow').textContent = 'Your Audit Has Been Delivered';
+                    document.getElementById('audit-cta-body').innerHTML =
+                        'Your Brand Intelligence Audit has been sent to the Panda Studios team. We will prepare your full PDF report and follow up directly.<br><br>' +
+                        'To request your PDF or start the conversation sooner &mdash;<br>' +
+                        '<a href="mailto:hello@pandastudios.co">hello@pandastudios.co</a>' +
+                        '&nbsp;&middot;&nbsp;' +
+                        '<a href="tel:+256772233050">+256 772 233-050</a>' +
+                        '&nbsp;&middot;&nbsp;' +
+                        '<a href="contact.html">Start the conversation</a>';
                 }).catch(function(err) {
                     console.warn('EmailJS delivery failed:', err);
+                    // Email failed — show fallback CTA prompting them to reach out directly
+                    document.getElementById('audit-cta-eyebrow').textContent = 'Panda Studios';
+                    document.getElementById('audit-cta-body').innerHTML =
+                        'Ready to build the architecture of authority? Reach out to receive your full PDF report.<br><br>' +
+                        '<a href="mailto:hello@pandastudios.co">hello@pandastudios.co</a>' +
+                        '&nbsp;&middot;&nbsp;' +
+                        '<a href="tel:+256772233050">+256 772 233-050</a>' +
+                        '&nbsp;&middot;&nbsp;' +
+                        '<a href="contact.html">Start the conversation</a>';
                 });
             }
 
