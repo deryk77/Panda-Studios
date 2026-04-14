@@ -9,3 +9,6 @@ dist/
 *.psd
 *.ai
 *.sketch
+
+# Cloudflare Wrangler cache (local credentials, never commit)
+.wrangler/
