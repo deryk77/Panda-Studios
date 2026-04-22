@@ -6,17 +6,17 @@
      Scroll-driven stacked panel reveal.
 
      Architecture:
-       · .bcn-deck-scroll-space  — 7 × 100vh tall, provides scroll travel
+       · .bcn-deck-scroll-space  — 6 × 100vh tall, provides scroll travel
        · .bcn-deck-stage         — position:sticky, stays pinned while
                                    the scroll-space is in the viewport
-       · .bcn-deck-card          — all 6 cards at the same position,
+       · .bcn-deck-card          — all 5 cards at the same position,
                                    z-indexed so card 1 is on top
        · .bcn-deck--out          — dismissed state: scale(0.92) + opacity:0
 
      How steps work:
-       travel = scrollSpace.height − viewport.height = 6 × 100vh
+       travel = scrollSpace.height − viewport.height = 5 × 100vh
        progress = scrolled / travel  (0 → 1)
-       step     = floor(progress × 6), clamped 0–5
+       step     = floor(progress × 5), clamped 0–4
        Each step change triggers a CSS transition on the current card.
   ============================================================ */
 
@@ -85,4 +85,51 @@
   // (handles case where page loads mid-scroll, e.g. back-navigation)
   onScroll();
 
+}());
+
+/* ── FLOATING GALLERY LIGHTBOX ──────────────────────────────── */
+(function () {
+  var items   = document.querySelectorAll('.bcn-float-item');
+  var lb      = document.getElementById('bcn-float-lightbox');
+  var lbImg   = document.getElementById('bcn-float-lb-img');
+  var lbClose = document.getElementById('bcn-float-lb-close');
+
+  if (!lb) return;
+
+  function openLb(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (lbClose) lbClose.focus();
+  }
+
+  function closeLb() {
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  items.forEach(function (item) {
+    item.addEventListener('click', function () {
+      openLb(this.dataset.src, this.dataset.alt);
+    });
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLb(this.dataset.src, this.dataset.alt);
+      }
+    });
+  });
+
+  if (lbClose) lbClose.addEventListener('click', closeLb);
+
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb) closeLb();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lb.classList.contains('is-open')) closeLb();
+  });
 }());

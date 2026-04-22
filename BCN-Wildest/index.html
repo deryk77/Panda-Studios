@@ -216,105 +216,82 @@
   </section>
 
   <!-- ============================================================
-       CINEMATIC DECK — 6 stacked panels, scroll-driven reveal
+       FLOATING GALLERY — chaotic scattered image field
        ============================================================ -->
-  <section class="bcn-cinematic-section" id="gallery" aria-label="Photo gallery">
-    <div class="bcn-deck-scroll-space" id="bcn-deck-scroll-space">
+  <section class="bcn-float-gallery" id="float-gallery" aria-label="Floating photo gallery">
+    <div class="bcn-float-field">
 
-      <div class="bcn-deck-stage" id="bcn-deck-stage">
+      <!-- Zone 1: top -->
+      <div class="bcn-float-item" style="--rot:-8deg;  --flip:1;  top:-1vh;  left:3vw;  width:26vw;" data-src="img/BCN (1).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0s"><img src="img/BCN (1).png"  alt="Wildlife" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:4deg;   --flip:-1; top:-3vh;  left:33vw; width:30vw;" data-src="img/BCN (3).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:1.1s"><img src="img/BCN (3).png"  alt="Wildlife" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:-3deg;  --flip:1;  top:1vh;   left:65vw; width:24vw;" data-src="img/BCN (13).png" tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0.5s"><img src="img/BCN (13).png" alt="Wildlife" loading="lazy"></div>
+      </div>
 
-        <!-- Card 1 — Wildlife · Uganda (top of stack) -->
-        <div class="bcn-deck-card" data-deck-index="0" data-category="Wildlife" data-location="Murchison Falls, Uganda">
-          <div class="bcn-contour" aria-hidden="true"></div>
-          <div class="bcn-panel-img" style="background-image: url('img/BCN (6).png');"></div>
-          <div class="bcn-panel-overlay"></div>
-          <div class="bcn-panel-meta">
-            <span class="bcn-panel-index">01</span>
-            <span class="bcn-panel-cat">Wildlife</span>
-            <span class="bcn-panel-loc">Murchison Falls, Uganda</span>
-          </div>
-        </div>
+      <!-- Zone 2: upper-mid -->
+      <div class="bcn-float-item" style="--rot:11deg;  --flip:1;  top:15vh;  left:4vw;  width:20vw;" data-src="img/BCN (2).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:1.6s"><img src="img/BCN (2).png"  alt="Landscape" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:-7deg;  --flip:-1; top:18vh;  left:23vw; width:36vw;" data-src="img/BCN (5).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0.2s"><img src="img/BCN (5).png"  alt="Landscape" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:9deg;   --flip:1;  top:13vh;  left:63vw; width:23vw;" data-src="img/BCN (12).png" tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0.9s"><img src="img/BCN (12).png" alt="Landscape" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:-13deg; --flip:-1; top:30vh;  left:7vw;  width:18vw;" data-src="img/BCN (6).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:1.4s"><img src="img/BCN (6).png"  alt="Wildlife" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:6deg;   --flip:1;  top:27vh;  left:60vw; width:21vw;" data-src="img/BCN (14).png" tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0.7s"><img src="img/BCN (14).png" alt="Wildlife" loading="lazy"></div>
+      </div>
 
-        <!-- Card 2 — Landscape · Uganda -->
-        <div class="bcn-deck-card" data-deck-index="1" data-category="Landscape" data-location="Bwindi Forest, Uganda">
-          <div class="bcn-contour" aria-hidden="true"></div>
-          <div class="bcn-panel-img" style="background-image: url('img/BCN (7).png');"></div>
-          <div class="bcn-panel-overlay"></div>
-          <div class="bcn-panel-meta">
-            <span class="bcn-panel-index">02</span>
-            <span class="bcn-panel-cat">Landscape</span>
-            <span class="bcn-panel-loc">Bwindi Forest, Uganda</span>
-          </div>
-        </div>
+      <!-- Zone 3: centre -->
+      <div class="bcn-float-item" style="--rot:14deg;  --flip:-1; top:40vh;  left:4vw;  width:23vw;" data-src="img/BCN (8).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0.3s"><img src="img/BCN (8).png"  alt="Wildlife" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:-5deg;  --flip:1;  top:36vh;  left:27vw; width:34vw;" data-src="img/BCN (7).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:1.2s"><img src="img/BCN (7).png"  alt="Landscape" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:-10deg; --flip:-1; top:39vh;  left:64vw; width:26vw;" data-src="img/BCN (9).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0.6s"><img src="img/BCN (9).png"  alt="Wildlife" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:8deg;   --flip:1;  top:54vh;  left:9vw;  width:19vw;" data-src="img/BCN (4).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:1.8s"><img src="img/BCN (4).png"  alt="Wildlife" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:-4deg;  --flip:-1; top:50vh;  left:35vw; width:17vw;" data-src="img/BCN (15).png" tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0.4s"><img src="img/BCN (15).png" alt="Wildlife" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:12deg;  --flip:1;  top:47vh;  left:61vw; width:23vw;" data-src="img/BCN (11).png" tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:1s"><img src="img/BCN (11).png" alt="Landscape" loading="lazy"></div>
+      </div>
 
-        <!-- Card 3 — Wildlife · Tanzania -->
-        <div class="bcn-deck-card" data-deck-index="2" data-category="Wildlife" data-location="Serengeti, Tanzania">
-          <div class="bcn-contour" aria-hidden="true"></div>
-          <div class="bcn-panel-img" style="background-image: url('img/BCN (8).png');"></div>
-          <div class="bcn-panel-overlay"></div>
-          <div class="bcn-panel-meta">
-            <span class="bcn-panel-index">03</span>
-            <span class="bcn-panel-cat">Wildlife</span>
-            <span class="bcn-panel-loc">Serengeti, Tanzania</span>
-          </div>
-        </div>
+      <!-- Zone 4: lower -->
+      <div class="bcn-float-item" style="--rot:-9deg;  --flip:-1; top:63vh;  left:3vw;  width:22vw;" data-src="img/BCN (10).png" tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:1.5s"><img src="img/BCN (10).png" alt="Landscape" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:5deg;   --flip:-1; top:62vh;  left:27vw; width:29vw;" data-src="img/BCN (1).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0.8s"><img src="img/BCN (1).png"  alt="Wildlife" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:-7deg;  --flip:1;  top:59vh;  left:63vw; width:25vw;" data-src="img/BCN (3).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0.1s"><img src="img/BCN (3).png"  alt="Wildlife" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:10deg;  --flip:-1; top:80vh;  left:5vw;  width:20vw;" data-src="img/BCN (2).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:1.3s"><img src="img/BCN (2).png"  alt="Landscape" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:-6deg;  --flip:1;  top:77vh;  left:28vw; width:32vw;" data-src="img/BCN (5).png"  tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:0.9s"><img src="img/BCN (5).png"  alt="Landscape" loading="lazy"></div>
+      </div>
+      <div class="bcn-float-item" style="--rot:4deg;   --flip:-1; top:75vh;  left:64vw; width:19vw;" data-src="img/BCN (13).png" tabindex="0" role="button" aria-label="Open image">
+        <div class="bcn-float-inner" style="--delay:1.7s"><img src="img/BCN (13).png" alt="Wildlife" loading="lazy"></div>
+      </div>
 
-        <!-- Card 4 — Cultural · Uganda -->
-        <div class="bcn-deck-card" data-deck-index="3" data-category="Cultural &amp; People" data-location="Karamoja, Uganda">
-          <div class="bcn-contour" aria-hidden="true"></div>
-          <div class="bcn-panel-img" style="background-image: url('img/BCN (9).png');"></div>
-          <div class="bcn-panel-overlay"></div>
-          <div class="bcn-panel-meta">
-            <span class="bcn-panel-index">04</span>
-            <span class="bcn-panel-cat">Cultural &amp; People</span>
-            <span class="bcn-panel-loc">Karamoja, Uganda</span>
-          </div>
-        </div>
-
-        <!-- Card 5 — Wildlife · Kenya -->
-        <div class="bcn-deck-card" data-deck-index="4" data-category="Wildlife" data-location="Masai Mara, Kenya">
-          <div class="bcn-contour" aria-hidden="true"></div>
-          <div class="bcn-panel-img" style="background-image: url('img/BCN (10).png');"></div>
-          <div class="bcn-panel-overlay"></div>
-          <div class="bcn-panel-meta">
-            <span class="bcn-panel-index">05</span>
-            <span class="bcn-panel-cat">Wildlife</span>
-            <span class="bcn-panel-loc">Masai Mara, Kenya</span>
-          </div>
-        </div>
-
-        <!-- Card 6 — Landscape · Kenya (bottom of stack) -->
-        <div class="bcn-deck-card" data-deck-index="5" data-category="Landscape" data-location="Lake Nakuru, Kenya">
-          <div class="bcn-contour" aria-hidden="true"></div>
-          <div class="bcn-panel-img" style="background-image: url('img/BCN (11).png');"></div>
-          <div class="bcn-panel-overlay"></div>
-          <div class="bcn-panel-meta">
-            <span class="bcn-panel-index">06</span>
-            <span class="bcn-panel-cat">Landscape</span>
-            <span class="bcn-panel-loc">Lake Nakuru, Kenya</span>
-          </div>
-        </div>
-
-        <!-- Progress dots (inside sticky stage so they stay visible) -->
-        <div class="bcn-deck-dots" id="bcn-deck-dots" aria-hidden="true">
-          <span class="bcn-deck-dot" data-deck-dot="0"></span>
-          <span class="bcn-deck-dot" data-deck-dot="1"></span>
-          <span class="bcn-deck-dot" data-deck-dot="2"></span>
-          <span class="bcn-deck-dot" data-deck-dot="3"></span>
-          <span class="bcn-deck-dot" data-deck-dot="4"></span>
-          <span class="bcn-deck-dot" data-deck-dot="5"></span>
-        </div>
-
-        <!-- Counter: 01 / 06 -->
-        <div class="bcn-deck-counter" id="bcn-deck-counter" aria-live="polite">
-          <span id="bcn-deck-cur">01</span>&thinsp;/&thinsp;<span id="bcn-deck-total">06</span>
-        </div>
-
-      </div><!-- /bcn-deck-stage -->
-    </div><!-- /bcn-deck-scroll-space -->
+    </div>
   </section>
 
-  
   <!-- ============================================================
        THE JOURNAL — intellectual leadership / insights grid
        ============================================================ -->
@@ -383,7 +360,7 @@
         </div>
         <div class="bcn-form-footer">
           <button type="submit" class="bcn-submit" id="bcn-submit">
-            <span class="bcn-submit-text">Request a Brand Intelligence Audit</span>
+            <span class="bcn-submit-text">SUBMIT</span>
           </button>
           <p class="bcn-form-note">
             <svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true">
@@ -495,6 +472,12 @@
     <div id="bcn-focus-track"></div>
     <div class="bcn-focus-active-marker"></div>
     <div class="bcn-focus-label">FOCUS</div>
+  </div>
+
+  <!-- Floating gallery lightbox -->
+  <div class="bcn-float-lightbox" id="bcn-float-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="bcn-float-lb-close" id="bcn-float-lb-close" aria-label="Close image">&#x2715;</button>
+    <img class="bcn-float-lb-img" id="bcn-float-lb-img" src="" alt="">
   </div>
 
   <script src="js/main.js"></script>
