@@ -541,6 +541,8 @@ ul  { list-style: none; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 80vh;
+  padding: 96px 0;
+  background: var(--cream);
 }
 
 .editorial-text {
@@ -1410,7 +1412,7 @@ ul  { list-style: none; }
   .nav-links { display: none; }
   .search-btn { display: none; }
   .nav-menu-btn { display: flex; }
-  .editorial { grid-template-columns: 1fr; }
+  .editorial { grid-template-columns: 1fr; padding: 64px 0; }
   .editorial-media { min-height: 55vw; }
   .statement { grid-template-columns: 1fr; }
   .statement-img { height: 50vw; }
@@ -1444,6 +1446,7 @@ ul  { list-style: none; }
   .about-article { padding: 56px 24px 72px; }
   .about-pullquote { padding-left: 22px; margin: 52px 0; }
   .about-hero-img { height: 48vh; min-height: 280px; }
+  .editorial { padding: 48px 0; }
   .editorial-text { padding: 64px 28px; }
   .container { padding: 0 24px; }
   .footer { padding: 56px 24px 0; }
