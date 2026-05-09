@@ -678,7 +678,7 @@ ul  { list-style: none; }
    SELECTED PIECES — Asymmetric editorial grid
    ===================================================== */
 .pieces-section {
-  padding: 112px 0;
+  padding: 80px 0;
   background: var(--cream);
 }
 
@@ -717,16 +717,9 @@ ul  { list-style: none; }
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 56px;
-  height: 540px;
-  align-items: stretch;
 }
 
 .piece-large, .piece-small { background: var(--off-white); }
-
-.piece-large {
-  display: flex;
-  flex-direction: column;
-}
 
 .pieces-stack {
   display: flex;
@@ -746,7 +739,7 @@ ul  { list-style: none; }
   overflow: hidden;
   position: relative;
 }
-.piece-large .piece-img-wrap { flex: 1; min-height: 0; }
+.piece-large .piece-img-wrap { aspect-ratio: 3/4; }
 .piece-small  .piece-img-wrap { flex: 1; min-height: 160px; }
 
 .piece-img-wrap img {
@@ -921,6 +914,9 @@ ul  { list-style: none; }
 .footer-social a:hover { border-color: var(--accent); color: var(--accent); }
 
 .footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 28px 0 36px;
 }
 .footer-bottom p {
@@ -1418,8 +1414,7 @@ ul  { list-style: none; }
   .about-pullquote { padding-left: 28px; }
   .footer-inner { grid-template-columns: 1fr; gap: 44px; }
   .footer-nav { grid-template-columns: repeat(3, 1fr); gap: 36px; }
-  .pieces-grid { grid-template-columns: 1fr; height: auto; }
-  .piece-large .piece-img-wrap { aspect-ratio: 3/4; flex: unset; min-height: unset; }
+  .pieces-grid { grid-template-columns: 1fr; }
   .pieces-stack { flex-direction: row; }
   .piece-small .piece-img-wrap { aspect-ratio: 3/4; }
 }
@@ -1444,7 +1439,7 @@ ul  { list-style: none; }
   .footer-brand { text-align: center; padding: 48px 0 40px; }
   .footer-logo-link { display: inline-block; }
   .footer-nav { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-  .footer-bottom { text-align: center; }
+  .footer-bottom { flex-direction: column; gap: 18px; text-align: center; }
   .shop-layout { padding: 44px 24px 80px; }
   .pieces-section { padding: 72px 0; }
   .pieces-header, .pieces-grid { padding-left: 24px; padding-right: 24px; }
