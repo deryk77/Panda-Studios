@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dining Room Furniture — Derior</title>
+  <meta name="description" content="Derior dining room furniture — bar stools, benches, dining chairs, dining tables, drinks cabinets and sideboards.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="img/logo-Icon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo2.svg" alt="Derior" class="nav-logo-img">
+      </a>
+      <ul class="nav-links">
+        <li class="has-mega">
+          <a href="#" class="nav-link">
+            Categories
+            <svg width="10" height="7" viewBox="0 0 10 7" fill="none" class="nav-chevron">
+              <path d="M1 1L5 5.5L9 1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="search-btn" id="searchToggle" aria-label="Open search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="mega-menu" id="megaMenu">
+      <div class="mega-inner">
+        <div class="mega-col">
+          <a href="living-room.html" class="mega-heading">Living Room</a>
+          <ul>
+            <li><a href="living-room.html#coffee-tables">Coffee Tables</a></li>
+            <li><a href="living-room.html#console-tables">Console Tables</a></li>
+            <li><a href="living-room.html#side-tables">Side Tables</a></li>
+            <li><a href="living-room.html#sideboards">Sideboards</a></li>
+            <li><a href="living-room.html#tv-units">TV Units</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <a href="dining-room.html" class="mega-heading">Dining Room</a>
+          <ul>
+            <li><a href="#bar-stools">Bar Stools</a></li>
+            <li><a href="#benches">Benches</a></li>
+            <li><a href="#dining-chairs">Dining Chairs</a></li>
+            <li><a href="#dining-tables">Dining Tables</a></li>
+            <li><a href="#sideboards">Sideboards</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <a href="home-office.html" class="mega-heading">Home Office</a>
+          <ul>
+            <li><a href="home-office.html#desks">Desks</a></li>
+            <li><a href="home-office.html#shelves">Shelves</a></li>
+            <li><a href="home-office.html#bookshelves">Bookshelves</a></li>
+            <li><a href="home-office.html#desk-lamps">Desk Lamps</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <a href="bedroom.html" class="mega-heading">Bedroom</a>
+          <ul>
+            <li><a href="bedroom.html#beds">Beds</a></li>
+            <li><a href="bedroom.html#bedside-tables">Bedside Tables</a></li>
+            <li><a href="bedroom.html#chest-drawers">Chest of Drawers</a></li>
+            <li><a href="bedroom.html#dressing-tables">Dressing Tables</a></li>
+            <li><a href="bedroom.html#wardrobes">Wardrobes</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-bar-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="color:var(--muted);flex-shrink:0">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search furniture, categories..." autocomplete="off">
+      <button class="search-close" id="searchClose" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=1600&q=80" alt="Dining Room" loading="eager">
+    </div>
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Category</p>
+      <h1 class="page-title">Dining Room</h1>
+    </div>
+  </section>
+
+
+  <div class="shop-layout">
+    <aside class="shop-sidebar">
+      <p class="sidebar-title">Browse by type</p>
+      <div class="filter-group">
+        <h4>Dining Room</h4>
+        <ul class="filter-list">
+          <li><a href="#bar-stools">Bar Stools</a></li>
+          <li><a href="#benches">Benches</a></li>
+          <li><a href="#dining-chairs">Dining Chairs</a></li>
+          <li><a href="#dining-tables">Dining Tables</a></li>
+          <li><a href="#sideboards">Sideboards</a></li>
+        </ul>
+      </div>
+      <div class="filter-group">
+        <h4>Other Categories</h4>
+        <ul class="filter-list">
+          <li><a href="living-room.html">Living Room</a></li>
+          <li><a href="home-office.html">Home Office</a></li>
+          <li><a href="bedroom.html">Bedroom</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main>
+      <div class="shop-main-header">
+        <h2 class="shop-main-title">Dining Room</h2>
+        <span class="product-count">10 pieces</span>
+      </div>
+
+      <div class="subcat-section" id="bar-stools">
+        <h3 class="subcat-heading">Bar Stools</h3>
+        <div class="shop-grid">
+          <div class="product-card reveal">
+            <a href="#" class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&q=80" alt="Rattan Bar Stool" loading="lazy">
+            </a>
+            <div class="product-info">
+              <h4>Rattan Bar Stool</h4>
+              <span class="product-cat">Bar Stools</span>
+              <p class="product-price">From $290</p>
+            </div>
+          </div>
+          <div class="product-card reveal reveal-d1">
+            <a href="#" class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=600&q=80" alt="Leather Bar Stool" loading="lazy">
+            </a>
+            <div class="product-info">
+              <h4>Leather Counter Stool</h4>
+              <span class="product-cat">Bar Stools</span>
+              <p class="product-price">From $340</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subcat-section" id="benches">
+        <h3 class="subcat-heading">Benches</h3>
+        <div class="shop-grid">
+          <div class="product-card reveal">
+            <a href="#" class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="Upholstered Bench" loading="lazy">
+            </a>
+            <div class="product-info">
+              <h4>Upholstered Bench</h4>
+              <span class="product-cat">Benches</span>
+              <p class="product-price">From $640</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subcat-section" id="dining-chairs">
+        <h3 class="subcat-heading">Dining Chairs</h3>
+        <div class="shop-grid">
+          <div class="product-card reveal">
+            <a href="#" class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=600&q=80" alt="Leather Dining Chair" loading="lazy">
+            </a>
+            <div class="product-info">
+              <h4>Leather Dining Chair</h4>
+              <span class="product-cat">Dining Chairs</span>
+              <p class="product-price">From $380</p>
+            </div>
+          </div>
+          <div class="product-card reveal reveal-d1">
+            <a href="#" class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&q=80" alt="Wishbone Chair" loading="lazy">
+            </a>
+            <div class="product-info">
+              <h4>Oak Wishbone Chair</h4>
+              <span class="product-cat">Dining Chairs</span>
+              <p class="product-price">From $320</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subcat-section" id="dining-tables">
+        <h3 class="subcat-heading">Dining Tables</h3>
+        <div class="shop-grid">
+          <div class="product-card reveal">
+            <a href="#" class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80" alt="Round Oak Dining Table" loading="lazy">
+            </a>
+            <div class="product-info">
+              <h4>Round Oak Dining Table</h4>
+              <span class="product-cat">Dining Tables</span>
+              <p class="product-price">From $2,100</p>
+            </div>
+          </div>
+          <div class="product-card reveal reveal-d1">
+            <a href="#" class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80" alt="Extending Dining Table" loading="lazy">
+            </a>
+            <div class="product-info">
+              <h4>Extending Walnut Table</h4>
+              <span class="product-cat">Dining Tables</span>
+              <p class="product-price">From $2,450</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subcat-section" id="drinks-cabinets">
+        <h3 class="subcat-heading">Drinks Cabinets</h3>
+        <div class="shop-grid">
+          <div class="product-card reveal">
+            <a href="#" class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80" alt="Walnut Drinks Cabinet" loading="lazy">
+            </a>
+            <div class="product-info">
+              <h4>Walnut Drinks Cabinet</h4>
+              <span class="product-cat">Drinks Cabinets</span>
+              <p class="product-price">From $1,680</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subcat-section" id="sideboards">
+        <h3 class="subcat-heading">Sideboards</h3>
+        <div class="shop-grid">
+          <div class="product-card reveal">
+            <a href="#" class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80" alt="Ceramic Sideboard" loading="lazy">
+            </a>
+            <div class="product-info">
+              <h4>Ceramic Sideboard</h4>
+              <span class="product-cat">Sideboards</span>
+              <p class="product-price">From $1,450</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo-link"><img src="img/FOOTER.svg" alt="Derior" class="footer-logo-img"></a>
+      </div>
+                  <div class="footer-nav">
+        <div class="footer-col">
+          <h5><a href="living-room.html" class="footer-cat-link">Living Room</a></h5>
+          <ul>
+            <li><a href="living-room.html#coffee-tables">Coffee Tables</a></li>
+            <li><a href="living-room.html#console-tables">Console Tables</a></li>
+            <li><a href="living-room.html#side-tables">Side Tables</a></li>
+            <li><a href="living-room.html#sideboards">Sideboards</a></li>
+            <li><a href="living-room.html#tv-units">TV Units</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5><a href="dining-room.html" class="footer-cat-link">Dining Room</a></h5>
+          <ul>
+            <li><a href="dining-room.html#bar-stools">Bar Stools</a></li>
+            <li><a href="dining-room.html#benches">Benches</a></li>
+            <li><a href="dining-room.html#dining-chairs">Dining Chairs</a></li>
+            <li><a href="dining-room.html#dining-tables">Dining Tables</a></li>
+            <li><a href="dining-room.html#sideboards">Sideboards</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5><a href="home-office.html" class="footer-cat-link">Home Office</a></h5>
+          <ul>
+            <li><a href="home-office.html#desks">Desks</a></li>
+            <li><a href="home-office.html#shelves">Shelves</a></li>
+            <li><a href="home-office.html#bookshelves">Bookshelves</a></li>
+            <li><a href="home-office.html#desk-lamps">Desk Lamps</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5><a href="bedroom.html" class="footer-cat-link">Bedroom</a></h5>
+          <ul>
+            <li><a href="bedroom.html#beds">Beds</a></li>
+            <li><a href="bedroom.html#bedside-tables">Bedside Tables</a></li>
+            <li><a href="bedroom.html#chest-drawers">Chest of Drawers</a></li>
+            <li><a href="bedroom.html#dressing-tables">Dressing Tables</a></li>
+            <li><a href="bedroom.html#wardrobes">Wardrobes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="footer-social">
+            <a href="#" aria-label="X">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.213 5.567zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.7 5.5 4.3 9 4.3-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34v-6.7a8.18 8.18 0 0 0 4.79 1.53V6.69a4.85 4.85 0 0 1-1.03-.0z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Derior &mdash; A <a href="../index.html">Panda Studios</a> Project.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+

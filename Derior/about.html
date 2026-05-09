@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Derior</title>
+  <meta name="description" content="Derior — why we build what we build. Designed for ourselves first. Functional beauty, honest materials, made to last.">
+  <link rel="icon" type="image/svg+xml" href="img/logo-Icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo2.svg" alt="Derior" class="nav-logo-img">
+      </a>
+      <ul class="nav-links">
+        <li class="has-mega">
+          <a href="#" class="nav-link">
+            Categories
+            <svg width="10" height="7" viewBox="0 0 10 7" fill="none" class="nav-chevron">
+              <path d="M1 1L5 5.5L9 1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="search-btn" id="searchToggle" aria-label="Open search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="mega-menu" id="megaMenu">
+      <div class="mega-inner">
+        <div class="mega-col">
+          <a href="living-room.html" class="mega-heading">Living Room</a>
+          <ul>
+            <li><a href="living-room.html#coffee-tables">Coffee Tables</a></li>
+            <li><a href="living-room.html#console-tables">Console Tables</a></li>
+            <li><a href="living-room.html#side-tables">Side Tables</a></li>
+            <li><a href="living-room.html#sideboards">Sideboards</a></li>
+            <li><a href="living-room.html#tv-units">TV Units</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <a href="dining-room.html" class="mega-heading">Dining Room</a>
+          <ul>
+            <li><a href="dining-room.html#bar-stools">Bar Stools</a></li>
+            <li><a href="dining-room.html#benches">Benches</a></li>
+            <li><a href="dining-room.html#dining-chairs">Dining Chairs</a></li>
+            <li><a href="dining-room.html#dining-tables">Dining Tables</a></li>
+            <li><a href="dining-room.html#sideboards">Sideboards</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <a href="home-office.html" class="mega-heading">Home Office</a>
+          <ul>
+            <li><a href="home-office.html#desks">Desks</a></li>
+            <li><a href="home-office.html#shelves">Shelves</a></li>
+            <li><a href="home-office.html#bookshelves">Bookshelves</a></li>
+            <li><a href="home-office.html#desk-lamps">Desk Lamps</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <a href="bedroom.html" class="mega-heading">Bedroom</a>
+          <ul>
+            <li><a href="bedroom.html#beds">Beds</a></li>
+            <li><a href="bedroom.html#bedside-tables">Bedside Tables</a></li>
+            <li><a href="bedroom.html#chest-drawers">Chest of Drawers</a></li>
+            <li><a href="bedroom.html#dressing-tables">Dressing Tables</a></li>
+            <li><a href="bedroom.html#wardrobes">Wardrobes</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-bar-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="color:var(--muted);flex-shrink:0">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search furniture, categories..." autocomplete="off">
+      <button class="search-close" id="searchClose" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+
+  <!-- Page Title -->
+  <header class="page-header" style="border-bottom: none;">
+    <div class="page-header-inner">
+      <h1 class="page-header-title">Our Philosophy</h1>
+    </div>
+  </header>
+
+  <!-- Full-width hero image -->
+  <div class="about-hero-img">
+    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?w=1600&q=80" alt="Derior studio" loading="eager">
+  </div>
+
+
+  <!-- Article Body -->
+  <article class="about-article">
+
+    <!-- Lede -->
+    <p class="about-article-intro reveal">
+      We build furniture for ourselves first. Not as a metaphor &mdash; as a rule. Every piece in our catalogue has lived in one of our own homes before it reached yours. That is where this started, and it remains the only standard we actually trust.
+    </p>
+
+    <!-- Section 1 -->
+    <div class="about-article-section reveal">
+      <h2>The Problem With Most Furniture</h2>
+      <p>Walk into any furniture showroom and you will find pieces built primarily to photograph well. Clean lines. Attractive finishes. Persuasive price points. What you don&rsquo;t always find is furniture actually designed for use.</p>
+      <p>We started Derior because we were tired of replacing things. Tired of tables that scratched the moment they met daily life. Tired of drawer mechanisms that softened and sagged after eighteen months of ordinary use. Tired of surfaces that looked considered in a catalogue and looked worn in a living room. Tired of assembling something carefully, stepping back, and feeling like it had already started to disappoint.</p>
+      <p>The furniture industry optimises for the sale. It designs for the first six months &mdash; the period when most pieces look their best and most owners are still making peace with minor flaws. By the time the piece reveals its real character, the purchase is complete and the next model is already on the floor.</p>
+      <p>We decided to design for the tenth year instead. Everything we make is judged on how it will look, feel, and function a decade from now. That single shift changes every material choice, every joint, every finish decision.</p>
+    </div>
+
+    <!-- Pull quote 1 -->
+    <blockquote class="about-pullquote reveal">
+      <p>&ldquo;The industry optimises for the sale. We design for the tenth year.&rdquo;</p>
+    </blockquote>
+
+    <!-- Section 2 -->
+    <div class="about-article-section reveal">
+      <h2>Designed for Ourselves</h2>
+      <p>Our process has one filter: would we keep this in our own home?</p>
+      <p>That sounds simple. It isn&rsquo;t. It means we prototype for months. It means we reject finishes that look good in February but show micro-scratching by July. It means we rebuild drawer mechanisms that are structurally sound but not as quiet or smooth as they should be. It means we sit in chairs, eat at tables, open wardrobes every morning, and keep asking the same question: is this as good as it can be?</p>
+      <p>We call it the self-use rule. It isn&rsquo;t perfectionism &mdash; it&rsquo;s honesty. When we tell you a piece is durable, it&rsquo;s because we have lived with it. When we tell you a finish is easy to maintain, it&rsquo;s because we have maintained it. When we say a joint holds, it&rsquo;s because we have tested it past the point where cheaper joints fail.</p>
+      <p>We don&rsquo;t sell anything we wouldn&rsquo;t own. That rule has slowed us down considerably. It has also meant that when a piece does leave our workshop, we are genuinely confident in it. Not confident in the way marketing departments are confident. Confident in the way you are confident about something you have actually used.</p>
+    </div>
+
+  </article>
+
+  <!-- Design Process Strip -->
+  <div class="sketch-strip">
+    <div class="sketch-track">
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1549187774-b4e9b0445b41?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&q=75" alt="" loading="lazy"></div>
+      <!-- Duplicated for seamless loop -->
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1549187774-b4e9b0445b41?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=75" alt="" loading="lazy"></div>
+      <div class="sketch-item"><img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&q=75" alt="" loading="lazy"></div>
+    </div>
+  </div>
+
+  <article class="about-article about-article--lower">
+
+    <!-- Section 3 -->
+    <div class="about-article-section reveal">
+      <h2>What We Mean by Beautiful</h2>
+      <p>Our philosophy is drawn from Muji: eliminate the unnecessary until what remains is essential. Beauty, in this framing, is not something you apply to an object. It is what you are left with after discipline.</p>
+      <p>A well-made joint is beautiful because it holds. A surface that tells the truth about what it is made from is beautiful because it doesn&rsquo;t pretend. A form that is exactly the right size &mdash; not larger to impress, not smaller to cut cost &mdash; is beautiful because it fits. Durability is beautiful. Ease of assembly is beautiful. A table that doesn&rsquo;t wobble after a year of use is beautiful.</p>
+      <p>We are not interested in furniture that makes a statement. We are interested in furniture that earns its place in a room through how it works &mdash; and then quietly stays there. The best version of one of our pieces is one where, ten years from now, you don&rsquo;t think about it at all. It is simply part of the room, part of the routine, part of how the home functions.</p>
+      <p>That is functional beauty. Not the beauty of art objects, which ask to be admired from a distance. The beauty of things that perform so reliably you stop thinking about them &mdash; you just live alongside them.</p>
+    </div>
+
+    <!-- Pull quote 2 -->
+    <blockquote class="about-pullquote reveal">
+      <p>&ldquo;A piece of furniture should earn its place in a room and then disappear into it. That is the highest compliment we know.&rdquo;</p>
+    </blockquote>
+
+    <!-- Section 4 -->
+    <div class="about-article-section reveal">
+      <h2>The New Standard</h2>
+      <p>We are not trying to make luxury furniture. The word &lsquo;luxury&rsquo; implies rarity, exclusivity, a premium price as part of the point. None of that interests us. What interests us is the new standard &mdash; the furniture that should be in every well-considered home, regardless of budget, regardless of taste, regardless of how much thought the owner is willing to give it.</p>
+      <p>Pieces that don&rsquo;t ask you to choose between quality and practicality. That don&rsquo;t require a specialist to assemble or a particular cleaning product to maintain. That are made from materials that tell the truth about themselves &mdash; not a thin veneer stretched over composite, not a metal finish painted onto plastic, not a wood grain printed onto particle board.</p>
+      <p>Durable. Honest. Functional. Quiet. Nothing more.</p>
+      <p>If you live with one of our pieces for twenty years and find it unremarkable in the best possible sense &mdash; present, useful, unchanged in character &mdash; then we have done exactly what we set out to do.</p>
+    </div>
+
+  </article>
+
+  <!-- Closing Statement -->
+  <section class="statement">
+    <div class="statement-inner reveal">
+      <p class="statement-label">The New Standard</p>
+      <h2 class="statement-heading">Make.<br>Use.<br><em>Keep.</em></h2>
+      <p class="statement-body">We aren&rsquo;t making bespoke art. We are making the furniture that should already exist &mdash; pieces that don&rsquo;t ask to be replaced, maintained obsessively, or explained to guests. They just work, and keep working.</p>
+      <a href="contact.html" class="btn-outline">Get in Touch</a>
+    </div>
+    <div class="statement-img">
+      <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=1200&q=80" alt="Workshop" loading="lazy">
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo-link"><img src="img/FOOTER.svg" alt="Derior" class="footer-logo-img"></a>
+      </div>
+                  <div class="footer-nav">
+        <div class="footer-col">
+          <h5><a href="living-room.html" class="footer-cat-link">Living Room</a></h5>
+          <ul>
+            <li><a href="living-room.html#coffee-tables">Coffee Tables</a></li>
+            <li><a href="living-room.html#console-tables">Console Tables</a></li>
+            <li><a href="living-room.html#side-tables">Side Tables</a></li>
+            <li><a href="living-room.html#sideboards">Sideboards</a></li>
+            <li><a href="living-room.html#tv-units">TV Units</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5><a href="dining-room.html" class="footer-cat-link">Dining Room</a></h5>
+          <ul>
+            <li><a href="dining-room.html#bar-stools">Bar Stools</a></li>
+            <li><a href="dining-room.html#benches">Benches</a></li>
+            <li><a href="dining-room.html#dining-chairs">Dining Chairs</a></li>
+            <li><a href="dining-room.html#dining-tables">Dining Tables</a></li>
+            <li><a href="dining-room.html#sideboards">Sideboards</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5><a href="home-office.html" class="footer-cat-link">Home Office</a></h5>
+          <ul>
+            <li><a href="home-office.html#desks">Desks</a></li>
+            <li><a href="home-office.html#shelves">Shelves</a></li>
+            <li><a href="home-office.html#bookshelves">Bookshelves</a></li>
+            <li><a href="home-office.html#desk-lamps">Desk Lamps</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5><a href="bedroom.html" class="footer-cat-link">Bedroom</a></h5>
+          <ul>
+            <li><a href="bedroom.html#beds">Beds</a></li>
+            <li><a href="bedroom.html#bedside-tables">Bedside Tables</a></li>
+            <li><a href="bedroom.html#chest-drawers">Chest of Drawers</a></li>
+            <li><a href="bedroom.html#dressing-tables">Dressing Tables</a></li>
+            <li><a href="bedroom.html#wardrobes">Wardrobes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="footer-social">
+            <a href="#" aria-label="X">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.213 5.567zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.7 5.5 4.3 9 4.3-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34v-6.7a8.18 8.18 0 0 0 4.79 1.53V6.69a4.85 4.85 0 0 1-1.03-.0z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Derior &mdash; A <a href="../index.html">Panda Studios</a> Project.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
