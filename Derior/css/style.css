@@ -450,11 +450,12 @@ ul  { list-style: none; }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(60px, 9.5vw, 148px);
+  font-size: clamp(40px, 6.3vw, 99px);
   font-weight: 300;
   line-height: 0.9;
   color: white;
   letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.45), 0 1px 4px rgba(0,0,0,0.25);
 }
 .hero-title em {
   font-style: italic;
@@ -1435,7 +1436,7 @@ ul  { list-style: none; }
 
 @media (max-width: 600px) {
   :root { --nav-h: 64px; }
-  .hero-title { font-size: clamp(48px, 13vw, 80px); }
+  .hero-title { font-size: clamp(32px, 8.7vw, 53px); }
   .shop-grid { grid-template-columns: 1fr; }
   .page-hero-content,
   .search-bar-wrap, .search-results { padding-left: 24px; padding-right: 24px; }
