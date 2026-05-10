@@ -870,6 +870,14 @@ ul  { list-style: none; }
   border-bottom: 1px solid rgba(253,250,246,0.1);
 }
 .footer-brand { padding-top: 4px; }
+.footer-tagline {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(253,250,246,0.45);
+  margin-top: 14px;
+  line-height: 1.4;
+}
 
 /* SVG logo in footer */
 .footer-logo-link {
