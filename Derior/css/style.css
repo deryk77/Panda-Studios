@@ -1205,8 +1205,8 @@ ul  { list-style: none; }
 
 .product-info { padding: 18px 4px 28px; }
 .product-info h4 {
-  font-family: var(--font-display);
-  font-size: 20px; font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 20px; font-weight: 300;
   color: var(--charcoal);
   margin-bottom: 5px;
 }
