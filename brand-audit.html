@@ -130,7 +130,6 @@
         min-height: 60vh;
         padding: 0;
     }
-
     .audit-wrap {
         position: relative;
         z-index: 1;
@@ -140,8 +139,6 @@
         font-family: 'Montserrat', sans-serif;
         color: #222222;
     }
-
-    /* grain overlay */
     .audit-shell::before {
         content: '';
         position: absolute;
@@ -151,83 +148,45 @@
         opacity: 0.4;
     }
 
-    /* header */
-    .audit-header { margin-bottom: 64px; }
-    .audit-eyebrow {
-        font-size: 9px;
-        letter-spacing: 6px;
-        color: #888888;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        font-family: 'Montserrat', sans-serif;
-    }
-    .audit-title {
-        font-size: clamp(33px, 6vw, 45px);
-        font-weight: 700;
-        line-height: 1.15;
-        color: #d3d3d3;
-        letter-spacing: 1px;
-        font-family: 'Montserrat', sans-serif;
-    }
-    .audit-title em {
-        display: block;
-        font-style: italic;
-        font-weight: 400;
-        font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: clamp(36px, 6.5vw, 50px);
-        color: #d3d3d3;
-        letter-spacing: 2px;
-    }
-    .audit-rule {
-        width: 40px; height: 1px;
-        background: #FF0000;
-        margin: 24px 0;
-    }
-    .audit-desc {
-        font-size: 12px;
-        line-height: 1.9;
-        color: #d3d3d3;
-        max-width: 500px;
-        font-family: 'Montserrat', sans-serif;
-    }
-
     /* step nav */
-    .audit-step-nav {
-        display: flex;
-        gap: 0;
-        margin-bottom: 56px;
-    }
+    .audit-step-nav { display: flex; gap: 0; margin-bottom: 56px; }
     .audit-step-item { flex: 1; }
     .audit-step-label {
-        font-size: 10px;
-        letter-spacing: 1.5px;
+        font-size: 9px;
+        letter-spacing: 1px;
         color: #555555;
         padding-bottom: 10px;
         font-weight: 700;
         text-transform: uppercase;
         transition: color 0.3s;
         font-family: 'Montserrat', sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
     }
     .audit-step-item.active .audit-step-label { color: #FF0000; }
     .audit-step-item.done .audit-step-label   { color: #444444; }
-    .audit-step-bar {
-        height: 1px;
-        background: #dddddd;
-        transition: background 0.3s;
-    }
+    .audit-step-bar { height: 1px; background: #dddddd; transition: background 0.3s; }
     .audit-step-item.active .audit-step-bar { background: #FF0000; }
     .audit-step-item.done .audit-step-bar   { background: #888888; }
 
     /* panels */
     .audit-panel { display: none; }
     .audit-panel.visible { display: block; animation: auditFadeUp 0.4s ease both; }
-
     .audit-step-heading {
         font-size: 11px;
         letter-spacing: 3px;
         color: #cc0000;
-        margin-bottom: 36px;
+        margin-bottom: 8px;
         text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .audit-step-sub {
+        font-size: 11px;
+        color: #888888;
+        line-height: 1.7;
+        margin-bottom: 36px;
         font-family: 'Montserrat', sans-serif;
     }
 
@@ -235,10 +194,10 @@
     .audit-field { margin-bottom: 36px; }
     .audit-label {
         display: block;
-        font-size: 13px;
-        letter-spacing: 1px;
+        font-size: 11px;
+        letter-spacing: 2px;
         color: #111111;
-        margin-bottom: 10px;
+        margin-bottom: 14px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
         text-transform: uppercase;
@@ -252,23 +211,20 @@
         color: #111111;
         font-family: 'Montserrat', sans-serif;
         font-size: 13px;
-        padding: 10px 0;
+        padding: 12px 0;
         outline: none;
         transition: border-color 0.3s;
         box-sizing: border-box;
     }
-    .audit-textarea { resize: vertical; line-height: 1.7; }
+    .audit-input + .audit-input { margin-top: 20px; }
+    .audit-textarea { resize: vertical; line-height: 1.8; }
     .audit-input::placeholder,
-    .audit-textarea::placeholder { color: #888888; }
+    .audit-textarea::placeholder { color: #aaaaaa; }
     .audit-input:focus,
     .audit-textarea:focus { border-bottom-color: #FF0000; }
 
     /* buttons */
-    .audit-btn-row {
-        display: flex;
-        gap: 16px;
-        margin-top: 8px;
-    }
+    .audit-btn-row { display: flex; gap: 16px; margin-top: 8px; }
     .audit-btn {
         flex: 1;
         background: transparent;
@@ -286,27 +242,15 @@
     .audit-btn:disabled { opacity: 0.3; cursor: not-allowed; }
     .audit-btn:not(:disabled):hover,
     .audit-btn:not(:disabled):active { background: #FF0000; color: #ffffff; border-color: #FF0000; }
-    .audit-btn.secondary {
-        background: transparent;
-        border: 1px solid #cccccc;
-        color: #888888;
-    }
+    .audit-btn.secondary { border: 1px solid #cccccc; color: #888888; }
     .audit-btn.secondary:not(:disabled):hover,
     .audit-btn.secondary:not(:disabled):active { background: #FF0000; color: #ffffff; border-color: #FF0000; }
-    .audit-btn.gold {
-        background: transparent;
-        color: #111111;
-        border: 1px solid #111111;
-    }
+    .audit-btn.gold { border: 1px solid #111111; color: #111111; }
     .audit-btn.gold:not(:disabled):hover,
     .audit-btn.gold:not(:disabled):active { background: #FF0000; color: #ffffff; border-color: #FF0000; }
 
     /* loading */
-    #audit-loading {
-        display: none;
-        text-align: center;
-        padding: 80px 0;
-    }
+    #audit-loading { display: none; text-align: center; padding: 80px 0; }
     #audit-loading.visible { display: block; animation: auditFadeUp 0.4s ease both; }
     .audit-loading-text {
         font-size: 9px;
@@ -329,7 +273,8 @@
     #audit-result { display: none; }
     #audit-result.visible { display: block; animation: auditFadeUp 0.6s ease both; }
 
-    .audit-score-ring-wrap { text-align: center; margin-bottom: 40px; }
+    /* score ring */
+    .audit-score-ring-wrap { text-align: center; margin-bottom: 16px; }
     .audit-score-ring-label {
         font-size: 9px;
         letter-spacing: 5px;
@@ -338,99 +283,236 @@
         text-transform: uppercase;
         font-family: 'Montserrat', sans-serif;
     }
+
+    /* score grid */
     .audit-score-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        margin-top: 24px;
+        gap: 10px;
+        margin-top: 20px;
+        margin-bottom: 56px;
     }
     .audit-score-card {
-        background: #f5f5f5;
-        border: 1px solid #dddddd;
-        padding: 14px 18px;
+        background: #f7f7f7;
+        border: 1px solid #e8e8e8;
+        padding: 18px 20px 16px;
     }
     .audit-score-card-label {
         font-size: 8px;
-        letter-spacing: 3px;
-        color: #888888;
-        margin-bottom: 8px;
+        letter-spacing: 2.5px;
+        color: #999999;
+        margin-bottom: 10px;
         text-transform: uppercase;
         font-family: 'Montserrat', sans-serif;
+        line-height: 1.4;
     }
     .audit-score-card-val {
-        font-size: 22px;
-        color: #FF0000;
+        font-size: 28px;
+        font-weight: 700;
         font-family: 'Montserrat', sans-serif;
+        line-height: 1;
+        margin-bottom: 10px;
     }
-    .audit-score-card-val span { font-size: 12px; color: #888888; }
+    .audit-score-card-val span { font-size: 12px; color: #888888; font-weight: 400; }
+    .audit-score-bar-track { height: 2px; background: #e8e8e8; }
+    .audit-score-bar-fill  { height: 2px; transition: width 1s ease; }
 
-    .audit-report-body { border-top: 1px solid #dddddd; padding-top: 40px; }
+    /* sneak peek badge */
+    .audit-sneak-badge {
+        display: inline-block;
+        border: 1px solid #FF0000;
+        color: #FF0000;
+        font-size: 8px;
+        letter-spacing: 4px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 9px 20px;
+        margin-bottom: 52px;
+    }
+
+    /* report body */
+    .audit-report-body { border-top: 1px solid #e0e0e0; padding-top: 56px; }
+
+    .r-section-block {
+        margin-bottom: 60px;
+        padding-bottom: 52px;
+        border-bottom: 1px solid #eeeeee;
+    }
+    .r-section-block:last-of-type { border-bottom: none; }
 
     .r-section-head {
-        font-size: 9px;
-        letter-spacing: 5px;
+        display: block;
+        font-size: 8px;
+        letter-spacing: 6px;
         color: #FF0000;
-        margin-top: 44px;
-        margin-bottom: 18px;
+        margin-bottom: 32px;
         font-weight: 700;
         text-transform: uppercase;
         font-family: 'Montserrat', sans-serif;
+        padding-bottom: 14px;
+        border-bottom: 1px solid #FF0000;
     }
-    .r-dim-score {
+
+    .r-section-score-note {
+        font-size: 13px;
+        line-height: 1.9;
+        color: #555555;
+        font-family: 'Montserrat', sans-serif;
+        padding: 20px 24px;
+        background: #f7f7f7;
+        border-left: 3px solid #dddddd;
+    }
+
+    .r-positioning-statement {
+        font-size: clamp(18px, 2.8vw, 24px);
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-style: italic;
+        color: #111111;
+        line-height: 1.65;
+        letter-spacing: 0.3px;
+    }
+
+    .r-founders-para {
         font-size: 14px;
-        color: #222222;
-        font-weight: 700;
-        margin-top: 28px;
-        margin-bottom: 4px;
+        line-height: 2.15;
+        color: #333333;
+        margin-bottom: 28px;
         font-family: 'Montserrat', sans-serif;
     }
+    .r-founders-para:last-child { margin-bottom: 0; }
+
+    .r-dim-score-line {
+        font-size: 15px;
+        color: #111111;
+        font-weight: 700;
+        margin-bottom: 6px;
+        margin-top: 44px;
+        font-family: 'Montserrat', sans-serif;
+        padding-bottom: 4px;
+    }
+    .r-dim-score-line:first-of-type { margin-top: 0; }
+
     .r-rubric {
-        font-size: 10px;
+        font-size: 11px;
         color: #888888;
         font-style: italic;
-        margin-bottom: 10px;
-        line-height: 1.7;
-        font-family: 'Montserrat', sans-serif;
-    }
-    .r-cost {
-        border-left: 2px solid #8a1c1c;
-        padding-left: 18px;
-        margin-top: 12px;
-        color: #c4826a;
-        font-size: 12px;
-        line-height: 1.8;
-        font-style: italic;
-        font-family: 'Montserrat', sans-serif;
-    }
-    .r-text {
-        font-size: 12px;
+        margin-bottom: 18px;
         line-height: 1.9;
+        font-family: 'Montserrat', sans-serif;
+        padding: 10px 0 14px;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .r-text {
+        font-size: 13px;
+        line-height: 2;
         color: #444444;
-        margin-bottom: 4px;
+        margin-bottom: 10px;
         font-family: 'Montserrat', sans-serif;
     }
-    .r-spacer { height: 8px; }
 
+    .r-cost {
+        border-left: 3px solid #8a1c1c;
+        padding: 18px 22px;
+        margin-top: 20px;
+        background: #fdf5f5;
+    }
+    .r-cost-label {
+        display: block;
+        font-size: 8px;
+        letter-spacing: 3px;
+        color: #8a1c1c;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 10px;
+    }
+    .r-cost-text {
+        color: #7a3a2a;
+        font-size: 12px;
+        line-height: 1.95;
+        font-family: 'Montserrat', sans-serif;
+        font-style: italic;
+    }
+
+    /* locked section */
+    .r-locked-wrapper { position: relative; margin-top: 40px; }
+    .r-locked-content {
+        max-height: 200px;
+        overflow: hidden;
+        filter: blur(6px);
+        pointer-events: none;
+        user-select: none;
+        opacity: 0.45;
+    }
+    .r-lock-overlay {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 80px 28px 36px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.94) 32%, #ffffff 100%);
+        text-align: center;
+    }
+    .r-lock-eyebrow {
+        font-size: 8px;
+        letter-spacing: 5px;
+        color: #999999;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 14px;
+    }
+    .r-lock-title {
+        font-size: 17px;
+        font-weight: 700;
+        color: #111111;
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.55;
+        margin-bottom: 28px;
+    }
+    .r-lock-cta {
+        display: inline-block;
+        border: 1px solid #111111;
+        color: #111111;
+        font-size: 9px;
+        letter-spacing: 3px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 15px 36px;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .r-lock-cta:hover { background: #FF0000; color: #ffffff; border-color: #FF0000; }
+    .r-lock-links {
+        margin-top: 18px;
+        font-size: 10px;
+        color: #888888;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    .r-lock-links a { color: #888888; text-decoration: none; }
+    .r-lock-links a:hover { color: #FF0000; }
+
+    /* CTA box */
     .audit-cta-box {
-        margin-top: 56px;
-        padding: 28px;
+        margin-top: 60px;
+        padding: 32px 36px;
         border: 1px solid #dddddd;
         border-left: 3px solid #cc0000;
-        background: #f5f5f5;
+        background: #f7f7f7;
     }
     .audit-cta-eyebrow {
-        font-size: 9px;
-        letter-spacing: 4px;
+        font-size: 8px;
+        letter-spacing: 5px;
         color: #cc0000;
-        margin-bottom: 14px;
+        margin-bottom: 16px;
         text-transform: uppercase;
         font-family: 'Montserrat', sans-serif;
     }
     .audit-cta-body {
-        font-size: 12px;
+        font-size: 13px;
         color: #444444;
-        line-height: 1.9;
-        font-style: italic;
+        line-height: 2;
         font-family: 'Montserrat', sans-serif;
     }
     .audit-cta-body a { color: #FF0000; text-decoration: none; }
@@ -445,7 +527,7 @@
         letter-spacing: 3px;
         font-family: 'Montserrat', sans-serif;
         cursor: pointer;
-        margin-top: 24px;
+        margin-top: 28px;
         width: 100%;
         text-transform: uppercase;
         transition: background 0.2s, color 0.2s, border-color 0.2s;
@@ -457,19 +539,20 @@
         from { opacity: 0; transform: translateY(16px); }
         to   { opacity: 1; transform: translateY(0); }
     }
-    @keyframes auditSpin {
-        to { transform: rotate(360deg); }
-    }
+    @keyframes auditSpin { to { transform: rotate(360deg); } }
 
     @media (max-width: 480px) {
         .audit-wrap { padding: 40px 20px 80px; }
         .audit-score-grid { grid-template-columns: 1fr 1fr; }
+        .audit-step-label { font-size: 7px; letter-spacing: 0; }
     }
     /* ─────────────────────────────────────────────────────────── */
     </style>
 
     <!-- EmailJS — sends audit report to pandastudios77@gmail.com -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- html2pdf — generates silent PDF for email delivery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 </head>
 
@@ -680,6 +763,10 @@
                                 <div class="audit-step-label">04 &middot; Truth</div>
                                 <div class="audit-step-bar"></div>
                             </div>
+                            <div class="audit-step-item" id="anav-4">
+                                <div class="audit-step-label">05 &middot; Contact</div>
+                                <div class="audit-step-bar"></div>
+                            </div>
                         </nav>
 
                         <!-- Step 0: Identity -->
@@ -769,6 +856,21 @@
 
                             <div class="audit-btn-row">
                                 <button class="audit-btn secondary" onclick="auditGoTo(2)">&larr; Back</button>
+                                <button class="audit-btn gold" onclick="auditGoTo(4)">Next &rarr;</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Contact -->
+                        <div class="audit-panel" id="apanel-4">
+                            <div class="audit-step-heading">One last thing</div>
+                            <p class="audit-step-sub">Your sneak peek will appear here. We'll send your full detailed report to these details and follow up with your strategic PDF.</p>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-email">Email &amp; Phone</label>
+                                <input class="audit-input" type="email" id="a-email" placeholder="Email address *" />
+                                <input class="audit-input" type="tel" id="a-phone" placeholder="Phone number (optional)" />
+                            </div>
+                            <div class="audit-btn-row">
+                                <button class="audit-btn secondary" onclick="auditGoTo(3)">&larr; Back</button>
                                 <button class="audit-btn gold" onclick="runBrandAudit()">Run Audit &rarr;</button>
                             </div>
                         </div>
@@ -983,25 +1085,35 @@
     <script>
     // ════════════════════════════════════════════════════════════
     //  BRAND AUDIT — PROXY URL
-    //  Requests go to your Cloudflare Worker, which holds the
-    //  Anthropic API key as a server-side secret. Key never
-    //  appears in this file or in the browser.
-    //  Deploy cloudflare-worker.js → paste your Worker URL below.
     // ════════════════════════════════════════════════════════════
     var AUDIT_PROXY_URL = 'https://panda-audit.pandastudios.workers.dev';
 
     // ════════════════════════════════════════════════════════════
-    //  EMAILJS — Sends the audit report to pandastudios77@gmail.com
-    //  1. Sign up free at https://www.emailjs.com
-    //  2. Add Gmail as a service → copy the Service ID
-    //  3. Create a template with variables:
-    //       {{business_name}}  {{location}}  {{audit_score}}  {{audit_report}}
-    //  4. Copy your Public Key from Account → API Keys
-    //  Then paste the three values below.
+    //  EMAILJS — sends full audit report to pandastudios77@gmail.com
+    //
+    //  In your EmailJS dashboard, open template template_k2b6qe5
+    //  and set it up as follows:
+    //
+    //  To:      pandastudios77@gmail.com
+    //  Subject: New Audit — {{business_name}} | {{audit_score}}
+    //  Body (paste exactly, all variables must be present):
+    //
+    //    NEW BRAND AUDIT SUBMISSION
+    //    Business: {{business_name}} ({{business_type}})
+    //    Location: {{location}}
+    //    Client Email: {{client_email}}
+    //    Client Phone: {{client_phone}}
+    //    Score: {{audit_score}}
+    //    ─────────────────────────
+    //    FULL REPORT:
+    //    {{audit_report}}
+    //
+    //  PDF attachment: upgrade EmailJS to Pro plan, then the PDF
+    //  will attach automatically — no code changes needed.
     // ════════════════════════════════════════════════════════════
     var EMAILJS_PUBLIC_KEY  = 'jyMcHGci8gLcdTYvq';
-    var EMAILJS_SERVICE_ID  = 'service_nse0laz';
-    var EMAILJS_TEMPLATE_ID = 'template_k2b6qe5';
+    var EMAILJS_SERVICE_ID  = 'service_lmbycx6';
+    var EMAILJS_TEMPLATE_ID = 'template_o1cv746';
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
     // ── System Prompt ────────────────────────────────────────────
@@ -1106,6 +1218,7 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
         if (step === 1) return auditVal('a-visualDesc');
         if (step === 2) return auditVal('a-targetClient') && auditVal('a-avgPrice');
         if (step === 3) return auditVal('a-biggestFrustration') && auditVal('a-dreamClient') && auditVal('a-currentFeeling');
+        if (step === 4) return auditVal('a-email');
         return true;
     }
 
@@ -1159,18 +1272,18 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
         var dash = (score / 100) * circ;
         var color = score >= 75 ? '#6aad7a' : score >= 50 ? '#FF0000' : '#8a1c1c';
         return '<div class="audit-score-ring-wrap">' +
-            '<svg width="140" height="140" style="display:block;margin:0 auto;">' +
-            '<circle cx="70" cy="70" r="' + r + '" fill="none" stroke="#444444" stroke-width="4"/>' +
-            '<circle cx="70" cy="70" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="4"' +
+            '<svg width="148" height="148" style="display:block;margin:0 auto;">' +
+            '<circle cx="74" cy="74" r="' + r + '" fill="none" stroke="#e8e8e8" stroke-width="5"/>' +
+            '<circle cx="74" cy="74" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="5"' +
             ' stroke-dasharray="' + dash + ' ' + circ + '"' +
             ' stroke-dashoffset="' + (circ * 0.25) + '"' +
             ' stroke-linecap="round"' +
             ' style="transform-origin:center;transform:rotate(-90deg) scaleX(-1);"' +
             '/>' +
-            '<text x="70" y="67" text-anchor="middle" fill="' + color + '"' +
-            ' font-family="\'Montserrat\',sans-serif" font-size="24" font-weight="700">' + score + '</text>' +
-            '<text x="70" y="84" text-anchor="middle" fill="#888888"' +
-            ' font-family="\'Montserrat\',sans-serif" font-size="10">/100</text>' +
+            '<text x="74" y="70" text-anchor="middle" fill="' + color + '"' +
+            ' font-family="\'Montserrat\',sans-serif" font-size="28" font-weight="700">' + score + '</text>' +
+            '<text x="74" y="88" text-anchor="middle" fill="#aaaaaa"' +
+            ' font-family="\'Montserrat\',sans-serif" font-size="10" letter-spacing="2">/100</text>' +
             '</svg>' +
             '<div class="audit-score-ring-label">Brand Health Score</div>' +
             '</div>';
@@ -1181,9 +1294,13 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
         var html = '<div class="audit-score-grid">';
         dims.forEach(function(d) {
             if (scores[d] !== null) {
+                var val = scores[d];
+                var color = val >= 15 ? '#6aad7a' : val >= 10 ? '#FF0000' : '#8a1c1c';
+                var pct = Math.round((val / 20) * 100);
                 html += '<div class="audit-score-card">' +
                     '<div class="audit-score-card-label">' + d + '</div>' +
-                    '<div class="audit-score-card-val">' + scores[d] + '<span>/20</span></div>' +
+                    '<div class="audit-score-card-val" style="color:' + color + '">' + val + '<span> /20</span></div>' +
+                    '<div class="audit-score-bar-track"><div class="audit-score-bar-fill" style="width:' + pct + '%;background:' + color + '"></div></div>' +
                     '</div>';
             }
         });
@@ -1191,33 +1308,258 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
         return html;
     }
 
-    // ── Render report ─────────────────────────────────────────────
-    function auditRenderReport(text) {
+    // ── Parse full text into named sections ──────────────────────
+    function auditParseSections(text) {
+        var sections = [];
         var lines = text.split('\n');
-        var html = '';
+        var current = null;
         lines.forEach(function(line) {
             if (line.startsWith('## ')) {
-                html += '<div class="r-section-head">' + line.replace('## ', '') + '</div>';
-            } else if (line.startsWith('**') && line.indexOf('/20') !== -1) {
-                html += '<div class="r-dim-score">' + line.replace(/\*\*/g, '') + '</div>';
-            } else if (line.startsWith('**Financial Cost')) {
-                html += '<div class="r-cost">' + line.replace(/\*\*/g, '') + '</div>';
-            } else if (line.startsWith('*Rubric:')) {
-                html += '<div class="r-rubric">' + line.replace(/\*/g, '') + '</div>';
-            } else if (line.trim() === '') {
-                html += '<div class="r-spacer"></div>';
-            } else {
-                html += '<div class="r-text">' + line + '</div>';
+                if (current) sections.push(current);
+                current = { title: line.replace('## ', '').trim(), lines: [] };
+            } else if (current) {
+                current.lines.push(line);
             }
         });
+        if (current) sections.push(current);
+        return sections;
+    }
+
+    // ── Render sneak peek (on-screen result) ─────────────────────
+    function auditRenderSneakPeek(sections) {
+        var html = '<div class="audit-sneak-badge">Sneak Peek &mdash; Your Brand Intelligence Report</div>';
+
+        sections.forEach(function(section) {
+            var t = section.title.toUpperCase();
+            var visibleLines = section.lines.filter(function(l) { return l.trim(); });
+
+            // Brand Health Score — one-sentence market interpretation
+            if (t.indexOf('BRAND HEALTH') !== -1) {
+                if (visibleLines.length > 0) {
+                    html += '<div class="r-section-block">';
+                    html += '<span class="r-section-head">' + section.title + '</span>';
+                    html += '<div class="r-section-score-note">' + visibleLines[0] + '</div>';
+                    html += '</div>';
+                }
+                return;
+            }
+
+            // Brand Positioning Statement — styled as editorial quote
+            if (t.indexOf('POSITIONING') !== -1) {
+                html += '<div class="r-section-block">';
+                html += '<span class="r-section-head">' + section.title + '</span>';
+                html += '<div class="r-positioning-statement">&ldquo;' + visibleLines.join(' ') + '&rdquo;</div>';
+                html += '</div>';
+                return;
+            }
+
+            // Founder's Observation — paragraph prose
+            if (t.indexOf("FOUNDER") !== -1) {
+                html += '<div class="r-section-block">';
+                html += '<span class="r-section-head">' + section.title + '</span>';
+                var paras = [], cur = [];
+                section.lines.forEach(function(l) {
+                    if (!l.trim() && cur.length) { paras.push(cur.join(' ')); cur = []; }
+                    else if (l.trim()) cur.push(l.trim());
+                });
+                if (cur.length) paras.push(cur.join(' '));
+                paras.forEach(function(p) {
+                    html += '<div class="r-founders-para">' + p + '</div>';
+                });
+                html += '</div>';
+                return;
+            }
+        });
+
+        // Locked section — tease the scorecard
+        var scorecardSec = sections.find(function(s) {
+            return s.title.toUpperCase().indexOf('SCORECARD') !== -1 || s.title.toUpperCase().indexOf('FIVE-DIMENSION') !== -1;
+        });
+        html += '<div class="r-locked-wrapper">';
+        html += '<div class="r-locked-content">';
+        if (scorecardSec) {
+            html += '<span class="r-section-head">' + scorecardSec.title + '</span>';
+            scorecardSec.lines.slice(0, 10).forEach(function(line) {
+                if (line.trim()) html += '<div class="r-text">' + line.replace(/\*\*/g, '') + '</div>';
+            });
+        }
+        html += '</div>';
+        html += '<div class="r-lock-overlay">';
+        html += '<div class="r-lock-eyebrow">Full Strategic Report Available</div>';
+        html += '<div class="r-lock-title">Your complete audit &mdash; scorecard, strategic gap<br>and detailed PDF &mdash; is available upon request.</div>';
+        html += '<a href="contact.html" class="r-lock-cta">Request Your Full Report &rarr;</a>';
+        html += '<div class="r-lock-links">';
+        html += '<a href="mailto:hello@pandastudios.co">hello@pandastudios.co</a>';
+        html += '&nbsp;&nbsp;&middot;&nbsp;&nbsp;';
+        html += '<a href="tel:+256772233050">+256 772 233-050</a>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
+
         return html;
+    }
+
+    // ── Build rich full report HTML (for email / PDF) ─────────────
+    function auditBuildFullReportHTML(text, scores, clientInfo) {
+        var scoreColor = !scores.overall ? '#888' : scores.overall >= 75 ? '#4a9a5a' : scores.overall >= 50 ? '#cc4400' : '#8a1c1c';
+        var reportDate = new Date().toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        var css = [
+            'body{font-family:Georgia,serif;color:#222;max-width:820px;margin:0 auto;padding:48px 48px 64px;background:#fff;}',
+            'h1{font-size:30px;font-weight:400;color:#111;border-bottom:2px solid #FF0000;padding-bottom:18px;margin-bottom:6px;letter-spacing:1px;}',
+            '.meta{font-size:12px;color:#777;font-family:Arial,sans-serif;margin-bottom:44px;line-height:1.9;}',
+            '.client-card{background:#f7f7f7;border-left:3px solid #cccccc;padding:22px 28px;margin-bottom:44px;font-family:Arial,sans-serif;font-size:13px;color:#444;line-height:1.9;}',
+            '.client-card strong{color:#111;font-size:11px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:10px;}',
+            '.score-hero{text-align:center;margin:0 0 52px;padding:40px 0;border-bottom:1px solid #eee;}',
+            '.score-num{font-size:80px;font-weight:700;color:' + scoreColor + ';font-family:Arial,sans-serif;line-height:1;letter-spacing:-2px;}',
+            '.score-denom{font-size:24px;color:#aaa;font-family:Arial,sans-serif;}',
+            '.score-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#aaa;font-family:Arial,sans-serif;margin-top:10px;}',
+            'h2{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:#FF0000;font-family:Arial,sans-serif;margin-top:52px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #FF0000;}',
+            '.positioning{font-size:22px;font-style:italic;color:#111;line-height:1.65;font-family:Georgia,serif;margin-bottom:8px;}',
+            'p{font-size:14px;line-height:2.1;margin-bottom:16px;color:#333;}',
+            '.dim-block{border-left:3px solid #ddd;padding:22px 28px;margin:28px 0;background:#f9f9f9;}',
+            '.dim-title{font-size:14px;font-weight:700;color:#111;font-family:Arial,sans-serif;margin-bottom:4px;}',
+            '.rubric{font-size:11px;color:#888;font-style:italic;font-family:Arial,sans-serif;margin:10px 0 16px;padding-bottom:12px;border-bottom:1px solid #e8e8e8;line-height:1.8;}',
+            '.cost-block{border-left:3px solid #8a1c1c;padding:18px 22px;background:#fdf5f5;margin-top:16px;}',
+            '.cost-label{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#8a1c1c;font-family:Arial,sans-serif;display:block;margin-bottom:10px;font-weight:700;}',
+            '.cost-text{font-size:13px;color:#7a3a2a;line-height:2;font-style:italic;}',
+            '.gap-block{background:#111;color:#fff;padding:32px 36px;margin:32px 0;}',
+            '.gap-block p{color:#ccc;font-size:13px;line-height:2;}',
+            '.arch-block{border:1px solid #FF0000;padding:32px 36px;margin:32px 0;}',
+            '.arch-block p{font-size:13px;line-height:2;}',
+            '.footer{margin-top:72px;padding-top:24px;border-top:1px solid #ddd;font-size:11px;color:#999;font-family:Arial,sans-serif;line-height:1.9;text-align:center;}'
+        ].join('');
+
+        var html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>' + css + '</style></head><body>';
+
+        html += '<h1>Brand Intelligence Audit</h1>';
+        html += '<div class="meta">' +
+            '<strong>' + (clientInfo.businessName || 'Unknown') + '</strong>' +
+            (clientInfo.businessType ? ' &mdash; ' + clientInfo.businessType : '') + '<br>' +
+            (clientInfo.location ? clientInfo.location + '<br>' : '') +
+            'Report prepared by Panda Studios, Kampala &middot; pandastudios.co<br>' +
+            reportDate + '</div>';
+
+        html += '<div class="client-card"><strong>Client Contact</strong>' +
+            'Email: ' + (clientInfo.email || 'Not provided') + '<br>' +
+            'Phone: ' + (clientInfo.phone || 'Not provided') + '</div>';
+
+        if (scores.overall !== null) {
+            html += '<div class="score-hero">' +
+                '<div class="score-num">' + scores.overall + '<span class="score-denom">/100</span></div>' +
+                '<div class="score-label">Brand Health Score</div>' +
+                '</div>';
+        }
+
+        var sections = auditParseSections(text);
+        sections.forEach(function(section) {
+            var t = section.title.toUpperCase();
+            html += '<h2>' + section.title + '</h2>';
+
+            if (t.indexOf('POSITIONING') !== -1) {
+                var posText = section.lines.filter(function(l){return l.trim();}).join(' ');
+                html += '<div class="positioning">&ldquo;' + posText + '&rdquo;</div>';
+                return;
+            }
+
+            if (t.indexOf('STRATEGIC GAP') !== -1) {
+                html += '<div class="gap-block">';
+                section.lines.filter(function(l){return l.trim();}).forEach(function(l) {
+                    html += '<p>' + l.replace(/\*\*/g,'') + '</p>';
+                });
+                html += '</div>';
+                return;
+            }
+
+            if (t.indexOf('ARCHITECTURE') !== -1) {
+                html += '<div class="arch-block">';
+                section.lines.filter(function(l){return l.trim();}).forEach(function(l) {
+                    html += '<p>' + l.replace(/\*\*/g,'') + '</p>';
+                });
+                html += '</div>';
+                return;
+            }
+
+            if (t.indexOf('SCORECARD') !== -1 || t.indexOf('FIVE-DIMENSION') !== -1) {
+                var inDim = false, dimHtml = '';
+                section.lines.forEach(function(line) {
+                    if (!line.trim()) {
+                        if (inDim) { html += '<div class="dim-block">' + dimHtml + '</div>'; inDim = false; dimHtml = ''; }
+                        return;
+                    }
+                    if (line.match(/^\*\*[A-Z]/) && line.indexOf('/20') !== -1) {
+                        if (inDim) html += '<div class="dim-block">' + dimHtml + '</div>';
+                        inDim = true;
+                        dimHtml = '<div class="dim-title">' + line.replace(/\*\*/g,'') + '</div>';
+                    } else if (line.startsWith('*Rubric:')) {
+                        dimHtml += '<div class="rubric">' + line.replace(/\*/g,'').trim() + '</div>';
+                    } else if (line.startsWith('**Financial Cost') || line.indexOf('Financial Cost of Inaction') !== -1) {
+                        dimHtml += '<div class="cost-block"><span class="cost-label">Financial Cost of Inaction</span><div class="cost-text">' +
+                            line.replace('**Financial Cost of Inaction:**','').replace(/\*\*/g,'').trim() + '</div></div>';
+                    } else if (inDim) {
+                        dimHtml += '<p style="font-size:13px;margin:8px 0;">' + line.replace(/\*\*/g,'') + '</p>';
+                    } else {
+                        html += '<p>' + line.replace(/\*\*/g,'') + '</p>';
+                    }
+                });
+                if (inDim) html += '<div class="dim-block">' + dimHtml + '</div>';
+                return;
+            }
+
+            // Default: paragraph rendering
+            section.lines.filter(function(l){return l.trim();}).forEach(function(l) {
+                if (l.match(/^\d+\./)) {
+                    html += '<p style="padding-left:8px;">' + l.replace(/\*\*/g,'') + '</p>';
+                } else {
+                    html += '<p>' + l.replace(/\*\*/g,'') + '</p>';
+                }
+            });
+        });
+
+        html += '<div class="footer">Panda Studios &mdash; Brand Identity &amp; Creative Agency<br>' +
+            'Span House, Portal Avenue, Kampala, Uganda &nbsp;&middot;&nbsp; +256 772 233-050<br>' +
+            'hello@pandastudios.co &nbsp;&middot;&nbsp; pandastudios.co &nbsp;&middot;&nbsp; @pandastudios77</div>' +
+            '</body></html>';
+
+        return html;
+    }
+
+    // ── Generate PDF silently and return base64 via callback ─────
+    function auditGeneratePDF(fullHtml, callback) {
+        if (typeof html2pdf === 'undefined') { callback(null); return; }
+
+        var el = document.createElement('div');
+        el.innerHTML = fullHtml;
+        el.style.cssText = 'position:fixed;left:-9999px;top:0;width:820px;';
+        document.body.appendChild(el);
+
+        html2pdf().set({
+            margin: [14, 14, 14, 14],
+            filename: 'brand-audit.pdf',
+            image: { type: 'jpeg', quality: 0.95 },
+            html2canvas: { scale: 2, useCORS: true, logging: false },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+            pagebreak: { mode: ['avoid-all', 'css'] }
+        }).from(el).outputPdf('blob').then(function(blob) {
+            document.body.removeChild(el);
+            var reader = new FileReader();
+            reader.onloadend = function() { callback(reader.result.split(',')[1]); };
+            reader.readAsDataURL(blob);
+        }).catch(function() {
+            if (document.body.contains(el)) document.body.removeChild(el);
+            callback(null);
+        });
     }
 
     // ── Run audit ─────────────────────────────────────────────────
     async function runBrandAudit() {
-        if (!auditValidateStep(3)) return;
+        if (!auditValidateStep(4)) {
+            var emailEl = document.getElementById('a-email');
+            if (emailEl) { emailEl.focus(); emailEl.style.borderBottomColor = '#FF0000'; }
+            return;
+        }
 
-        document.getElementById('apanel-3').classList.remove('visible');
+        document.getElementById('apanel-4').classList.remove('visible');
         document.getElementById('auditStepNav').style.display = 'none';
 
         var loadingEl = document.getElementById('audit-loading');
@@ -1234,9 +1576,7 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
         try {
             var res = await fetch(AUDIT_PROXY_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     model: 'claude-sonnet-4-20250514',
                     max_tokens: 2000,
@@ -1246,11 +1586,8 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
             });
 
             var data = await res.json();
-
-            // Detect API-level errors (wrong key, quota, etc.)
             if (!res.ok || data.error) {
-                var apiErr = (data.error && data.error.message) ? data.error.message : 'API error ' + res.status;
-                throw new Error(apiErr);
+                throw new Error((data.error && data.error.message) ? data.error.message : 'API error ' + res.status);
             }
 
             var text = (data.content || []).map(function(b) { return b.text || ''; }).join('').trim() ||
@@ -1260,53 +1597,69 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
             loadingEl.classList.remove('visible');
 
             var scores = auditExtractScores(text);
-            var container = document.getElementById('audit-score-ring-container');
-            if (scores.overall !== null) {
-                container.innerHTML = auditBuildScoreRing(scores.overall) + auditBuildScoreGrid(scores);
-            }
-            document.getElementById('audit-report-body').innerHTML = auditRenderReport(text);
+            var clientInfo = {
+                businessName: auditGetVal('a-businessName'),
+                businessType: auditGetVal('a-businessType'),
+                location:     auditGetVal('a-location'),
+                email:        auditGetVal('a-email'),
+                phone:        auditGetVal('a-phone')
+            };
 
-            var resultEl = document.getElementById('audit-result');
-            resultEl.classList.add('visible');
+            // Render score ring + score grid
+            var ringContainer = document.getElementById('audit-score-ring-container');
+            if (scores.overall !== null) {
+                ringContainer.innerHTML = auditBuildScoreRing(scores.overall) + auditBuildScoreGrid(scores);
+            }
+
+            // Render sneak peek in report body
+            var sections = auditParseSections(text);
+            document.getElementById('audit-report-body').innerHTML = auditRenderSneakPeek(sections);
+
+            document.getElementById('audit-result').classList.add('visible');
             document.querySelector('.audit-shell').scrollIntoView({ behavior: 'smooth' });
 
-            // ── Email report to Panda Studios ─────────────────────
-            if (EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY') {
-                emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-                    business_name: auditGetVal('a-businessName') || 'Unknown',
-                    location:      auditGetVal('a-location') || '',
+            // Build full report and generate PDF, then email
+            var fullHtml = auditBuildFullReportHTML(text, scores, clientInfo);
+
+            auditGeneratePDF(fullHtml, function(pdfBase64) {
+                var params = {
+                    business_name: clientInfo.businessName || 'Unknown',
+                    business_type: clientInfo.businessType || '',
+                    location:      clientInfo.location || '',
+                    client_email:  clientInfo.email,
+                    client_phone:  clientInfo.phone || 'Not provided',
                     audit_score:   scores.overall !== null ? scores.overall + '/100' : 'N/A',
                     audit_report:  text
-                }).then(function() {
-                    // Email sent — update CTA to confirm delivery and prompt PDF request
-                    document.getElementById('audit-cta-eyebrow').textContent = 'Your Audit Has Been Delivered';
-                    document.getElementById('audit-cta-body').innerHTML =
-                        'Your Brand Intelligence Audit has been sent to the Panda Studios team. We will prepare your full PDF report and follow up directly.<br><br>' +
-                        'To request your PDF or start the conversation sooner &mdash;<br>' +
-                        '<a href="mailto:hello@pandastudios.co">hello@pandastudios.co</a>' +
-                        '&nbsp;&middot;&nbsp;' +
-                        '<a href="tel:+256772233050">+256 772 233-050</a>' +
-                        '&nbsp;&middot;&nbsp;' +
-                        '<a href="contact.html">Start the conversation</a>';
-                }).catch(function(err) {
-                    console.warn('EmailJS delivery failed:', err);
-                    // Email failed — show fallback CTA prompting them to reach out directly
-                    document.getElementById('audit-cta-eyebrow').textContent = 'Panda Studios';
-                    document.getElementById('audit-cta-body').innerHTML =
-                        'Ready to build the architecture of authority? Reach out to receive your full PDF report.<br><br>' +
-                        '<a href="mailto:hello@pandastudios.co">hello@pandastudios.co</a>' +
-                        '&nbsp;&middot;&nbsp;' +
-                        '<a href="tel:+256772233050">+256 772 233-050</a>' +
-                        '&nbsp;&middot;&nbsp;' +
-                        '<a href="contact.html">Start the conversation</a>';
-                });
-            }
+                };
+                if (pdfBase64) params.pdf_attachment = pdfBase64;
+
+                emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
+                    .then(function() {
+                        document.getElementById('audit-cta-eyebrow').textContent = 'Your Audit Has Been Received';
+                        document.getElementById('audit-cta-body').innerHTML =
+                            'This is a sneak peek of your Brand Intelligence Audit. Your full strategic report &mdash; including the complete scorecard, strategic gap analysis, and PDF &mdash; is available upon request.<br><br>' +
+                            'To receive your complete report &mdash;<br>' +
+                            '<a href="mailto:hello@pandastudios.co">hello@pandastudios.co</a>' +
+                            '&nbsp;&middot;&nbsp;' +
+                            '<a href="tel:+256772233050">+256 772 233-050</a>' +
+                            '&nbsp;&middot;&nbsp;' +
+                            '<a href="contact.html">Start the conversation</a>';
+                    })
+                    .catch(function(err) {
+                        console.warn('EmailJS error:', err);
+                        document.getElementById('audit-cta-body').innerHTML =
+                            'This is a sneak peek of your Brand Intelligence Audit. Your full detailed report is available upon request.<br><br>' +
+                            '<a href="mailto:hello@pandastudios.co">hello@pandastudios.co</a>' +
+                            '&nbsp;&middot;&nbsp;' +
+                            '<a href="contact.html">Start the conversation</a>';
+                    });
+            });
 
         } catch (e) {
             clearInterval(auditLoadInterval);
             document.getElementById('audit-loading').classList.remove('visible');
             document.getElementById('audit-report-body').innerHTML =
-                '<div class="r-text" style="color:#c4826a;">Error: ' + (e.message || 'Connection failed. Please check your network and try again.') + '</div>';
+                '<div class="r-text" style="color:#c4826a;padding:40px 0;">Error: ' + (e.message || 'Connection failed. Please check your network and try again.') + '</div>';
             document.getElementById('audit-result').classList.add('visible');
         }
     }
@@ -1317,7 +1670,8 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
 
         ['a-businessName','a-businessType','a-location','a-yearsActive','a-tagline',
          'a-websiteUrl','a-socialMedia','a-visualDesc','a-targetClient','a-avgPrice',
-         'a-competitors','a-biggestFrustration','a-dreamClient','a-currentFeeling'
+         'a-competitors','a-biggestFrustration','a-dreamClient','a-currentFeeling',
+         'a-email','a-phone'
         ].forEach(function(id) {
             var el = document.getElementById(id);
             if (el) el.value = '';
@@ -1329,13 +1683,13 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
         document.getElementById('audit-report-body').innerHTML = '';
         document.getElementById('auditStepNav').style.display = 'flex';
 
-        for (var i = 1; i < 4; i++) {
+        for (var i = 1; i < 5; i++) {
             document.getElementById('anav-' + i).classList.remove('active', 'done');
         }
         document.getElementById('anav-0').classList.remove('done');
         document.getElementById('anav-0').classList.add('active');
 
-        for (var j = 1; j < 4; j++) {
+        for (var j = 1; j < 5; j++) {
             document.getElementById('apanel-' + j).classList.remove('visible');
         }
         document.getElementById('apanel-0').classList.add('visible');
