@@ -328,30 +328,30 @@
         font-weight: 700;
         text-transform: uppercase;
         padding: 9px 20px;
-        margin-bottom: 52px;
+        margin-bottom: 36px;
     }
 
     /* report body */
     .audit-report-body { border-top: 1px solid #e0e0e0; padding-top: 56px; }
 
     .r-section-block {
-        margin-bottom: 60px;
-        padding-bottom: 52px;
+        margin-bottom: 40px;
+        padding-bottom: 34px;
         border-bottom: 1px solid #eeeeee;
     }
     .r-section-block:last-of-type { border-bottom: none; }
 
     .r-section-head {
         display: block;
-        font-size: 8px;
-        letter-spacing: 6px;
-        color: #FF0000;
-        margin-bottom: 32px;
+        font-size: 16px;
+        letter-spacing: 0;
+        color: #111111;
+        margin-bottom: 22px;
         font-weight: 700;
-        text-transform: uppercase;
+        text-transform: none;
         font-family: 'Montserrat', sans-serif;
         padding-bottom: 14px;
-        border-bottom: 1px solid #FF0000;
+        border-bottom: 1px solid #e8e8e8;
     }
 
     .r-section-score-note {
@@ -1173,8 +1173,14 @@ Overall score out of 100. One sentence on what this score means in market terms.
 ## BRAND POSITIONING STATEMENT
 One sentence: what this business currently communicates to the market, whether they intended it or not.
 
+## THE FIRST IMPRESSION
+One paragraph. What a prospective premium client experiences in the first 7 seconds of encountering this brand — what the visual identity, website presence, and social footprint communicate about price point, credibility, and trust before a single word is read. Be specific to this business.
+
+## THE MARKET SIGNAL
+One paragraph. What this brand is unintentionally broadcasting to the market right now. Not what the founder intends — what the market actually receives. Name the unintended message plainly.
+
 ## THE FOUNDER'S OBSERVATION
-Two short paragraphs. Sharp, specific, earned. Reference details from the intake. Name what is true. This is not flattery. It is what a trusted advisor says in a private meeting.
+One short paragraph. Sharp, specific, earned. Reference details from the intake. Name what is true. This is not flattery. It is what a trusted advisor says in a private meeting.
 
 ## FIVE-DIMENSION SCORECARD
 
@@ -1353,7 +1359,31 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
                 return;
             }
 
-            // Founder's Observation — paragraph prose
+            // The First Impression — single editorial paragraph
+            if (t.indexOf('FIRST IMPRESSION') !== -1) {
+                var para = visibleLines.join(' ');
+                if (para) {
+                    html += '<div class="r-section-block">';
+                    html += '<span class="r-section-head">' + section.title + '</span>';
+                    html += '<div class="r-founders-para">' + para + '</div>';
+                    html += '</div>';
+                }
+                return;
+            }
+
+            // The Market Signal — single editorial paragraph
+            if (t.indexOf('MARKET SIGNAL') !== -1) {
+                var para = visibleLines.join(' ');
+                if (para) {
+                    html += '<div class="r-section-block">';
+                    html += '<span class="r-section-head">' + section.title + '</span>';
+                    html += '<div class="r-founders-para">' + para + '</div>';
+                    html += '</div>';
+                }
+                return;
+            }
+
+            // Founder's Observation — first paragraph only
             if (t.indexOf("FOUNDER") !== -1) {
                 html += '<div class="r-section-block">';
                 html += '<span class="r-section-head">' + section.title + '</span>';
@@ -1363,9 +1393,7 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
                     else if (l.trim()) cur.push(l.trim());
                 });
                 if (cur.length) paras.push(cur.join(' '));
-                paras.forEach(function(p) {
-                    html += '<div class="r-founders-para">' + p + '</div>';
-                });
+                if (paras[0]) html += '<div class="r-founders-para">' + paras[0] + '</div>';
                 html += '</div>';
                 return;
             }
