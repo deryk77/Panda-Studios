@@ -9,7 +9,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- ══ Tier 2 — Core conversion pages ══════════════════════════════ -->
+  <!-- ══ Tier 2 — Core nav pages (in nav order) ══════════════════════ -->
   <url>
     <loc>https://www.pandastudios.co/brand-audit</loc>
     <lastmod>2026-05-21</lastmod>
@@ -17,16 +17,22 @@
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://www.pandastudios.co/brand-identity</loc>
+    <loc>https://www.pandastudios.co/services</loc>
     <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.pandastudios.co/web-design</loc>
+    <loc>https://www.pandastudios.co/insights</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.pandastudios.co/why-choose-panda-studios</loc>
     <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.pandastudios.co/contact</loc>
@@ -35,24 +41,24 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- ══ Tier 3 — Editorial & services overview ═══════════════════════ -->
+  <!-- ══ Tier 3 — Service detail pages ════════════════════════════════ -->
   <url>
-    <loc>https://www.pandastudios.co/insights</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <loc>https://www.pandastudios.co/brand-identity</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pandastudios.co/services</loc>
-    <lastmod>2026-05-21</lastmod>
+    <loc>https://www.pandastudios.co/web-design</loc>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.pandastudios.co/portfolio</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
 
   <!-- ══ Tier 4 — Insights articles ══════════════════════════════════ -->
@@ -66,7 +72,7 @@
     <loc>https://www.pandastudios.co/brand-identity-not-just-recognition</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.65</priority>
   </url>
   <url>
     <loc>https://www.pandastudios.co/all-about-nike-brand-strategy</loc>
@@ -126,12 +132,6 @@
   </url>
 
   <!-- ══ Tier 6 — Supporting pages ════════════════════════════════════ -->
-  <url>
-    <loc>https://www.pandastudios.co/why-choose-panda-studios</loc>
-    <lastmod>2026-03-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
   <url>
     <loc>https://www.pandastudios.co/FAQs</loc>
     <lastmod>2026-03-19</lastmod>
