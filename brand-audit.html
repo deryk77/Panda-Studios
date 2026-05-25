@@ -771,11 +771,15 @@
                         <div class="audit-panel" id="apanel-1">
                             <div class="audit-field">
                                 <label class="audit-label" for="a-websiteUrl">Website URL</label>
-                                <input class="audit-input" type="text" id="a-websiteUrl" placeholder="Your website address (or leave blank)" />
+                                <input class="audit-input" type="text" id="a-websiteUrl" placeholder="https://yourwebsite.com &mdash; paste the full URL" />
                             </div>
                             <div class="audit-field">
-                                <label class="audit-label" for="a-socialMedia">Social Media Channels</label>
-                                <input class="audit-input" type="text" id="a-socialMedia" placeholder="Instagram, Facebook, LinkedIn &mdash; include handles if possible" />
+                                <label class="audit-label" for="a-instagramUrl">Instagram Profile URL</label>
+                                <input class="audit-input" type="text" id="a-instagramUrl" placeholder="https://instagram.com/yourhandle &mdash; paste the full link" />
+                            </div>
+                            <div class="audit-field">
+                                <label class="audit-label" for="a-otherSocials">Other Channels</label>
+                                <input class="audit-input" type="text" id="a-otherSocials" placeholder="Facebook, LinkedIn, TripAdvisor &mdash; paste full URLs or handles" />
                             </div>
                             <div class="audit-field">
                                 <label class="audit-label" for="a-visualDesc">Describe Your Visual Identity</label>
@@ -1087,11 +1091,21 @@
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
     // ── System Prompt ────────────────────────────────────────────
-    var AUDIT_SYSTEM = `You are the lead brand strategist at Panda Studios, a specialist brand intelligence firm for East African tourism and hospitality. You have studied hundreds of operators across the region — safari companies, lodges, boutique camps, luxury hotels, DMCs, and experiential travel brands.
+    var AUDIT_SYSTEM = `You are the lead brand strategist at Panda Studios, a specialist brand intelligence firm for East African tourism and hospitality. You have studied hundreds of operators across the region.
+
+BEFORE writing any part of the audit, you MUST use web_search to research this business. Search in this exact order:
+
+STEP 1 — WEBSITE: Search their website URL. Read the actual homepage headline, about page copy, and any tagline present. Quote what you find verbatim. Note what is missing.
+
+STEP 2 — SOCIAL MEDIA: Search their Instagram handle and any other channels provided. Find their actual follower count, posting frequency, last 3 captions style, and engagement level. Cite the numbers you find.
+
+STEP 3 — REVIEWS: Search TripAdvisor or Google reviews for this business. Note the rating, volume of reviews, and what clients actually say about the experience.
+
+STEP 4 — COMPETITORS: Search the competitors they named. Compare their digital presence, follower counts, and positioning directly against this business. Name the gaps specifically.
+
+Do not write the audit until you have completed all 4 search steps. Every score must be based on evidence you found — not on what the client said about themselves. If their website headline is generic, quote it. If a competitor has 10x their Instagram following, state the numbers. Specific evidence is mandatory.
 
 You are not a generalist. You understand this industry at the level of the founder — the economics of luxury travel, the psychology of the $10,000+ client, the way premium travel agents route bookings, and the compounding cost of brand neglect.
-
-You have been given a structured intake for a specific business. Your job is to deliver a Brand Intelligence Audit that operates like a financial X-ray. Not flattery. Not vague recommendations. A clinical diagnosis that makes the cost of inaction impossible to ignore.
 
 ─────────────────────────────────────────
 SCORING RUBRIC — APPLY TO ALL 5 DIMENSIONS
@@ -1153,6 +1167,8 @@ One paragraph. What this brand is unintentionally broadcasting to the market rig
 One short paragraph. Sharp, specific, earned. Reference details from the intake. Name what is true. This is not flattery. It is what a trusted advisor says in a private meeting.
 
 ## FIVE-DIMENSION SCORECARD
+
+Within each dimension, lead with what you found on their website first, then what you found on social media, then the competitive comparison. Never lead with assumptions — only with what you found.
 
 For each dimension:
 **[DIMENSION NAME]: [SCORE]/20**
@@ -1218,7 +1234,8 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
             'Years Active: '+ auditGetVal('a-yearsActive') + '\n' +
             'Current Tagline: ' + (auditGetVal('a-tagline') || 'None stated') + '\n' +
             'Website: '     + (auditGetVal('a-websiteUrl') || 'None provided') + '\n' +
-            'Social Channels: ' + (auditGetVal('a-socialMedia') || 'None provided') + '\n' +
+            'Instagram URL: ' + (auditGetVal('a-instagramUrl') || 'Not provided') + '\n' +
+            'Other Channels: ' + (auditGetVal('a-otherSocials') || 'Not provided') + '\n' +
             'Visual Identity Description: ' + auditGetVal('a-visualDesc') + '\n' +
             'Target Client: ' + auditGetVal('a-targetClient') + '\n' +
             'Average Price Point: ' + auditGetVal('a-avgPrice') + '\n' +
@@ -1577,7 +1594,8 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     model: 'claude-sonnet-4-20250514',
-                    max_tokens: 2000,
+                    max_tokens: 4000,
+                    tools: [{ type: 'web_search_20250305', name: 'web_search' }],
                     system: AUDIT_SYSTEM,
                     messages: [{ role: 'user', content: auditBuildPrompt() }]
                 })
@@ -1588,8 +1606,11 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
                 throw new Error((data.error && data.error.message) ? data.error.message : 'API error ' + res.status);
             }
 
-            var text = (data.content || []).map(function(b) { return b.text || ''; }).join('').trim() ||
-                       'Audit generation failed. Please try again.';
+            var text = (data.content || [])
+                .filter(function(b) { return b.type === 'text'; })
+                .map(function(b) { return b.text || ''; })
+                .join('').trim() ||
+                'Audit generation failed. Please try again.';
 
             clearInterval(auditLoadInterval);
             loadingEl.classList.remove('visible');
@@ -1667,7 +1688,7 @@ Tone throughout: You are a senior strategist, not a vendor. You are direct. You 
         clearInterval(auditLoadInterval);
 
         ['a-businessName','a-businessType','a-location','a-yearsActive','a-tagline',
-         'a-websiteUrl','a-socialMedia','a-visualDesc','a-targetClient','a-avgPrice',
+         'a-websiteUrl','a-instagramUrl','a-otherSocials','a-visualDesc','a-targetClient','a-avgPrice',
          'a-competitors','a-biggestFrustration','a-dreamClient','a-currentFeeling',
          'a-email','a-phone'
         ].forEach(function(id) {
