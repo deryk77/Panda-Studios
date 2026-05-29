@@ -1774,6 +1774,200 @@ ul  { list-style: none; }
 /* =====================================================
    PRELOADER — Ferrari-style logo on black
    ===================================================== */
+/* ===== MOBILE FIXES =====
+   Added to address responsiveness at 375px–768px.
+   All changes are additive — no existing rules overridden except
+   within the designated breakpoints below.
+   ===================================================== */
+
+/* Overflow safety net */
+html { overflow-x: hidden; }
+
+/* Back-to-top link (replaces removed social icons in footer-bottom) */
+.footer-top-link {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(253,250,246,0.28);
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.footer-top-link:hover { color: rgba(253,250,246,0.7); }
+
+/* Product card: subtle shadow on hover */
+.product-card {
+  transition: box-shadow 0.3s ease;
+}
+.product-card:hover {
+  box-shadow: 0 4px 24px rgba(26,23,20,0.10);
+}
+
+/* Editorial link: animated arrow on hover */
+.editorial-link svg {
+  transition: transform 0.3s ease;
+}
+.editorial-link:hover svg {
+  transform: translateX(5px);
+}
+
+/* ===== TABLET (max 768px) ===================================================
+   Hero adjustments, nav touch targets, about/contact padding
+   ======================================================================== */
+@media (max-width: 768px) {
+
+  /* Hero — reduce height and fix image framing */
+  .hero {
+    height: 70vh;
+    min-height: 480px;
+  }
+  .hero-slide-img {
+    object-position: center 35%;
+  }
+  .hero-body {
+    gap: 24px;
+    padding: 0 20px;
+  }
+  .hero-eyebrow {
+    letter-spacing: 0.16em;
+    font-size: 9.5px;
+  }
+  .hero-dots {
+    bottom: 20px;
+  }
+
+  /* Nav mobile touch targets — minimum 44px */
+  .nav-mobile-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0 0;
+  }
+  .nav-mobile-link.nav-mobile-sub {
+    min-height: 44px;
+    padding-left: 14px;
+  }
+
+  /* Contact form touch targets */
+  .form-group select,
+  .form-group input,
+  .form-group textarea {
+    min-height: 44px;
+    padding: 10px 4px;
+  }
+  .btn-submit {
+    min-height: 44px;
+    width: 100%;
+    padding: 14px 32px;
+  }
+
+  /* Footer */
+  .footer { padding: 56px 24px 0; }
+  .footer-inner { padding-bottom: 44px; }
+  .footer-nav { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+
+  /* Statement section */
+  .statement { grid-template-columns: 1fr; min-height: auto; }
+  .statement-img { height: 52vw; }
+  .statement-inner { padding: 72px 32px; }
+
+  /* About page */
+  .about-article { padding: 64px 24px 88px; }
+  .about-pullquote { padding-left: 24px; }
+
+  /* Contact page */
+  .contact-layout { grid-template-columns: 1fr; }
+  .contact-info { padding: 72px 32px; }
+  .contact-form-wrap { padding: 64px 32px; }
+}
+
+/* ===== MOBILE (max 480px) ====================================================
+   Single-column product grid, 1-col footer, body text sizing
+   ======================================================================== */
+@media (max-width: 480px) {
+
+  /* Hero */
+  .hero { height: 70vh; min-height: 430px; }
+  .hero-title { font-size: clamp(1.9rem, 9vw, 3rem); line-height: 0.95; }
+  .hero-eyebrow { letter-spacing: 0.12em; }
+  .discover-circle { width: 48px; height: 48px; }
+
+  /* Body text: floor at 16px */
+  body { font-size: 16px; }
+  .about-article-section p,
+  .about-article-intro,
+  .statement-body,
+  .editorial-body,
+  .contact-detail p,
+  .contact-detail a { font-size: 16px; }
+
+  /* Product grid — strict single column */
+  .shop-grid { grid-template-columns: 1fr; }
+  .product-info h4 { font-size: 18px; }
+  .product-cat { letter-spacing: 0.10em; }
+
+  /* Page padding — minimum 20px sides everywhere */
+  .cat-page { padding-left: 20px; padding-right: 20px; }
+  .shop-layout { padding: 44px 20px 80px; }
+  .page-hero-content { padding-left: 20px; padding-right: 20px; }
+  .page-header-inner { padding-left: 20px; padding-right: 20px; }
+  .pieces-header, .pieces-grid { padding-left: 20px; padding-right: 20px; }
+
+  /* Subcategory headings */
+  .subcat-heading { font-size: 22px; }
+  .shop-main-title { font-size: 24px; }
+
+  /* Category filter: stack link labels tighter */
+  .cat-filter-grid { grid-template-columns: 1fr; gap: 8px; }
+  .cat-filter-rule { margin-bottom: 32px; }
+
+  /* Editorial */
+  .editorial { padding: 72px 0; }
+  .editorial-text { padding: 56px 20px; }
+
+  /* About */
+  .about-article { padding: 48px 20px 64px; }
+  .about-article-intro { font-size: clamp(18px, 4.5vw, 26px); margin-bottom: 56px; padding-bottom: 56px; }
+  .about-pullquote { padding-left: 18px; margin: 44px 0; }
+  .about-pullquote p { font-size: clamp(18px, 4.8vw, 28px); }
+  .about-hero-img { height: 44vh; min-height: 240px; }
+
+  /* Contact */
+  .contact-info { padding: 60px 20px; }
+  .contact-form-wrap { padding: 52px 20px; }
+  .form-title { font-size: 28px; }
+
+  /* Statement */
+  .statement-inner { padding: 60px 20px; }
+  .statement-img { height: 56vw; }
+  .statement-heading { font-size: clamp(32px, 8vw, 56px); }
+
+  /* Footer — single column nav on very small screens */
+  .footer { padding: 52px 20px 0; }
+  .footer-nav { grid-template-columns: 1fr; gap: 28px; }
+  .footer-brand { text-align: center; padding: 0 0 32px; }
+  .footer-logo-link { display: inline-block; }
+  .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
+
+  /* Search overlay input */
+  .search-input { font-size: 22px; }
+  .search-bar-wrap { padding: 0 20px; }
+  .search-results { padding: 0 20px 20px; }
+
+  /* Gallery overlay */
+  .gallery-track-wrap { inset: 28px 16px; }
+  .gallery-arrow { width: 38px; height: 38px; }
+  .gallery-prev { left: 8px; }
+  .gallery-next { right: 8px; }
+  .gallery-footer { padding: 12px 16px 18px; }
+  .gallery-name { font-size: 16px; }
+
+  /* Mega menu at very small sizes */
+  .mega-inner { grid-template-columns: 1fr 1fr; padding: 28px 20px; gap: 24px; }
+}
+
 .preloader-active { overflow: hidden; }
 
 .preloader {
