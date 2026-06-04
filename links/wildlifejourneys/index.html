@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- SEO -->
+  <title>Wildlife Journeys Africa — Links | East Africa Safari</title>
+  <meta name="description" content="Explore East Africa with Wildlife Journeys Africa. Find our website, social profiles, and contact links.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.pandastudios.co/links/wildlifejourneys">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wildlife Journeys Africa — Links">
+  <meta property="og:description" content="Discover East Africa: From the Pearl to a Thousand Hills.">
+  <meta property="og:url" content="https://www.pandastudios.co/links/wildlifejourneys">
+
+  <!-- Fonts -->
+  <style>
+    @font-face {
+      font-family: 'New Spirit';
+      src: url('../New Spirit Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'New Spirit';
+      src: url('../New Spirit SemiBold.otf') format('opentype');
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'New Spirit';
+      src: url('../New Spirit Light.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    /* Background locked to viewport — works on iOS too */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url('../WLJ BG-19.png') center / cover no-repeat;
+      z-index: -1;
+    }
+
+    body {
+      background-color: #E8DCC4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'New Spirit', Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      color: #1A2A14;
+    }
+
+    /* ── Main layout ─────────────────────────────────────────────────── */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 520px;
+      padding: 56px 24px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Profile block ───────────────────────────────────────────────── */
+    .wj-profile {
+      text-align: center;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: wj-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+    }
+
+    .wj-profile__logo {
+      width: 210px;
+      display: block;
+      margin: 0 auto 24px;
+    }
+
+    .wj-tagline {
+      font-family: 'New Spirit', Georgia, serif;
+      font-weight: 400;
+      font-size: 0.97rem;
+      line-height: 1.6;
+      color: rgba(26, 42, 20, 0.68);
+      letter-spacing: 0.01em;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ── Links stack ─────────────────────────────────────────────────── */
+    .wj-links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* ── Liquid glass link button ────────────────────────────────────── */
+    .wj-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60px;
+      padding: 0 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-family: 'New Spirit', Georgia, serif;
+      font-weight: 600;
+      font-size: 1.02rem;
+      letter-spacing: 0.03em;
+      color: #1A2A14;
+      cursor: pointer;
+
+      /* liquid glass core */
+      background: linear-gradient(
+        155deg,
+        rgba(205, 172, 98,  0.44) 0%,
+        rgba(170, 138, 62,  0.24) 60%,
+        rgba(145, 115, 45,  0.32) 100%
+      );
+      backdrop-filter: blur(28px) saturate(1.9) brightness(1.07);
+      -webkit-backdrop-filter: blur(28px) saturate(1.9) brightness(1.07);
+      border: 1px solid rgba(218, 188, 108, 0.58);
+      box-shadow:
+        0 6px 28px rgba(100, 72, 16, 0.10),
+        inset 0 1.5px 0 rgba(255, 245, 188, 0.72),
+        inset 0 -1px 0 rgba(80, 54, 8,  0.14);
+
+      transition:
+        background    0.22s ease,
+        border-color  0.22s ease,
+        box-shadow    0.22s ease,
+        transform     0.12s ease;
+
+      /* entrance state */
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    .wj-link.wj-visible {
+      animation: wj-rise 0.52s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .wj-link:hover,
+    .wj-link:focus-visible {
+      background: linear-gradient(
+        155deg,
+        rgba(196, 158, 68,  0.62) 0%,
+        rgba(162, 128, 44,  0.42) 60%,
+        rgba(138, 108, 32,  0.52) 100%
+      );
+      border-color: rgba(210, 172, 80, 0.80);
+      box-shadow:
+        0 8px 36px rgba(100, 72, 16, 0.18),
+        inset 0 1.5px 0 rgba(255, 248, 198, 0.88),
+        inset 0 -1px 0 rgba(80, 54, 8,  0.20);
+      outline: none;
+    }
+
+    .wj-link:active {
+      transform: scale(0.975);
+      transition-duration: 0.06s;
+    }
+
+    /* ── Keyframes ───────────────────────────────────────────────────── */
+    @keyframes wj-rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Mobile (≤ 540px) ────────────────────────────────────────────── */
+    @media (max-width: 540px) {
+      main               { padding: 50px 20px 52px; }
+      .wj-profile        { margin-bottom: 42px; }
+      .wj-profile__logo  { width: 185px; margin-bottom: 20px; }
+      .wj-tagline        { font-size: 0.92rem; }
+      .wj-links          { gap: 12px; }
+      .wj-link           { min-height: 58px; font-size: 0.98rem; }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+
+    <div class="wj-profile">
+      <img src="../Wildlife-Journeys, Tyre cover-07.png" alt="Wildlife Journeys Africa" class="wj-profile__logo">
+      <p class="wj-tagline">Discover East Africa: From the Pearl to a Thousand Hills</p>
+    </div>
+
+    <div class="wj-links" id="wjLinksStack" role="list"></div>
+
+  </main>
+
+  <script>
+    const LINKS = [
+      { label: 'Our Website',  url: 'https://wildlife-journeys.com/'                                },
+      { label: 'Instagram',    url: 'https://www.instagram.com/wildlifejourneysafrica'              },
+      { label: 'Facebook',     url: 'https://www.facebook.com/profile.php?id=61590299253377'        },
+      { label: 'X / Twitter',  url: 'https://x.com/journeys_africa'                                },
+      { label: 'LinkedIn',     url: 'https://www.linkedin.com/company/wildlifejourneys-africa/'     },
+      { label: 'WhatsApp',     url: 'https://wa.me/250795301492'                                    },
+      { label: 'Call Us',      url: 'tel:+250795301492'                                             },
+      { label: 'Email Us',     url: 'mailto:info@wildlife-journeys.com'                             },
+    ];
+
+    const stack = document.getElementById('wjLinksStack');
+
+    LINKS.forEach(({ label, url }, i) => {
+      const a = document.createElement('a');
+      a.href = url;
+      a.className = 'wj-link';
+      a.setAttribute('role', 'listitem');
+      a.textContent = label;
+
+      if (url.startsWith('http')) {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      }
+
+      a.style.animationDelay = `${0.22 + i * 0.07}s`;
+      stack.appendChild(a);
+      requestAnimationFrame(() => a.classList.add('wj-visible'));
+    });
+  </script>
+
+</body>
+</html>
