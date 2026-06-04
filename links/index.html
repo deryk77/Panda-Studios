@@ -78,10 +78,24 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
+    /* ── Starfield canvas ───────────────────────────────────────────── */
+    #psStars {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    main, .ps-footer {
+      position: relative;
+      z-index: 1;
+    }
+
     /* ── Main content ────────────────────────────────────────────────── */
     main {
       flex: 1;
-      padding: 52px 24px 52px;
+      padding: 46px 20px 56px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -90,35 +104,35 @@
     /* ── Profile block ───────────────────────────────────────────────── */
     .ps-profile {
       text-align: center;
-      margin-bottom: 44px;
+      margin-bottom: 36px;
       opacity: 0;
       transform: translateY(18px);
       animation: ps-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
     }
 
     .ps-profile__logo {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       display: block;
-      margin: 0 auto 22px;
+      margin: 0 auto 19px;
     }
 
-    @media (min-width: 540px) {
-      .ps-profile__logo { width: 96px; height: 96px; }
+    @media (min-width: 541px) {
+      .ps-profile__logo { width: 88px; height: 88px; }
     }
 
     .ps-profile__name {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: clamp(1.45rem, 5.5vw, 1.85rem);
+      font-size: clamp(1.3rem, 5vw, 1.7rem);
       letter-spacing: 0.05em;
       color: var(--white);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       text-transform: uppercase;
     }
 
     .ps-profile__tagline {
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       color: var(--white-soft);
       font-weight: 300;
       letter-spacing: 0.02em;
@@ -130,21 +144,21 @@
       max-width: 480px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 11px;
     }
 
     .ps-link {
       display: flex;
       align-items: center;
-      min-height: 64px;
-      padding: 0 22px;
+      min-height: 58px;
+      padding: 0 20px;
       background: var(--btn-bg);
       border: 1px solid var(--btn-border);
       border-radius: 3px;
       text-decoration: none;
       color: var(--white);
       font-family: 'Outfit', sans-serif;
-      font-size: 1.02rem;
+      font-size: 0.95rem;
       font-weight: 500;
       letter-spacing: 0.025em;
       transition: background 0.2s ease, border-color 0.2s ease;
@@ -234,6 +248,17 @@
       text-transform: uppercase;
     }
 
+    /* ── Mobile overrides (≤ 540px) ─────────────────────────────────── */
+    @media (max-width: 540px) {
+      main                  { padding: 49px 24px 52px; }
+      .ps-profile           { margin-bottom: 44px; }
+      .ps-profile__logo     { width: 80px; height: 80px; margin-bottom: 21px; }
+      .ps-profile__name     { font-size: clamp(1.45rem, 5.5vw, 1.85rem); margin-bottom: 10px; }
+      .ps-profile__tagline  { font-size: 0.95rem; }
+      .ps-links             { gap: 14px; }
+      .ps-link              { min-height: 64px; padding: 0 22px; font-size: 1.02rem; }
+    }
+
     /* ── Keyframes ───────────────────────────────────────────────────── */
     @keyframes ps-rise {
       to {
@@ -246,6 +271,8 @@
 </head>
 
 <body>
+
+  <canvas id="psStars" aria-hidden="true"></canvas>
 
   <main>
 
@@ -366,6 +393,59 @@
       // add class on next frame so CSS delay actually fires
       requestAnimationFrame(() => a.classList.add('ps-visible'));
     });
+
+    // ── Starfield ────────────────────────────────────────────────────
+    (function () {
+      const canvas = document.getElementById('psStars');
+      const ctx    = canvas.getContext('2d');
+      let stars = [], raf;
+
+      function resize() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function seed() {
+        const density = Math.round((canvas.width * canvas.height) / 4000);
+        const count   = Math.max(80, Math.min(density, 240));
+        stars = Array.from({ length: count }, () => ({
+          x:     Math.random() * canvas.width,
+          y:     Math.random() * canvas.height,
+          r:     Math.random() * 1.3 + 0.2,
+          base:  Math.random() * 0.45 + 0.12,
+          dx:    (Math.random() - 0.5) * 0.055,
+          dy:    (Math.random() - 0.5) * 0.055,
+          phase: Math.random() * Math.PI * 2,
+          freq:  0.35 + Math.random() * 0.65,
+        }));
+      }
+
+      function draw(ts) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const t = ts * 0.001;
+        for (const s of stars) {
+          s.x += s.dx;
+          s.y += s.dy;
+          if (s.x < -2) s.x = canvas.width  + 2;
+          if (s.x > canvas.width  + 2) s.x = -2;
+          if (s.y < -2) s.y = canvas.height + 2;
+          if (s.y > canvas.height + 2) s.y = -2;
+          const alpha = Math.max(0, s.base + 0.28 * Math.sin(t * s.freq * 6.28 + s.phase));
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(3)})`;
+          ctx.fill();
+        }
+        raf = requestAnimationFrame(draw);
+      }
+
+      resize(); seed(); raf = requestAnimationFrame(draw);
+
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(raf);
+        resize(); seed(); raf = requestAnimationFrame(draw);
+      });
+    })();
   </script>
 
 </body>
