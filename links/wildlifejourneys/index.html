@@ -284,7 +284,7 @@
         class="wj-profile__logo"
         width="220"
       >
-      <p class="wj-tagline">Discover East Africa: From the Pearl to a Thousand Hills</p>
+      <p class="wj-tagline">Private gorilla trekking &amp; luxury safaris.<br>Rwanda &nbsp;·&nbsp; Uganda.</p>
     </div>
 
     <div class="wj-links" id="wjLinksStack" role="list"></div>
@@ -364,6 +364,16 @@
       stack.appendChild(a);
       requestAnimationFrame(() => a.classList.add('wj-visible'));
     });
+  </script>
+
+  <script>
+    (function () {
+      const url = new URL(location.href);
+      const tracking = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','fbclid','gclid','msclkid','mc_eid','ref'];
+      let cleaned = false;
+      tracking.forEach(function (p) { if (url.searchParams.has(p)) { url.searchParams.delete(p); cleaned = true; } });
+      if (cleaned) history.replaceState(null, '', url.pathname + (url.searchParams.toString() ? '?' + url.searchParams : '') + url.hash);
+    })();
   </script>
 
 </body>
