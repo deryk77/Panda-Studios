@@ -23,6 +23,3 @@ RewriteRule ^ /%1 [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [L]
-
-# 3. Derior sub-site: redirect /Derior (no trailing slash) to /Derior/
-RewriteRule ^Derior$ /Derior/ [L,R=301]
