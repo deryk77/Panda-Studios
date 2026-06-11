@@ -246,6 +246,9 @@
       if (overlay.classList.contains('is-open')) goTo(current, false);
     });
 
+    // Expose open() for search overlay and other callers
+    window.DeriorGallery = { open: open };
+
     // ── Event delegation ───────────────────────────────────────
 
     // Preload images on hover
@@ -297,7 +300,7 @@
 
   // Defer until render.js has injected the overlay (DOMContentLoaded order: render.js first, gallery.js second)
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', function () { init(); });
   } else {
     init();
   }

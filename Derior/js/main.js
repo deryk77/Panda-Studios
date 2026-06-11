@@ -117,25 +117,35 @@ if (searchInput) {
     const q = searchInput.value.trim().toLowerCase();
     if (!q || !searchResults) { searchResults.innerHTML = ''; return; }
 
-    const catalog = window.PRODUCTS || [];
+    const catalog = window.DERIOR_PRODUCTS || [];
     const hits = catalog.filter(p =>
       p.name.toLowerCase().includes(q) ||
-      p.category.toLowerCase().includes(q) ||
-      (p.subcategory && p.subcategory.toLowerCase().includes(q))
-    ).slice(0, 10);
+      p.categoryLabel.toLowerCase().includes(q) ||
+      p.subcategoryLabel.toLowerCase().includes(q) ||
+      p.description.toLowerCase().includes(q)
+    ).slice(0, 8);
 
     searchResults.innerHTML = hits.length
       ? hits.map(p => `
-          <a href="${p.url}" class="search-result-item">
+          <button class="search-result-item" data-product-id="${p.id}">
             <div class="search-result-thumb">
-              <img src="${p.image}" alt="${p.name}" loading="lazy">
+              <img src="${p.images[0]}" alt="${p.name}" loading="lazy">
             </div>
             <div>
               <div class="search-result-name">${p.name}</div>
-              <div class="search-result-cat">${p.category} &middot; ${p.priceDisplay}</div>
+              <div class="search-result-cat">${p.subcategoryLabel} &middot; UGX ${p.price_ugx.toLocaleString()}</div>
             </div>
-          </a>`).join('')
-      : '<p class="search-no-results">No pieces found. Try a different search term.</p>';
+          </button>`).join('')
+      : '<p class="search-no-results">No pieces found for that term.</p>';
+  });
+}
+
+if (searchResults) {
+  searchResults.addEventListener('click', e => {
+    const item = e.target.closest('.search-result-item[data-product-id]');
+    if (!item) return;
+    closeSearch();
+    if (window.DeriorGallery) DeriorGallery.open(item.dataset.productId);
   });
 }
 

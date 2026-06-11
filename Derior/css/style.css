@@ -339,6 +339,10 @@ ul  { list-style: none; }
   border: 1px solid transparent;
   text-decoration: none;
   color: inherit;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: left;
 }
 .search-result-item:hover {
   background: white;
