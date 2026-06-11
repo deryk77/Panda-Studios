@@ -154,21 +154,33 @@
     if (overlay.classList.contains('is-open')) goTo(current, false);
   });
 
-  // ── wire up product cards ─────────────────────────────────
-  document.querySelectorAll('.product-card[data-gallery]').forEach(function (card) {
-    card.addEventListener('mouseenter', function () {
-      var imgs = [];
-      try { imgs = JSON.parse(card.dataset.gallery || '[]'); } catch (e) {}
-      imgs.forEach(function (src) {
-        var img = new Image();
-        img.src = src;
-      });
-    });
+  // ── wire up product cards (event delegation — works with dynamic renders) ──
+  document.addEventListener('mouseenter', function (e) {
+    var card = e.target.closest('.product-card[data-gallery]');
+    if (!card) return;
+    var imgs = [];
+    try { imgs = JSON.parse(card.dataset.gallery || '[]'); } catch (ex) {}
+    imgs.forEach(function (src) { var img = new Image(); img.src = src; });
+  }, true);
 
-    card.addEventListener('click', function (e) {
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest('.product-card[data-gallery]');
+    if (card) { e.preventDefault(); open(card); return; }
+    // Homepage featured pieces (piece-large / piece-small) also open the gallery
+    var piece = e.target.closest('[data-product-id]');
+    if (piece && !piece.classList.contains('product-card')) {
       e.preventDefault();
-      open(card);
-    });
+      var pid = piece.dataset.productId;
+      var prod = (window.DERIOR_PRODUCTS || []).find(function (p) { return p.id === pid; });
+      if (!prod) return;
+      var fake = document.createElement('div');
+      fake.dataset.gallery = JSON.stringify(prod.images);
+      fake.innerHTML =
+        '<h4>' + prod.name + '</h4>' +
+        '<span class="product-cat">' + prod.subcategoryLabel + '</span>' +
+        '<p class="product-price">UGX ' + prod.price_ugx.toLocaleString() + '</p>';
+      open(fake);
+    }
   });
 
 }());

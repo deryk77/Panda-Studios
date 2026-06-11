@@ -152,7 +152,7 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-body">
-      <p class="hero-eyebrow">New Collection &mdash; 2025</p>
+      <p class="hero-eyebrow">New Collection &mdash; 2026</p>
       <h1 class="hero-title">Furnishing<br><em>Your Dreams.</em></h1>
       <a href="shop.html" class="discover-btn">
         <span class="discover-circle">
@@ -255,40 +255,7 @@
       <a href="shop.html" class="pieces-link">View all &rarr;</a>
     </div>
     <div class="pieces-grid">
-
-      <div class="piece-large reveal">
-        <a href="living-room.html" class="piece-img-wrap">
-          <img src="img/TV unit1.jpg" alt="TV unit " loading="lazy">
-        </a>
-        <div class="piece-info">
-          <span class="piece-cat">Living Room</span>
-          <h3 class="piece-name">Ebony TV Unit</h3>
-          <span class="piece-price">From $1,800</span>
-        </div>
-      </div>
-
-      <div class="piece-small reveal reveal-d1">
-        <a href="dining-room.html" class="piece-img-wrap">
-          <img src="img/sofa1.png" alt="Sofa Chair" loading="lazy">
-        </a>
-        <div class="piece-info">
-          <span class="piece-cat">Dining Room</span>
-          <h3 class="piece-name">Sofa Chair</h3>
-          <span class="piece-price">From $320</span>
-        </div>
-      </div>
-
-      <div class="piece-small reveal reveal-d2">
-        <a href="bedroom.html" class="piece-img-wrap">
-          <img src="img/LR/S4 (5).webp" alt="Bedside Table" loading="lazy">
-        </a>
-        <div class="piece-info">
-          <span class="piece-cat">Bedroom</span>
-          <h3 class="piece-name">Marble Top Bedside</h3>
-          <span class="piece-price">From $420</span>
-        </div>
-      </div>
-
+      <!-- rendered by render.js from featured products in DERIOR_PRODUCTS -->
     </div>
   </section>
 
@@ -377,10 +344,13 @@
     </div>
   </footer>
 
-  <script src="js/products.js"></script>
+  <script src="data/products.js"></script>
+  <script src="js/render.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/cart-ui.js"></script>
+  <script>DeriorRender.renderFeaturedPieces(); DeriorRender.updateCategoryCounts();</script>
 </body>
 </html>
 
