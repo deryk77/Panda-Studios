@@ -1684,6 +1684,138 @@ ul  { list-style: none; }
   transform: scale(1.5);
 }
 
+/* Gallery actions row */
+.gallery-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.gallery-counter {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+}
+
+.gallery-atc-btn {
+  background: #fff;
+  color: var(--charcoal);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+.gallery-atc-btn:hover  { background: var(--accent); color: #fff; }
+.gallery-atc-btn.added  { background: var(--accent); color: #fff; }
+
+/* Paper slide (slide 0 — product specimen card) */
+.gallery-paper-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: default;
+}
+
+.gallery-paper-inner {
+  background: var(--off-white);
+  max-width: 440px;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 44px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.gallery-paper-logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.gallery-paper-name {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--charcoal);
+  letter-spacing: 0.01em;
+}
+
+.gallery-paper-sub {
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: -8px;
+}
+
+.gallery-paper-price {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--charcoal);
+}
+
+.gallery-paper-rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+.gallery-paper-desc {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--warm-mid);
+}
+
+.gallery-paper-dims {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: -4px;
+}
+
+/* Card-level Add to Cart button */
+.card-atc {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  text-align: center;
+}
+.card-atc:hover  { border-color: var(--charcoal); color: var(--charcoal); }
+.card-atc.added  { border-color: var(--accent); color: var(--accent); }
+
 /* =====================================================
    RESPONSIVE
    ===================================================== */

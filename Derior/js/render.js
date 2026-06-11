@@ -31,6 +31,7 @@
         '<h4>' + esc(product.name) + '</h4>' +
         '<span class="product-cat">' + esc(product.subcategoryLabel) + '</span>' +
         '<p class="product-price">' + ugx(product.price_ugx) + '</p>' +
+        '<button class="card-atc" data-product-id="' + esc(product.id) + '">Add to Cart</button>' +
       '</div>' +
       '</div>'
     );
@@ -84,7 +85,9 @@
       '      </div>',
       '    </div>',
       '    <div class="gallery-actions" id="galleryActions">',
+      '      <span class="gallery-counter" id="galleryCounter">1 / 1</span>',
       '      <div class="gallery-dots" id="galleryDots"></div>',
+      '      <button class="gallery-atc-btn" id="galleryAtcBtn">Add to Cart</button>',
       '    </div>',
       '  </div>',
       '</div>'
