@@ -21,7 +21,8 @@ function addToCart(product) {
       id:           product.id,
       name:         product.name,
       price:        product.price,
-      priceDisplay: product.priceDisplay,
+      price_ugx:    product.price_ugx || null,
+      priceDisplay: product.priceDisplay || null,
       image:        product.image,
       category:     product.category,
       quantity:     1,
@@ -46,7 +47,9 @@ function getCartCount() {
 }
 
 function getCartTotal() {
-  return getCart().reduce((sum, item) => sum + item.price * item.quantity, 0);
+  return getCart().reduce(function (sum, item) {
+    return sum + (item.price_ugx || item.price * 3700) * item.quantity;
+  }, 0);
 }
 
 function clearCart() {

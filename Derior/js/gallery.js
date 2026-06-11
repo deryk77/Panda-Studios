@@ -38,11 +38,16 @@
     }
 
     function updateBadge() {
+      if (window.CartUI && CartUI.updateBadge) { CartUI.updateBadge(true); return; }
       var badge = document.getElementById('cartBadge');
       if (!badge || !window.CartAPI) return;
       var count = CartAPI.getCartCount();
       badge.textContent = count;
       badge.classList.toggle('visible', count > 0);
+    }
+
+    function showToast(name) {
+      if (window.CartUI && CartUI.showToast) CartUI.showToast(name);
     }
 
     // ── Build paper slide (slide 0) ────────────────────────────
@@ -206,6 +211,7 @@
           id:           currentProduct.id,
           name:         currentProduct.name,
           price:        Math.round(currentProduct.price_ugx / 3700),
+          price_ugx:    currentProduct.price_ugx,
           priceDisplay: 'UGX ' + currentProduct.price_ugx.toLocaleString(),
           image:        currentProduct.images[0],
           category:     currentProduct.categoryLabel,
@@ -219,6 +225,7 @@
           btn.classList.add('added');
         });
         updateBadge();
+        showToast(currentProduct.name);
       });
     }
 
@@ -262,6 +269,7 @@
           id:           prod.id,
           name:         prod.name,
           price:        Math.round(prod.price_ugx / 3700),
+          price_ugx:    prod.price_ugx,
           priceDisplay: 'UGX ' + prod.price_ugx.toLocaleString(),
           image:        prod.images[0],
           category:     prod.categoryLabel,
@@ -270,6 +278,7 @@
         cardAtc.textContent = 'Added';
         cardAtc.classList.add('added');
         updateBadge();
+        showToast(prod.name);
         return;
       }
 

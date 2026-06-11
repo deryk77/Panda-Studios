@@ -2174,6 +2174,38 @@ html { overflow-x: hidden; }
 }
 .cart-view-full:hover { color: var(--off-white); }
 
+/* Badge pop animation (on add) */
+@keyframes badge-pop {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.65); }
+  100% { transform: scale(1); }
+}
+.cart-badge.pop { animation: badge-pop 0.32s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+
+/* WhatsApp checkout button */
+.cart-wa-btn {
+  display: block; width: 100%;
+  padding: 15px 24px;
+  background: #25D366;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  text-align: center; text-decoration: none;
+  transition: opacity 0.25s;
+  cursor: pointer;
+}
+.cart-wa-btn:hover { opacity: 0.86; }
+
+.cart-delivery-note {
+  text-align: center;
+  margin-top: 12px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 /* =====================================================
    ADD TO CART BUTTON (on product cards)
    ===================================================== */
