@@ -7,7 +7,9 @@
       "has": [{ "type": "host", "value": "pandastudios.co" }],
       "destination": "https://www.pandastudios.co/:path*",
       "permanent": true
-    }
+    },
+    { "source": "/derior", "destination": "/Derior/", "permanent": true },
+    { "source": "/derior/:path*", "destination": "/Derior/:path*", "permanent": true }
   ],
   "rewrites": [
     { "source": "/google71bdf880a8025177.html", "destination": "/google71bdf880a8025177.html" }
