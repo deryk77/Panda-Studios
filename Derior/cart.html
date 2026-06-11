@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <base href="/Derior/">
@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Cart — Derior</title>
   <meta name="description" content="Review your cart and contact us to complete your Derior furniture order.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Derior">
+  <meta property="og:title" content="Your Enquiry — Derior">
+  <meta property="og:url" content="https://www.pandastudios.co/Derior/cart">
+  <meta property="og:image" content="https://www.pandastudios.co/Derior/img/HERO3.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your Enquiry — Derior">
+  <meta name="twitter:image" content="https://www.pandastudios.co/Derior/img/HERO3.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -357,13 +365,13 @@
           <img src="img/FOOTER.svg" alt="Derior" class="footer-logo-img">
         </a>
         <div class="footer-social">
-          <a href="#" aria-label="Instagram">
+          <a aria-label="Instagram">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="#" aria-label="X / Twitter">
+          <a aria-label="X / Twitter">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l16 16M20 4 4 20"/></svg>
           </a>
-          <a href="#" aria-label="Pinterest">
+          <a aria-label="Pinterest">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M8 12a4 4 0 0 1 8 0c0 4-2 6-4 10"/><path d="M12 12v-2"/></svg>
           </a>
         </div>
@@ -417,7 +425,8 @@
     </div>
   </footer>
 
-  <script src="js/products.js"></script>
+  <script src="data/products.js"></script>
+  <script src="js/render.js"></script>
   <script src="js/main.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/cart-ui.js"></script>
@@ -426,6 +435,21 @@
     document.addEventListener('DOMContentLoaded', function () {
       renderCartPage();
     });
+
+    function buildCartWaHref(cart, total) {
+      var lines = cart.map(function (item, i) {
+        var lineTotal = item.price_ugx
+          ? 'UGX ' + (item.price_ugx * item.quantity).toLocaleString()
+          : 'UGX ' + (item.price * 3700 * item.quantity).toLocaleString();
+        return (i + 1) + '. ' + item.name + ' × ' + item.quantity + ' — ' + lineTotal;
+      });
+      var msg =
+        'Hello, I’d like to enquire about ordering the following from Derior:\n\n' +
+        lines.join('\n') + '\n\n' +
+        'Total: UGX ' + total.toLocaleString() + '\n\n' +
+        'Please let me know how to proceed. Thank you.';
+      return 'https://wa.me/256772233050?text=' + encodeURIComponent(msg);
+    }
 
     function renderCartPage() {
       var el = document.getElementById('cartPageContent');
@@ -459,7 +483,7 @@
               '</div>' +
             '</td>' +
             '<td>' +
-              '<p class="cp-item-line">$' + (item.price * item.quantity).toLocaleString() + '</p>' +
+              '<p class="cp-item-line">UGX ' + ((item.price_ugx || item.price * 3700) * item.quantity).toLocaleString() + '</p>' +
               '<button class="cp-item-remove" data-id="' + item.id + '">Remove</button>' +
             '</td>' +
           '</tr>'
@@ -481,16 +505,16 @@
           '<div class="cart-totals-inner">' +
             '<div class="cart-totals-row">' +
               '<span class="cart-totals-label">Subtotal</span>' +
-              '<span class="cart-totals-value" id="cpSubtotal">$' + total.toLocaleString() + '</span>' +
+              '<span class="cart-totals-value" id="cpSubtotal">UGX ' + total.toLocaleString() + '</span>' +
             '</div>' +
             '<div class="cart-totals-row">' +
               '<span class="cart-totals-label">Grand Total</span>' +
-              '<span class="cart-totals-value grand" id="cpGrand">$' + total.toLocaleString() + '</span>' +
+              '<span class="cart-totals-value grand" id="cpGrand">UGX ' + total.toLocaleString() + '</span>' +
             '</div>' +
-            '<p class="cart-totals-note">Prices shown are indicative starting prices. Contact us to discuss your exact specification, lead time, and delivery.</p>' +
+            '<p class="cart-totals-note">All prices in Ugandan Shillings (UGX). Indicative starting prices — contact us to confirm specifications, lead time, and delivery to Kampala.</p>' +
             '<div class="cart-actions">' +
-              '<button class="btn-cart-clear" id="cpClearBtn">Clear Cart</button>' +
-              '<a href="contact.html" class="btn-cart-contact">Contact Us to Order</a>' +
+              '<button class="btn-cart-clear" id="cpClearBtn">Clear</button>' +
+              '<a href="' + buildCartWaHref(cart, total) + '" target="_blank" rel="noopener noreferrer" class="btn-cart-contact">Checkout via WhatsApp</a>' +
             '</div>' +
           '</div>' +
         '</div>';
