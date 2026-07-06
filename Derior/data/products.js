@@ -2,7 +2,7 @@
  * DERIOR — Single source of truth: DERIOR_PRODUCTS
  *
  * Pricing: owner-confirmed UGX retail. Range: 250,000 (bedside table)
- * to 3,500,000 (sectional sofa). No provisional flags remain.
+ * to 4,000,000 (sectional sofa). No provisional flags remain.
  *
  * Images: every product references local photography in img/ — no stock
  * placeholders. Multi-image products open as slides in the lightbox
@@ -106,7 +106,7 @@ window.DERIOR_PRODUCTS = [
     categoryLabel: 'Living Room',
     subcategory: 'sofa-sets',
     subcategoryLabel: 'Sofa Sets',
-    price_ugx: 3500000,
+    price_ugx: 4000000,
     images: [
       'img/LR/S7 (1).webp', 'img/LR/S7 (2).webp', 'img/LR/S7 (3).webp',
       'img/LR/S7 (4).webp', 'img/LR/S7 (5).webp', 'img/LR/S7 (6).webp',
