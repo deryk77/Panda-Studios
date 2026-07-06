@@ -372,8 +372,8 @@ window.DERIOR_PRODUCTS = [
     subcategoryLabel: 'Console Tables',
     price_ugx: 800000,
     images: [
-      'img/SF (1).jpg', 'img/SF (2).jpg', 'img/SF (3).jpg',
-      'img/SF (4).jpg', 'img/SF (5).jpg', 'img/living.jpg'
+      'img/SF (2).jpg', 'img/SF (1).jpg', 'img/SF (3).jpg',
+      'img/SF (4).jpg', 'img/SF (5).jpg'
     ],
     description: 'A rustic-oak top and lower shelf on squared black steel legs. Sits behind a sofa or against an entry wall and carries what the day drops on it. Dimensions and finish options available on request.',
     featured: false
@@ -437,7 +437,7 @@ window.DERIOR_PRODUCTS = [
     categoryLabel: 'Living Room',
     subcategory: 'sideboards',
     subcategoryLabel: 'Sideboards',
-    price_ugx: 1450000,
+    price_ugx: 750000,
     images: ['img/E63239s.jpg', 'img/E63239s2.jpg'],
     description: 'Cane front panels set into solid oak carcassing. The weave pattern lightens a piece that would otherwise read as too heavy. Dimensions and finish options available on request.',
     featured: false
@@ -450,7 +450,7 @@ window.DERIOR_PRODUCTS = [
     categoryLabel: 'Living Room',
     subcategory: 'sideboards',
     subcategoryLabel: 'Sideboards',
-    price_ugx: 1500000,
+    price_ugx: 500000,
     images: ['img/A2 (1).png', 'img/A2 (2).jpg', 'img/A2 (3).jpg'],
     description: 'Solid oak doors and drawers suspended in a black steel frame. The storage of a cabinet with the visual weight of a bench. Dimensions and finish options available on request.',
     featured: false
@@ -480,7 +480,7 @@ window.DERIOR_PRODUCTS = [
     categoryLabel: 'Living Room',
     subcategory: 'tv-units',
     subcategoryLabel: 'TV Units',
-    price_ugx: 1400000,
+    price_ugx: 650000,
     images: [
       'img/TV Unit.jpg', 'img/TV Unit.png',
       'img/TV unit1.jpg', 'img/Tv Center unit.jpg'
@@ -495,12 +495,12 @@ window.DERIOR_PRODUCTS = [
 
   {
     id: 'lr-shelf-001',
-    name: 'Étagère Bookshelf',
+    name: 'Board x Steel Bookshelf',
     category: 'living-room',
     categoryLabel: 'Living Room',
     subcategory: 'shelving',
     subcategoryLabel: 'Shelving',
-    price_ugx: 950000,
+    price_ugx: 500000,
     images: [
       'img/ShelvingUnit.jpg', 'img/ShelvingUnit1.jpg',
       'img/ShelvingUnit11.jpg', 'img/ShelvingUnit12.jpg',
@@ -517,7 +517,7 @@ window.DERIOR_PRODUCTS = [
     categoryLabel: 'Living Room',
     subcategory: 'shelving',
     subcategoryLabel: 'Shelving',
-    price_ugx: 1250000,
+    price_ugx: 800000,
     images: [
       'img/Shelving Unit1.jpg', 'img/Shelving Unit2.jpg',
       'img/Shelving Unit3.jpg', 'img/Shelving Unit4.jpg'
