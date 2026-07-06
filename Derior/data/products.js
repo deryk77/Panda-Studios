@@ -280,7 +280,7 @@ window.DERIOR_PRODUCTS = [
     categoryLabel: 'Living Room',
     subcategory: 'coffee-tables',
     subcategoryLabel: 'Coffee Tables',
-    price_ugx: 750000,
+    price_ugx: 400000,
     images: ['img/LR/STV.png'],
     description: 'Turned from solid oak — the grain is structural, not decorative. No veneers, no MDF core. A table that belongs on a floor plan for thirty years. Dimensions and finish options available on request.',
     featured: false
