@@ -83,6 +83,11 @@ ul  { list-style: none; }
 .nav.scrolled .nav-logo-img {
   filter: none; /* original dark colour on scrolled light nav */
 }
+.nav-logo-icon {
+  display: none;
+  height: 30px;
+  width: auto;
+}
 
 /* Links */
 .nav-links {
@@ -1870,7 +1875,7 @@ ul  { list-style: none; }
 
 @media (max-width: 600px) {
   :root { --nav-h: 64px; }
-  .hero-title { font-size: clamp(32px, 8.7vw, 53px); }
+  .hero-title { font-size: clamp(37px, 10vw, 61px); }
   .shop-grid { grid-template-columns: 1fr; }
   .page-hero-content,
   .search-bar-wrap, .search-results { padding-left: 24px; padding-right: 24px; }
@@ -2275,7 +2280,8 @@ html { overflow-x: hidden; }
 
   /* Hero — reduce height and fix image framing */
   .hero {
-    height: 70vh;
+    height: 100vh;
+    height: 100svh;
     min-height: 480px;
   }
   .hero-slide-img {
@@ -2287,7 +2293,7 @@ html { overflow-x: hidden; }
   }
   .hero-eyebrow {
     letter-spacing: 0.16em;
-    font-size: 9.5px;
+    font-size:  11px;
   }
   .hero-dots {
     bottom: 20px;
@@ -2345,8 +2351,8 @@ html { overflow-x: hidden; }
 @media (max-width: 480px) {
 
   /* Hero */
-  .hero { height: 70vh; min-height: 430px; }
-  .hero-title { font-size: clamp(1.9rem, 9vw, 3rem); line-height: 0.95; }
+  .hero { height: 100vh; height: 100svh; min-height: 430px; }
+  .hero-title { font-size: clamp(2.19rem, 10.35vw, 3.45rem); line-height: 0.95; }
   .hero-eyebrow { letter-spacing: 0.12em; }
   .discover-circle { width: 48px; height: 48px; }
 
@@ -2453,4 +2459,16 @@ html { overflow-x: hidden; }
 @keyframes preloaderReveal {
   from { opacity: 0; transform: scale(0.72); }
   to   { opacity: 1; transform: scale(1); }
+}
+
+/* =====================================================
+   MOBILE NAV LOGO — wordmark over hero, black icon on scroll
+   ===================================================== */
+@media (max-width: 768px) {
+  .nav.scrolled .nav-logo-img { display: none; }
+  .nav.scrolled .nav-logo-icon {
+    display: block;
+    filter: invert(1); /* logo-Icon.svg is white — invert to black on light nav */
+  }
+  .discover-label { font-size: 12px; }
 }
