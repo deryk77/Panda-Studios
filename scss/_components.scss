@@ -89,8 +89,7 @@ cursor
         }
     }
 
-    & .mil-more-text,
-    & .mil-choose-text {
+    & .mil-more-text {
         position: absolute;
         width: 100%;
         text-align: center;
@@ -110,8 +109,7 @@ cursor
             }
         }
 
-        & .mil-more-text,
-        & .mil-choose-text {
+        & .mil-more-text {
             color: $dark;
         }
     }
